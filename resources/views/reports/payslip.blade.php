@@ -11,116 +11,101 @@
     </style>
 </head>
 <body>
-    <section class="text-center mb-4">
-        <h4 class="text-uppercase">DEMO CO LTD</h4>
-        <h6 class="mb-2">P.O.Box 222 - Dar Tanzania</h6>
-        <strong>
-            <u class="text-uppercase">PAYSLIP</u>
-        </strong>
-    </section>
 
-    <section  class="mb-4">
-        <h4>No: <span class="text-danger"></span></h4>
-    </section>
 
     <section>
-        <h6 class="mb-4">Payslip for month </h6>
+        
 
-        <table class="table table-sm table-bordered mb-4">
+       <table class="table table-sm table-bordered mb-4">
             <tbody>
                 <tr>
-                    <th width="12.5%">Employee</th>
-                    <td width="12.5%" class="text-right">
-                      
-                    </td>
-                    <th width="12.5%">Variety</th>
-                    <td width="12.5%" class="text-right">
-                        08
-                    </td>
-                    <th width="12.5%">Time depart</th>
-                    <td width="12.5%" class="text-right">
-                       
-                    </td>
-                    <th width="12.5%">No. Crates</th>
-                    <td width="12.5%" class="text-right">
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <th width="12.5%">Produce</th>
-                    <td width="12.5%" class="text-right">
-                      
-                    </td>
-                    <th width="12.5%">Harvest date</th>
-                    <td width="12.5%" class="text-right">
-                      
-                    </td>
-                    <th width="12.5%">Farm weight</th>
-                    <td width="12.5%" class="text-right">
-                      
-                    </td>
-                    <th width="12.5%">Arrival temp.</th>
-                    <td width="12.5%" class="text-right">
-                       
-                    </td>
-                </tr>
-                <tr>
-                    <th width="12.5%">Block #</th>
-                    <td width="12.5%" class="text-right">
-                       
-                    </td>
-                    <th width="12.5%">Delivery date</th>
-                    <td width="12.5%" class="text-right">
-                      
-                    </td>
-                    <th width="12.5%">P/H weight</th>
-                    <td width="12.5%" class="text-right">
-                      
-                    </td>
-                    <th width="12.5%">Arrival time</th>
-                    <td width="12.5%" class="text-right">
-                        
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    <th width="12.5%">
+                        <table>
+                        <tr>
+             <td width=250 height=300> </td>
+                         </tr>
+                    </table>
+                </th>
 
-        <h6 class="mb-4">Produced batch history</h6>
+                      <th width="12.5%"><table>
+ 
+ <thead>
+  <tr>
+   <th colspan="3">Payroll for </th>
+   <th>August 2018
+  </tr>
+  <tr>
+   <td colspan="2">
+    <strong>Employee:Demo Agrip</strong><br>
+    <br>
+    123 Main St.<br>
+    Cityville, NA 12345
+   </td>
+   <td colspan="2">
+    <strong>Customer:</strong><br>
+    John Smith<br>
+    321 Willow Way<br>
+    Southeast Northwestershire, MA 54321
+   </td>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <th>Name / Description</th>
+   <th>Qty.</th>
+   <th>@</th>
+   <th>Cost</th>
+  </tr>
+  <tr>
+   <td>Paperclips</td>
+   <td>1000</td>
+   <td>0.01</td>
+   <td>10.00</td>
+  </tr>
+  <tr>
+   <td>Staples (box)</td>
+   <td>100</td>
+   <td>1.00</td>
+   <td>100.00</td>
+  </tr>
+ </tbody>
+ <tfoot>
+  <tr>
+   <th colspan="3">Subtotal</th>
+   <td> 110.00</td>
+  </tr>
+  <tr>
+   <th colspan="2">Tax</th>
+   <td> 8% </td>
+   <td>8.80</td>
+  </tr>
+  <tr>
+   <th colspan="3">Grand Total</th>
+   <td>$ 118.80</td>
+  </tr>
+ </tfoot>
+</table>
 
-        <table class="table table-sm table-bordered">
-            <thead>
-                <tr>
-                    <th class="text-left"  nowrap>Household code</th>
-                    <th class="text-right"  nowrap>No. Crates</th>
-                    <th class="text-right"  nowrap>Farm weight</th>
-                    <th class="text-right"  nowrap>P/H weight</th>
-                    <th class="text-right"  nowrap>Graded weight</th>
-                    <th class="text-right"  nowrap>Rejected weight</th>
-                    <th class="text-right" nowrap>Rejected %</th>
-                </tr>
-            </thead>
-            <tbody>
+</th>
                 
-                <tr>
-                    <td nowrap></td>
-                    <td nowrap class="text-right"></td>
-                    <td nowrap class="text-right"></td>
-                    <td nowrap class="text-right">
-                    </tr>
-                     
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th nowrap>Total</th>
-                    <th nowrap class="text-right"></th>
-                    <th nowrap class="text-right"></th>
-                    <th nowrap class="text-right"></th>
-                    <th nowrap class="text-right">Kg</th>
-                    <th nowrap class="text-right">  kg</th>
-                    <th nowrap class="text-right"></th>
                 </tr>
-            </tfoot>
+                 <tr>
+                    <th width="12.5%">Slip 3</th>
+
+                      <th width="12.5%">  <table>
+                        <tr>
+             <td width=250 height=300> </td>
+                         </tr>
+                    </table></th>
+                
+                </tr>
+              
+            </tbody>
         </table>
+
+
+
+        
     </section>
 </body>
 </html>
