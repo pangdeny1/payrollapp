@@ -87,14 +87,12 @@
 </table>
 
 </th>
-                
-                </tr>
-                 <tr>
-                    <th width="12.5%">Slip 3</th>
-
-                      <th width="12.5%">  <table>
-                        <tr>
-             <td width=250 height=300> </td>
+ </tr>
+    <tr>
+  <th width="12.5%">Slip 3</th>
+   <th width="12.5%">  <table>
+  <tr>
+ <td width=250 height=300> </td>
                          </tr>
                     </table></th>
                 

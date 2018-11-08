@@ -92,6 +92,12 @@
 
                     <hr>
 
+                     <div class="menu-header">Leave</div>
+                    <a href="{{ route("leaves.index") }}" class="menu-link mb-2">
+                        <i class="fa fa-paypal" aria-hidden="true"></i>
+                        <span class="menu-text">Browse a list</span>
+                    </a>
+
                     <div class="menu-header">Reports</div>
                     <a href="{{url('payslipform')}}" class="menu-link mb-2">
                         <i class="fas fa-chart-line text-muted mr-2"></i>

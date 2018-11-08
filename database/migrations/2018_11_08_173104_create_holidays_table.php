@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrlssfilesTable extends Migration
+class CreateHolidaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreatePrlssfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('prlssfiles', function (Blueprint $table) {
+        Schema::create('holidays', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('employee_id')->nullable();
-            $table->integer('sstype_id')->nullable();
-            $table->double('employee_percent')->nullable();
-            $table->double('employer_percent')->nullable();
-            $table->double('total')->nullable();
+            $table->integer("day");
+            $table->string("wday");
+            $table->integer("month");
+            $table->integer("year");
+            $table->string("reason");
             $table->timestamps();
+            $table->integer("creator_id");
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +33,6 @@ class CreatePrlssfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prlssfiles');
+        Schema::dropIfExists('holidays');
     }
 }

@@ -61,29 +61,21 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="first_name">Start Date</label>
-                             <input type="date" name="StartDate" 
-                             class="form-control {{ $errors->has('StartDate') ? 'is-invalid' : '' }}"
-                              value="{{old('StartDate')}}">
-
-                                @if ($errors->has('StartDate'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('StartDate') }}</strong>
-                                    </span>
-                                @endif              
-                            </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="last_name">End Date</label>
-                                  <input type="date" name="EndDate" 
-                                   class="form-control {{ $errors->has('EndDate') ? 'is-invalid' : '' }}"
-                                  value="{{old('EndDate')}}">
-
-                                @if ($errors->has('EndDate'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('EndDate') }}</strong>
-                                    </span>
-                                @endif
+                           <div class="form-group col-md-12 mb-3">
+                                        <label for="leavetype">Leave Type</label>
+                                        <select name="leavetype"
+                                                class="form-control d-block w-100 {{ $errors->has('leavetype') ? 'is-invalid' : '' }}"
+                                                id="leavetype"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Leave\Leavetype::All() as $leavetype)
+                                                <option value="{{ $leavetype->id }}" {{ old("leavetype") === $leavetype->id ? "selected" : "" }}>
+                                                    {{ $leavetype->name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback"> Please provide active leavetype </div>
                                     </div>
                                 </div>
                               

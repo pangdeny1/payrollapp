@@ -415,3 +415,19 @@ Route::prefix('settings')->group(function () {
     Route::get('deleteloan/{id}','loan\loanscontroller@destroy');
     Route::get('createloan','loan\loanscontroller@create');
     Route::get('viewloans','loan\loanscontroller@index');
+
+    //leave management Starts here 
+
+    Route::get("leaves", [
+    "as" => "leaves.index",
+    "uses" => "leave\LeavesController@index",
+]);
+
+        Route::get("leaves/create", [
+    "as" => "leaves.create",
+    "uses" => "leave\LeavesController@create",
+]);
+    Route::post("leaves/store", [
+    "as" => "leaves.store",
+    "uses" => "leave\LeavesController@store",
+]);
