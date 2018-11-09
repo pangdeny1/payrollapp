@@ -60,6 +60,7 @@ class LeavesController extends Controller
             "leavetype" => "required",
             "start_date" => "required",
             "end_date" => "required",
+            "duration" => "required|integer|min:1",
             
         ]);
 
@@ -68,8 +69,11 @@ class LeavesController extends Controller
             "start_date" => request("start_date"),
             "end_date" => request("end_date"),
             "employee_id" => request("employee"),
-            "remark" => request("remark"),
+            "reason_for_leave" => request("remark"),
             "leavetype_id" => request("leavetype"),
+            "total_days"   =>request("duration"),
+            "working_days" =>request("working_days"),
+            "holiday_days"=>request("holiday_days"),
             "creator_id" => auth()->id(),
         ]);
 
@@ -83,73 +87,52 @@ class LeavesController extends Controller
      * @throws AuthorizationException
      */
 
-    public function edit(Leave $leave)
+    public function edit($leave)
     {
         $this->authorize("edit", Leave::class);
+       $leave=Leave::findOrFail($leave);
 
         return view("leaves.edit", [
-            "states" => State::getCountryName("Tanzania"),
-            "Leave" =>$leave,
-            "groups" =>Group::All(),
-            "groupmember"=>GroupMember::All(),
+            "leave" =>$leave,
+           
            
         ]);
     }
-/* public function update(Leave $leave)
+
+
+    public function update(Request $request,$leave)
     {
-        $this->authorize("edit", $leave);
-
-        $leave->update([
-            "start_date" => request("start_date", $leave->start_date),
-            "end_date" => request("end_date", $leave->end_date),
-            "employee" => request("employee", $leave->employee),
-            "remark" => request("remark", $leave->remark),
-            "gender" => request("gender", $leave->gender),
-        ]);
-
-        return redirect()->back();
-    }
-
-*/
-
-    public function update(Request $request,Leave $leave)
-    {
-        $this->authorize("update", $leave);
-        $this->validate($request, [
-            "start_date" => "required",
-            "end_date" => "required",
+        $this->authorize("update", Leave::class);
+         $this->validate($request, [
+            "remark" => "required",
             "employee" => "required",
-            "country" => "required",
-            "gender" => ["required", Rule::in(["male","female"])],
+            "leavetype" => "required",
+            "start_date" => "required",
+            "end_date" => "required|date|after_or_equal:start_date",         
         ]);
-
+/*
         $leave->update([
             "start_date" => request("start_date"),
             "end_date" => request("end_date"),
-            "remark" => request("remark"),
-            "employee" => request("employee"),
-            "gender" => request("gender"),
+            "employee_id" => request("employee"),
+            "reason_for_leave" => request("remark"),
+            "leavetype_id" => request("leavetype"),
         ]);
+*/
 
-        if ($leave->address()->exists()){
-            $leave->address()->update([
-                "street" => request("street", optional($leave->address)->street),
-                "address" => request("address", optional($leave->address)->address),
-                "state" => request("state", optional($leave->address)->state),
-                "country" => request("country", optional($leave->address)->country),
-                "postal_code" => request("postal_code", optional($leave->address)->postal_code),
-            ]);
-        } else {
-            $leave->address()->create([
-                "street" => request("street"),
-                "address" => request("address", ""),
-                "state" => request("state"),
-                "country" => request("country"),
-                "postal_code" => request("postal_code"),
-            ]);
-        }
+ $leave=Leave::where('id',$leave)->firstOrFail();
 
-        $leave->groups()->sync($request->group_id);
+             $leave->start_date= request("start_date");
+             $leave->end_date = request("end_date");
+             $leave->employee_id = request("employee");
+             $leave->reason_for_leave = request("remark");
+             $leave->leavetype_id = request("leavetype");
+             $leave->total_days  =request("duration");
+             $leave->working_days =request("working_days");
+             $leave->holiday_days=request("holiday_days");
+             $leave->save();
+
+      
         return redirect()->route("leaves.index");
         //return redirect()->back();
     }
@@ -158,10 +141,10 @@ class LeavesController extends Controller
      * @return View
      * @throws AuthorizationException
      */
-    public function show(Leave $leave)
+    public function show($leave)
     {
-        $this->authorize("view", $leave);
-
+        $this->authorize("view" ,Leave::class);
+        $Leave=Leave::where('id',$leave)->firstOrFail();
         return view("leaves.show", compact("Leave"));
     }
 

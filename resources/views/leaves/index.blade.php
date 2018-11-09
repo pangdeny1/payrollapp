@@ -31,7 +31,7 @@
                                 @can("create", \App\Models\leave\Leave::class)
                                 <a href="{{ route("leaves.create") }}" class="btn btn-primary">
                                     <span class="fas fa-plus mr-1"></span>
-                                    New employee
+                                    New leave
                                 </a>
                                 @endcan
                             </div>
@@ -48,7 +48,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                                
+
                             </header>
 
                             <div class="card-body">
@@ -76,40 +76,40 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                               <th>Farmer</th>
-                                                <th>Gender</th>
-                                                <th>Phone</th>
-                                                <th>Email</th>
-                                                <th>Department</th>
-                                                <th>Region</th>
+                                               <th>Employee</th>
+                                                <th>leave Tpe</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Days Requested</th>
+                                                <th>Days Approved</th>
                                                 <th>Salary</th>
                                                 <th>Active</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($leaves as $employee)
+                                            @foreach($leaves as $leave)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ route("leaves.show", $employee) }}" class="user-avatar mr-1">
+                                                    <a href="{{ route("leaves.show", $leave) }}" class="user-avatar mr-1">
                                                         <img class="img-fluid"
-                                                             src="{{ Avatar::create($employee->full_name)->toBase64() }}"
-                                                             alt="{{ $employee->full_name }}">
+                                                             src="{{ Avatar::create($leave->employee['full_name'])->toBase64() }}"
+                                                             alt="{{ $leave->employee['full_name'] }}">
                                                     </a>
-                                                    <a href="{{ route("leaves.show", $employee) }}">
-                                                        {{ $employee->full_name }}
+                                                    <a href="{{ route("leaves.show", $leave) }}">
+                                                        {{ $leave->employee['full_name'] }}
                                                     </a>
                                                 </td>
-                                                <td>{{ $employee->gender }}</td>
-                                                <td>{{ $employee->phone }}</td>
-                                                <td>{{ $employee->email }}</td>
-                                                <td></td>
-                                                <td>{{ optional($employee->address)->state }}</td>
-                                                <td>{{ number_format($employee->period_rate,2) }}</td>
-                                                <td>{{ $employee->active }}</td>
+                                                <td>{{ $leave->leavetype['name'] }}</td>
+                                                <td>{{ $leave->start_date }}</td>
+                                                <td >{{ $leave->end_date}}</td>
+                                                <td>{{ $leave->total_days}}</td>
+                                                <td>{{ $leave->working_days}}</td>
+                                                <td>{{ number_format($leave->period_rate,2) }}</td>
+                                                <td>{{ $leave->active }}</td>
                                                 <td class="align-middle text-right">
                                                     @can("edit", \App\Models\leave\Leave::class)
-                                                    <a href="{{ route("leaves.edit", $employee) }}" class="btn btn-sm btn-secondary">
+                                                    <a href="{{ route("leaves.edit", $leave) }}" class="btn btn-sm btn-secondary">
                                                         <i class="fa fa-pencil-alt"></i>
                                                         <span class="sr-only">Edit</span>
                                                     </a>

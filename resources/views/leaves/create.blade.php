@@ -36,7 +36,7 @@
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Employee::All() as $employee)
-                                                <option value="{{ $employee->id }}" {{ old("employee") === $employee->id ? "selected" : "" }}>
+                                                <option value="{{ $employee->id }}" {{ old("employee") == $employee->id ? "selected" : "" }}>
                                                     {{ $employee->first_name }} {{ $employee->last_name }} 
                                                 </option>
                                             @endforeach
@@ -53,7 +53,7 @@
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\Leave\Leavetype::All() as $leavetype)
-                                                <option value="{{ $leavetype->id }}" {{ old("leavetype") === $leavetype->id ? "selected" : "" }}>
+                                                <option value="{{ $leavetype->id }}" {{ old("leavetype") == $leavetype->id ? "selected" : "" }}>
                                                     {{ $leavetype->name }}
                                                 </option>
                                             @endforeach
@@ -63,10 +63,12 @@
                                 </div>
                             <div class="card-body">
                              
-                                    <div class="form-group col-md-12">
-                                                  <div class="form-group col-md-6">
-                                        <label for="first_name">Date From</label>
-                             <input type="date" name="start_date" 
+
+                                    <div class="form-row">
+                        <!-- grid column -->
+                        <div class="col-md-5 mb-3">
+                         <label for="last_name">Date From</label>
+                                <input id="start_date"  type="date" name="start_date" onchange="cal()"
                              class="form-control {{ $errors->has('start_date') ? 'is-invalid' : '' }}"
                               value="{{old('start_date')}}">
 
@@ -74,11 +76,14 @@
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('start_date') }}</strong>
                                     </span>
-                                @endif              
-                            </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="last_name">Date To</label>
-                                  <input type="date" name="end_date" 
+                                @endif  
+                          <div class="invalid-feedback"> Please select a valid date. </div>
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                        <div class="col-md-4 mb-3">
+                         <label for="last_name">Date To</label>
+                                  <input  id="end_date" type="date" name="end_date" onchange="cal()"
                                    class="form-control {{ $errors->has('end_date') ? 'is-invalid' : '' }}"
                                   value="{{old('end_date')}}">
 
@@ -87,29 +92,42 @@
                                         <strong>{{ $errors->first('end_date') }}</strong>
                                     </span>
                                 @endif
-                                    </div>
-                                                <div class="form-group col-md-6">
-                                        <label for="last_name">Balance</label>
-                                  <input type="number" name="balance" 
-                                   class="form-control {{ $errors->has('balance') ? 'is-invalid' : '' }}"
-                                  value="{{old('balance')}}">
-
-                                @if ($errors->has('balance'))
+                          <div class="invalid-feedback"> Please provide a valid date. </div>
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                        <div class="col-md-3 mb-3">
+                          <label for="zip">Days requested </label>
+                          <input type="text" name="duration" class="form-control {{ $errors->has('duration') ? 'is-invalid' : '' }}" id="duration" value="{{old('duration')}}" readonly required="">
+                          @if ($errors->has('duration'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('balance') }}</strong>
+                                        <strong>{{ $errors->first('duration') }}</strong>
                                     </span>
                                 @endif
-                                    </div>
+                          <div class="invalid-feedback"> </div>
+                        </div>
+                        <!-- /grid column -->
+                      </div>
+                      <!-- /.form-row -->
+                      <hr class="mb-4">
                            <div class="form-group">
                           <label class="d-flex justify-content-between" for="lbl4">
                             <span>Remark</span>
                             <span class="text-muted"></span>
                           </label>
-                          <textarea name="remark" class="form-control" id="lbl4" rows="3" placeholder=" description"></textarea>
+                          <textarea name="remark"  class="form-control {{ $errors->has('remark') ? "is-invalid" : "" }}" id="lbl4" rows="3" placeholder=" description"></textarea>
+                            @if ($errors->has('remark'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('remark') }}</strong>
+                                                        </span>
+                                                    @endif
                         </div>
-                                </div>  
-                                      </div>
                                 </div>
+
+
+                                
+                                
+
                                                     
                                 <hr>
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">
@@ -135,8 +153,26 @@
             </header>
             <div class="sidebar-section">
                 {{-- <h3 class="section-title"> I'm a sidebar </h3> --}}
+
+
             </div>
         </div>
     </div>
 </div>
+
+
 @endsection
+<script type="text/javascript">
+        function GetDays(){
+                var dropdt = new Date(document.getElementById("start_date").value);
+                var pickdt = new Date(document.getElementById("end_date").value);
+                return parseInt((pickdt - dropdt) / (24 * 3600 * 1000));
+        }
+
+        function cal(){
+        if(document.getElementById("start_date")){
+            document.getElementById("duration").value=GetDays();
+        }  
+    }
+
+    </script>

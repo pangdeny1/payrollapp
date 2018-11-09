@@ -17,14 +17,15 @@ class CreateLeavesTable extends Migration
             $table->increments('id');
             $table->date("start_date");
             $table->date("end_date");
-            $table->integer("working_days");
-            $table->integer("holiday_days");
-            $table->integer("total_days");
+            $table->integer("working_days")->nullabe();
+            $table->integer("holiday_days")->nullabe();
+            $table->integer("total_days")->nullabe();
             $table->string("reason_for_leave");
             $table->integer("user_id");
             $table->integer("manager_id");
             $table->string("status");
             $table->integer('employee_id');
+            $table->integer('leavetype_id');
             $table->integer("creator_id");
             $table->string("reason_for_rejection");
             $table->timestamps();

@@ -9,367 +9,113 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active">
                     <a href="#">
-                        <i class="breadcrumb-icon fa fa-angle-left mr-2"></i>employees</a>
+                        <i class="breadcrumb-icon fa fa-angle-left mr-2"></i>leaves</a>
                     </li>
                 </ol>
                 </nav>
-                <h1 class="page-title"> Employee registration </h1>
+                <h1 class="page-title">Edit Leave Request </h1>
             </header>
             <div class="page-section">
                 <div class="row">
                     <div class="col-md-12">
 
-                        <form action="{{ route("employees.update",$employee) }}"
-                              method="POST"
+                        <form action="{{ url("leaveupdate/".$leave->id) }}"
+                              method="post"
                               class="card border-0"
                         >
                             @csrf
-                            <header class="card-header border-bottom-0">
-                                Basic information
-                            </header>
+                          
                             <div class="card-body">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="first_name">First name</label>
-                                        <input type="text"
-                                               name="first_name"
-                                               id="first_name"
-                                               class="form-control {{ $errors->has('first_name') ? 'is-invalid' : '' }}"
-                                               value="{{ $employee->first_name }}"
-                                               placeholder="First name..."
-                                        >
-                                        @if ($errors->has('first_name'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('first_name') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="last_name">Last name</label>
-                                        <input type="text"
-                                               name="last_name"
-                                               id="last_name"
-                                               class="form-control {{ $errors->has('last_name') ? 'is-invalid' : '' }}"
-                                               value="{{ $employee->last_name }}"
-                                               placeholder="Last name..."
-                                        >
-                                        @if ($errors->has('last_name'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('last_name') }}</strong>
-                                                </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                   <div class="form-row">
-                                 <div class="form-group col-md-6">
-                                        <label for="last_name">Other name</label>
-                                        <input type="text"
-                                               name="other_name"
-                                               id="other_name"
-                                               class="form-control {{ $errors->has('other_name') ? 'is-invalid' : '' }}"
-                                               value="{{ $employee->other_name }}"
-                                               placeholder="other name..."
-                                        >
-                                        @if ($errors->has('last_name'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('other_name') }}</strong>
-                                                </span>
-                                        @endif
-                                    </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="phone">Phone number</label>
-                                        <input type="text"
-                                               name="phone"
-                                               id="phone"
-                                               class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
-                                               value="{{ $employee->phone }}"
-                                               placeholder="Phone number..."
-                                        >
-                                        @if ($errors->has('phone'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('phone') }}</strong>
-                                                </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="email">
-                                            Email address
-                                            <span class="badge badge-secondary">
-                                                <em>Optional</em>
-                                            </span>
-                                        </label>
-                                        <input type="email"
-                                               name="email"
-                                               class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                               id="email"
-                                               placeholder="you@example.com"
-                                               value="{{ $employee->email }}"
-                                        >
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                  <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label class="d-block">Gender identity</label>
-                                            <div class="custom-control custom-control-inline custom-radio">
-                                                <input type="radio"
-                                                       class="custom-control-input"
-                                                       name="gender"
-                                                       id="female"
-                                                       {{ old("gender", $employee->gender) === "female" ? "checked" : "" }}
-                                                       value="female"
-                                                >
-                                                <label class="custom-control-label" for="female">Female</label>
-                                            </div>
-                                            <div class="custom-control custom-control-inline custom-radio">
-                                                <input type="radio"
-                                                       class="custom-control-input"
-                                                       name="gender"
-                                                       {{ old("gender", $employee->gender) === "male" ? "checked" : "" }}
-                                                       id="male"
-                                                       value="male"
-                                                >
-                                                <label class="custom-control-label" for="male">Male</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                 <hr>
-                            <header class="card-header border-bottom-0">
-                                Salary Information
-                            </header>
-                            <div class="card-body">
-                             <div class="form-row">
-                                    <div class="col-md-5 mb-3">
-                                        <label for="pay_type">Pay Type</label>
-                                        <select name="pay_type"
-                                                 class="form-control {{ $errors->has('pay_type') ? 'is-invalid' : '' }}"
-                                                id="pay_type"
-                                        >   
-                                        @if($employee->pay_type=="Salary")
-                                             <option selected="selected" value="Salary">Salary</option>
-                                            <option value="Hourly">Hourly</option>
-                                            @elseif($employee->pay_type=="Hourly")
-                                             <option value="Salary">Salary</option>
-                                            <option selected="selected" value="Hourly">Hourly</option>
-                                            @else
-                                            <option value="">select--</option>
-                                            <option value="Salary">Salary</option>
-                                            <option value="Hourly">Hourly</option>
-                                            @endif
-                                        </select>
-                                         @if ($errors->has('pay_type'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('pay_type') }}</strong>
-                                                </span>
-                                        @endif
-                                       
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="period_rate">Period rate</label>
-                                        <input type="text"
-                                               name="period_rate"
-                                               class="form-control {{ $errors->has('period_rate') ? 'is-invalid' : '' }}"
-                                               id="period_rate"
-                                               value="{{ old("period_rate", optional($employee)->period_rate) }}"
-                                        >
-                                        @if ($errors->has('period_rate'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('period_rate') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="hourly_rate">Hourly rate</label>
-                                        <input type="text"
-                                               name="hourly_rate"
-                                               class="form-control {{ $errors->has('hourly_rate') ? 'is-invalid' : '' }}"
-                                               id="hourly_rate"
-                                               value="{{ old("hourly_rate", optional($employee)->hourly_rate) }}"
-                                        >
-                                        @if ($errors->has('hourly_rate'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('hourly_rate') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="email">
-                                            Pay periods
-                                           
-                                        </label>
-                                                    <select class="form-control {{ $errors->has('payperiod') ? 'is-invalid' : '' }}" name="payperiod">
-                                                        <option  value='' selected="selected">Select </option>
-
-                                                        @foreach($payperiods as $payperiod)
-
-                                                         @if($payperiod->payperiodid ==$employee->pay_period)
-                                                        <option  value='{{$employee->pay_period}}' selected="selected">{{$payperiod->payperioddesc }}</option>
-                                                            @else
-                                                          <option value="{{ $payperiod->payperiodid }}">{{ $payperiod->payperioddesc }}</option>
-                                                           @endif 
-                                                        @endforeach
-                                                                                                             
-                                                    </select>
-                                             @if ($errors->has('payperiod'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('payperiod') }}</strong>
-                                    </span>
-                                @endif
-                                    </div>
-                                </div>
-                                    <div class="form-group col-md-12">
-                                        <label class="d-block">Include in Payroll?</label>
-                                        <div class="custom-control custom-control-inline custom-radio">
-                                            <input type="radio"
-                                                   class="custom-control-input"
-                                                   name="active"
-                                                   id="yes"
-                                                   value="yes"
-                                                   {{ old("active", $employee->active) === "yes" ? "checked" : "" }}
-                                                       value="yes"
-                                            >
-                                            <label class="custom-control-label" for="yes">yes</label>
-                                        </div>
-                                        <div class="custom-control custom-control-inline custom-radio">
-                                            <input type="radio"
-                                                   class="custom-control-input"
-                                                   name="active"
-                                                   id="no"
-                                                   value="no"
-                                                    {{ old("active", $employee->active) === "no" ? "checked" : "" }}
-                                                       value="no"
-                                            >
-                                            <label class="custom-control-label" for="no">no</label>
-                                             @if ($errors->has('active'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('active') }}</strong>
-                                                </span>
-                                        @endif
-                                        </div>
-                                    </div>
-                                </div>
-                           <hr>
-                            <header class="card-header border-bottom-0">
-                                Group information
-                            </header>
-                            <div class="card-body">
-                                <div class="form-row">
+                              
                                     <div class="form-group col-md-12 mb-3">
-                                        <label for="group_id">Group</label>
-                                        <select name="group_id"
-                                                class="form-control d-block w-100 {{ $errors->has('group_id') ? 'is-invalid' : '' }}"
-                                                id="group_id"
+                                        <label for="employee">Employee</label>
+                                        <select name="employee"
+                                                class="form-control d-block w-100 {{ $errors->has('employee') ? 'is-invalid' : '' }}"
+                                                id="employee"
                                                 required=""
                                         >
-                                            
-                                            @foreach(\App\Group::has("products")->latest()->get() as $group)
-                                                <option value="{{ $group->id }}" {{ old("group_id") === $group->id ? "selected" : "" }}>
-                                                    {{ $group->name }}
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Employee::All() as $employee)
+                                                <option value="{{ $employee->id }}" {{ old("employee",$leave->employee_id) === $employee->id ? "selected" : "" }}>
+                                                    {{ $employee->first_name }} {{ $employee->last_name }} 
                                                 </option>
                                             @endforeach
                                         </select>
-                                        <div class="invalid-feedback"> Please provide a valid Region. </div>
+                                        <div class="invalid-feedback"> Please provide active employee </div>
+                                    </div>
+                              
+                                <div class="form-group col-md-12 mb-3">
+                                        <label for="leavetype">Leave Type</label>
+                                        <select name="leavetype"
+                                                class="form-control d-block w-100 {{ $errors->has('leavetype') ? 'is-invalid' : '' }}"
+                                                id="leavetype"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Leave\Leavetype::All() as $leavetype)
+                                                <option value="{{ $leavetype->id }}" {{ old("leavetype",$leave->leavetype_id) === $leavetype->id ? "selected" : "" }}>
+                                                    {{ $leavetype->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback"> Please provide active leavetype </div>
                                     </div>
                                 </div>
-                            </div>
-                            <hr class="mb-4">
-                            <header class="card-header border-bottom-0">
-                                Address information
-                                </header>
-                                <div class="card-body">
+                            <div class="card-body">
+                             
+
                                     <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="street">Street address</label>
-                                            <input type="text"
-                                                   name="street"
-                                                   class="form-control {{ $errors->has('street') ? 'is-invalid' : '' }}"
-                                                   id="street"
-                                                   value="{{ old("street", optional($employee->address)->street) }}"
-                                                   placeholder="1234 Main St"
-                                            >
-                                            @if ($errors->has('street'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('street') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="address">
-                                                Address 2
-                                                <span class="badge badge-secondary">
-                                                    <em>Optional</em>
-                                                </span>
-                                            </label>
-                                            <input type="text"
-                                                   name="address"
-                                                   class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
-                                                   id="address"
-                                                   placeholder="Apartment or suite"
-                                                   value="{{ old("address", optional($employee->address)->address) }}"
-                                            >
-                                            @if ($errors->has('address'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('address') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-5 mb-3">
-                                            <label for="country">Country</label>
-                                            <select name="country"
-                                                    class="custom-select d-block w-100"
-                                                    id="country"
-                                            >
-                                                <option value="Tanzania">Tanzania</option>
-                                            </select>
-                                            <div class="invalid-feedback"> Please select a valid country. </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="state">Region</label>
-                                            <select name="state"
-                                                    class="custom-select d-block w-100"
-                                                    id="state"
-                                                    required=""
-                                            >
-                                                <option value=""> Choose... </option>
-                                                @foreach($states as $key => $state)
-                                                    <option name="{{ $state["name"] }}" {{ old("state", optional($employee->address)->state) === $state["name"] ? "selected" : "" }}>
-                                                        {{ $state["name"] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            <div class="invalid-feedback"> Please provide a valid state. </div>
-                                        </div>
-                                        <div class="col-md-3 mb-3">
-                                            <label for="postal_code">Zip</label>
-                                            <input type="text"
-                                                   name="postal_code"
-                                                   class="form-control {{ $errors->has('postal_code') ? 'is-invalid' : '' }}"
-                                                   id="postal_code"
-                                                   value="{{ old("postal_code", optional($employee->address)->postal_code) }}"
-                                            >
-                                            @if ($errors->has('postal_code'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('postal_code') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <hr class="mb-4">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        <!-- grid column -->
+                        <div class="col-md-5 mb-3">
+                         <label for="last_name">Date From</label>
+                                <input id="start_date"  type="date" name="start_date" onchange="cal()"
+                             class="form-control {{ $errors->has('start_date') ? 'is-invalid' : '' }}"
+                              value="{{old('start_date',$leave->start_date)}}">
+
+                                @if ($errors->has('start_date'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('start_date') }}</strong>
+                                    </span>
+                                @endif  
+                          <div class="invalid-feedback"> Please select a valid country. </div>
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                        <div class="col-md-4 mb-3">
+                         <label for="last_name">Date To</label>
+                                  <input  id="end_date" type="date" name="end_date" onchange="cal()" 
+                                   class="form-control {{ $errors->has('end_date') ? 'is-invalid' : '' }}"
+                                  value="{{old('end_date',$leave->end_date)}}">
+
+                                @if ($errors->has('end_date'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('end_date') }}</strong>
+                                    </span>
+                                @endif
+                          <div class="invalid-feedback"> Please provide a valid state. </div>
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                        <div class="col-md-3 mb-3">
+                          <label for="zip">Days requested </label>
+                          <input type="text"  name="duration" value="{{old('duration',$leave->total_days)}}" class="form-control" id="duration" readonly>
+                          <div class="invalid-feedback"> </div>
+                        </div>
+                        <!-- /grid column -->
+                      </div>
+                      <!-- /.form-row -->
+                      <hr class="mb-4">
+                           <div class="form-group">
+                          <label class="d-flex justify-content-between" for="lbl4">
+                            <span>Remark</span>
+                            <span class="text-muted"></span>
+                          </label>
+                          <textarea name="remark" class="form-control" id="lbl4" rows="3" placeholder=" description">{{$leave->reason_for_leave}}</textarea>
+                        </div>
+                                </div>
+                                                    
+                                <hr>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">
                                     Save changes
                                 </button>
                             </div>
@@ -397,3 +143,17 @@
     </div>
 </div>
 @endsection
+<script type="text/javascript">
+        function GetDays(){
+                var dropdt = new Date(document.getElementById("start_date").value);
+                var pickdt = new Date(document.getElementById("end_date").value);
+                return parseInt((pickdt - dropdt) / (24 * 3600 * 1000));
+        }
+
+        function cal(){
+        if(document.getElementById("start_date")){
+            document.getElementById("duration").value=GetDays();
+        }  
+    }
+
+    </script>

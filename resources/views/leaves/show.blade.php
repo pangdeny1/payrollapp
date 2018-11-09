@@ -5,10 +5,10 @@
     <div class="page">
         <div class="sidebar-backdrop"></div>
         <!-- .page-cover -->
-        @include("employees._page_cover")
+        @include("leaves._page_cover")
 
         <!-- .page-navs -->
-        @include("employees._page_nav")
+        @include("leaves._page_nav")
 
         <!-- .page-inner -->
         <div class="page-inner">
@@ -149,39 +149,7 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <!-- /grid column -->
-                        <!-- grid column -->
-                        <div class="col-lg-4 order-lg-1">
-                            <div class="list-group list-group-flush list-group-bordered">
-                                <div class="list-group-item justify-content-between">
-                                    <span class="text-muted">Revenue</span>
-                                    <strong>$ 17,254</strong>
-                                </div>
-                                <div class="list-group-item justify-content-between">
-                                    <span class="text-muted">Profit</span>
-                                    <strong>$ 15,794</strong>
-                                </div>
-                                <div class="list-group-item justify-content-between">
-                                    <span class="text-muted">Teams</span>
-                                    <strong>8</strong>
-                                </div>
-                                <div class="list-group-item justify-content-between">
-                                    <span class="text-muted">Projects</span>
-                                    <strong>52</strong>
-                                </div>
-                                <div class="list-group-item justify-content-between">
-                                    <span class="text-muted">Completion Rate</span>
-                                    <strong>89%</strong>
-                                </div>
-                                <div class="list-group-item justify-content-between">
-                                    <span class="text-muted">Clients</span>
-                                    <strong>42</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /grid column -->
-                    </div>
-                    <!-- /grid row -->
+                     
                 </div>
             </div>
         </div>

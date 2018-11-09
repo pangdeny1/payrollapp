@@ -431,3 +431,18 @@ Route::prefix('settings')->group(function () {
     "as" => "leaves.store",
     "uses" => "leave\LeavesController@store",
 ]);
+
+            Route::get("leaves/{id}/show", [
+    "as" => "leaves.show",
+    "uses" => "leave\LeavesController@show",
+]);
+     Route::get("leaves/{id}/edit", [
+    "as" => "leaves.edit",
+    "uses" => "leave\LeavesController@edit",
+]);
+
+       Route::post("leaves/{id}/update", [
+    "as" => "leaves.update",
+    "uses" => "leave\LeavesController@update",
+]);
+       Route::post("leaveupdate/{id}","leave\LeavesController@update");

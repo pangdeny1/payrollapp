@@ -3,32 +3,18 @@
     <div class="nav-scroller">
         <!-- .nav -->
         <div class="nav nav-center nav-tabs">
-            <a class="nav-link" href="{{ route("farmers.show", $employee) }}">
+            <a class="nav-link" href="">
                 Overview
             </a>
             <a class="nav-link" href="">
-                Branch
+                Leave Requested
                 <span class="badge"></span>
             </a>
             <a class="nav-link" href="">
-                Department
+                Leave balance
                 <span class="badge"></span>
             </a>
-            <a class="nav-link" href="">
-                Social Security
-                <span class="badge"></span>
-            </a>
-            <a class="nav-link" href="">
-                Salary Info
-                <span class="badge"></span>
-            </a>
-            <a class="nav-link" href="">
-                Bank Info
-                <span class="badge"></span>
-            </a>
-            <a class="nav-link" href="">
-                Settings
-            </a>
+            
         </div>
         <!-- /.nav -->
     </div>
