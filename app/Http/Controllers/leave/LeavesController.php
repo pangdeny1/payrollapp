@@ -4,6 +4,7 @@ namespace App\Http\Controllers\leave;
 
 use Illuminate\Http\Request;
 use App\Models\Leave\Leave;
+use App\Models\Leave\Leavebalance;
 use App\Http\Controllers\Controller;
 
 class LeavesController extends Controller
@@ -63,6 +64,11 @@ class LeavesController extends Controller
             "duration" => "required|integer|min:1",
             
         ]);
+          $employee_balance=Leavebalance::where('employee_id',request('employee'))->first();
+          if($employee_balance->days < request('duration')|| empty($employee_balance->days))
+          {
+          	return redirect()->back()->with('status_error', 'Insufficient leave days');
+          }
 
 
         $leave = Leave::create([

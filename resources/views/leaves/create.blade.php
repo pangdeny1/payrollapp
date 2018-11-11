@@ -24,7 +24,7 @@
                               class="card border-0"
                         >
                             @csrf
-                          
+                           @include('includes.flash')
                             <div class="card-body">
                               
                                     <div class="form-group col-md-12 mb-3">
