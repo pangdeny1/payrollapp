@@ -3,13 +3,14 @@
 namespace App\Models\leave;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
 class Leavebalance extends Model
 {
         protected $guarded = [];
         protected $fillable = [
           
-           'id','start_date','end_date','days','employee_id','reason_for_leave','user_id','manager_id','status','creator_id','created_at'
+           'id','start_date','end_date','days','employee_id','leavetype_id','user_id','manager_id','status','creator_id','created_at'
        
     ];
 

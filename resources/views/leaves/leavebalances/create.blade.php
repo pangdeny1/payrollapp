@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-md-12">
 
-                        <form action="{{ route("leaves.store") }}"
+                        <form action="{{ url("storeleavebalance") }}"
                               method="post"
                               class="card border-0"
                         >

@@ -33,7 +33,7 @@ class LeaveBalanceController extends Controller
      public function create()
     {
         
-        $pagetitle="Add leavetype";
+        $pagetitle="Add leavebalance";
 
         return view('leaves.leavebalances.create', compact('pagetitle'));
 
@@ -41,69 +41,78 @@ class LeaveBalanceController extends Controller
 
     public function store(Request $request, AppMailer $mailer)
     {
-        //store addes files
-        
-        $this->validate($request, [
-            'name'     => 'required',
-            'description'     => 'required',
-            'maximumdays' =>'required',
+        $this->authorize("create", Leavebalance::class);
+          $this->validate($request, [
+            "employee" => "required",
+            "start_date" => "required",
+            'leavetype'  =>"required",
+            "end_date" => "required",
+            "duration" => "required|integer|min:364|max:365",
+            
+        ]);
+       
+        $leave = Leavebalance::create([
+            "start_date" => request("start_date"),
+            "end_date" => request("end_date"),
+            "employee_id" => request("employee"),
+            "leavetype_id" =>request("leavetype"),
+            "days" =>request("duration"),
+            "creator_id" => auth()->id(),
         ]);
 
-        $leavebalance = new leavetype([
-            'name'     => $request->input('name'),
-            'description'     => $request->input('description'),
-            'max_number'     => $request->input('maximumdays'),
-
-        ]);
-
-        $leavebalance->save();
 
        // $mailer->sendTicketInformation(Auth::user(), $ticket);
         $pagetitle="leavebalances";
         $leavebalances = Leavebalance::paginate(10);
 
-          return view('leaves.leavebalances.index', compact('pagetitle','leavebalances'))->with("status", "A leavetype has been created successfully.");
+          return view('leaves.leavebalances.index', compact('pagetitle','leavebalances'))->with("status", "A leavebalance has been created successfully.");
 
-       // return redirect()->back()->with("status", "A leavetype with Title has been created.");
+       // return redirect()->back()->with("status", "A leavebalance with Title has been created.");
     }
  public function show($leavebalanceid)
     {   
-        $pagetitle="leavetype View";
+        $pagetitle="leavebalance View";
         $leavebalance= Leavebalance::where('id', $leavebalanceid)->firstOrFail();
 
         //$comments = $ticket->comments;
 
         //$category = $ticket->category;
 
-        return view('leaves.leavebalances.show', compact('leavetype','pagetitle'));
+        return view('leaves.leavebalances.show', compact('leavebalance','pagetitle'));
     }
 
 
 
      public function edit($leavebalanceid)
     {   
-        $pagetitle="Edit leavetype";
+        $pagetitle="Edit leavebalance";
         $leavebalance= Leavebalance::where('id', $leavebalanceid)->firstOrFail();
         
-        return view('leaves.leavebalances.edit', compact('leavetype','pagetitle'));
+        return view('leaves.leavebalances.edit', compact('leavebalance','pagetitle'));
     }
 
 
 
        public function update(Request $request, AppMailer $mailer,$leavebalanceid)
     {
-        $this->validate($request, [
-           'name'     => 'required',
-            'description'     => 'required',
-            'maximumdays' =>'required',
+             $this->validate($request, [
+            "employee" => "required",
+            "start_date" => "required",
+            "end_date" => "required",
+            "duration" => "required|integer|min:364|max:365",
+            
         ]);
        
 
             $leavebalance = Leavebalance::where('id', $leavebalanceid)->firstOrFail();
 
-             $leavebalance->name    =$request->input('name');
-             $leavebalance->description  =$request->input('description');
-             $leavebalance->max_number  =$request->input('maximumdays');
+             
+            $leavebalance->start_date=request("start_date");
+            $leavebalance->end_date = request("end_date");
+            $leavebalance->employee_id=request("employee");
+            $leavebalance->leavetype_id=request("leavetype");
+            $leavebalance->days =request("duration");
+           
              
 
          $leavebalance->save();
@@ -113,9 +122,9 @@ class LeaveBalanceController extends Controller
        
          $leavebalances = Leavebalance::paginate(10);
 
-          return view('leaves.leavebalances.index', compact('pagetitle','leavebalances'))->with("status", "A leavetype Title has been Updated.");
+          return view('leaves.leavebalances.index', compact('pagetitle','leavebalances'))->with("status", "A leavebalance Title has been Updated.");
 
-       // return redirect()->back()->with("status", "A leavetype Title has been Updated.");
+       // return redirect()->back()->with("status", "A leavebalance Title has been Updated.");
     }
 
 
@@ -126,6 +135,6 @@ class LeaveBalanceController extends Controller
     $leavebalance->delete();
 
       // return redirect()->route('tasks.index');
-     return redirect()->back()->with("status", "leavetype  deleted successfully!");
+     return redirect()->back()->with("status", "leavebalance  deleted successfully!");
            }
        }

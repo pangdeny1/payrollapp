@@ -19,7 +19,7 @@ class CreateLeavebalancesTable extends Migration
             $table->integer('leavetype_id');
             $table->date('start_date');
             $table->date('end_date');
-            $table->decimal('days',12,2);
+            $table->integer('days');
             $table->integer("creator_id");
             $table->timestamps();
         });

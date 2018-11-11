@@ -93,11 +93,11 @@
                                                              src="{{ Avatar::create($leave->name)->toBase64() }}"
                                                              alt="{{ $leave->name}}">
                                                     </a>
-                                                    <a href="{{ url("showleavebalance", $leave) }}">
+                                                    <a href="{{ url("showleavebalance", $leave->id) }}">
                                                       {{ $leave->employee->full_name }} 
                                                     </a>
                                                 </td>
-                                                 <td>{{ $leave->leavetype->name }}</td>
+                                                 <td>{{ optional($leave->leavetype)->name }}</td>
                                                 <td >{{ $leave->start_date}}</td>
                                                 <td >{{ $leave->end_date}}</td>
                                                 <td >{{ $leave->days}}</td>
