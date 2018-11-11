@@ -446,3 +446,19 @@ Route::prefix('settings')->group(function () {
     "uses" => "leave\LeavesController@update",
 ]);
        Route::post("leaveupdate/{id}","leave\LeavesController@update");
+
+      Route::get('showleavetype/{id}','Leave\LeaveTypesController@show');
+    Route::get('editleavetype/{id}','Leave\LeaveTypesController@edit');
+    Route::post('updateleavetype/{id}','Leave\LeaveTypesController@update');
+    Route::get('deleteleavetype/{id}','Leave\LeaveTypesController@destroy');
+    Route::get('createleavetype','Leave\LeaveTypesController@create');
+    Route::get('viewleavetypes','Leave\LeaveTypesController@index');
+     Route::post('storeleavetype','Leave\LeaveTypesController@store');
+
+         Route::get('showleavebalance/{id}','Leave\LeaveBalanceController@show');
+    Route::get('editleavebalance/{id}','Leave\LeaveBalanceController@edit');
+    Route::post('updateleavebalance/{id}','Leave\LeaveBalanceController@update');
+    Route::get('deleteleavebalance/{id}','Leave\LeaveBalanceController@destroy');
+    Route::get('createleavebalance','Leave\LeaveBalanceController@create');
+    Route::get('viewleavebalances','Leave\LeaveBalanceController@index');
+    Route::post('storeleavebalance','Leave\LeaveBalanceController@store');

@@ -298,6 +298,19 @@
                                 <i class="fas fa-users"></i> Departments
                             </a>
                             @endcan
+                            
+                             @can("view", \App\Models\Leave\Leavetype::class)
+                            <a href="{{ url('viewleavetypes') }}" class="dropdown-item ">
+                                <i class="fas fa-users"></i> Leave types
+                            </a>
+                            @endcan
+
+                              @can("view", \App\Models\Leave\Leavebalance::class)
+                            <a href="{{ url('viewleavebalances') }}" class="dropdown-item ">
+                                <i class="fas fa-users"></i> Leave Balances
+                            </a>
+                            @endcan
+
                             @can("view", \App\User::class)
                             <a href="{{ route("users.index") }}" class="dropdown-item ">
                                 <i class="fas fa-users"></i> Users

@@ -64,8 +64,8 @@ class LeavesController extends Controller
             "duration" => "required|integer|min:1",
             
         ]);
-          $employee_balance=Leavebalance::where('employee_id',request('employee'))->first();
-          if($employee_balance->days < request('duration')|| empty($employee_balance->days))
+          $employee_balance=Leavebalance::where('employee_id',request('employee'))->firstOrFail();
+          if($employee_balance->days < request('duration'))
           {
           	return redirect()->back()->with('status_error', 'Insufficient leave days');
           }
