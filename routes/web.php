@@ -462,3 +462,19 @@ Route::prefix('settings')->group(function () {
     Route::get('createleavebalance','Leave\LeaveBalanceController@create');
     Route::get('viewleavebalances','Leave\LeaveBalanceController@index');
     Route::post('storeleavebalance','Leave\LeaveBalanceController@store');
+
+        Route::get('showleaveapproval/{id}','Leave\LeaveApprovalLevelsController@show');
+    Route::get('editleaveapproval/{id}','Leave\LeaveApprovalLevelsController@edit');
+    Route::post('updateleaveapproval/{id}','Leave\LeaveApprovalLevelsController@update');
+    Route::get('deleteleaveapproval/{id}','Leave\LeaveApprovalLevelsController@destroy');
+    Route::get('createleaveapproval','Leave\LeaveApprovalLevelsController@create');
+    Route::get('viewleaveapprovals','Leave\LeaveApprovalLevelsController@index');
+    Route::post('storeleaveapproval','Leave\LeaveApprovalLevelsController@store');
+
+    Route::get('showleaveapprovalaction/{id}','Leave\leaveapprovalactionActionsController@show');
+    Route::get('editleaveapprovalaction/{id}','Leave\leaveapprovalactionActionsController@edit');
+    Route::post('updateleaveapprovalaction/{id}','Leave\leaveapprovalactionActionsController@update');
+    Route::get('deleteleaveapprovalaction/{id}','Leave\leaveapprovalactionActionsController@destroy');
+    Route::get('createleaveapprovalaction','Leave\leaveapprovalactionActionsController@create');
+    Route::get('viewleaveapprovalactions','Leave\leaveapprovalactionActionsController@index');
+    Route::post('storeleaveapprovalaction','Leave\leaveapprovalactionActionsController@store');

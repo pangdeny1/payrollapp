@@ -237,7 +237,7 @@
                         
                         <div class="dropdown-arrow"></div>
                         <div class="dropdown-menu">
-                            @can("view", \App\Models\Prlothinctype::class)
+                        <!--    @can("view", \App\Models\Prlothinctype::class)
                             <a href="{{ url('incomestypes')}}" class="dropdown-item ">
                                 <i class="fas fa-tree"></i> Incomes types
                             </a>
@@ -304,6 +304,7 @@
                                 <i class="fas fa-users"></i> Leave types
                             </a>
                             @endcan
+                          -->
 
                               @can("view", \App\Models\Leave\Leavebalance::class)
                             <a href="{{ url('viewleavebalances') }}" class="dropdown-item ">
@@ -311,7 +312,19 @@
                             </a>
                             @endcan
 
-                            @can("view", \App\User::class)
+                              @can("view", \App\Models\Leave\Leaveapprovallevel::class)
+                            <a href="{{ url('viewleaveapprovals') }}" class="dropdown-item ">
+                                <i class="fas fa-users"></i> Leave Approval level
+                            </a>
+                            @endcan
+
+                              @can("view", \App\Models\Leave\leaveapprovalaction::class)
+                            <a href="{{ url('viewleaveapprovalactions') }}" class="dropdown-item ">
+                                <i class="fas fa-users"></i> Leave Approval Action
+                            </a>
+                            @endcan
+
+                           @can("view", \App\User::class)
                             <a href="{{ route("users.index") }}" class="dropdown-item ">
                                 <i class="fas fa-users"></i> Users
                             </a>
