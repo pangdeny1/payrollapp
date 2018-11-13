@@ -29,7 +29,7 @@
                                 </a>
                                 
                                 @can("create", \App\Models\leave\leaveapprovallevel::class)
-                                <a href="{{ url("createleavebalance") }}" class="btn btn-primary">
+                                <a href="{{ url("createleaveapproval") }}" class="btn btn-primary">
                                     <span class="fas fa-plus mr-1"></span>
                                     New Leave type
                                 </a>
@@ -76,11 +76,11 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                               <th>Employee</th>
-                                                <th>Leave type</th>
-                                                 <th>Start Date</th>
-                                                 <th>End Date</th>
-                                                <th>Days</th>
+                                               
+                                                <th>Name</th>
+                                                 <th>Description</th>
+                                                 <th>Priority</th>
+                                                <th>Actions</th>
                                             
                                             </tr>
                                         </thead>
@@ -94,24 +94,23 @@
                                                              alt="{{ $leave->name}}">
                                                     </a>
                                                     <a href="{{ url("showleavebalance", $leave->id) }}">
-                                                      {{ $leave->employee->full_name }} 
+                                                      {{ $leave->name}} 
                                                     </a>
                                                 </td>
-                                                 <td>{{ optional($leave->leavetype)->name }}</td>
-                                                <td >{{ $leave->start_date}}</td>
-                                                <td >{{ $leave->end_date}}</td>
-                                                <td >{{ $leave->days}}</td>
+                                                 <td>{{ optional($leave)->desctription }}</td>
+                                                <td >{{ $leave->priority}}</td>
+                                                
                                                 
                                                 <td class="align-middle text-right">
                                                     @can("edit", \App\Models\leave\leaveapprovallevel::class)
-                                                    <a href="{{ url("editleavebalance", $leave) }}" class="btn btn-sm btn-secondary">
+                                                    <a href="{{ url("editleaveapproval", $leave) }}" class="btn btn-sm btn-secondary">
                                                         <i class="fa fa-pencil-alt"></i>
                                                         <span class="sr-only">Edit</span>
                                                     </a>
                                                     @endcan
 
                                                     @can("delete", \App\Models\leave\leaveapprovallevel::class)
-                                                    <a href="{{ url("deleteleavebalance", $leave) }}" onclick="return confirm('Are you sure you want to Delete this record')"  class="btn btn-sm btn-secondary">
+                                                    <a href="{{ url("deleteleaveapproval", $leave) }}" onclick="return confirm('Are you sure you want to Delete this record')"  class="btn btn-sm btn-secondary">
                                                         <i class="far fa-trash-alt"></i>
                                                         <span class="sr-only">Remove</span>
                                                     </a>
@@ -150,7 +149,7 @@
                     </p>
                     @can("create", \App\Models\leave\leaveapprovallevel::class)
                     <div class="state-action">
-                        <a href="{{ url("createleavebalance") }}" class="btn btn-primary">Register new Leave</a>
+                        <a href="{{ url("createleaveapproval") }}" class="btn btn-primary">Register new Leave</a>
                     </div>
                     @endcan
                 </div>
