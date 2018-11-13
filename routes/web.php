@@ -478,3 +478,11 @@ Route::prefix('settings')->group(function () {
     Route::get('createleaveapprovalaction','Leave\leaveapprovalactionActionsController@create');
     Route::get('viewleaveapprovalactions','Leave\leaveapprovalactionActionsController@index');
     Route::post('storeleaveapprovalaction','Leave\leaveapprovalactionActionsController@store');
+
+    Route::get('showleaveapprover/{id}','Leave\LeaveApproversController@show');
+    Route::get('editleaveapprover/{id}','Leave\LeaveApproversController@edit');
+    Route::post('updateleaveapprover/{id}','Leave\LeaveApproversController@update');
+    Route::get('deleteleaveapprover/{id}','Leave\LeaveApproversController@destroy');
+    Route::get('createleaveapprover','Leave\LeaveApproversController@create');
+    Route::get('viewleaveapprovers','Leave\LeaveApproversController@index');
+    Route::post('storeleaveapprover','Leave\LeaveApproversController@store');

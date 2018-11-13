@@ -324,6 +324,12 @@
                             </a>
                             @endcan
 
+                             @can("view", \App\Models\Leave\leaveapprover::class)
+                            <a href="{{ url('viewleaveapprovers') }}" class="dropdown-item ">
+                                <i class="fas fa-users"></i> Leave Approvers
+                            </a>
+                            @endcan
+
                            @can("view", \App\User::class)
                             <a href="{{ route("users.index") }}" class="dropdown-item ">
                                 <i class="fas fa-users"></i> Users
