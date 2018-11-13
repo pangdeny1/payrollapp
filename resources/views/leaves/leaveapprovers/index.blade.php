@@ -37,7 +37,46 @@
                             </div>
                         </div>
                     </header>
+   <div class="col-md-12">
 
+                        <form action="{{ url("storeleaveapprover") }}"
+                              method="post"
+                              class="card border-0"
+                        >
+                            @csrf
+                           @include('includes.flash')
+                            <div class="card-body">
+                         <div class="form-group col-md-12 mb-3">
+                                        <label for="employee">Employee</label>
+                                        <select name="approver"
+                                                class="form-control d-block w-100 {{ $errors->has('approver') ? 'is-invalid' : '' }}"
+                                                id="approver"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Employee::All() as $employee)
+                                                <option value="{{ $employee->id }}" {{ old("approver") == $employee->id ? "selected" : "" }}>
+                                                    {{ $employee->first_name }} {{ $employee->last_name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                         @if ($errors->has('approver'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('approver') }}</strong>
+                                                        </span>
+                                                    @endif
+                                      
+                      
+                                </div>
+
+                                                    
+                                <hr>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">
+                                    Save changes
+                                </button>
+                            </div>
+                      </form>
+                    </div>
                     <div class="page-section">
                         <section class="card shadow-1 border-0 card-fluid">
                             <header class="card-header">
@@ -77,9 +116,8 @@
                                         <thead>
                                             <tr>
                                                
-                                                <th>Name</th>
-                                                 <th>Description</th>
-                                                 <th>Priority</th>
+                                                <th>Approver Name</th>
+                                                 
                                                 <th>Actions</th>
                                             
                                             </tr>
@@ -88,18 +126,23 @@
                                             @foreach($leaveapprovers as $leave)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ url("leaveapprovers.show", $leave) }}" class="user-avatar mr-1">
+                                                    <a href="" class="user-avatar mr-1">
                                                         <img class="img-fluid"
-                                                             src="{{ Avatar::create($leave->name)->toBase64() }}"
-                                                             alt="{{ $leave->name}}">
+                                                             src="{{ Avatar::create($leave->approvername->full_name)->toBase64() }}"
+                                                             alt="{{$leave->approvername->full_name}}">
                                                     </a>
-                                                    <a href="{{ url("showleaveapprover", $leave->id) }}">
-                                                      {{ $leave->name}} 
+                                                    <a href="">
+                                                      {{ $leave->approvername->full_name}} 
                                                     </a>
                                                 </td>
-                                                 <td>{{ optional($leave)->desctription }}</td>
-                                                <td >{{ $leave->priority}}</td>
-                                                
+                                                 
+                                                 <td class="align-middle text-right">
+                                                    @can("view", \App\Models\leave\leaveapprover::class)
+                                                    <a href="{{ url("showleaveapprover", $leave) }}" class="btn btn-sm btn-secondary">
+                                                        
+                                                        <span class="sr-only">Select</span>
+                                                   
+                                                    @endcan
                                                 
                                                 <td class="align-middle text-right">
                                                     @can("edit", \App\Models\leave\leaveapprover::class)

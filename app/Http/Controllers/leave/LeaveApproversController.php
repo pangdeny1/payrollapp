@@ -58,42 +58,22 @@ class LeaveApproversController extends Controller
     {
         $this->authorize("create", Leaveapprover::class);
           $this->validate($request, [
-            "remark" => "required",
-            "employee" => "required",
-            "leavetype" => "required",
-            "start_date" => "required",
-            "end_date" => "required",
-            "duration" => "required|integer|min:1",
+            
+            "approver" => "required|unique:leaveapprovers",
+            
             
         ]);
-          $employee_balance=Leavebalance::where('employee_id',request('employee'))->firstOrFail();
-          if($employee_balance->days < request('duration'))
-          {
-          	return redirect()->back()->with('status_error', 'Insufficient leave days');
-          }
-
+         
 
         $leaveapprover = Leaveapprover::create([
-            "start_date" => request("start_date"),
-            "end_date" => request("end_date"),
-            "employee_id" => request("employee"),
-            "reason_for_leave" => request("remark"),
-            "leavetype_id" => request("leavetype"),
-            "total_days"   =>request("duration"),
-            "working_days" =>request("working_days"),
-            "holiday_days"=>request("holiday_days"),
+            
+            "approver" => request("approver"),
             "creator_id" => auth()->id(),
         ]);
 
                
-        return redirect()->route("leaves.leaveapprovers.index")->with('success', "Successfully requested a Leave");
+        return redirect()->back()->with('success', "Leave approver Added");
     }
-
-    /**
-     * @param Leave $leaveapprover
-     * @return RedirectResponse
-     * @throws AuthorizationException
-     */
 
     public function edit($leaveapprover)
     {
@@ -153,7 +133,7 @@ class LeaveApproversController extends Controller
     {
         $this->authorize("view" ,Leaveapprover::class);
         $leaveapprover=Leaveapprover::where('id',$leaveapprover)->firstOrFail();
-        return view("leaves.leaveapprovers.show", compact("Leave"));
+        return view("leaves.leaveapprovers.show", compact("leaveapprover"));
     }
 
     /**
@@ -161,11 +141,12 @@ class LeaveApproversController extends Controller
      * @return RedirectResponse
      * @throws \Exception
      */
-    public function destroy(Leave $leaveapprover)
+    public function destroy($id)
     {
+    	$leaveapprover=Leaveapprover::findOrFail($id);
         $leaveapprover->delete();
 
-        return redirect()->route("leaves.leaveapprovers.index");
+        return redirect()->back()->with("status","Deleted Successfully");
     }
     
   

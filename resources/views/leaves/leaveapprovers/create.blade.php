@@ -19,62 +19,29 @@
                 <div class="row">
                     <div class="col-md-12">
 
-                        <form action="{{ url("storeleaveapproval") }}"
+                        <form action="{{ url("storeleaveapprover") }}"
                               method="post"
                               class="card border-0"
                         >
                             @csrf
                            @include('includes.flash')
                             <div class="card-body">
-                              
-                                    
-
-                                    <div class="form-row">
-                        <!-- grid column -->
-                        <div class="col-md-5 mb-3">
-                         <label for="last_name">Name</label>
-                                <input id="name"  type="text" name="name"
-                             class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                              value="{{old('name')}}">
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif  
-                                                 </div>
-                        <!-- /grid column -->
-                        <!-- grid column -->
-                        <div class="col-md-4 mb-3">
-                         <label for="last_name">Priority</label>
-                                  <input  id="priority" type="number" name="priority"
-                                   class="form-control {{ $errors->has('priority') ? 'is-invalid' : '' }}"
-                                  value="{{old('priority')}}">
-
-                                @if ($errors->has('priority'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('priority') }}</strong>
-                                    </span>
-                                @endif
-                         
-                        </div>
+                         <div class="form-group col-md-12 mb-3">
+                                        <label for="employee">Employee</label>
+                                        <select name="employee"
+                                                class="form-control d-block w-100 {{ $errors->has('employee') ? 'is-invalid' : '' }}"
+                                                id="employee"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Employee::All() as $employee)
+                                                <option value="{{ $employee->id }}" {{ old("employee") == $employee->id ? "selected" : "" }}>
+                                                    {{ $employee->first_name }} {{ $employee->last_name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback"> Please provide active employee </div>
                       
-                        <!-- /grid column -->
-                      </div>
-                      <!-- /.form-row -->
-                      <hr class="mb-4">
-                           <div class="form-group">
-                          <label class="d-flex justify-content-between" for="lbl4">
-                            <span>Description</span>
-                            <span class="text-muted"></span>
-                          </label>
-                          <textarea name="remark"  class="form-control {{ $errors->has('remark') ? "is-invalid" : "" }}" id="lbl4" rows="3" placeholder=" description"></textarea>
-                            @if ($errors->has('remark'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('remark') }}</strong>
-                                                        </span>
-                                                    @endif
-                        </div>
                                 </div>
 
                                                     

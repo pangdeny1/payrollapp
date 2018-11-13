@@ -82,4 +82,6 @@ class Employee extends Model implements Auditable
     {
         return $this->hasMany(prltransaction::class,"employee_id");
     }
+
+    
 }
