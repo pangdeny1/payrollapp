@@ -14,13 +14,13 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    leaveapprovers
+                                    leave Approvers
                                 </li>
                             </ol>
                         </nav>
                         <div class="d-sm-flex align-items-sm-center">
                             <h1 class="page-title mr-sm-auto mb-0">
-                                leaveapprovers
+                                leave Approvers
                             </h1>
                             <div class="btn-toolbar">
                                 <a href="" class="btn btn-light">
@@ -85,7 +85,7 @@
                                                     
                                 <hr>
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">
-                                    Save changes
+                                    Add Approver
                                 </button>
                             </div>
 
