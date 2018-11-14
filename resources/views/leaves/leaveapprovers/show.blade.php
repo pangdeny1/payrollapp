@@ -32,7 +32,7 @@
                 <!-- .card -->
                 <div class="card card-fluid">
                     <header class="card-header d-flex align-items-center">
-                        <span class="mr-auto">Achievement</span>
+                        <span class="mr-auto">Approver:{{$leaveapprover->approvername->full_name}}</span>
                         <!-- .card-header-control -->
                         <div class="card-header-control font-weight-normal">
                             <!-- .dropdown -->
@@ -48,8 +48,12 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
+
+
                      
                 </div>
+
+
             </div>
         </div>
     </div>
