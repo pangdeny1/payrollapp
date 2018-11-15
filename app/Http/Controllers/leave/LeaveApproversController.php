@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Leave;
 use Illuminate\Http\Request;
 use App\Models\Leave\Leaveapprover;
 use App\Models\Leave\Leavebalance;
+use App\Models\Leave\leaveEmployeeApprover ;
 use App\Http\Controllers\Controller;
 
 class LeaveApproversController extends Controller
@@ -59,7 +60,9 @@ class LeaveApproversController extends Controller
         $this->authorize("create", Leaveapprover::class);
           $this->validate($request, [
             
-            "approver" => "required|unique:leaveapprovers",
+            "approver" => "required",
+              "leavetype" => "required",
+                "level" => "required",
             
             
         ]);
@@ -68,6 +71,8 @@ class LeaveApproversController extends Controller
         $leaveapprover = Leaveapprover::create([
             
             "approver" => request("approver"),
+            "leavetype_id" =>request("leavetype"),
+            "level_id"    =>request("level"),
             "creator_id" => auth()->id(),
         ]);
 
@@ -134,6 +139,36 @@ class LeaveApproversController extends Controller
         $this->authorize("view" ,Leaveapprover::class);
         $leaveapprover=Leaveapprover::where('id',$leaveapprover)->firstOrFail();
         return view("leaves.leaveapprovers.show", compact("leaveapprover"));
+    }
+
+    public function asign($employee)
+
+    {
+
+    	 $leaveapprover = leaveEmployeeApprover::create([
+            
+            "employee_id" => request("employee"),
+             "approver" => request("approver"),
+             "approver_id" => request("approver_id"),
+             "leavetype_id"  => request("leavetype"),
+             "active"     =>1,
+            "creator_id" => auth()->id(),
+        ]);
+
+    	 return redirect()->back()->with("status","Asigned Successfully");
+
+    }
+
+    public function deactivate($id)
+    {
+
+  $leaveapprover=leaveEmployeeApprover::where('id',$id)->firstOrFail();
+ $leaveapprover->update([
+            
+            "active" => 0
+            ]);
+
+  return redirect()->back()->with("status","Deleted Successfully");
     }
 
     /**

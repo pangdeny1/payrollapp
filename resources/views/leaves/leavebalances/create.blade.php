@@ -97,7 +97,7 @@
                         <!-- /grid column -->
                         <!-- grid column -->
                         <div class="col-md-3 mb-3">
-                          <label for="zip">Days requested </label>
+                          <label for="zip">Days in Circle</label>
                           <input type="text" name="duration" class="form-control {{ $errors->has('duration') ? 'is-invalid' : '' }}" id="duration" value="{{old('duration')}}" readonly required="">
                           @if ($errors->has('duration'))
                                     <span class="invalid-feedback">

@@ -486,3 +486,8 @@ Route::prefix('settings')->group(function () {
     Route::get('createleaveapprover','Leave\LeaveApproversController@create');
     Route::get('viewleaveapprovers','Leave\LeaveApproversController@index');
     Route::post('storeleaveapprover','Leave\LeaveApproversController@store');
+     Route::post('storeleaveapprover','Leave\LeaveApproversController@store');
+    Route::post('asignleaveapprover/{id}','Leave\LeaveApproversController@asign');
+    Route::get('deactivateleaveapprover/{id}','Leave\LeaveApproversController@deactivate');
+
+    

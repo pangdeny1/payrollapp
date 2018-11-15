@@ -12,7 +12,7 @@ class leaveapprover extends Model
     protected $guarded = [];
         protected $fillable = [
           
-           'id','approver','creator_id','created_at'
+           'id','approver','leavetype_id','level_id','creator_id','created_at'
        
     ];
     
@@ -25,5 +25,10 @@ class leaveapprover extends Model
      public function approvername()
     {
         return $this->belongsTo("\App\Employee","approver");
+    }
+
+       public function leavetype()
+    {
+        return $this->belongsTo("App\Models\Leave\Leavetype","leavetype_id");
     }
 }

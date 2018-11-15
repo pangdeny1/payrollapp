@@ -57,10 +57,10 @@
                                             </div>
                                             
                                             <div class="card-body">
-                                                 <header class="card-title text-muted">Basic information</header>
+                                                 
 
                                                <div class="form-group col-md-12 mb-3">
-                                        <label for="employee">Employee</label>
+                                        <label for="employee">Approver</label>
                                         <select name="approver"
                                                 class="form-control d-block w-100 {{ $errors->has('approver') ? 'is-invalid' : '' }}"
                                                 id="approver"
@@ -78,12 +78,57 @@
                                                             <strong>{{ $errors->first('approver') }}</strong>
                                                         </span>
                                                     @endif
-                                      
                       
                                 </div>
 
                                                     
                                 <hr>
+
+                                            <div class="form-group col-md-12 mb-3">
+                                        <label for="leavetype">Leave Type</label>
+                                        <select name="leavetype"
+                                                class="form-control d-block w-100 {{ $errors->has('leavetype') ? 'is-invalid' : '' }}"
+                                                id="leavetype"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Leave\Leavetype::All() as $leavetype)
+                                                <option value="{{ $leavetype->id }}" {{ old("leavetype") == $leavetype->id ? "selected" : "" }}>
+                                                    {{ $leavetype->name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                         @if ($errors->has('leavetype'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('leavetype') }}</strong>
+                                                        </span>
+                                                    @endif
+                      
+                                </div>
+
+                                   <hr>
+
+                                            <div class="form-group col-md-12 mb-3">
+                                        <label for="level">Level</label>
+                                        <select name="level"
+                                                class="form-control d-block w-100 {{ $errors->has('level') ? 'is-invalid' : '' }}"
+                                                id="level"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Leave\leaveapprovallevel::All() as $level)
+                                                <option value="{{ $level->id }}" {{ old("level") == $level->id ? "selected" : "" }}>
+                                                    {{ $level->name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                         @if ($errors->has('level'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('level') }}</strong>
+                                                        </span>
+                                                    @endif
+                      
+                                </div>
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">
                                     Add Approver
                                 </button>
@@ -140,7 +185,8 @@
                                             <tr>
                                                
                                                 <th>Approver Name</th>
-                                                 
+                                                <th>Leave Type</th>
+                                                <th>Leave Type</th>
                                                 <th>Actions</th>
                                             
                                             </tr>
@@ -158,6 +204,10 @@
                                                       {{ $leave->approvername->full_name}} 
                                                     </a>
                                                 </td>
+                                                <td>
+                                               {{ optional($leave->leavetype)->name }}
+                                                </td>
+                                                
                                                  
                                                  <td class="align-middle text-right">
                                                     @can("view", \App\Models\leave\leaveapprover::class)

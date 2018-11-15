@@ -16,9 +16,11 @@ class CreateLeaveEmployeeApproversTable extends Migration
         Schema::create('leave_employee_approvers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('approver_id');
+            $table->integer('approver');
             $table->integer('employee_id');
             $table->integer('leavetype_id');
             $table->integer('level_id');
+            $table->integer('active');
             $table->integer('creator_id');
             $table->timestamps();
         });
