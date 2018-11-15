@@ -40,6 +40,8 @@
     <!-- BEGIN THEME STYLES -->
     <link rel="stylesheet" href="{{ asset("themes/looper/assets/stylesheets/main.min.css") }}">
     <link rel="stylesheet" href="{{ asset("themes/looper/assets/stylesheets/custom.css") }}">
+
+
     <!-- END THEME STYLES -->
 </head>
 <body>
@@ -113,6 +115,18 @@
     <script src="{{ asset("themes/looper/assets/javascript/pages/uploader-demo.js") }}"></script>
     <script src="{{ asset("themes/looper/assets/javascript/pages/slider-demo.js") }}"></script>
     <script src="{{ asset("themes/looper/assets/javascript/pages/spinner-demo.js") }}"></script>
+
+
+
+      <script src="{{ asset("themes/looper/assets/vendor/stacked-menu/stacked-menu.min.js") }}"></script>
+    <script src="{{ asset("themes/looper/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js") }}"></script>
+    <script src="{{ asset("themes/looper/assets/vendor/sortablejs/Sortable.min.js") }}"></script>
+    <script src="{{ asset("themes/looper/assets/vendor/nestable2/jquery.nestable.min.js") }}"></script>
+
+        <script src="{{ asset("themes/looper/assets/javascript/main.min.js") }}"></script>
+    <!-- END THEME JS -->
+    <!-- BEGIN PAGE LEVEL JS -->
+    <script src="{{ asset("themes/looper/assets/javascript/pages/sortable-nestable-demo.js") }}"></script>
     <!-- END PAGE LEVEL JS -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>

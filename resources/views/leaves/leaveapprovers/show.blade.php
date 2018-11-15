@@ -1,61 +1,101 @@
 @extends("layouts.master")
 
 @section("content")
-<div class="wrapper">
-    <div class="page">
-        <div class="sidebar-backdrop"></div>
-        <!-- .page-cover -->
-       
-        <div class="wrapper">
-            <div class="page">
-                <div class="page-inner">
-                    <header class="page-title-bar">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="{{ url("home") }}">
-                                        <i class="breadcrumb-icon fa fa-angle-left mr-2"></i> Dashboard
-                                    </a>
-                                </li>
-                                <li class="breadcrumb-item active">
-                                    leaveapprovers
-                                </li>
-                            </ol>
-                        </nav>
-                        <div class="d-sm-flex align-items-sm-center">
-                          
-                          
-                        </div>
-                    </header>
-       
-
-                <!-- .card -->
-                <div class="card card-fluid">
-                    <header class="card-header d-flex align-items-center">
-                        <span class="mr-auto">Approver:{{$leaveapprover->approvername->full_name}}</span>
-                        <!-- .card-header-control -->
-                        <div class="card-header-control font-weight-normal">
-                            <!-- .dropdown -->
-                       
-                    </header>
-                    <!-- grid row -->
-                    <div class="row no-gutters">
-                        <!-- grid column -->
-                        <div class="col-lg-8 order-lg-4">
-                            <!-- .card-body -->
-                            <div class="card-body border-left"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                                <canvas id="canvas-achievement" class="chartjs chartjs-render-monitor" width="600" height="250" style="display: block; width: 600px; height: 250px;"></canvas>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-
-
-                     
+  <div class="section-block">
+                  <h2 class="section-title"> Approver:{{$leaveapprover->approvername->full_name}}</h2>
+                  <p class="text-muted"> Tick to migrate employee </p>
                 </div>
-
-
+                <!-- /.section-block -->
+                <!-- grid row -->
+                <div class="row">
+                  <!-- grid column -->
+                  <div class="col-lg-6">
+                    <!-- .card -->
+                    <section class="card card-fluid">
+                      <header class="card-header border-bottom-0"> Employee List </header>
+                      <!-- .nestable -->
+                      <div id="nestable01" class="dd">
+                        <!-- .dd-list -->
+                        <ol class="dd-list">
+                            @foreach(\App\Employee::latest()->get() as $employee)
+                          <li class="dd-item" data-id="{{$employee->id}}">
+                            <div class="dd-handle">
+                              <span class="drag-indicator"></span>
+                              <div> {{$employee->full_name}} </div>
+                              <div class="dd-nodrag btn-group ml-auto">
+                                <button class="btn btn-sm btn-secondary">asign</button>
+                                
+                              </div>
+                            </div>
+                          </li>
+                          @endforeach
+                                                
+                        </ol>
+                        <!-- /.dd-list -->
+                      </div>
+                      <!-- /.nestable -->
+                      <!-- .card-footer -->
+                      <footer class="card-footer bg-light">
+                        <a href="#" class="card-footer-item justify-content-start">
+                          <span>
+                            <i class="fa fa-plus-circle mr-1"></i> Asign All checked</span>
+                        </a>
+                      </footer>
+                      <!-- /.card-footer -->
+                    </section>
+                    <!-- /.card -->
+                  </div>
+                  <!-- /grid column -->
+                  <!-- grid column -->
+                  <div class="col-lg-6">
+                    <!-- .card -->
+                    <section class="card card-fluid">
+                      <header class="card-header border-bottom-0"> Allocated Employees </header>
+                      <!-- .nestable -->
+                      <div id="nestable02" class="dd">
+                        <!-- .dd-list -->
+                        <ol class="dd-list">
+                            @foreach(\App\Models\Leave\leaveEmployeeApprover::latest()->get() as $employee)
+                            
+                          <li class="dd-item" data-id="{{$employee->id}}">
+                            <div class="dd-handle">
+                              <span class="drag-indicator"></span>
+                              <div> {{$employee->employee->full_name}} </div>
+                              <div class="dd-nodrag btn-group ml-auto">
+                               
+                                <button class="btn btn-sm btn-secondary">
+                                  <i class="far fa-trash-alt"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </li>
+                          @endforeach
+                        
+                        </ol>
+                        <!-- /.dd-list -->
+                      </div>
+                      <!-- /.nestable -->
+                      <!-- .card-footer -->
+                      <footer class="card-footer bg-light">
+                        <a href="#" class="card-footer-item justify-content-start">
+                          <span>
+                            <i class="fa fa-plus-circle mr-1"></i> Remove All</span>
+                        </a>
+                      </footer>
+                      <!-- /.card-footer -->
+                    </section>
+                    <!-- /.card -->
+                  </div>
+                  <!-- /grid column -->
+                </div>
+                <!-- /grid row -->
+                <!-- .section-block -->
+                <div class="section-block"> <pre id="nestableOutput"></pre> </div>
+                <!-- /.section-block -->
+              </div>
+              <!-- /.page-section -->
             </div>
-        </div>
-    </div>
-</div>
+            <!-- /.page-inner -->
+          </div>
+          <!-- /.p
 @endsection
