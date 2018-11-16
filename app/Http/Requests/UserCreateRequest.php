@@ -25,13 +25,9 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            "first_name" => "required",
-            "last_name" => "required",
+            
             "email" => "required|email|unique:users",
             "phone" => "required",
-            "country" => "required",
-            "gender" => ["required", Rule::in(["male","female"])],
-            "birthday" => "required",
             "roles" => "required|array",
             "roles.*" => "required|exists:roles,name",
         ];

@@ -8,6 +8,7 @@ use App\User;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Events\UserRegistered;
+use App\Employee;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserEditRequest;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -55,22 +56,37 @@ class UsersController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function store(UserCreateRequest $request)
+    public function store(Request $request)
     {
         $this->authorize("create", User::class);
 
+ 
+
+
+        $this->validate($request, [
+            "email" => "required|email|unique:users",
+            "password" => "required",
+            "employee" =>"required",
+            "roles" => "required|array",
+            "roles.*" => "required|exists:roles,name",
+        ]);
+        $employee=Employee::where('id',request('employee'))->firstOrFail();
+        $password=request('password');
+
         $user = User::create([
-            "first_name" => request("first_name"),
-            "last_name" => request("last_name"),
+            "first_name" => $employee->first_name,
+            "last_name" => $employee->last_name,
             "email" => request("email"),
-            "phone" => request("phone"),
-            "country" => request("country"),
-            "gender" => request("gender"),
-            "birthday" => request("birthday"),
-            "password" => $password = str_random(6),
+            "employee_id" =>request('employee'),
+            "phone" => $employee->phone,
+            "country" => $employee->country,
+            "gender" => $employee->gender,
+            "birthday" => $employee->birthday,
+            "manager"  =>request('manager'),
+            "password" => $password,
             "creator_id" => auth()->id(),
         ]);
-
+/*
         $user->address()->create([
             "street" => request("street"),
             "address" => request("address", ""),
@@ -78,12 +94,13 @@ class UsersController extends Controller
             "country" => request("country"),
             "postal_code" => request("postal_code"),
         ]);
+        */
 
         foreach (request("roles") as $role) {
             $user->assign($role);
         }
 
-        event(new UserRegistered($user, $password));
+       // event(new UserRegistered($user, $password));
 
         return redirect()->route("users.index");
     }
@@ -96,28 +113,36 @@ class UsersController extends Controller
         ]);
     }
 
-    public function update(UserEditRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
         $this->validate($request, [
-            "first_name" => "required",
-            "last_name" => "required",
+                     
+            "employee" => "required",
             "email" => "required|email",
-            "phone" => "required",
-            "country" => "required",
-            "gender" => ["required", Rule::in(["male","female"])],
-            "birthday" => "required",
+            "roles" => "required|array",
+            "roles.*" => "required|exists:roles,name",          
         ]);
-
-        $user->update([
-            "first_name" => request("first_name"),
-            "last_name" => request("last_name"),
+          if(empty(request('password')))
+                    {
+              $user->update([            
             "email" => request("email"),
-            "phone" => request("phone"),
-            "country" => request("country"),
-            "gender" => request("gender"),
-            "birthday" => request("birthday"),
-        ]);
+            "employee_id" => request("employee"),
+            "manager"     =>request("manager"),
+            
+                   ]);
+          }
 
+          else
+          {
+              $user->update([
+            "email" => request("email"),
+            "employee_id" => request("employee"),
+            "password" => request("password"),
+            "manager"     =>request("manager"),
+        ]);
+          }
+          /*
+      
         if ($user->address()->exists()){
             $user->address()->update([
                 "street" => request("street", optional($user->address)->street),
@@ -134,7 +159,7 @@ class UsersController extends Controller
                 "country" => request("country"),
                 "postal_code" => request("postal_code"),
             ]);
-        }
+        } */
        
  foreach (request("roles") as $role) {
             $user->assign($role);

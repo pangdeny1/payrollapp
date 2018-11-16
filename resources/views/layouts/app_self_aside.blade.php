@@ -47,7 +47,7 @@
                     </a>
 
                     <hr>
-@if(auth()->user()->manager=="yes")
+
                     <div class="menu-header">Employees</div>
                     <a href="{{ route("employees.index")}}" class="menu-link mb-2">
                         <i class="fas fa-user-friends text-muted mr-2"></i>
@@ -61,62 +61,17 @@
                         <span class="menu-text">Register new</span>
                     </a>
                     @endcan
-                    <hr>
-                    <div class="menu-header">Payroll</div>
-                    <a href="{{url('viewpayrollperiods')}}" class="menu-link mb-2">
-                        <i class="fa fa-paypal" aria-hidden="true"></i>
-                        <span class="menu-text">Browse a list</span>
-                    </a>
-
-                    @can("create", \App\Farmer::class)
-                    <a href="{{url('createpayrollperiod')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Register new</span>
-                    </a>
-                     <a href="{{url('viewotherincomes')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Incomes</span>
-                    </a>
-                     <a href="{{url('viewotherdeductions')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Deductions</span>
-                    </a>
-                     <a href="{{url('viewloans')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Loans</span>
-                    </a>
-                    
-                    @endcan
-
+                  
 
 
                     <hr>
 
-                     <div class="menu-header">Leave</div>
-                    <a href="{{ route("leaves.index") }}" class="menu-link mb-2">
-                        <i class="fa fa-paypal" aria-hidden="true"></i>
-                        <span class="menu-text">Browse Leave forms</span>
-                    </a>
-                     <a href="{{ route("leaves.create") }}" class="menu-link mb-2">
-                        <i class="fa fa-paypal" aria-hidden="true"></i>
-                        <span class="menu-text">New Leave form</span>
-                    </a>
-                     <a href="{{ route("approvals.index") }}" class="menu-link mb-2">
-                        <i class="fa fa-paypal" aria-hidden="true"></i>
-                        <span class="menu-text">Proces Leave</span>
-                    </a>
-
-                    <div class="menu-header">Reports</div>
-                    <a href="{{url('payslipform')}}" class="menu-link mb-2">
-                        <i class="fas fa-chart-line text-muted mr-2"></i>
-                        <span class="menu-text">Payslip</span>
                     </a>
                     <a href="{{ route("payrolls.reports", ["period" => "daily"]) }}" class="menu-link mb-2">
                         <i class="far fa-chart-bar text-muted mr-2"></i>
                         <span class="menu-text">Payrolls Reports</span>
                     </a>
                 </nav>
-                 @endif
             </nav>
         </section>
     </div>

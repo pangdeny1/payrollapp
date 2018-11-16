@@ -222,7 +222,7 @@
                 <!-- /.nav-item -->
                 <!-- .nav-item -->
 
-                 @if(auth()->user()->manager=="yes")
+                
 
                     <li class="nav-item dropdown header-nav-dropdown">
                         <a class="nav-link"
@@ -237,7 +237,6 @@
                         
                         <div class="dropdown-arrow"></div>
                         <div class="dropdown-menu">
-                         
                         <!--    @can("view", \App\Models\Prlothinctype::class)
                             <a href="{{ url('incomestypes')}}" class="dropdown-item ">
                                 <i class="fas fa-tree"></i> Incomes types
@@ -307,8 +306,6 @@
                             @endcan
                           -->
 
-                          
-
                               @can("view", \App\Models\Leave\Leavebalance::class)
                             <a href="{{ url('viewleavebalances') }}" class="dropdown-item ">
                                 <i class="fas fa-users"></i> Leave Balances
@@ -333,8 +330,6 @@
                             </a>
                             @endcan
 
-
-
                            @can("view", \App\User::class)
                             <a href="{{ route("users.index") }}" class="dropdown-item ">
                                 <i class="fas fa-users"></i> Users
@@ -347,7 +342,6 @@
                             </a>
                             @endcan
                         </div>
-                         
 
 
                     </li>
@@ -361,7 +355,6 @@
                     <!-- .dropdown-sheets -->
                     <div class="dropdown-sheets">
                       <!-- .dropdown-sheet-item -->
-
                       <div class="dropdown-sheet-item">
                         <a href="{{ route("roles.index") }}" class="tile-wrapper">
                           <span class="tile tile-lg bg-indigo">
@@ -410,7 +403,6 @@
                           <span class="tile-peek">Files</span>
                         </a>
                       </div>
-
                       <!-- /.dropdown-sheet-item -->
                     </div>
                     <!-- .dropdown-sheets -->
@@ -418,7 +410,6 @@
                   <!-- .dropdown-menu -->
                 </li>
                 <!-- /.nav-item -->
-                 @endif
               </ul>
               <!-- /.nav -->
               <!-- .btn-account -->

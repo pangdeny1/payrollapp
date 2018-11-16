@@ -48,10 +48,19 @@
 <!-- .app -->
 <div id="app">
     <!-- .app-header -->
+    
     @include('layouts.app_header')
 
     <!-- .app-aside -->
     @include('layouts.app_aside')
+}
+    
+
+
+
+   
+
+    
 
     <!-- .app-main -->
     <main class="app-main">

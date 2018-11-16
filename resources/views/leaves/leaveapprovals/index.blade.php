@@ -88,12 +88,12 @@
                                             @foreach($leaveapprovals as $leave)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ url("leaveapprovals.show", $leave) }}" class="user-avatar mr-1">
+                                                    <a href="" class="user-avatar mr-1">
                                                         <img class="img-fluid"
-                                                             src="{{ Avatar::create($leave->name)->toBase64() }}"
-                                                             alt="{{ $leave->name}}">
+                                                             src="{{ Avatar::create($leave->employee->full_name)->toBase64() }}"
+                                                             alt="{{ $leave->employee->full_name}}">
                                                     </a>
-                                                    <a href="{{ url("showleaveapproval", $leave->id) }}">
+                                                    <a href="">
                                                       {{ $leave->employee->full_name }} 
                                                     </a>
                                                 </td>

@@ -7,6 +7,7 @@ use App\Models\Leave\Leave;
 use App\Models\Leave\Leavebalance;
 use App\Models\Leave\LeaveEmployeeApprover;
 use App\Models\Leave\Leaveapprovals;
+use App\Models\Notification\Emailnotification;
 use DB;
 use App\Http\Controllers\Controller;
 
@@ -110,6 +111,12 @@ class LeavesController extends Controller
                        }
 
               DB::table('leaveapprovals')->insert($inserts);
+
+              $notification=Emailnotification::create(
+                ['body'=>"Please Approve Employee Leave",
+                'sendto'=>'17',
+                'email'=>'pangdeny@gmail.com',
+                'sender'=>request('employee')]);
 
                
         return redirect()->route("leaves.index")->with('success', "Successfully requested a Leave");

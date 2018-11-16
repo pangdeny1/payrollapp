@@ -28,55 +28,7 @@
                                     Basic information
                                 </header>
                                 <div class="card-body">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="first_name">First name</label>
-                                            <input type="text"
-                                                   name="first_name"
-                                                   id="first_name"
-                                                   class="form-control {{ $errors->has('first_name') ? 'is-invalid' : '' }}"
-                                                   value="{{ old("first_name", $user->first_name) }}"
-                                                   placeholder="First name..."
-                                            >
-                                            @if ($errors->has('first_name'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('first_name') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="last_name">Last name</label>
-                                            <input type="text"
-                                                   name="last_name"
-                                                   id="last_name"
-                                                   class="form-control {{ $errors->has('last_name') ? 'is-invalid' : '' }}"
-                                                   value="{{ old("last_name", $user->last_name) }}"
-                                                   placeholder="Last name..."
-                                            >
-                                            @if ($errors->has('last_name'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('last_name') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="phone">Phone number</label>
-                                            <input type="text"
-                                                   name="phone"
-                                                   id="phone"
-                                                   class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
-                                                   value="{{ old("phone", $user->phone) }}"
-                                                   placeholder="Phone number..."
-                                            >
-                                            @if ($errors->has('phone'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('phone') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
+                                
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="email">
@@ -86,7 +38,7 @@
                                                    name="email"
                                                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
                                                    id="email"
-                                                   value="{{ old("email", $user->email) }}"
+                                                   value="{{ old("email",$user->email) }}"
                                                    placeholder="you@example.com"
                                             >
                                             @if ($errors->has('email'))
@@ -96,64 +48,86 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="birthday">
-                                                Birthday
-                                                <span class="badge badge-secondary">
-                                                    <em>Optional</em>
-                                                </span>
+
+                                      <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="email">
+                                                Password
                                             </label>
-                                            <input type="date"
-                                                   name="birthday"
-                                                   id="birthday"
-                                                   class="form-control {{ $errors->has('birthday') ? 'is-invalid' : '' }}"
-                                                   value="{{ old("birthday", $user->birthday) }}"
-                                                   placeholder="Phone number..."
+                                            <input type="text"
+                                                   name="password"
+                                                   class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                                                   id="password"
+                                                   value="{{ old("password") }}"
+
+
+                                                   
                                             >
-                                            @if ($errors->has('birthday'))
+                                            @if ($errors->has('password'))
                                                 <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('birthday') }}</strong>
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+
+                                <div class="form-group col-md-12 mb-3">
+                                        <label for="employee">Employee</label>
+                                        <select name="employee"
+                                                class="form-control d-block w-100 {{ $errors->has('employee') ? 'is-invalid' : '' }}"
+                                                id="employee"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Employee::where('active','yes')->get() as $employee)
+                                            
+                                                <option value="{{ $employee->id }}" {{ old("employee",$user->employee_id) == $employee->id ? "selected" : "" }}>
+                                                    {{ $employee->first_name }} {{ $employee->last_name }} 
+                                                </option>
+                                                
+                                            @endforeach
+                                        </select>
+
+                                           @if ($errors->has('employee'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('employee') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
 
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label class="d-block">Gender identity</label>
+ </div>
+                                   <div class="form-group col-md-12 mb-3">
+                                            <label class="d-block">Manager ?</label>
                                             <div class="custom-control custom-control-inline custom-radio">
                                                 <input type="radio"
                                                        class="custom-control-input"
-                                                       name="gender"
-                                                       id="female"
-                                                       {{ old("gender", $user->gender) === "female" ? "checked" : "" }}
-                                                       value="female"
+                                                       name="manager"
+                                                       id="yes"
+                                                       {{ old("manager", $user->manager) === "yes" ? "checked" : "" }}
+                                                       value="yes"
                                                 >
-                                                <label class="custom-control-label" for="female">Female</label>
+                                                <label class="custom-control-label" for="yes">yes</label>
                                             </div>
                                             <div class="custom-control custom-control-inline custom-radio">
                                                 <input type="radio"
                                                        class="custom-control-input"
-                                                       name="gender"
-                                                       {{ old("gender", $user->gender) === "male" ? "checked" : "" }}
-                                                       id="male"
-                                                       value="male"
+                                                       name="manager"
+                                                       {{ old("manager", $user->manager) === "no" ? "checked" : "" }}
+                                                       id="no"
+                                                       value="no"
                                                 >
-                                                <label class="custom-control-label" for="male">Male</label>
+                                                <label class="custom-control-label" for="no">no</label>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                  <hr class="mb-4">
-                                <header class="card-header border-bottom-0">
-                                    Roles Information
-                                </header>
+                                
+                                        
+                               
                                 <div class="card-body">
                                     <roles-picker inline-template>
                                         <div>
                                             <div class="form-row mb-4">
-                                                <div class="form-group col-md-9">
+                                               <div class="form-group col-md-12">
                                                     <label for="roles">Roles</label>
                                                     <select id="roles"
                                                             class="form-control {{ $errors->has('roles') ? 'is-invalid' : '' }}"
@@ -196,92 +170,8 @@
                                 </div>
                                 <hr class="mb-4">
 
-                                <header class="card-header border-bottom-0">
-                                    Address information
-                                </header>
-                                <div class="card-body">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="street">Street address</label>
-                                            <input type="text"
-                                                   name="street"
-                                                   class="form-control {{ $errors->has('street') ? 'is-invalid' : '' }}"
-                                                   id="street"
-                                                   value="{{ old("street", optional($user->address)->street) }}"
-                                                   placeholder="1234 Main St"
-                                            >
-                                            @if ($errors->has('street'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('street') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="address">
-                                                Address 2
-                                                <span class="badge badge-secondary">
-                                                    <em>Optional</em>
-                                                </span>
-                                            </label>
-                                            <input type="text"
-                                                   name="address"
-                                                   class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
-                                                   id="address"
-                                                   placeholder="Apartment or suite"
-                                                   value="{{ old("address", optional($user->address)->address) }}"
-                                            >
-                                            @if ($errors->has('address'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('address') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-5 mb-3">
-                                            <label for="country">Country</label>
-                                            <select name="country"
-                                                    class="custom-select d-block w-100"
-                                                    id="country"
-                                            >
-                                                <option value="Tanzania">Tanzania</option>
-                                            </select>
-                                            <div class="invalid-feedback"> Please select a valid country. </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="state">State</label>
-                                            <select name="state"
-                                                    class="custom-select d-block w-100"
-                                                    id="state"
-                                                    required=""
-                                            >
-                                                <option value=""> Choose... </option>
-                                                @foreach($states as $key => $state)
-                                                    <option name="{{ $state["name"] }}" {{ old("state", optional($user->address)->state) === $state["name"] ? "selected" : "" }}>
-                                                        {{ $state["name"] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            <div class="invalid-feedback"> Please provide a valid state. </div>
-                                        </div>
-                                        <div class="col-md-3 mb-3">
-                                            <label for="postal_code">Zip</label>
-                                            <input type="text"
-                                                   name="postal_code"
-                                                   class="form-control {{ $errors->has('postal_code') ? 'is-invalid' : '' }}"
-                                                   id="postal_code"
-                                                   value="{{ old("postal_code", optional($user->address)->postal_code) }}"
-                                            >
-                                            @if ($errors->has('postal_code'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('postal_code') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <hr class="mb-4">
+                     
+                                
                                     <button type="submit" class="btn btn-primary btn-lg btn-block">
                                         Save changes
                                     </button>
