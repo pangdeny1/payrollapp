@@ -25,6 +25,10 @@ class CreateLeaveapprovalsTable extends Migration
 
             $table->integer('leavetype_id');
             $table->integer('employee_id');
+            $table->integer('approver');
+            $table->integer('approver_id');
+            $table->integer('priority');
+            $table->integer('level_id');
             $table->integer('action_by');
             $table->integer('creator_id');
             $table->string('comment');

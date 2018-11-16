@@ -35,7 +35,7 @@
                                                 required=""
                                         >
                                             <option value=""> Choose... </option>
-                                            @foreach(\App\Employee::All() as $employee)
+                                            @foreach(\App\Employee::where('active','yes')->get() as $employee)
                                                 <option value="{{ $employee->id }}" {{ old("employee") == $employee->id ? "selected" : "" }}>
                                                     {{ $employee->first_name }} {{ $employee->last_name }} 
                                                 </option>
@@ -109,6 +109,59 @@
                         <!-- /grid column -->
                       </div>
                       <!-- /.form-row -->
+
+
+                              <div class="card-body">
+                             
+
+                                    <div class="form-row">
+                        <!-- grid column -->
+                        <div class="col-md-5 mb-3">
+                         <label for="last_name">Allocated Days</label>
+                                <input id="allocated_days"  type="text" name="allocated_days" onchange="calc()"
+                             class="form-control {{ $errors->has('allocated_days') ? 'is-invalid' : '' }}"
+                              value="{{old('allocated_days')}}">
+
+                                @if ($errors->has('allocated_days'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('allocated_days') }}</strong>
+                                    </span>
+                                @endif  
+                          
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                        <div class="col-md-4 mb-3">
+                         <label for="last_name">Days Spent</label>
+                                  <input  id="days_spent" type="text" name="days_spent" onchange="calc()" 
+                                   class="form-control {{ $errors->has('days_spent') ? 'is-invalid' : '' }}"
+                                  value="{{old('days_spent')}}">
+
+                                @if ($errors->has('days_spent'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('days_spent') }}</strong>
+                                    </span>
+                                @endif
+                         
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                         <div class="col-md-3 mb-3">
+                          <label for="balance">Balance</label>
+                          <input type="text" name="balance" class="form-control {{ $errors->has('balance') ? 'is-invalid' : '' }}" id="balance" value="{{old('balance')}}" readonly required="">
+                          @if ($errors->has('duration'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('balance') }}</strong>
+                                    </span>
+                                @endif
+                          <div class="invalid-feedback"> </div>
+                        </div>
+                        <!-- /grid column -->
+                      </div>
+                      <!-- /.form-row -->
+
+                     
+                        <!-- /grid column -->
                       <hr class="mb-4">
                            <div class="form-group">
                           <label class="d-flex justify-content-between" for="lbl4">
@@ -172,6 +225,22 @@
         function cal(){
         if(document.getElementById("start_date")){
             document.getElementById("duration").value=GetDays();
+        }  
+    }
+
+    </script>
+
+
+  <script type="text/javascript">
+        function GetBalance(){
+                var allocated = document.getElementById("allocated_days").value;
+                var spent = document.getElementById("days_spent").value;
+                return parseInt(allocated - spent);
+        }
+
+        function calc(){
+        if(document.getElementById("allocated_days")){
+            document.getElementById("balance").value=GetBalance();
         }  
     }
 

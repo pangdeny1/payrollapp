@@ -95,7 +95,15 @@
                      <div class="menu-header">Leave</div>
                     <a href="{{ route("leaves.index") }}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
-                        <span class="menu-text">Browse a list</span>
+                        <span class="menu-text">Browse Leave forms</span>
+                    </a>
+                     <a href="{{ route("leaves.create") }}" class="menu-link mb-2">
+                        <i class="fa fa-paypal" aria-hidden="true"></i>
+                        <span class="menu-text">New Leave form</span>
+                    </a>
+                     <a href="{{ route("approvals.index") }}" class="menu-link mb-2">
+                        <i class="fa fa-paypal" aria-hidden="true"></i>
+                        <span class="menu-text">Proces Leave</span>
                     </a>
 
                     <div class="menu-header">Reports</div>

@@ -76,6 +76,7 @@ class LeaveApproversController extends Controller
             "creator_id" => auth()->id(),
         ]);
 
+
                
         return redirect()->back()->with('success', "Leave approver Added");
     }
@@ -86,7 +87,7 @@ class LeaveApproversController extends Controller
        $leaveapprover=Leaveapprover::findOrFail($leaveapprover);
 
         return view("leaves.leaveapprovers.edit", [
-            "leave" =>$leaveapprover,
+            "leaveapprover" =>$leaveapprover,
            
            
         ]);
@@ -97,11 +98,10 @@ class LeaveApproversController extends Controller
     {
         $this->authorize("update", Leaveapprover::class);
          $this->validate($request, [
-            "remark" => "required",
-            "employee" => "required",
-            "leavetype" => "required",
-            "start_date" => "required",
-            "end_date" => "required|date|after_or_equal:start_date",         
+           
+            "approver" => "required",
+              "leavetype" => "required",
+                "level" => "required",     
         ]);
 /*
         $leaveapprover->update([
@@ -115,25 +115,17 @@ class LeaveApproversController extends Controller
 
  $leaveapprover=Leaveapprover::where('id',$leaveapprover)->firstOrFail();
 
-             $leaveapprover->start_date= request("start_date");
-             $leaveapprover->end_date = request("end_date");
-             $leaveapprover->employee_id = request("employee");
-             $leaveapprover->reason_for_leave = request("remark");
+             $leaveapprover->approver= request("approver");
              $leaveapprover->leavetype_id = request("leavetype");
-             $leaveapprover->total_days  =request("duration");
-             $leaveapprover->working_days =request("working_days");
-             $leaveapprover->holiday_days=request("holiday_days");
+             $leaveapprover->level_id = request("level");
+
              $leaveapprover->save();
 
       
-        return redirect()->route("leaves.leaveapprovers.index");
-        //return redirect()->back();
+        return redirect("viewleaveapprovers")->with('status',"Approver Updated Successfully");
+       
     }
-    /**
-     * @param Leave $leaveapprover
-     * @return View
-     * @throws AuthorizationException
-     */
+
     public function show($leaveapprover)
     {
         $this->authorize("view" ,Leaveapprover::class);

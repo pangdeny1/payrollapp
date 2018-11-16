@@ -186,7 +186,7 @@
                                                
                                                 <th>Approver Name</th>
                                                 <th>Leave Type</th>
-                                                <th>Leave Type</th>
+                                                <th>Level</th>
                                                 <th>Actions</th>
                                             
                                             </tr>
@@ -208,6 +208,11 @@
                                                {{ optional($leave->leavetype)->name }}
                                                 </td>
                                                 
+                                                  <td>
+                                               {{ optional($leave->approverlevel)->name }}
+ 
+                                               
+                                                </td>
                                                  
                                                  <td class="align-middle text-right">
                                                     @can("view", \App\Models\leave\leaveapprover::class)

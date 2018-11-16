@@ -10,7 +10,7 @@ class Leavebalance extends Model
         protected $guarded = [];
         protected $fillable = [
           
-           'id','start_date','end_date','days','employee_id','leavetype_id','user_id','manager_id','status','creator_id','created_at'
+           'id','start_date','end_date','days','employee_id','balance','allocated_days','days_spent','leavetype_id','user_id','manager_id','status','creator_id','created_at'
        
     ];
 

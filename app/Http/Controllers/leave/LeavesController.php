@@ -5,6 +5,9 @@ namespace App\Http\Controllers\leave;
 use Illuminate\Http\Request;
 use App\Models\Leave\Leave;
 use App\Models\Leave\Leavebalance;
+use App\Models\Leave\LeaveEmployeeApprover;
+use App\Models\Leave\Leaveapprovals;
+use DB;
 use App\Http\Controllers\Controller;
 
 class LeavesController extends Controller
@@ -64,14 +67,21 @@ class LeavesController extends Controller
             "duration" => "required|integer|min:1",
             
         ]);
+          $employee_approvers=leaveEmployeeApprover::where("employee_id",request('employee'))->where('active',1)->orderBy('level_id')->get();
           $employee_balance=Leavebalance::where('employee_id',request('employee'))->firstOrFail();
-          if($employee_balance->days < request('duration'))
+          if($employee_balance->balance < request('duration'))
           {
           	return redirect()->back()->with('status_error', 'Insufficient leave days');
           }
-
+          if($employee_approvers->count() <1)
+          {
+           return redirect()->back()->with('status_error', 'No Leave Approver Asigned to Employee for this Leave type'); 
+          }
+          
+          $formnumber=Leave::count();
 
         $leave = Leave::create([
+            "id"=>$formnumber,
             "start_date" => request("start_date"),
             "end_date" => request("end_date"),
             "employee_id" => request("employee"),
@@ -82,6 +92,24 @@ class LeavesController extends Controller
             "holiday_days"=>request("holiday_days"),
             "creator_id" => auth()->id(),
         ]);
+
+
+
+        $priority=0;
+        foreach($employee_approvers as $approver) {
+            $priority++;
+                  $inserts[] = [ 'employee_id' => $approver->employee_id,
+                                 'leavetype_id' => request("leavetype"),
+                                 'request_id' => $formnumber,
+                                 'priority'   =>$priority,
+                                 'level_id'   =>$approver->level_id,
+                                 'approver'   =>$approver->approver,
+                                 'approver_id'=>$approver->approver_id,
+                                 "creator_id" => auth()->id()
+                               ]; 
+                       }
+
+              DB::table('leaveapprovals')->insert($inserts);
 
                
         return redirect()->route("leaves.index")->with('success', "Successfully requested a Leave");

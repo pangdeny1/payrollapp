@@ -31,4 +31,9 @@ class leaveapprover extends Model
     {
         return $this->belongsTo("App\Models\Leave\Leavetype","leavetype_id");
     }
+
+       public function approverlevel()
+    {
+        return $this->belongsTo("App\Models\Leave\leaveapprovallevel","level_id");
+    }
 }

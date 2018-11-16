@@ -20,6 +20,9 @@ class CreateLeavebalancesTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('days');
+            $table->integer('allocated_days');
+            $table->integer('days_spent');
+            $table->integer('balance');
             $table->integer("creator_id");
             $table->timestamps();
         });

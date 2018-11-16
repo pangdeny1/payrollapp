@@ -25,4 +25,6 @@ class Leave extends Model
     {
         return $this->belongsTo("App\Models\Leave\Leavetype","leavetype_id");
     }
+
+   
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Leave\Leavebalance;
 use App\Mailers\AppMailer;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 
 class LeaveBalanceController extends Controller
 {
@@ -48,6 +49,8 @@ class LeaveBalanceController extends Controller
             'leavetype'  =>"required",
             "end_date" => "required",
             "duration" => "required|integer|min:364|max:365",
+            "balance"  =>'required',
+            "allocated_days"  =>'required',
             
         ]);
        
@@ -57,6 +60,9 @@ class LeaveBalanceController extends Controller
             "employee_id" => request("employee"),
             "leavetype_id" =>request("leavetype"),
             "days" =>request("duration"),
+            "balance"=>request("balance"),
+            "allocated_days"=>request("allocated_days"),
+            "days_spent"    =>request("days_spent"),
             "creator_id" => auth()->id(),
         ]);
 
@@ -100,6 +106,7 @@ class LeaveBalanceController extends Controller
             "start_date" => "required",
             "end_date" => "required",
             "duration" => "required|integer|min:364|max:365",
+            "balance"  =>"required",
             
         ]);
        
@@ -112,19 +119,20 @@ class LeaveBalanceController extends Controller
             $leavebalance->employee_id=request("employee");
             $leavebalance->leavetype_id=request("leavetype");
             $leavebalance->days =request("duration");
-           
-             
-
-         $leavebalance->save();
+            $leavebalance->balance=request("balance");        
+             $leavebalance->days_spent=request("days_spent");
+             $leavebalance->allocated_days=request("allocated_days");
+             $leavebalance->save();
 
        // $mailer->sendTicketInformation(Auth::user(), $ticket);
-         $pagetitle="leavebalances";
+         //$pagetitle="leavebalances";
        
-         $leavebalances = Leavebalance::paginate(10);
+        // $leavebalances = Leavebalance::paginate(10);
 
-          return view('leaves.leavebalances.index', compact('pagetitle','leavebalances'))->with("status", "A leavebalance Title has been Updated.");
+          //return view('leaves.leavebalances.index', compact('pagetitle'))->with("status", "A leavebalance Title has been Updated.");
 
-       // return redirect()->back()->with("status", "A leavebalance Title has been Updated.");
+      // return redirect()->url('viewleavebalances')->with("status", "A leavebalance Title has been Updated.");
+       return redirect('viewleavebalances')->with("status", "A leavebalance Title has been Updated.");
     }
 
 

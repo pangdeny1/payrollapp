@@ -78,9 +78,11 @@
                                             <tr>
                                                <th>Employee</th>
                                                 <th>Leave type</th>
-                                                 <th>Start Date</th>
-                                                 <th>End Date</th>
-                                                <th>Days</th>
+                                                 <th>Circle Start</th>
+                                                 <th>Circle End</th>
+                                                <th>Allocated Days</th>
+                                                 <th>Days Spent</th>
+                                                  <th>Balance</th>
                                             
                                             </tr>
                                         </thead>
@@ -100,7 +102,9 @@
                                                  <td>{{ optional($leave->leavetype)->name }}</td>
                                                 <td >{{ $leave->start_date}}</td>
                                                 <td >{{ $leave->end_date}}</td>
-                                                <td >{{ $leave->days}}</td>
+                                                <td >{{ $leave->allocated_days}}</td>
+                                                 <td >{{ $leave->days_spent}}</td>
+                                                  <td >{{ $leave->balance}}</td>
                                                 
                                                 <td class="align-middle text-right">
                                                     @can("edit", \App\Models\leave\Leavebalance::class)

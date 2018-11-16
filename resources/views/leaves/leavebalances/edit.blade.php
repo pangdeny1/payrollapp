@@ -103,6 +103,55 @@
                         </div>
                         <!-- /grid column -->
                       </div>
+
+                 <div class="card-body">
+                             
+
+                                    <div class="form-row">
+                        <!-- grid column -->
+                        <div class="col-md-5 mb-3">
+                         <label for="last_name">Allocated Days</label>
+                                <input id="allocated_days"  type="text" name="allocated_days" onchange="calc()"
+                             class="form-control {{ $errors->has('allocated_days') ? 'is-invalid' : '' }}"
+                              value="{{old('allocated_days',$leavebalance->allocated_days)}}">
+
+                                @if ($errors->has('allocated_days'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('allocated_days') }}</strong>
+                                    </span>
+                                @endif  
+                          
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                        <div class="col-md-4 mb-3">
+                         <label for="last_name">Days Spent</label>
+                                  <input  id="days_spent" type="text" name="days_spent" onchange="calc()" 
+                                   class="form-control {{ $errors->has('days_spent') ? 'is-invalid' : '' }}"
+                                  value="{{old('days_spent',$leavebalance->days_spent)}}">
+
+                                @if ($errors->has('days_spent'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('days_spent') }}</strong>
+                                    </span>
+                                @endif
+                         
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                         <div class="col-md-3 mb-3">
+                          <label for="balance">Balance</label>
+                          <input type="text" name="balance" class="form-control {{ $errors->has('balance') ? 'is-invalid' : '' }}"
+                           id="balance" value="{{old('balance',$leavebalance->balance)}}" readonly required="">
+                          @if ($errors->has('duration'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('balance') }}</strong>
+                                    </span>
+                                @endif
+                          <div class="invalid-feedback"> </div>
+                        </div>
+                        <!-- /grid column -->
+                      </div>
                       <!-- /.form-row -->
                       <hr class="mb-4">
                            <div class="form-group">
@@ -153,6 +202,21 @@
         function cal(){
         if(document.getElementById("start_date")){
             document.getElementById("duration").value=GetDays();
+        }  
+    }
+
+    </script>
+
+     <script type="text/javascript">
+        function GetBalance(){
+                var allocated = document.getElementById("allocated_days").value;
+                var spent = document.getElementById("days_spent").value;
+                return parseInt(allocated - spent);
+        }
+
+        function calc(){
+        if(document.getElementById("allocated_days")){
+            document.getElementById("balance").value=GetBalance();
         }  
     }
 

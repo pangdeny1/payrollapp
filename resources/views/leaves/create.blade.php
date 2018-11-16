@@ -35,7 +35,7 @@
                                                 required=""
                                         >
                                             <option value=""> Choose... </option>
-                                            @foreach(\App\Employee::All() as $employee)
+                                            @foreach(\App\Employee::where('active','yes')->get() as $employee)
                                                 <option value="{{ $employee->id }}" {{ old("employee") == $employee->id ? "selected" : "" }}>
                                                     {{ $employee->first_name }} {{ $employee->last_name }} 
                                                 </option>

@@ -19,73 +19,98 @@
                 <div class="row">
                     <div class="col-md-12">
 
-                        <form action="{{ url("updateleaveapproval",$leaveapprovallevel->id) }}"
+                                                  <form action="{{ url("updateleaveapprover",$leaveapprover->id) }}"
                               method="post"
                               class="card border-0"
                         >
-                            @csrf
-                           @include('includes.flash')
-                            <div class="card-body">
-                              
-                                    
+                                            @csrf
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">Approver form</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="card-body">
+                                                 
 
-                                    <div class="form-row">
-                        <!-- grid column -->
-                        <div class="col-md-5 mb-3">
-                         <label for="last_name">Name</label>
-                                <input id="name"  type="text" name="name"
-                             class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                              value="{{old('name',$leaveapprovallevel->name)}}">
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif  
-                      
-                        </div>
-                        <!-- /grid column -->
-                        <!-- grid column -->
-                        <div class="col-md-4 mb-3">
-                         <label for="last_name">Priority</label>
-                                  <input  id="priority" type="number" name="priority"
-                                   class="form-control {{ $errors->has('priority') ? 'is-invalid' : '' }}"
-                                  value="{{old('priority',$leaveapprovallevel->priority)}}">
-
-                                @if ($errors->has('priority'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('priority') }}</strong>
-                                    </span>
-                                @endif
-                          
-                        </div>
-                      
-                        <!-- /grid column -->
-                      </div>
-                      <!-- /.form-row -->
-                      <hr class="mb-4">
-                           <div class="form-group">
-                          <label class="d-flex justify-content-between" for="lbl4">
-                            <span>Description</span>
-                            <span class="text-muted"></span>
-                          </label>
-                          <textarea name="remark"  class="form-control {{ $errors->has('remark') ? "is-invalid" : "" }}" id="lbl4" rows="3" placeholder=" description">
-                            {{old('remark',$leaveapprovallevel->desctription)}}</textarea>
-                            @if ($errors->has('remark'))
+                                               <div class="form-group col-md-12 mb-3">
+                                        <label for="employee">Approver</label>
+                                        <select name="approver"
+                                                class="form-control d-block w-100 {{ $errors->has('approver') ? 'is-invalid' : '' }}"
+                                                id="approver"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Employee::All() as $employee)
+                                                <option value="{{ $employee->id }}" {{ old("approver",$leaveapprover->approver) == $employee->id ? "selected" : "" }}>
+                                                    {{ $employee->first_name }} {{ $employee->last_name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                         @if ($errors->has('approver'))
                                                         <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('remark') }}</strong>
+                                                            <strong>{{ $errors->first('approver') }}</strong>
                                                         </span>
                                                     @endif
-                        </div>
+                      
                                 </div>
 
                                                     
                                 <hr>
+
+                                            <div class="form-group col-md-12 mb-3">
+                                        <label for="leavetype">Leave Type</label>
+                                        <select name="leavetype"
+                                                class="form-control d-block w-100 {{ $errors->has('leavetype') ? 'is-invalid' : '' }}"
+                                                id="leavetype"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Leave\Leavetype::All() as $leavetype)
+                                                <option value="{{ $leavetype->id }}" {{ old("leavetype",$leaveapprover->leavetype_id) == $leavetype->id ? "selected" : "" }}>
+                                                    {{ $leavetype->name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                         @if ($errors->has('leavetype'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('leavetype') }}</strong>
+                                                        </span>
+                                                    @endif
+                      
+                                </div>
+
+                                   <hr>
+
+                                            <div class="form-group col-md-12 mb-3">
+                                        <label for="level">Level</label>
+                                        <select name="level"
+                                                class="form-control d-block w-100 {{ $errors->has('level') ? 'is-invalid' : '' }}"
+                                                id="level"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Leave\leaveapprovallevel::All() as $level)
+                                                <option value="{{ $level->id }}" {{ old("level",$leaveapprover->level_id) == $level->id ? "selected" : "" }}>
+                                                    {{ $level->name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                         @if ($errors->has('level'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('level') }}</strong>
+                                                        </span>
+                                                    @endif
+                      
+                                </div>
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">
-                                    Save changes
+                                    Update Approver
                                 </button>
                             </div>
-                      </form>
+
+                                            </div>
+                                        </form>
                     </div>
                 </div>
             </div>

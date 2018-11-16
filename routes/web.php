@@ -490,4 +490,12 @@ Route::prefix('settings')->group(function () {
     Route::post('asignleaveapprover/{id}','Leave\LeaveApproversController@asign');
     Route::get('deactivateleaveapprover/{id}','Leave\LeaveApproversController@deactivate');
 
+
+//Leave Approvals
+    Route::get("approvals", [
+    "as" => "approvals.index",
+    "uses" => "leave\LeaveApprovalsController@index",
+]);
+   
+
     
