@@ -213,6 +213,7 @@
  
                                                
                                                 </td>
+                                               
                                                  
                                                  <td class="align-middle text-right">
                                                     @can("view", \App\Models\leave\leaveapprover::class)

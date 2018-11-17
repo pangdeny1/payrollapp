@@ -50,84 +50,27 @@
                   <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right">
                     <h6 class="dropdown-header stop-propagation">
                       <span>Activities
-                        <span class="badge">(2)</span>
+                        <span class="badge">({{\App\Models\Notification\Emailnotification::where('active',1)->where('sendto',auth()->user()->employee_id)->count() }})</span>
                       </span>
                     </h6>
                     <!-- .dropdown-scroll -->
                     <div class="dropdown-scroll has-scrollable">
                       <!-- .dropdown-item -->
+                      @foreach(\App\Models\Notification\Emailnotification::where('active',1)->where('sendto',auth()->user()->employee_id)->get() as $notification)
                       <a href="#" class="dropdown-item unread">
                         <div class="user-avatar">
                           <img src="assets/images/avatars/uifaces15.jpg" alt=""> </div>
                         <div class="dropdown-item-body">
-                          <p class="text"> Jeffrey Wells created a schedule </p>
-                          <span class="date">Just now</span>
+                          <p class="text"> {{$notification->title}} </p>
+                          <span class="date">{{ $notification->created_at->diffForHumans() }}</span>
                         </div>
                       </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item unread">
-                        <div class="user-avatar">
-                          <img src="assets/images/avatars/uifaces16.jpg" alt=""> </div>
-                        <div class="dropdown-item-body">
-                          <p class="text"> Anna Vargas logged a chat </p>
-                          <span class="date">3 hours ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="user-avatar">
-                          <img src="assets/images/avatars/uifaces17.jpg" alt=""> </div>
-                        <div class="dropdown-item-body">
-                          <p class="text"> Sara Carr invited to Stilearn Admin </p>
-                          <span class="date">5 hours ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="user-avatar">
-                          <img src="assets/images/avatars/uifaces18.jpg" alt=""> </div>
-                        <div class="dropdown-item-body">
-                          <p class="text"> Sara Carr updated a project </p>
-                          <span class="date">1 day ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="user-avatar">
-                          <img src="assets/images/avatars/uifaces19.jpg" alt=""> </div>
-                        <div class="dropdown-item-body">
-                          <p class="text"> Arthur Carroll created a task </p>
-                          <span class="date">1 day ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="user-avatar">
-                          <img src="assets/images/avatars/uifaces20.jpg" alt=""> </div>
-                        <div class="dropdown-item-body">
-                          <p class="text"> Angela Peterson assign a task to you </p>
-                          <span class="date">2 days ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="user-avatar">
-                          <img src="assets/images/avatars/uifaces21.jpg" alt=""> </div>
-                        <div class="dropdown-item-body">
-                          <p class="text"> Willie Dixon and 3 others followed you </p>
-                          <span class="date">2 days ago</span>
-                        </div>
-                      </a>
+                      @endforeach
+                     
                       <!-- /.dropdown-item -->
                     </div>
                     <!-- /.dropdown-scroll -->
-                    <a href="user-activities.html" class="dropdown-footer">All activities
+                    <a href="{{route('leave.approvals')}}" class="dropdown-footer">All activities
                       <i class="fa fa-fw fa-long-arrow-alt-right"></i>
                     </a>
                   </div>

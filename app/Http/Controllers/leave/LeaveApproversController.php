@@ -144,6 +144,7 @@ class LeaveApproversController extends Controller
              "approver_id" => request("approver_id"),
              "leavetype_id"  => request("leavetype"),
              "active"     =>1,
+             "level_id"   =>request('level'),
             "creator_id" => auth()->id(),
         ]);
 

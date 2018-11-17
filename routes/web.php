@@ -496,6 +496,11 @@ Route::prefix('settings')->group(function () {
     "as" => "approvals.index",
     "uses" => "leave\LeaveApprovalsController@index",
 ]);
+
+       Route::get("leaveapprovals", [
+    "as" => "leave.approvals",
+    "uses" => "leave\LeaveApprovalsController@approvals",
+]);
    
 
     

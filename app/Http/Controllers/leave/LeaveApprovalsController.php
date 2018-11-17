@@ -29,4 +29,20 @@ class LeaveApprovalsController extends Controller
         return view('leaves.leaveapprovals.index', compact('pagetitle','leaveapprovals'));
 
     }
+
+    public function approvals()
+    {
+         $pagetitle="leaveapprovals";
+        $leaveapprovals=leaveapproval::where('approver',auth()->user()->employee_id)->latest()
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("action_type", "LIKE", "%". request("q") ."%")
+                    ->orWhere("employee_id", "LIKE", "%". request("q") ."%");
+
+            })
+            ->paginate();
+
+        return view('leaves.leaveapprovals.index', compact('pagetitle','leaveapprovals'));
+
+    }
 }

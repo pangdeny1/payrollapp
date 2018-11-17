@@ -111,12 +111,16 @@ class LeavesController extends Controller
                        }
 
               DB::table('leaveapprovals')->insert($inserts);
-
+              $firstApprover=leaveEmployeeApprover::where('active',1)->where('employee_id',request('employee'))->orderBy('level_id')->firstOrFail();
               $notification=Emailnotification::create(
                 ['body'=>"Please Approve Employee Leave",
-                'sendto'=>'17',
-                'email'=>'pangdeny@gmail.com',
-                'sender'=>request('employee')]);
+                'sendto'=>$firstApprover->approver,
+                'sendto_email'=>'pangdeny@gmail.com',
+                'sender'=>request('employee'),
+                'url' =>'http://localhost/payrollapp/public/approvals',
+                'module'=>'leave',
+                'notification_type'=>'Leave Approve']);
+
 
                
         return redirect()->route("leaves.index")->with('success', "Successfully requested a Leave");

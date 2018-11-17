@@ -37,6 +37,7 @@
                                 <input value=" {{$employee->id}} " name="employee" type="hidden">
                                 <input name="approver_id" value="{{$leaveapprover->id}}" type="hidden">
                                 <input name="leavetype" value="{{$leaveapprover->leavetype_id}}" type="hidden">
+                                 <input name="level" value="{{$leaveapprover->level_id}}" type="hidden">
                                 <a href="{{url("asignleaveapprover",4)}}">
                                 <button class="btn btn-sm btn-secondary" type="submit">Asign</button>
                                 </a>
