@@ -122,12 +122,20 @@ class UsersController extends Controller
             "roles" => "required|array",
             "roles.*" => "required|exists:roles,name",          
         ]);
+
+        $employee=Employee::where('id',request('employee'))->firstOrFail();
           if(empty(request('password')))
                     {
               $user->update([            
             "email" => request("email"),
             "employee_id" => request("employee"),
             "manager"     =>request("manager"),
+            "first_name"  => $employee->first_name,
+            "last_name"   =>$employee->last_name,
+            "phone" => $employee->phone,
+            "country" => $employee->country,
+            "gender" => $employee->gender,
+            "birthday" => $employee->birthday,
             
                    ]);
           }
@@ -139,6 +147,12 @@ class UsersController extends Controller
             "employee_id" => request("employee"),
             "password" => request("password"),
             "manager"     =>request("manager"),
+            "first_name"  =>$employee->first_name,
+            "last_name"   =>$employee->last_name,
+            "phone" => $employee->phone,
+            "country" => $employee->country,
+            "gender" => $employee->gender,
+            "birthday" => $employee->birthday,
         ]);
           }
           /*

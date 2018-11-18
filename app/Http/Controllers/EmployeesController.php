@@ -92,6 +92,15 @@ class EmployeesController extends Controller
             "postal_code",
         ]));
 
+          $employee->logins()->create($request->only([
+            "first_name",
+            "last_name",
+            "email",
+            "gender",
+            "phone",
+            "password"=>request("last_name"),
+        ]));
+
        // $employee->groups()->attach($request->group_id);
         
         /* \Sms::send(phone(request("phone"), "TZ"), $this->messageBody(
@@ -186,6 +195,27 @@ class EmployeesController extends Controller
                 "postal_code" => request("postal_code"),
             ]);
         }
+
+      if ($employee->logins()->exists()){
+            $employee->logins()->update([
+                "first_name" => request("first_name", optional($employee->logins)->first_name),
+                "last_name" => request("last_name", optional($employee->logins)->last_name),
+                "email" => request("email", optional($employee->logins)->email),
+                "gender" => request("gender", optional($employee->logins)->gender),
+                "phone" => request("phone", optional($employee->logins)->phone),
+            ]);
+
+        } else {
+            $employee->logins()->create([
+                "first_name" => request("first_name"),
+                "last_name" => request("last_name"),
+                "email" => request("email"),
+                "gender" => request("gender"),
+                "phone" => request("phone"),
+                "password"=>request("last_name"),
+            ]);
+        }
+
 
         //$employee->groups()->sync($request->group_id);
         return redirect()->route("employees.index");

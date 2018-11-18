@@ -26,6 +26,9 @@
                 Bank Info
                 <span class="badge"></span>
             </a>
+             <a class="nav-link" href="">
+                Login info
+            </a>
             <a class="nav-link" href="">
                 Settings
             </a>

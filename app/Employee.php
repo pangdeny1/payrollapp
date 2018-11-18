@@ -45,6 +45,11 @@ class Employee extends Model implements Auditable
         return $this->morphOne(Address::class, "addressable");
     }
 
+     public function logins()
+    {
+        return $this->morphOne(User::class, "employee");
+    }
+
     public function addresses()
     {
         return $this->morphMany(Address::class, "addressable");

@@ -32,7 +32,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="email">
-                                                Email address
+                                                Username/Email
                                             </label>
                                             <input type="email"
                                                    name="email"
@@ -79,8 +79,8 @@
                                                 id="employee"
                                                 required=""
                                         >
-                                            <option value=""> Choose... </option>
-                                            @foreach(\App\Employee::where('active','yes')->get() as $employee)
+                                           
+                                            @foreach(\App\Employee::where('id',auth()->user()->employee_id)->get() as $employee)
                                             
                                                 <option value="{{ $employee->id }}" {{ old("employee",$user->employee_id) == $employee->id ? "selected" : "" }}>
                                                     {{ $employee->first_name }} {{ $employee->last_name }} 
