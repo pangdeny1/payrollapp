@@ -27,8 +27,7 @@ class EmployeeCreateRequest extends FormRequest
         return [
             "first_name" => "required",
             "last_name" => "required",
-            "phone" => "required|phone:TZ",
-            "email" => "nullable|email",
+            "email" => "required|email",
             "gender" => ["required", Rule::in(["male","female"])],
             "active" => ["required", Rule::in(["yes","no"])],
             "pay_type" => "required",

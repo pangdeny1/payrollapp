@@ -104,13 +104,20 @@
                                                 <td >{{ optional($leave->approverlevel)->name}} level:{{$leave->priority}}</td>
                                                 
                                                 <td class="align-middle text-right">
-                                                    @can("edit", \App\Models\leave\leaveapproval::class)
-                                                    <a href="{{ url("editleaveapproval", $leave) }}" class="btn btn-sm btn-secondary">
-                                                       
-                                                        Approve/Reject
-                                                    </a>
-                                                    @endcan
-
+                              <div class="dropdown">
+                          <button class="btn btn-reset px-2" data-toggle="dropdown">
+                            <i class="fa fa-ellipsis-v"></i>
+                          </button>
+                          <div class="dropdown-arrow"></div>
+                          <!-- .dropdown-menu -->
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Preview</a>
+                            <a href="#" class="dropdown-item">Approve</a>
+                            <a href="#" class="dropdown-item">Reject</a>
+                          
+                          </div>
+                          <!-- /.dropdown-menu -->
+                        </div>
                                                 
                                                 </td>
                                             </tr>
@@ -118,6 +125,120 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                         <form action="{{ url("storeleaveapprover") }}"
+                              method="post"
+                              class="card border-0"
+                        >
+                                            @csrf
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">Approver form  {{optional($leave->leavetype)->name }}</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="card-body">
+                                            
+                                    <div class="form-group col-md-12 mb-3">
+                                        <label for="employee">Employee</label>
+                                        <select name="employee"
+                                                class="form-control d-block w-100 {{ $errors->has('employee') ? 'is-invalid' : '' }}"
+                                                id="employee"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Employee::All() as $employee)
+                                                <option value="{{ $employee->id }}" {{ old("employee",$leave->employee_id) === $employee->id ? "selected" : "" }}>
+                                                    {{ $employee->first_name }} {{ $employee->last_name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback"> Please provide active employee </div>
+                                    </div>
+                              
+                                <div class="form-group col-md-12 mb-3">
+                                        <label for="leavetype">Leave Type</label>
+                                        <select name="leavetype"
+                                                class="form-control d-block w-100 {{ $errors->has('leavetype') ? 'is-invalid' : '' }}"
+                                                id="leavetype"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Leave\Leavetype::All() as $leavetype)
+                                                <option value="{{ $leavetype->id }}" {{ old("leavetype",$leave->leavetype_id) === $leavetype->id ? "selected" : "" }}>
+                                                    {{ $leavetype->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback"> Please provide active leavetype </div>
+                                    </div>
+                                </div>
+                            <div class="card-body">
+                             
+
+                                    <div class="form-row">
+                        <!-- grid column -->
+                        <div class="col-md-5 mb-3">
+                         <label for="last_name">Date From</label>
+                                <input id="start_date"  type="date" name="start_date" onchange="cal()"
+                             class="form-control {{ $errors->has('start_date') ? 'is-invalid' : '' }}"
+                              value="{{old('start_date',$leave->start_date)}}">
+
+                                @if ($errors->has('start_date'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('start_date',$leave->start_date) }}</strong>
+                                    </span>
+                                @endif  
+                          
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                        <div class="col-md-4 mb-3">
+                         <label for="last_name">Date To</label>
+                                  <input  id="end_date" type="date" name="end_date" onchange="cal()" 
+                                   class="form-control {{ $errors->has('end_date') ? 'is-invalid' : '' }}"
+                                  value="{{old('end_date',$leave->end_date)}}">
+
+                                @if ($errors->has('end_date'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('end_date',$leave->end_date) }}</strong>
+                                    </span>
+                                @endif
+                         
+                        </div>
+                        <!-- /grid column -->
+                        <!-- grid column -->
+                        <div class="col-md-3 mb-3">
+                          <label for="zip">Days requested </label>
+                          <input type="text"  name="duration" value="{{old('duration',$leave->total_days)}}" class="form-control" id="duration" readonly>
+                          <div class="invalid-feedback"> </div>
+                        </div>
+                        <!-- /grid column -->
+                      </div>
+                      <!-- /.form-row -->
+                      <hr class="mb-4">
+                           <div class="form-group">
+                          <label class="d-flex justify-content-between" for="lbl4">
+                            <span>Remark</span>
+                            <span class="text-muted"></span>
+                          </label>
+                          <textarea name="remark" class="form-control" id="lbl4" rows="3" placeholder=" description">{{$leave->reason_for_leave}}</textarea>
+                        </div>
+                                </div>
+                                                    
+                                <hr>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">
+                                    Save changes
+                                </button>
+                            </div>
+                      </form>
+
+                                    </div>
 
                                 <!-- .pagination -->
                                 {{ $leaveapprovals->links() }}

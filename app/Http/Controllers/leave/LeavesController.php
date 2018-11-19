@@ -79,7 +79,7 @@ class LeavesController extends Controller
            return redirect()->back()->with('status_error', 'No Leave Approver Asigned to Employee for this Leave type'); 
           }
           
-          $formnumber=Leave::count();
+          $formnumber=Leave::count()+1;
 
         $leave = Leave::create([
             "id"=>$formnumber,
@@ -119,6 +119,7 @@ class LeavesController extends Controller
                 'sender'=>request('employee'),
                 'url' =>'http://localhost/payrollapp/public/approvals',
                 'module'=>'leave',
+                "request_id"=>$formnumber,
                 'notification_type'=>'Leave Approve']);
 
 

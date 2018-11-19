@@ -80,7 +80,7 @@
                                                 required=""
                                         >
                                            
-                                            @foreach(\App\Employee::where('id',auth()->user()->employee_id)->get() as $employee)
+                                            @foreach(\App\Employee::where('id',$user->employee_id)->get() as $employee)
                                             
                                                 <option value="{{ $employee->id }}" {{ old("employee",$user->employee_id) == $employee->id ? "selected" : "" }}>
                                                     {{ $employee->first_name }} {{ $employee->last_name }} 

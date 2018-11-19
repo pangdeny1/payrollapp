@@ -37,12 +37,14 @@
             </div>
             <!-- /.top-bar-item -->
             <!-- .top-bar-item -->
-            <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+            <!-- .top-bar-item -->
+            <div class="top-bar-item top-bar-item-right px-0">
               <!-- .nav -->
               <ul class="header-nav nav">
                 <!-- .nav-item -->
-                <li class="nav-item dropdown header-nav-dropdown has-notified">
-                  <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown header-nav-dropdown">
+                  <a class="nav-link has-badge" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="badge badge-pill badge-warning">{{\App\Models\Notification\Emailnotification::where('active',1)->where('sendto',auth()->user()->employee_id)->count() }}</span>
                     <span class="oi oi-pulse"></span>
                   </a>
                   <div class="dropdown-arrow"></div>

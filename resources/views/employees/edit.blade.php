@@ -99,7 +99,7 @@
                                         <label for="email">
                                             Email address
                                             <span class="badge badge-secondary">
-                                                <em>Optional</em>
+                                                <em>Mandatory</em>
                                             </span>
                                         </label>
                                         <input type="email"
@@ -258,30 +258,80 @@
                                         </div>
                                     </div>
                                 </div>
-                           <hr>
+                            <hr>
                             <header class="card-header border-bottom-0">
-                                Group information
+                              Location information
                             </header>
                             <div class="card-body">
                                 <div class="form-row">
                                     <div class="form-group col-md-12 mb-3">
-                                        <label for="group_id">Group</label>
-                                        <select name="group_id"
-                                                class="form-control d-block w-100 {{ $errors->has('group_id') ? 'is-invalid' : '' }}"
-                                                id="group_id"
+                                        <label for="branch">Branch</label>
+                                        <select name="branch"
+                                                class="form-control d-block w-100 {{ $errors->has('branch') ? 'is-invalid' : '' }}"
+                                                id="branch"
                                                 required=""
                                         >
-                                            
-                                            @foreach(\App\Group::has("products")->latest()->get() as $group)
-                                                <option value="{{ $group->id }}" {{ old("group_id") === $group->id ? "selected" : "" }}>
-                                                    {{ $group->name }}
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Branch::latest()->get() as $branch)
+                                                <option value="{{ $branch->id }}" {{ old("branch",$employee->branch_id) === $branch->id ? "selected" : "" }}>
+                                                    {{ $branch->branchname }} 
                                                 </option>
                                             @endforeach
                                         </select>
-                                        <div class="invalid-feedback"> Please provide a valid Region. </div>
+                                             @if ($errors->has('branch'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('branch') }}</strong>
+                                                </span>
+                                        @endif
+                                       
+                                    </div>
+                                     <div class="form-group col-md-12 mb-3">
+                                        <label for="department">Department</label>
+                                        <select name="department"
+                                                class="form-control d-block w-100 {{ $errors->has('department') ? 'is-invalid' : '' }}"
+                                                id="department"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\department::latest()->get() as $department)
+                                                <option value="{{ $department->id }}" {{ old("department",$employee->department_id) === $department->id ? "selected" : "" }}>
+                                                    {{ $department->departmentname }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+
+                                           @if ($errors->has('department'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('department') }}</strong>
+                                                </span>
+                                        @endif
+                                       
+                                    </div>
+                                       <div class="form-group col-md-12 mb-3">
+                                        <label for="job">Job</label>
+                                        <select name="job"
+                                                class="form-control d-block w-100 {{ $errors->has('job') ? 'is-invalid' : '' }}"
+                                                id="job"
+                                                required=""
+                                        >
+                                            <option value=""> Choose... </option>
+                                            @foreach(\App\Models\job::latest()->get() as $job)
+                                                <option value="{{ $job->id }}" {{ old("job",$employee->job_id) === $job->id ? "selected" : "" }}>
+                                                    {{ $job->jobname }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+
+                                               @if ($errors->has('job'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('job') }}</strong>
+                                                </span>
+                                        @endif
+                                       
                                     </div>
                                 </div>
                             </div>
+                            
                             <hr class="mb-4">
                             <header class="card-header border-bottom-0">
                                 Address information

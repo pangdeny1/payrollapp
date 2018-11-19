@@ -81,6 +81,9 @@ class EmployeesController extends Controller
             "hourly_rate" =>request("hourly_rate"),
             "pay_period"  =>request("payperiod"),
             "active"      =>request("active"),
+            "branch_id"   =>request("branch"),
+            "department_id"  =>request("department"),
+            "job_id"         =>request("job"),
             "creator_id" => auth()->id(),
         ]);
 
@@ -156,7 +159,7 @@ class EmployeesController extends Controller
         $this->validate($request, [
             "first_name" => "required",
             "last_name" => "required",
-            "phone" => "required",
+            "email" => "email:required",
             "country" => "required",
             "pay_type" => "required",
             "payperiod"  =>"required",
@@ -176,6 +179,9 @@ class EmployeesController extends Controller
             "hourly_rate" =>request("hourly_rate"),
             "period_rate" => request("period_rate"),
             "pay_period"  =>request("payperiod"),
+            'branch_id'    =>request("branch"),
+            "department_id"=>request("department"),
+            "job_id"       =>request("job"),
         ]);
 
         if ($employee->address()->exists()){

@@ -24,6 +24,7 @@ class CreateEmailnotificationsTable extends Migration
             $table->string('title')
             $table->string('notification_type');
             $table->integer('active')->default(1);
+            $table->integer('request_id');
             $table->integer('creator_id');
             $table->timestamps();
         });
