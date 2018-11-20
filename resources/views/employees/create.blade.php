@@ -162,7 +162,7 @@
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\Branch::latest()->get() as $branch)
-                                                <option value="{{ $branch->id }}" {{ old("branch") === $branch->id ? "selected" : "" }}>
+                                                <option value="{{ $branch->id }}" {{ old("branch") == $branch->id ? "selected" : "" }}>
                                                     {{ $branch->branchname }} 
                                                 </option>
                                             @endforeach
@@ -179,11 +179,11 @@
                                         <select name="department"
                                                 class="form-control d-block w-100 {{ $errors->has('department') ? 'is-invalid' : '' }}"
                                                 id="department"
-                                                required=""
+                                               
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\department::latest()->get() as $department)
-                                                <option value="{{ $department->id }}" {{ old("department") === $department->id ? "selected" : "" }}>
+                                                <option value="{{ $department->id }}" {{ old("department") == $department->id ? "selected" : "" }}>
                                                     {{ $department->departmentname }} 
                                                 </option>
                                             @endforeach
@@ -197,15 +197,15 @@
                                        
                                     </div>
                                        <div class="form-group col-md-12 mb-3">
-                                        <label for="job">job</label>
+                                        <label for="job">Job</label>
                                         <select name="job"
                                                 class="form-control d-block w-100 {{ $errors->has('job') ? 'is-invalid' : '' }}"
                                                 id="job"
-                                                required=""
+                                               
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\job::latest()->get() as $job)
-                                                <option value="{{ $job->id }}" {{ old("job") === $job->id ? "selected" : "" }}>
+                                                <option value="{{ $job->id }}" {{ old("job") == $job->id ? "selected" : "" }}>
                                                     {{ $job->jobname }} 
                                                 </option>
                                             @endforeach
@@ -232,8 +232,8 @@
                                                  class="form-control {{ $errors->has('pay_type') ? 'is-invalid' : '' }}"
                                                 id="pay_type"
                                         >   <option value="">select--</option>
-                                            <option value="Salary">Salary</option>
-                                            <option value="Hourly">Hourly</option>
+                                            <option value="Salary" {{ old("pay_type") == "Salary" ? "selected" : "" }}>Salary</option>
+                                            <option value="Hourly" {{ old("pay_type") == "Hourly" ? "selected" : "" }}>>Hourly</option>
                                         </select>
                                          @if ($errors->has('pay_type'))
                                             <span class="invalid-feedback">
@@ -277,12 +277,12 @@
                                            
                                         </label>
                                                     <select  class="form-control {{ $errors->has('payperiod') ? 'is-invalid' : '' }}" name="payperiod">
-                                                        <option  value='' selected="selected">Select </option>
+                                                        <option >Select </option>
 
                                                         @foreach($payperiods as $payperiod)
 
                                                         
-                                                         <option value="{{ $payperiod->payperiodid }}">{{ $payperiod->payperioddesc }}</option>
+                                                         <option value="{{ $payperiod->payperiodid }}" {{ old("payperiod") == $payperiod->payperiodid ? "selected" : "" }}>{{ $payperiod->payperioddesc }}</option>
                                                           @endforeach
                                                                                                              
                                                     </select>
@@ -357,6 +357,7 @@
                                                class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
                                                id="address"
                                                placeholder="Apartment or suite"
+                                               value="{{ old("address") }}"
                                         >
                                         @if ($errors->has('address'))
                                             <span class="invalid-feedback">
@@ -381,7 +382,7 @@
                                         <select name="state"
                                                 class="form-control d-block w-100 {{ $errors->has('state') ? 'is-invalid' : '' }}"
                                                 id="state"
-                                                required=""
+                                               
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach($states as $key => $state)

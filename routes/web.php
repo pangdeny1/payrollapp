@@ -502,5 +502,10 @@ Route::prefix('settings')->group(function () {
     "uses" => "leave\LeaveApprovalsController@approvals",
 ]);
    
+   //Payroll Reports
+
+       Route::get("payrollregister","report\payroll\PayrollRegisterReportController@index");
+       Route::post("payrollregistergenerate","report\payroll\PayrollRegisterReportController@generate");
+
 
     

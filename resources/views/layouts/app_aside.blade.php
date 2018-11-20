@@ -107,6 +107,54 @@
                     </a>
 
                     <div class="menu-header">Reports</div>
+                     <li class="menu-item has-child">
+                  <a href="#" class="menu-link">
+                    <i class="far fa-chart-bar text-muted mr-2"></i>
+                    
+                    <span class="menu-text">Payroll</span>
+                  </a>
+                  <!-- child menu -->
+                  <ul class="menu">
+                    <li class="menu-item">
+                      <a href="{{url("payrollregister")}}" class="menu-link">Payroll Register</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="" class="menu-link">Payroll Summery</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="" class="menu-link">Payslips</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="" class="menu-link">Tax Monthly return</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="" class="menu-link">Pension Monthly Remittance</a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="" class="menu-link">Health Monthly Remittance</a>
+                    </li>
+
+
+                     <li class="menu-item">
+                      <a href="" class="menu-link">Skill Development Levy(SDL)</a>
+                    </li>
+
+                      <li class="menu-item">
+                      <a href="" class="menu-link">Bank Transmmittal</a>
+                    </li>
+
+                      <li class="menu-item">
+                      <a href="" class="menu-link">Cash Payment Listing</a>
+                    </li>
+
+                      <li class="menu-item">
+                      <a href="" class="menu-link">Workers Compassation Fund(WCF)</a>
+                    </li>
+                                      
+                  </ul>
+                  <!-- /child menu -->
+                </li>
                     <a href="{{url('payslipform')}}" class="menu-link mb-2">
                         <i class="fas fa-chart-line text-muted mr-2"></i>
                         <span class="menu-text">Payslip</span>

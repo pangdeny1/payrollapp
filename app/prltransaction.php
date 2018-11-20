@@ -14,6 +14,15 @@ class prltransaction extends Model
     protected $primaryKey='id';
 
 
-   
+      public function employee()
+    {
+        return $this->belongsTo("\App\Employee","employee_id");
+    }
+
+       public function payrollperiod()
+    {
+        return $this->belongsTo("\App\Models\Payroll","payroll_id");
+    }
+
 
 }

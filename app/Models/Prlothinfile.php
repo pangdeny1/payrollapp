@@ -13,4 +13,6 @@ class Prlothinfile extends Model
     'othincamount','subamount','quantity','amount_term','percent','transaction_type','payroll_id',
     'approved','verified','accountcode','attachement','approver','verifyer','recurrent','status',
     'madeat','creator_id','updated_at','created_at'];
+
+ 
 }
