@@ -43,7 +43,7 @@ class PayslipReportController extends Controller
     	   $payroll=Payroll::where('id',$payrollid)->firstOrfail();
     	   $employee=Employee::where('id',$employeeid)->firstOrfail();
            $company=Company::first();
-           $payrolltrasaction=prltransaction::Where('payroll_id',10)->firstOrfail();
+           $payrolltrasaction=prltransaction::Where('payroll_id',$payrollid)->where('employee_id',$employeeid)->firstOrfail();
 
           $pdf = \PDF::loadView('reports.payrolls.payslipreport',compact('payroll','index','employee','company','payrolltrasaction'));
 

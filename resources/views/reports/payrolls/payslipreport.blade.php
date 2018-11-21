@@ -91,9 +91,9 @@ ul
 text-autospace:none'><b><u><span lang=EN-AU style='font-size:14.0pt;font-family:
 "Arial (W1)",sans-serif;color:black'>PAY SLIP</span></u></b></p>
 
-<p class=MsoNormal align=center style='margin-left:3.5pt;text-align:center;
-text-autospace:none'><b><span lang=EN-AU style='font-size:14.0pt;font-family:
-"Arial (W1)",sans-serif;color:black'>&nbsp;</span></b></p>
+ <div class="mb-3">
+                <img class="rounded" src="{{ asset("themes/looper/assets/homev_logo.jpg") }}" alt="" height="50">
+            </div>
 
 <p class=MsoNormal align=right style='margin-top:3.0pt;margin-right:7.35pt;
 margin-bottom:3.0pt;margin-left:3.4pt;text-align:right;text-autospace:none'><b><span
@@ -137,7 +137,7 @@ font-family:"Arial (W1)",sans-serif;color:black'>Department:
 
 <p class=MsoNormal style='margin-top:3.0pt;margin-right:0in;margin-bottom:1.0pt;
 margin-left:3.4pt;text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;
-font-family:"Arial (W1)",sans-serif;color:black'>Ordinary hourly rate: {{$employee->hourlyrate}}</span></p>
+font-family:"Arial (W1)",sans-serif;color:black'>Ordinary hourly rate: {{number_format($employee->hourly_rate,2)}}</span></p>
 
 <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
 lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
@@ -151,7 +151,7 @@ color:black'>Employer Social Security contribution</span></b></p>
 margin-left:3.5pt;margin-bottom:.0001pt;text-autospace:none'><span lang=EN-AU
 style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>Name
 of Fund/Scheme: NSSF
-Contribution: Tsh ....</span></p>
+Contribution: Tsh {{number_format($payrolltrasaction->ss_pay,2)}}</span></p>
 
 <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
 lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
@@ -159,395 +159,72 @@ color:black'>&nbsp;</span></p>
 
 <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=585
  style='width:438.75pt;margin-left:9.0pt;border-collapse:collapse;border:none'>
+  <tr style='height:18.85pt'>
+  <td width=585 colspan=6 style='width:438.75pt;border:solid #999999 1.0pt;
+  border-top:none;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt;height:13.35pt'>
+  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
+  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
+  color:black'>Incomes</span></b></p>
+  </td>
+ </tr>
  <tr style='height:18.85pt'>
   <td width=259 colspan=3 style='width:194.5pt;border:solid #999999 1.0pt;
   background:white;padding:0in 5.4pt 0in 5.4pt;height:18.85pt'>
   <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Wages – worked at ordinary hourly rate </span></p>
+  color:black'>Basic Pay </span></p>
   </td>
   <td width=101 valign=bottom style='width:1.05in;border:solid #999999 1.0pt;
   border-left:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:18.85pt'>
   <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
   text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>..…… hrs </span></p>
+  "Arial (W1)",sans-serif;color:black'>{{number_format($payrolltrasaction->reg_hours)}} hrs </span></p>
   </td>
   <td width=132 valign=bottom style='width:98.65pt;border:solid #999999 1.0pt;
   border-left:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:18.85pt'>
   <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
+  color:black'>@ {{number_format($payrolltrasaction->hourly_rate)}}</span></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border:solid #999999 1.0pt;
   border-left:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:18.85pt'>
   <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($payrolltrasaction->basicpay,2)}}
+  </span></p>
   </td>
  </tr>
- <tr style='height:24.65pt'>
-  <td width=259 colspan=3 valign=top style='width:194.5pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
+ @foreach(\App\Models\Prlothintransaction::where('payroll_id',$payroll->id)->where('employee_id',$employee->id)->get() as $income)
+   <tr style='height:17.5pt'>
+  <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
+  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Wages – worked at penalty rate 1 </span></p>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:8.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>(i.e. Saturday rate) </span></p>
-  </td>
-  <td width=101 valign=bottom style='width:1.05in;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
-  text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>..…… hrs </span></p>
-  </td>
-  <td width=132 valign=bottom style='width:98.65pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
+  color:black'> {{optional($income->incometype)->othincdesc}} </span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
+  background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+ <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($income->amount,2)}}
+  </span></p>
   </td>
  </tr>
- <tr style='height:24.6pt'>
-  <td width=259 colspan=3 valign=top style='width:194.5pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:24.6pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Wages – worked at penalty rate 2 </span></p>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:8.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>(i.e. Sunday rate) </span></p>
-  </td>
-  <td width=101 valign=bottom style='width:1.05in;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.6pt'>
-  <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
-  text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'> ..…… hrs </span></p>
-  </td>
-  <td width=132 valign=bottom style='width:98.65pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.6pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.6pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:22.4pt'>
-  <td width=259 colspan=3 valign=top style='width:194.5pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:22.4pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Wages – worked at penalty rate 3 </span></p>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:8.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>(i.e. public holiday rate) </span></p>
-  </td>
-  <td width=101 valign=bottom style='width:1.05in;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:22.4pt'>
-  <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
-  text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>..…… hrs </span></p>
-  </td>
-  <td width=132 valign=bottom style='width:98.65pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:22.4pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:22.4pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:15.45pt'>
-  <td width=259 colspan=3 rowspan=3 valign=top style='width:194.5pt;border:
-  solid #999999 1.0pt;border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;
-  height:15.45pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Overtime </span></p>
-  </td>
-  <td width=101 valign=bottom style='width:1.05in;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:15.45pt'>
-  <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
-  text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>..…… hrs </span></p>
-  </td>
-  <td width=132 valign=bottom style='width:98.65pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:15.45pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:15.45pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:15.4pt'>
-  <td width=101 valign=bottom style='width:1.05in;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:15.4pt'>
-  <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
-  text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>..…… hrs</span></p>
-  </td>
-  <td width=132 valign=bottom style='width:98.65pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:15.4pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:15.4pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:14.75pt'>
-  <td width=101 valign=bottom style='width:1.05in;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.75pt'>
-  <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
-  text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>..…… hrs</span></p>
-  </td>
-  <td width=132 valign=bottom style='width:98.65pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.75pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.75pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:14.05pt'>
-  <td width=259 colspan=3 valign=top style='width:194.5pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Shift loading </span></p>
-  </td>
-  <td width=101 valign=bottom style='width:1.05in;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
-  text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>..…… hrs</span></p>
-  </td>
-  <td width=132 valign=bottom style='width:98.65pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:14.05pt'>
-  <td width=115 style='width:1.2in;border:solid #999999 1.0pt;border-top:none;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Other loading </span></p>
-  </td>
-  <td width=144 colspan=2 style='width:108.1pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Type:</span></p>
-  </td>
-  <td width=101 valign=bottom style='width:1.05in;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
-  text-autospace:none'><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>..…… hrs</span></p>
-  </td>
-  <td width=132 valign=bottom style='width:98.65pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>@ (rate) …………</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:14.05pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:24.6pt'>
-  <td width=115 valign=top style='width:1.2in;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:24.6pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Monetary allowance </span></p>
-  </td>
-  <td width=376 colspan=4 valign=top style='width:282.35pt;border-top:none;
-  border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.6pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Type: </span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.6pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:24.65pt'>
-  <td width=115 valign=top style='width:1.2in;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Incentive based payment </span></p>
-  </td>
-  <td width=376 colspan=4 valign=top style='width:282.35pt;border-top:none;
-  border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Type: </span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:13.15pt'>
-  <td width=115 valign=top style='width:1.2in;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:13.15pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Bonus </span></p>
-  </td>
-  <td width=376 colspan=4 valign=top style='width:282.35pt;border-top:none;
-  border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:13.15pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Type: </span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:13.15pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:24.65pt'>
-  <td width=115 valign=top style='width:1.2in;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Other payments</span></p>
-  </td>
-  <td width=376 colspan=4 valign=top style='width:282.35pt;border-top:none;
-  border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Type:</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:24.65pt'>
-  <td width=115 valign=top style='width:1.2in;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Termination entitlements</span></p>
-  </td>
-  <td width=376 colspan=4 valign=top style='width:282.35pt;border-top:none;
-  border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Details </span><span lang=EN-AU style='font-size:7.0pt;
-  font-family:"Arial (W1)",sans-serif;color:black'>(including notice,
-  redundancy, accrued leave, etc)*</span><span lang=EN-AU style='font-size:
-  10.0pt;font-family:"Arial (W1)",sans-serif;color:black'> </span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.65pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
-  </td>
- </tr>
+ @endforeach
+ 
+ 
+ 
  <tr style='height:19.6pt'>
   <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
   border-top:none;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt;height:19.6pt'>
   <p class=MsoNormal align=right style='margin-left:3.5pt;text-align:right;
   text-autospace:none'><b><span lang=EN-AU style='font-size:10.0pt;font-family:
-  "Arial (W1)",sans-serif;color:black'>Gross Wage </span></b></p>
+  "Arial (W1)",sans-serif;color:black'>Gross Pay </span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
   background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt;height:19.6pt'>
   <p class=MsoNormal style='text-autospace:none'><b><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></b></p>
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($payrolltrasaction->grosspay,2)}}</span></b></p>
   </td>
  </tr>
  <tr style='height:7.75pt'>
@@ -571,97 +248,86 @@ color:black'>&nbsp;</span></p>
   border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
   <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Taxation </span></b></p>
+  color:black'>Tax </span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
   background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
   <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($payrolltrasaction->tax,2)}}</span></p>
   </td>
  </tr>
- <tr style='height:24.5pt'>
-  <td width=229 colspan=2 valign=top style='width:172.1pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:24.5pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
+  <tr style='height:17.5pt'>
+  <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
+  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Superannuation </span><span lang=EN-AU style='font-size:8.0pt;
-  font-family:"Arial (W1)",sans-serif;color:black'>(Fund Name)</span><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'> </span></p>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>&nbsp;</span></p>
-  </td>
-  <td width=262 colspan=3 valign=top style='width:196.65pt;border-top:none;
-  border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.5pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Account Number* </span></p>
+  color:black'>Social Security ->NSSF</span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:24.5pt'>
+  background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
   <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$...........
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:25.95pt'>
-  <td width=229 colspan=2 valign=top style='width:172.1pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:25.95pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Other deduction – purpose*</span></p>
-  </td>
-  <td width=262 colspan=3 valign=top style='width:196.65pt;border-top:none;
-  border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:25.95pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Account/Fund name </span><span lang=EN-AU style='font-size:7.0pt;
-  font-family:"Arial (W1)",sans-serif;color:black'>(or name and number)</span><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'> </span></p>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>&nbsp;</span></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:25.95pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$...........
-  . ...</span></p>
-  </td>
- </tr>
- <tr style='height:25.25pt'>
-  <td width=229 colspan=2 valign=top style='width:172.1pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:25.25pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Other deduction - purpose*</span></p>
-  </td>
-  <td width=262 colspan=3 valign=top style='width:196.65pt;border-top:none;
-  border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:25.25pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Account/Fund name </span><span lang=EN-AU style='font-size:7.0pt;
-  font-family:"Arial (W1)",sans-serif;color:black'>(or name and number)<br>
-  <br>
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($payrolltrasaction->ss_pay,2)}}
   </span></p>
   </td>
+ </tr>
+
+  @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payroll->id)->where('employee_id',$employee->id)->get() as $deduction)
+   <tr style='height:17.5pt'>
+  <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
+  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
+  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
+  color:black'> {{optional($deduction->deductiontype)->othincdesc}} </span></b></p>
+  </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:25.25pt'>
-  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></p>
+  background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+ <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($deduction->amount,2)}}
+  </span></p>
   </td>
  </tr>
+  @endforeach
+
+  @foreach(\App\Models\Prlloantransaction::where('payroll_id',$payroll->id)->where('employee_id',$employee->id)->get() as $loan)
+   <tr style='height:17.5pt'>
+  <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
+  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
+  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
+  color:black'> loan</span></b></p>
+  </td>
+  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
+  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+ <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($loan->amount,2)}}
+  </span></p>
+  </td>
+ </tr>
+
+ @endforeach
+
+  @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payroll->id)->where('employee_id',$employee->id)->get() as $deduction)
+   <tr style='height:17.5pt'>
+  <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
+  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
+  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
+  color:black'> {{optional($deduction->deductiontype)->othincdesc}} </span></b></p>
+  </td>
+  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
+  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+ <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($deduction->amount,2)}}
+  </span></p>
+  </td>
+ </tr>
+ @endforeach
+ 
  <tr style='height:19.6pt'>
   <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
   border-top:none;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt;height:19.6pt'>
@@ -673,8 +339,7 @@ color:black'>&nbsp;</span></p>
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
   background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt;height:19.6pt'>
   <p class=MsoNormal style='text-autospace:none'><b><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>$............
-  . ...</span></b></p>
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($payrolltrasaction->total_deduction,2)}}
   </td>
  </tr>
  <tr style='height:19.65pt'>
@@ -688,7 +353,7 @@ color:black'>&nbsp;</span></p>
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
   background:#E6E6E6;padding:0in 5.4pt 0in 5.4pt;height:19.65pt'>
   <p class=MsoNormal style='text-autospace:none'><b><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>Tsh {{$payrolltrasaction->netpay}}
+  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($payrolltrasaction->netpay,2)}}
   </span></b></p>
   </td>
  </tr>
