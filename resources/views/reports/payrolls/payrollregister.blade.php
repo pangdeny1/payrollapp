@@ -57,7 +57,7 @@ table.collapse td {
 
   <th align='right'><font color='white'>Gross</font></th>
    @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payrollid)->get() as $deduction)
-  <th align='right'><font color='white'>Deduction</font></th>
+  <th align='right'><font color='white'>{{optional($deduction->deductiontype)->othincdesc }}</font></th>
   @endforeach
 
  
@@ -95,13 +95,15 @@ table.collapse td {
       <td align='right'></td>
     <td>{{number_format($payroll->basicpay,2)}}</td>
 
-    @foreach(\App\Models\Prlothinfile::where('payroll_id',$payrollid)->get() as $income)
-  <th align='right'><font color='white'>Incomes</font></th>
+    @foreach(\App\Models\Prlothintransaction::where('payroll_id',$payrollid)->where('employee_id',$payroll->employee_id)->get() as $income)
+  <th align='right'><font color='white'>{{optional($income->incometype)->othincdesc}}</font></th>
   @endforeach
-    <td>{{number_format($payroll->basicpay,2)}}</td>
+    <td>{{number_format($payroll->grosspay,2)}}</td>
    
 
-  
+    @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payrollid)->get() as $deduction)
+  <th align='right'><font color='white'>{{optional($deduction->deductiontype)->othincdesc }}</font></th>
+  @endforeach
     
 
    

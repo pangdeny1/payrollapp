@@ -374,7 +374,7 @@ Route::prefix('settings')->group(function () {
      Route::post('payrollregister','report\reportscontroller@payrollregister');
      Route::get('payrollregisterformpdf','report\reportscontroller@payrollregisterformpdf');
      Route::post('payrollregisterpdf','report\reportscontroller@payrollregisterpdf');
-     Route::get('printpayslip/{id}','report\reportscontroller@print');
+     Route::post('printpayslip/{id}','report\reportscontroller@print');
      
      Route::get('form','form\FormController@create');
      Route::post('form','form\FormController@store');
@@ -506,6 +506,10 @@ Route::prefix('settings')->group(function () {
 
        Route::get("payrollregister","report\payroll\PayrollRegisterReportController@index");
        Route::post("payrollregistergenerate","report\payroll\PayrollRegisterReportController@generate");
+
+       Route::get("payslipform","report\payroll\PayslipReportController@index");
+       Route::post("payslipreport","report\payroll\PayslipReportController@print");
+
 
 
     

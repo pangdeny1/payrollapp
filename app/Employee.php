@@ -88,5 +88,23 @@ class Employee extends Model implements Auditable
         return $this->hasMany(prltransaction::class,"employee_id");
     }
 
+       public function job()
+    {
+        return $this->belongsTo(Models\Job::class,"job_id");
+    }
+
+
+       public function branch()
+    {
+        return $this->belongsTo(Models\Branch::class,"branch_id");
+    }
+
+
+       public function department()
+    {
+        return $this->belongsTo(Models\Department::class,"department_id");
+    }
+
+
     
 }

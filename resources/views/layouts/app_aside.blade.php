@@ -122,7 +122,7 @@
                       <a href="" class="menu-link">Payroll Summery</a>
                     </li>
                     <li class="menu-item">
-                      <a href="" class="menu-link">Payslips</a>
+                      <a href=" {{url("payslipform")}} " class="menu-link">Payslips</a>
                     </li>
                     <li class="menu-item">
                       <a href="" class="menu-link">Tax Monthly return</a>

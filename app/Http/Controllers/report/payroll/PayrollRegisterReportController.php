@@ -29,4 +29,5 @@ class PayrollRegisterReportController extends Controller
             
 
     }
+    
 }
