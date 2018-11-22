@@ -9,14 +9,11 @@
         <div class="nav nav-center nav-tabs">
             <a class="nav-link" href="#tab-first" role="tab" data-toggle="tab">Personal Infomation
             </a>
-             <a class="nav-link" href="#tab-tenth" role="tab" data-toggle="tab">
-                Dates
-            </a>
             <a class="nav-link" href="#tab-eight" role="tab" data-toggle="tab">
                 Membership
                 <span class="badge"></span>
             </a>
-            <a class="nav-link" href="#tab-eleventh" role="tab" data-toggle="tab">
+            <a class="nav-link" href="#tab-eleventh" role="tab" data-toggle="tab">>
                 Bank Detail
                 <span class="badge"></span>
             </a>
@@ -24,18 +21,20 @@
                 Contact
                 <span class="badge"></span>
             </a>
-            <a class="nav-link"  href="#tab-second" role="tab" data-toggle="tab">
+            <a class="nav-link"  href="#tab-eight" role="tab" data-toggle="tab">
                 Salary Info
                 <span class="badge"></span>
             </a>
-            <a class="nav-link" href="#tab-fifth" role="tab" data-toggle="tab">
+            <a class="nav-link" href="">
                 Attachement
                 <span class="badge"></span>
             </a>
-             <a class="nav-link" href="#tab-fourth" role="tab" data-toggle="tab">
+             <a class="nav-link" href="">
                 Login info
             </a>
-           
+            <a class="nav-link" href="">
+                Settings
+            </a>
         </div>
         <!-- /.nav -->
     </div>
@@ -44,102 +43,64 @@
                 
                     <div class="row">
                         <div class="col-md-12">
-                             
-                        <form action="{{ route("employees.update",$employee) }}"
-                              method="POST"
-                              class="card border-0"
-                        >
-                            @csrf
+                             <form class="form-horizontal" action="{{url('employeeupdate/'.$employee->employeeid) }}" method='post' role='form'>
                                                             
                                 <div class="panel panel-default tabs">                            
-                                    
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Personal</a></li>
+                                        <li><a href="#tab-tenth" role="tab" data-toggle="tab">Dates</a></li>
+                                        <li><a href="#tab-second" role="tab" data-toggle="tab">Salary</a></li>
+                                        <li><a href="#tab-eleventh" role="tab" data-toggle="tab">Bank Info</a></li>
+                                        <li><a href="#tab-eight" role="tab" data-toggle="tab">Membership</a></li>
+                                        <li><a href="#tab-third" role="tab" data-toggle="tab">Contacts</a></li>
+                                        <li><a href="#tab-seventh" role="tab" data-toggle="tab">Emergence Cont</a></li>
+                                        <li><a href="#tab-fourth" role="tab" data-toggle="tab">Education</a></li>
+                                        <li><a href="#tab-fifth" role="tab" data-toggle="tab">Work experience</a></li>
+                                        <li><a href="#tab-sixth" role="tab" data-toggle="tab">Dependants</a></li>
+                                        <li><a href="#tab-ninth" role="tab" data-toggle="tab">Picture</a></li>
+                                        </ul>
                                     <div class="panel-body tab-content">
                                         <div class="tab-pane active" id="tab-first">
-                                           <header class="card-header border-bottom-0">
-                                Personal information
-                            </header>
+                                           
+                                              <p>Fill all Mandatory Fields</p>
+
                                               <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Employee Code</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" class="form-control" name="EmployeeCode" value="{{ $employee->code}}"/>                                                    
+                                                    <input type="text" class="form-control" name="EmployeeCode" value="{{ $employee->employeecode}}"/>                                                    
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                            <label class="col-md-3 col-xs-12 control-label">Employee Title</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                   
-                                                                   <select name="Title"
-                                                class="form-control d-block w-100 {{ $errors->has('title') ? 'is-invalid' : '' }}"
-                                                id="title"
-                                                required=""
-                                        >
-                                            <option value=""> Choose... </option>
-                                            @foreach(\App\Models\title::latest()->get() as $title)
-                                                <option value="{{ $title->id }}" {{ old("title",$employee->title_id) === $title->id ? "selected" : "" }}>
-                                                    {{ $title->titlename }} 
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                             @if ($errors->has('title'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('title') }}</strong>
-                                                </span>
-                                        @endif                                                 
+                                                    <select class="form-control select" name="Title">
+                                                     
+
+                                                        </option>
+                                                                                                             
+                                                    </select>                                                   
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">First Name</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                     <input type="text"
-                                               name="first_name"
-                                               id="first_name"
-                                               class="form-control {{ $errors->has('first_name') ? 'is-invalid' : '' }}"
-                                               value="{{ $employee->first_name }}"
-                                               placeholder="First name..."
-                                        >
-                                        @if ($errors->has('first_name'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('first_name') }}</strong>
-                                            </span>
-                                        @endif                                                   
+                                                    <input type="text" class="form-control" name="firstname" value="{{ $employee->firstname}}"/>                                                    
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Last Name</label>
                                                 <div class="col-md-6 col-xs-12">                                          
-                                                       <input type="text"
-                                               name="last_name"
-                                               id="last_name"
-                                               class="form-control {{ $errors->has('last_name') ? 'is-invalid' : '' }}"
-                                               value="{{ $employee->last_name }}"
-                                               placeholder="Last name..."
-                                        >
-                                        @if ($errors->has('last_name'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('last_name') }}</strong>
-                                                </span>
-                                        @endif
+                                                    <input type="text" name="lastname" class="form-control" value="{{ $employee->lastname}}"/>
                                                 </div>
                                             </div>
 
                                              <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Other Name </label>
                                                 <div class="col-md-6 col-xs-12">                                            
-                                                      <input type="text"
-                                               name="other_name"
-                                               id="other_name"
-                                               class="form-control {{ $errors->has('other_name') ? 'is-invalid' : '' }}"
-                                               value="{{ $employee->other_name }}"
-                                               placeholder="other name..."
-                                        >
-                                        @if ($errors->has('last_name'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('other_name') }}</strong>
-                                                </span>
-                                        @endif
+                                                    <input type="text" name="othername" class="form-control" value="{{ $employee->middlename }}"/>
                                                 </div>
                                             </div>
 
@@ -148,67 +109,22 @@
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Gender</label>
                                                 <div class="col-md-6 col-xs-12">  
-                                                  <div class="custom-control custom-control-inline custom-radio">
-                                                <input type="radio"
-                                                       class="custom-control-input"
-                                                       name="gender"
-                                                       id="female"
-                                                       {{ old("gender", $employee->gender) === "female" ? "checked" : "" }}
-                                                       value="female"
-                                                >
-                                                <label class="custom-control-label" for="female">Female</label>
-                                            </div>
-                                            <div class="custom-control custom-control-inline custom-radio">
-                                                <input type="radio"
-                                                       class="custom-control-input"
-                                                       name="gender"
-                                                       {{ old("gender", $employee->gender) === "male" ? "checked" : "" }}
-                                                       id="male"
-                                                       value="male"
-                                                >
-                                                <label class="custom-control-label" for="male">Male</label>
-                                            </div>
-                                                </div>                                            
-                                            </div>
+                                                    <select class="form-control select" name="gender">
+                                                    
 
-                                             <div class="form-group">
-                                                <label class="col-md-3 col-xs-12 control-label">Work E-mail</label>
-                                                <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                     <input type="email"
-                                               name="email"
-                                               class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                               id="email"
-                                               placeholder="you@example.com"
-                                               value="{{ $employee->email }}"
-                                        >
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                                </div>
+                                                        </option>
+                                                                                                             
+                                                    </select>
+                                                </div>                                            
                                             </div>
 
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Branch</label>
                                                 <div class="col-md-5">
-                                                       <select name="branch"
-                                                class="form-control d-block w-100 {{ $errors->has('branch') ? 'is-invalid' : '' }}"
-                                                id="branch"
-                                                required=""
-                                        >
-                                            <option value=""> Choose... </option>
-                                            @foreach(\App\Models\Branch::latest()->get() as $branch)
-                                                <option value="{{ $branch->id }}" {{ old("branch",$employee->branch_id) === $branch->id ? "selected" : "" }}>
-                                                    {{ $branch->branchname }} 
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                             @if ($errors->has('branch'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('branch') }}</strong>
-                                                </span>
-                                        @endif
+                                                    <select class="form-control select" name="branchid">
+                                                       
+                                                                                            
+                                                    </select>
                                                 </div>                                          
                                             </div>
 
@@ -216,24 +132,10 @@
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Departments</label>
                                                 <div class="col-md-5">
-                                                    <select name="department"
-                                                class="form-control d-block w-100 {{ $errors->has('department') ? 'is-invalid' : '' }}"
-                                                id="department"
-                                                required=""
-                                        >
-                                            <option value=""> Choose... </option>
-                                            @foreach(\App\Models\department::latest()->get() as $department)
-                                                <option value="{{ $department->id }}" {{ old("department",$employee->department_id) === $department->id ? "selected" : "" }}>
-                                                    {{ $department->departmentname }} 
-                                                </option>
-                                            @endforeach
-                                        </select>
-
-                                           @if ($errors->has('department'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('department') }}</strong>
-                                                </span>
-                                        @endif
+                                                    <select class="form-control select" name="deptid">
+                                                     
+                                                                                                             
+                                                    </select>
                                                 </div>                                          
                                             </div>
 
@@ -241,59 +143,23 @@
                                                <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Job Title</label>
                                                 <div class="col-md-5">
-                                                    <select name="job"
-                                                class="form-control d-block w-100 {{ $errors->has('job') ? 'is-invalid' : '' }}"
-                                                id="job"
-                                                required=""
-                                        >
-                                            <option value=""> Choose... </option>
-                                            @foreach(\App\Models\job::latest()->get() as $job)
-                                                <option value="{{ $job->id }}" {{ old("job",$employee->job_id) === $job->id ? "selected" : "" }}>
-                                                    {{ $job->jobname }} 
-                                                </option>
-                                            @endforeach
-                                        </select>
-
-                                               @if ($errors->has('job'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('job') }}</strong>
-                                                </span>
-                                        @endif
-                                       
+                                                    <select class="form-control select" name="jobid">
+                                                      
+                                                                                                             
+                                                    </select>
                                                 </div>                                          
                                             </div>
+                                             
+
+
                                            
-                                           
-                                            <div class="form-group">                                        
-                                                <label class="col-md-3 col-xs-12 control-label">Include in Payroll?</label>
+            <div class="form-group">                                        
+                                                <label class="col-md-3 col-xs-12 control-label">Employee Status</label>
                                                 <div class="col-md-2">
-                                                      <div class="custom-control custom-control-inline custom-radio">
-                                            <input type="radio"
-                                                   class="custom-control-input"
-                                                   name="active"
-                                                   id="yes"
-                                                   value="yes"
-                                                   {{ old("active", $employee->active) === "yes" ? "checked" : "" }}
-                                                       value="yes"
-                                            >
-                                            <label class="custom-control-label" for="yes">yes</label>
-                                        </div>
-                                        <div class="custom-control custom-control-inline custom-radio">
-                                            <input type="radio"
-                                                   class="custom-control-input"
-                                                   name="active"
-                                                   id="no"
-                                                   value="no"
-                                                    {{ old("active", $employee->active) === "no" ? "checked" : "" }}
-                                                       value="no"
-                                            >
-                                            <label class="custom-control-label" for="no">no</label>
-                                             @if ($errors->has('active'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('active') }}</strong>
-                                                </span>
-                                        @endif
-                                        </div>
+                                                    <select class="form-control select" name="active">
+                                                        
+                                                                                                             
+                                                    </select>
                                                                                                              
                                                    
                                                 </div>                                            
@@ -303,7 +169,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">About employee</label>
                                                 <div class="col-md-6 col-xs-12">                                            
-                                                    <textarea class="form-control" rows="5" name="aboutme">{{$employee->about_employee}}</textarea>
+                                                    <textarea class="form-control" rows="5" name="aboutme">{{$employee->phone1comment}}</textarea>
                                                     <span class="help-block">Any particular condition that the Administrator may require to know</span>
                                                 </div>
                                             </div>                                           
@@ -315,72 +181,34 @@
                                                     
                                                 </div>
                                             </div>
-                                           @include("employees._page_profilepic"); 
+                                            
                                         </div>
                                         <div class="tab-pane" id="tab-second">
-                                           Salary Info
+                                           <p>Fill all Mandatory Fields</p>
                                             
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Pay type</label>
                                                 <div class="col-md-5">
-                                                    <select name="pay_type"
-                                                 class="form-control {{ $errors->has('pay_type') ? 'is-invalid' : '' }}"
-                                                id="pay_type"
-                                        >   
-                                        @if($employee->pay_type=="Salary")
-                                             <option selected="selected" value="Salary">Salary</option>
-                                            <option value="Hourly">Hourly</option>
-                                            @elseif($employee->pay_type=="Hourly")
-                                             <option value="Salary">Salary</option>
-                                            <option selected="selected" value="Hourly">Hourly</option>
-                                            @else
-                                            <option value="">select--</option>
-                                            <option value="Salary">Salary</option>
-                                            <option value="Hourly">Hourly</option>
-                                            @endif
-                                        </select>
-                                         @if ($errors->has('pay_type'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('pay_type') }}</strong>
-                                                </span>
-                                        @endif
-                                                </div>  
+                                                    <select class="form-control select" name="paytype">
+                                                
 
-                                                                                     
+                                                                                                             
+                                                    </select>
+                                                </div>                                          
                                             </div>
 
                                                                                         
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Basic Salary</label>
                                                 <div class="col-md-3 col-xs-12">                                                                                                                                                        
-                                                    <input type="text"
-                                               name="period_rate"
-                                               class="form-control {{ $errors->has('period_rate') ? 'is-invalid' : '' }}"
-                                               id="period_rate"
-                                               value="{{ old("period_rate", optional($employee)->period_rate) }}"
-                                        >
-                                        @if ($errors->has('period_rate'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('period_rate') }}</strong>
-                                            </span>
-                                        @endif                                                   
+                                                    <input type="text" class="form-control" name="periodrate" value="{{$employee->periodrate}}"/>                                                    
                                                 </div>
                                             </div>
 
                                              <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Hourly Rate</label>
                                                 <div class="col-md-3 col-xs-12">                                                                                                                                                        
-                                                      <input type="text"
-                                               name="hourly_rate"
-                                               class="form-control {{ $errors->has('hourly_rate') ? 'is-invalid' : '' }}"
-                                               id="hourly_rate"
-                                               value="{{ old("hourly_rate", optional($employee)->hourly_rate) }}"
-                                        >
-                                        @if ($errors->has('hourly_rate'))
-                                            <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('hourly_rate') }}</strong>
-                                            </span>
-                                        @endif                                                 
+                                                    <input type="text" class="form-control" name="hourlyrate" value="{{$employee->hourlyrate}}"/>                                                    
                                                 </div>
                                             </div>
                                             
@@ -390,126 +218,75 @@
                                                     
                                                 </div>
                                             </div>
-
-                                                <div class="form-group">
-                                                <label class="col-md-3 col-xs-12 control-label">Pay Period</label>
-                                                <div class="col-md-3 col-xs-12">                                                                                                                                                        
-                                                        <select class="form-control {{ $errors->has('payperiod') ? 'is-invalid' : '' }}" name="payperiod">
-                                                        <option  value='' selected="selected">Select </option>
-
-                                                        @foreach($payperiods as $payperiod)
-
-                                                         @if($payperiod->payperiodid ==$employee->pay_period)
-                                                        <option  value='{{$employee->pay_period}}' selected="selected">{{$payperiod->payperioddesc }}</option>
-                                                            @else
-                                                          <option value="{{ $payperiod->payperiodid }}">{{ $payperiod->payperioddesc }}</option>
-                                                           @endif 
-                                                        @endforeach
-                                                                                                             
-                                                    </select>
-                                             @if ($errors->has('payperiod'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('payperiod') }}</strong>
-                                    </span>
-                                @endif
-                                            </div>
-                                          </div>
-
-
-                                             @include("employees._page_profilepic")
                                             
                                         </div>                                        
                                         <div class="tab-pane" id="tab-third">
-                                          
+                                           <p>Fill all Mandatory Fields</p>
 
-                                          
-                                            <div class="form-group">
-                                                <label class="col-md-3 col-xs-12 control-label">Phone</label>
+                                           <div class="form-group">
+                                                <label class="col-md-3 col-xs-12 control-label">Government ID</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                       <input type="text"
-                                               name="phone"
-                                               id="phone"
-                                               class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
-                                               value="{{ $employee->phone }}"
-                                               placeholder="Phone number..."
-                                        >
-                                        @if ($errors->has('phone'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('phone') }}</strong>
-                                                </span>
-                                        @endif
+                                                    <input type="text" class="form-control" name="GovernmentID" value="{{ $employee->governmentid}}"/>                                                    
                                                 </div>
                                             </div>
-
+ 
                                             <div class="form-group">
-                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                       <label for="street">Street address</label>
-                                            <input type="text"
-                                                   name="street"
-                                                   class="form-control {{ $errors->has('street') ? 'is-invalid' : '' }}"
-                                                   id="street"
-                                                   value="{{ old("street", optional($employee->address)->street) }}"
-                                                   placeholder="1234 Main St"
-                                            >
-                                            @if ($errors->has('street'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('street') }}</strong>
-                                                </span>
-                                            @endif
+                                                <label class="col-md-3 col-xs-12 control-label">Work E-mail</label>
+                                                <div class="col-md-6 col-xs-12">                                                                                                                                                        
+                                                    <input type="text" name="email" class="form-control" value="{{$employee->email1}}"/>
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
-                                                
+                                                <label class="col-md-3 col-xs-12 control-label">personal E-mail</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                      <label for="address">
-                                                Address 2
-                                                <span class="badge badge-secondary">
-                                                    <em>Optional</em>
-                                                </span>
-                                            </label>
-                                            <input type="text"
-                                                   name="address"
-                                                   class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
-                                                   id="address"
-                                                   placeholder="Apartment or suite"
-                                                   value="{{ old("address", optional($employee->address)->address) }}"
-                                            >
-                                            @if ($errors->has('address'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('address') }}</strong>
-                                                </span>
-                                            @endif
+                                                    <input type="text" name="email2" class="form-control" value="{{$employee->email2}}"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-12 control-label">Phone</label>
+                                                <div class="col-md-6 col-xs-12">                                                                                                                                                        
+                                                    <input type="text" name="phone" class="form-control" value="{{$employee->phone1}}"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-12 control-label">Cell Phone</label>
+                                                <div class="col-md-6 col-xs-12">                                                                                                                                                        
+                                                    <input type="text" name="phone2" class="form-control" value="{{$employee->phone2}}"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-12 control-label">Address</label>
+                                                <div class="col-md-6 col-xs-12">                                                                                                                                                        
+                                                    <input type="text" class="form-control" name="address" value="{{$employee->address1}}"/>
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Country</label>
                                                 <div class="col-md-5">
-                                                    <select name="country"
-                                                    class="custom-select d-block w-100"
-                                                    id="country"
-                                            >
-                                                <option value="Tanzania">Tanzania</option>
-                                            </select>
+                                                    <select class="form-control select" name="country">
+
+
+
+                                               
+                                                    </select>
                                                 </div>                                            
                                             </div>
 
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">City/Region</label>
                                                 <div class="col-md-5">
-                                                    <select name="state"
-                                                    class="custom-select d-block w-100"
-                                                    id="state"
-                                                    required=""
-                                            >
-                                                <option value=""> Choose... </option>
-                                                @foreach($states as $key => $state)
-                                                    <option name="{{ $state["name"] }}" {{ old("state", optional($employee->address)->state) === $state["name"] ? "selected" : "" }}>
-                                                        {{ $state["name"] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                                    <select class="form-control select" name="region">
+
+                                                        
+
+                                                        
+                                                       
+                                                                                                             
+                                                    </select>
                                                 </div>                                            
                                             </div>
                                           <div class="form-group">                                        
@@ -525,29 +302,18 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Zip Code</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text"
-                                                   name="postal_code"
-                                                   class="form-control {{ $errors->has('postal_code') ? 'is-invalid' : '' }}"
-                                                   id="postal_code"
-                                                   value="{{ old("postal_code", optional($employee->address)->postal_code) }}"
-                                            >
-                                            @if ($errors->has('postal_code'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('postal_code') }}</strong>
-                                                </span>
-                                            @endif
+                                                    <input type="text" name="zip" class="form-control" value="{{$employee->zip}}"/>
                                                 </div>
                                             </div>
-                                             @include("employees._page_profilepic"); 
                                         </div>
 
                                             <div class="tab-pane" id="tab-fourth">
-                                            <p>Login info</p> 
+                                            <p>fouth</p> 
                                            
                                         </div>
 
                                         <div class="tab-pane"  id="tab-fifth">
-                                         <p>Attachement</p> 
+                                         
                                          
 
                                         </div>
@@ -555,7 +321,7 @@
                                          <div class="tab-pane"  id="tab-sixth">
                                        
                                       
-                                         @include("employees._page_profilepic"); 
+
                                         </div>
 
                                         <div class="tab-pane"  id="tab-seventh">
@@ -613,40 +379,29 @@
                                                     
                                                 </div>
                                             </div>     
-                                       @include("employees._page_profilepic"); 
+
 
                                         </div>
                                        
 
                                          <div class="tab-pane" id="tab-eight">
-                                                    <header class="card-header border-bottom-0">
-                                 Membership
-                            </header>
-                                      
+                                        
+                                       Membership
 
                                           <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Social Security Scheme</label>
                                                 <div class="col-md-5">
-                                                    <select class="form-control select" name="sstype">
-                                                       <option value=""> Choose... </option>
-                                            @foreach(\App\Models\Prlsstype::latest()->get() as $sstype)
-                                                <option value="{{ $sstype->id }}" {{ old("sstype",$employee->sstype_id) === $sstype->id ? "selected" : "" }}>
-                                                    {{ $sstype->penname }} 
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                             @if ($errors->has('sstype'))
-                                            <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('sstype') }}</strong>
-                                                </span>
-                                        @endif
+                                                    <select class="form-control select" name="sss">
+                                                       
+                                                                                                                                                                   
+                                                    </select>
                                                 </div>                                            
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Social Security Number</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="ssnumber" class="form-control" value="{{$employee->ss_number}}"/>
+                                                    <input type="text" name="ssnumber" class="form-control" value="{{$employee->ssnumber}}"/>
                                                 </div>
                                             </div>
 
@@ -663,7 +418,7 @@
                                               <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Health Insuarance Number</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="phnumber" class="form-control" value="{{$employee->health_number}}"/>
+                                                    <input type="text" name="phnumber" class="form-control" value="{{$employee->phnumber}}"/>
                                                 </div>
                                             </div>
 
@@ -671,7 +426,7 @@
                                              <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Servings Number</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="hdmfnumber" class="form-control" value="{{$employee->hdmf_number}}"/>
+                                                    <input type="text" name="hdmfnumber" class="form-control" value="{{$employee->hdmfnumber}}"/>
                                                 </div>
                                             </div>
 
@@ -704,7 +459,6 @@
                                                     </select>
                                                 </div>                                            
                                             </div>
-                                             @include("employees._page_profilepic"); 
 
                                         </div>
 
@@ -733,16 +487,19 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label"> Account Number</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="accountnumber" class="form-control" value=" {{$employee->account_number}} "/>
+                                                    <input type="text" name="accountnumber" class="form-control" value=""/>
                                                 </div>
                                             </div>
-
-                                             @include("employees._page_profilepic"); 
                                         </diV>
 
 
                                          <div class="tab-pane" id="tab-ninth">
+                                        
+                                      
                                        
+                                        
+
+                                        
                                        <img src="" alt="J"/>
                                       
                                    </br>
@@ -757,7 +514,7 @@
                                          <div class="form-group">
                                             <label class="col-md-3 control-label">Date of Birth</label>
                                             <div class="col-md-5">
-                                                <input type="date" name="birth_date" class="form-control datepicker" value="{{$employee->birth_date}}">
+                                                <input type="text" name="birthdate" class="form-control datepicker" value="{{$employee->birthdate}}">
                                             </div>
                                         </div>
 
@@ -766,7 +523,7 @@
                                          <div class="form-group">
                                             <label class="col-md-3 control-label">Hired Date</label>
                                             <div class="col-md-5">
-                                                <input type="date" name="hire_date" class="form-control datepicker" value="{{$employee->hire_date}}">
+                                                <input type="text" name="hiredate" class="form-control datepicker" value="{{$employee->hiredate}}">
                                             </div>
                                         </div>
                                     
@@ -774,7 +531,7 @@
                                          <div class="form-group">
                                             <label class="col-md-3 control-label">Probation End Date</label>
                                             <div class="col-md-5">
-                                                <input type="date" name="probation_date" class="form-control datepicker" value="{{$employee->probation_date}}">
+                                                <input type="text" name="probdate" class="form-control datepicker" value="">
                                             </div>
                                         </div>
                                    
@@ -783,14 +540,14 @@
                                          <div class="form-group">
                                             <label class="col-md-3 control-label">End of Contract</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="terminate_date" class="form-control datepicker" value="{{$employee->terminate_date }}">
+                                                <input type="text" name="terminatedate" class="form-control datepicker" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Retired Date</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="retired_date" class="form-control datepicker" value="{{$employee->retired_date}}">
+                                                <input type="text" name="retireddate" class="form-control datepicker" value="">
                                             </div>
                                         </div>
                                
@@ -806,15 +563,13 @@
                                                     </select>
                                                 </div>                                            
                                             </div> 
-
-                                             @include("employees._page_profilepic")
                                    
                                         </div>
 
                                         
                                         </div>
                                     <div class="panel-footer">                                                                        
-                                        <button class="btn btn-primary pull-right">Update Employee<span class="fa fa-floppy-o fa-right"></span></button>
+                                        <button class="btn btn-primary pull-right">Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
                                     </div>
                                 </div>                                
                             
@@ -827,10 +582,6 @@
                 <!-- END PAGE CONTENT WRAPPER -->
                 </div>            
             <!-- END PAGE CONTENT -->
-
         </div>
-        <!-- END PAGE CONTAINER 
-
-      @include("employees._page_profilepic");-->
-     
-@endsection
+        <!-- END PAGE CONTAINER -->
+                @endsection

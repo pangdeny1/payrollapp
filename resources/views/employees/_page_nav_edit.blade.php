@@ -6,7 +6,7 @@
             <a class="nav-link" href="">
                Basic Infomation
             </a>
-            <a class="nav-link" href="">
+            <a class="nav-link" <a href="#tab-second" role="tab" data-toggle="tab">>
                 Membership
                 <span class="badge"></span>
             </a>
