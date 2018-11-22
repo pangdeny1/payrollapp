@@ -61,7 +61,7 @@
                                               <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Employee Code</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" class="form-control" name="EmployeeCode" value="{{ $employee->code}}"/>                                                    
+                                                    <input type="text" class="form-control" name="code" value="{{ $employee->code}}"/>                                                    
                                                 </div>
                                             </div>
 
@@ -69,21 +69,21 @@
                                            <label class="col-md-3 col-xs-12 control-label">Employee Title</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
                                                    
-                                                                   <select name="Title"
-                                                class="form-control d-block w-100 {{ $errors->has('title') ? 'is-invalid' : '' }}"
-                                                id="title"
-                                                required=""
+                                                                   <select name="title_id"
+                                                class="form-control d-block w-100 {{ $errors->has('title_id') ? 'is-invalid' : '' }}"
+                                                id="title_id"
+                                               
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\title::latest()->get() as $title)
-                                                <option value="{{ $title->id }}" {{ old("title",$employee->title_id) === $title->id ? "selected" : "" }}>
+                                                <option value="{{ $title->id }}" {{ old("title_id",$employee->title_id) == $title->id ? "selected" : "" }}>
                                                     {{ $title->titlename }} 
                                                 </option>
                                             @endforeach
                                         </select>
-                                             @if ($errors->has('title'))
+                                             @if ($errors->has('title_id'))
                                             <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('title') }}</strong>
+                                                    <strong>{{ $errors->first('title_id') }}</strong>
                                                 </span>
                                         @endif                                                 
                                                 </div>
@@ -153,7 +153,7 @@
                                                        class="custom-control-input"
                                                        name="gender"
                                                        id="female"
-                                                       {{ old("gender", $employee->gender) === "female" ? "checked" : "" }}
+                                                       {{ old("gender", $employee->gender) == "female" ? "checked" : "" }}
                                                        value="female"
                                                 >
                                                 <label class="custom-control-label" for="female">Female</label>
@@ -162,7 +162,7 @@
                                                 <input type="radio"
                                                        class="custom-control-input"
                                                        name="gender"
-                                                       {{ old("gender", $employee->gender) === "male" ? "checked" : "" }}
+                                                       {{ old("gender", $employee->gender) == "male" ? "checked" : "" }}
                                                        id="male"
                                                        value="male"
                                                 >
@@ -199,7 +199,7 @@
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\Branch::latest()->get() as $branch)
-                                                <option value="{{ $branch->id }}" {{ old("branch",$employee->branch_id) === $branch->id ? "selected" : "" }}>
+                                                <option value="{{ $branch->id }}" {{ old("branch",$employee->branch_id) == $branch->id ? "selected" : "" }}>
                                                     {{ $branch->branchname }} 
                                                 </option>
                                             @endforeach
@@ -223,7 +223,7 @@
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\department::latest()->get() as $department)
-                                                <option value="{{ $department->id }}" {{ old("department",$employee->department_id) === $department->id ? "selected" : "" }}>
+                                                <option value="{{ $department->id }}" {{ old("department",$employee->department_id) == $department->id ? "selected" : "" }}>
                                                     {{ $department->departmentname }} 
                                                 </option>
                                             @endforeach
@@ -248,7 +248,7 @@
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\job::latest()->get() as $job)
-                                                <option value="{{ $job->id }}" {{ old("job",$employee->job_id) === $job->id ? "selected" : "" }}>
+                                                <option value="{{ $job->id }}" {{ old("job",$employee->job_id) == $job->id ? "selected" : "" }}>
                                                     {{ $job->jobname }} 
                                                 </option>
                                             @endforeach
@@ -273,7 +273,7 @@
                                                    name="active"
                                                    id="yes"
                                                    value="yes"
-                                                   {{ old("active", $employee->active) === "yes" ? "checked" : "" }}
+                                                   {{ old("active", $employee->active) == "yes" ? "checked" : "" }}
                                                        value="yes"
                                             >
                                             <label class="custom-control-label" for="yes">yes</label>
@@ -284,7 +284,7 @@
                                                    name="active"
                                                    id="no"
                                                    value="no"
-                                                    {{ old("active", $employee->active) === "no" ? "checked" : "" }}
+                                                    {{ old("active", $employee->active) == "no" ? "checked" : "" }}
                                                        value="no"
                                             >
                                             <label class="custom-control-label" for="no">no</label>
@@ -303,7 +303,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">About employee</label>
                                                 <div class="col-md-6 col-xs-12">                                            
-                                                    <textarea class="form-control" rows="5" name="aboutme">{{$employee->about_employee}}</textarea>
+                                                    <textarea class="form-control" rows="5" name="about_employee">{{$employee->about_employee}}</textarea>
                                                     <span class="help-block">Any particular condition that the Administrator may require to know</span>
                                                 </div>
                                             </div>                                           
@@ -505,7 +505,7 @@
                                             >
                                                 <option value=""> Choose... </option>
                                                 @foreach($states as $key => $state)
-                                                    <option name="{{ $state["name"] }}" {{ old("state", optional($employee->address)->state) === $state["name"] ? "selected" : "" }}>
+                                                    <option name="{{ $state["name"] }}" {{ old("state", optional($employee->address)->state) == $state["name"] ? "selected" : "" }}>
                                                         {{ $state["name"] }}
                                                     </option>
                                                 @endforeach
@@ -627,17 +627,17 @@
                                           <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Social Security Scheme</label>
                                                 <div class="col-md-5">
-                                                    <select class="form-control select" name="sstype">
+                                                    <select class="form-control select" name="sstype_id">
                                                        <option value=""> Choose... </option>
                                             @foreach(\App\Models\Prlsstype::latest()->get() as $sstype)
-                                                <option value="{{ $sstype->id }}" {{ old("sstype",$employee->sstype_id) === $sstype->id ? "selected" : "" }}>
+                                                <option value="{{ $sstype->id }}" {{ old("sstype_id",$employee->sstype_id) == $sstype->id ? "selected" : "" }}>
                                                     {{ $sstype->penname }} 
                                                 </option>
                                             @endforeach
                                         </select>
-                                             @if ($errors->has('sstype'))
+                                             @if ($errors->has('sstype_id'))
                                             <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('sstype') }}</strong>
+                                                    <strong>{{ $errors->first('sstype_id') }}</strong>
                                                 </span>
                                         @endif
                                                 </div>                                            
@@ -646,15 +646,25 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Social Security Number</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="ssnumber" class="form-control" value="{{$employee->ss_number}}"/>
+                                                    <input type="text" name="ss_number" class="form-control" value="{{$employee->ss_number}}"/>
                                                 </div>
                                             </div>
 
                                              <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Health Insuarance</label>
                                                 <div class="col-md-5">
-                                                    <select class="form-control select" name="health">
-                                                      
+                                                    <select class="form-control select" name="health_id">
+                                                            @foreach(\App\Prlhealthtype::latest()->get() as $health)
+                                                <option value="{{ $health->id }}" {{ old("health_id",$employee->health_id) == $health->id ? "selected" : "" }}>
+                                                    {{ $health->healthname }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                             @if ($errors->has('health_id'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('health_id') }}</strong>
+                                                </span>
+                                        @endif
                                                                                                                                                                    
                                                     </select>
                                                 </div>                                            
@@ -663,24 +673,51 @@
                                               <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Health Insuarance Number</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="phnumber" class="form-control" value="{{$employee->health_number}}"/>
+                                                    <input type="text" name="health_number" class="form-control" value="{{$employee->health_number}}"/>
                                                 </div>
+                                            </div>
+
+                                                <div class="form-group">                                        
+                                                <label class="col-md-3 col-xs-12 control-label">Workers Union</label>
+                                                <div class="col-md-5">
+                                                    <select class="form-control select" name="hdmf_id">
+                                                            @foreach(\App\Prlhdmftype::latest()->get() as $hdmf)
+                                                <option value="{{ $hdmf->id }}" {{ old("hdmf_id",$employee->hdmf_id) == $hdmf->id ? "selected" : "" }}>
+                                                    {{ $hdmf->hdmfname }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                             @if ($errors->has('hdmf_id'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('hdmf_id') }}</strong>
+                                                </span>
+                                        @endif
+                                                                                                                                                                   
+                                                    </select>
+                                                </div>                                            
                                             </div>
 
 
                                              <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Servings Number</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="hdmfnumber" class="form-control" value="{{$employee->hdmf_number}}"/>
+                                                    <input type="text" name="hdmf_number" class="form-control" value="{{$employee->hdmf_number}}"/>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Deduct Social Security Scheme?</label>
                                                 <div class="col-md-5">
-                                                    <select class="form-control select" name="isPension">
+                                                    <select class="form-control select" name="deduct_ss">
                                                       
-                                                                                                                                                                   
+                                                           @foreach($yesornos as $ss)
+                                                        @if($ss->id==$employee->deduct_ss)
+                                                        <option  value="{{$employee->deduct_ss}}" selected="selected">{{$ss->name}}</option>
+                                                        @else
+                                                        <option value="{{$ss->id}}">{{$ss->name}}</option>
+                                                          @endif  
+                                                        @endforeach
+                                                                                                                                                                            
                                                     </select>
                                                 </div>                                            
                                             </div>
@@ -688,8 +725,14 @@
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Deduct Tax?</label>
                                                 <div class="col-md-5">
-                                                    <select class="form-control select" name="isTaxed">
-                                                     
+                                                    <select class="form-control select" name="deduct_tax">
+                                                          @foreach($yesornos as $ss)
+                                                        @if($ss->id==$employee->deduct_tax)
+                                                        <option  value="{{$employee->deduct_tax}}" selected="selected">{{$ss->name}}</option>
+                                                        @else
+                                                        <option value="{{$ss->id}}">{{$ss->name}}</option>
+                                                          @endif  
+                                                        @endforeach
                                                                                                                                                                    
                                                     </select>
                                                 </div>                                            
@@ -698,8 +741,14 @@
                                             <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Deduct Workers Union?</label>
                                                 <div class="col-md-5">
-                                                    <select class="form-control select" name="isHdmf">
-                                                    
+                                                    <select class="form-control select" name="deduct_hdmf">
+                                                     @foreach($yesornos as $ss)
+                                                        @if($ss->id==$employee->deduct_hdmf)
+                                                        <option  value="{{$employee->deduct_hdmf}}" selected="selected">{{$ss->name}}</option>
+                                                        @else
+                                                        <option value="{{$ss->id}}">{{$ss->name}}</option>
+                                                          @endif  
+                                                        @endforeach
                                                                                                                                                                    
                                                     </select>
                                                 </div>                                            
@@ -716,24 +765,33 @@
                                           <div class="form-group">                                        
                                                 <label class="col-md-3 col-xs-12 control-label">Bank</label>
                                                 <div class="col-md-5">
-                                                    <select class="form-control select" name="bank">
-                                                    
-                                                                                                                                                                   
-                                                    </select>
+                                                              <select class="form-control select" name="bank_id">
+                                                       <option value=""> Choose... </option>
+                                            @foreach(\App\Models\Bank::latest()->get() as $bank)
+                                                <option value="{{ $bank->id }}" {{ old("bank_id",$employee->bank_id) == $bank->id ? "selected" : "" }}>
+                                                    {{ $bank->bankname }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                             @if ($errors->has('bank'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('bank') }}</strong>
+                                                </span>
+                                        @endif
                                                 </div>                                            
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Account Name</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="AccountNumber" class="form-control" value=""/>
+                                                    <input type="text" name="account_name" class="form-control" value="{{$employee->account_name}}"/>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label"> Account Number</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" name="accountnumber" class="form-control" value=" {{$employee->account_number}} "/>
+                                                    <input type="text" name="account_number" class="form-control" value="{{$employee->account_number}}"/>
                                                 </div>
                                             </div>
 
@@ -783,14 +841,14 @@
                                          <div class="form-group">
                                             <label class="col-md-3 control-label">End of Contract</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="terminate_date" class="form-control datepicker" value="{{$employee->terminate_date }}">
+                                                <input type="date" name="terminate_date" class="form-control datepicker" value="{{$employee->terminate_date }}">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Retired Date</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="retired_date" class="form-control datepicker" value="{{$employee->retired_date}}">
+                                                <input type="date" name="retired_date" class="form-control datepicker" value="{{$employee->retired_date}}">
                                             </div>
                                         </div>
                                

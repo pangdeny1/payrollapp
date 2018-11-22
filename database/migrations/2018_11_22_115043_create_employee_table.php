@@ -40,6 +40,7 @@ $table->integer('hdmf_id')->nullable();
 $table->integer('bank_id')->nullable();
 $table->string('bankbranch_id')->nullable();
 $table->string('account_number')->nullable();
+$table->string('account_name')->nullable();
 $table->string('ss_number')->nullable();
 $table->string('health_number')->nullable();
 $table->string('hdmf_number')->nullable();

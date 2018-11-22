@@ -9,6 +9,15 @@ class Employee extends Model implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
 
+    protected $fillable = ['id','first_name','last_name','other_name','phone','email','gender',
+'period_rate','pay_type','sstype_id','hourly_rate','pay_period',
+'active','deduct_tax','deduct_ss','deduct_health','deduct_hdmf',
+'branch_id','department_id','job_id',
+'health_id','hdmf_id','bank_id','bankbranch_id','account_number','account_name',
+'ss_number','health_number','hdmf_number','marital','company_id','hire_date',
+'terminate_date','birth_date','retired_date','probation_date','employement_status',
+'code','title_id','picture','about_employee','creator_id','created_at','updated_at'];
+
     protected $guarded = [];
 
     protected $appends = [

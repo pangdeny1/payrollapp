@@ -28,7 +28,7 @@
                                     <span class="ml-1">Export as excel</span>
                                 </a>
                                 
-                                @can("create", \App\Farmer::class)
+                                @can("create", \App\Employee::class)
                                 <a href="{{ route("employees.create") }}" class="btn btn-primary">
                                     <span class="fas fa-plus mr-1"></span>
                                     New employee
@@ -75,9 +75,9 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                               <th>Farmer</th>
+                                               <th>Employee</th>
                                                 <th>Gender</th>
-                                                <th>Phone</th>
+                                                <th>Job</th>
                                                 <th>Email</th>
                                                 <th>Department</th>
                                                 <th>Region</th>
@@ -100,21 +100,21 @@
                                                     </a>
                                                 </td>
                                                 <td>{{ $employee->gender }}</td>
-                                                <td>{{ $employee->phone }}</td>
+                                                <td>{{ optional($employee->job)->jobname }}</td>
                                                 <td>{{ $employee->email }}</td>
-                                                <td></td>
+                                                <td>{{ optional($employee->department)->departmentname }}</td>
                                                 <td>{{ optional($employee->address)->state }}</td>
                                                 <td>{{ number_format($employee->period_rate,2) }}</td>
                                                 <td>{{ $employee->active }}</td>
                                                 <td class="align-middle text-right">
-                                                    @can("edit", \App\Farmer::class)
+                                                    @can("edit", \App\Employee::class)
                                                     <a href="{{ route("employees.edit", $employee) }}" class="btn btn-sm btn-secondary">
                                                         <i class="fa fa-pencil-alt"></i>
                                                         <span class="sr-only">Edit</span>
                                                     </a>
                                                     @endcan
 
-                                                    @can("delete", \App\Farmer::class)
+                                                    @can("delete", \App\Employee::class)
                                                     <a href="#" class="btn btn-sm btn-secondary">
                                                         <i class="far fa-trash-alt"></i>
                                                         <span class="sr-only">Remove</span>
@@ -152,7 +152,7 @@
                     <p class="state-description lead text-muted">
                         Use the button below to Register new .
                     </p>
-                    @can("create", \App\Farmer::class)
+                    @can("create", \App\Employee::class)
                     <div class="state-action">
                         <a href="{{ route("employees.create") }}" class="btn btn-primary">Register new</a>
                     </div>

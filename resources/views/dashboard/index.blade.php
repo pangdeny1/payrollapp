@@ -22,7 +22,7 @@
                                     <!-- metric column -->
                                     <div class="col">
                                         <!-- .metric -->
-                                        <a href="user-teams.html" class="metric metric-bordered align-items-center">
+                                        <a href="" class="metric metric-bordered align-items-center">
                                             <h2 class="metric-label"> Active Employees </h2>
                                             <p class="metric-value h3">
                                                 <sub>
@@ -39,7 +39,7 @@
 
                                     <div class="col">
                                         <!-- .metric -->
-                                        <a href="user-projects.html" class="metric metric-bordered align-items-center">
+                                        <a href="" class="metric metric-bordered align-items-center">
                                             <h2 class="metric-label"> In Active Employees </h2>
                                             <p class="metric-value h3">
                                                 <sub>
@@ -55,7 +55,7 @@
                                     <!-- metric column -->
                                     <div class="col">
                                         <!-- .metric -->
-                                        <a href="user-tasks.html" class="metric metric-bordered align-items-center">
+                                        <a href="" class="metric metric-bordered align-items-center">
                                             <h2 class="metric-label"> Total Employees </h2>
                                             <p class="metric-value h3">
                                                 <sub>

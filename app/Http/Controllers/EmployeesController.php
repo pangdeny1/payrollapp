@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 use Sms;
-
+use App\Models\YesOrNo;
 class EmployeesController extends Controller
 {
 	public function __construct()
@@ -131,9 +131,8 @@ class EmployeesController extends Controller
             "groups" =>Group::All(),
             "groupmember"=>GroupMember::All(),
             "payperiods" =>Payperiod::All(),
+            "yesornos"   =>YesOrNo::All(),
 
-
-           
         ]);
     } 
 /* public function update(Employee $employee)
@@ -182,6 +181,33 @@ class EmployeesController extends Controller
             'branch_id'    =>request("branch"),
             "department_id"=>request("department"),
             "job_id"       =>request("job"),
+            "health_id"    =>request("health_id"),
+            "hdmf_id"      =>request('hdmf_id'),
+            "bank_id"      =>request('bank_id'),
+            "bankbranch_id" =>request('bankbranch_id'),
+            "account_name"  =>request('account_name'),
+            "account_number" =>request("account_number"),
+            "sstype_id"      =>request("sstype_id"),
+            "hire_date"      =>request("hire_date"),
+            "terminate_date" =>request("terminate_date"),
+            "employement_status"=>request('employement_status'),
+            "code"              =>request('code'),
+            "title_id"          =>request('title_id'),
+            "picture"           =>request('picture'),
+            "company_id"        =>request('company_id'),
+            "marital"           =>request('marital'),
+            "retired_date"      =>request('retired_date'),
+            "birth_date"        =>request('birth_date'),
+            "ss_number"         =>request('ss_number'),
+            "about_employee"    =>request('about_employee'),
+            "probation_date"    =>request("probation_date"),
+            "deduct_ss"         =>request("deduct_ss"),
+            "deduct_tax"        =>request('deduct_tax'),
+            "deduct_hdmf"       =>request('deduct_hdmf'),
+            "hdmf_number"       =>request('hdmf_number'),
+            "health_number"     =>request('health_number'),
+
+
         ]);
 
         if ($employee->address()->exists()){

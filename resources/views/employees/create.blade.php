@@ -219,7 +219,32 @@
                                        
                                     </div>
                                 </div>
-                            </div>
+
+                                  </div>
+                                       <div class="form-group col-md-12 mb-3">
+                                        <label for="sstype_id">Social Security Scheme</label>
+                                        <select name="sstype_id"
+                                                class="form-control d-block w-100 {{ $errors->has('sstype_id') ? 'is-invalid' : '' }}"
+                                                id="job"
+                                               
+                                        >
+                                            <option value=""> Choose... </option>
+                                    @foreach(\App\Models\Prlsstype::latest()->get() as $sstype)
+                                                <option value="{{ $sstype->id }}" {{ old("sstype_id") == $sstype->id ? "selected" : "" }}>
+                                                    {{ $sstype->penname }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                             @if ($errors->has('sstype_id'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('sstype_id') }}</strong>
+                                                </span>
+                                        @endif
+                                       
+                                    </div>
+                                </div>
+                           
+                         
                             <hr>
                             <header class="card-header border-bottom-0">
                                 Salary Information
