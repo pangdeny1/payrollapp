@@ -9,11 +9,11 @@
                 <div class="panel-body">
                     @include('includes.flash')
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('payslipreport') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('monthlytaxreport') }}">
                         {!! csrf_field() !!}
 
                          <fieldset>
-                        <legend>Payslip </legend>
+                        <legend>Tax  Report</legend>
                         <!-- grid row -->
                         <div class="row">
                           <!-- grid column -->
@@ -35,23 +35,6 @@
                                 @endif
                             </div>
                             <!-- /.form-group -->
-
-
-                            <div class="form-group">
-                              <label for="sel1">Employee</label>
-                              <select name="employee" class="custom-select{{ $errors->has('employee') ? ' has-error' : '' }}" id="sel1" required="">
-                                <option value=""> Choose... </option>
-                                @foreach(\App\Employee::All() as $employee)
-                                <option value="{{$employee->id}}"> {{$employee->full_name}} {{$employee->id}} </option>
-                                @endforeach
-                              </select>
-
-                                @if ($errors->has('employee'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('employee') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
                       
 
                         <div class="form-group">

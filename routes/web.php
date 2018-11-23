@@ -510,6 +510,13 @@ Route::prefix('settings')->group(function () {
        Route::get("payslipform","report\payroll\PayslipReportController@index");
        Route::post("payslipreport","report\payroll\PayslipReportController@print");
 
+       Route::get("monthlytaxform","report\payroll\TaxReportController@index");
+       Route::post("monthlytaxreport","report\payroll\TaxReportController@print");
+
+        Route::get("monthlysssform","report\payroll\SSSReportController@index");
+       Route::post("monthlysssreport","report\payroll\SSSReportController@print");
+
+
 
 
     

@@ -12,7 +12,7 @@ class Prlothintransaction extends Model
 
         public function incometype()
     {
-       return $this->belongsTo(Prlothinctype::class,"othinc_id","id");
+       return $this->belongsTo("App\Models\Plothinctype","othinc_id");
 
     }
 }

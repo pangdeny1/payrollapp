@@ -9,11 +9,11 @@
                 <div class="panel-body">
                     @include('includes.flash')
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('payslipreport') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('monthlysssreport') }}">
                         {!! csrf_field() !!}
 
                          <fieldset>
-                        <legend>Payslip </legend>
+                        <legend>Social Security Monthly Remmitance</legend>
                         <!-- grid row -->
                         <div class="row">
                           <!-- grid column -->
@@ -38,17 +38,17 @@
 
 
                             <div class="form-group">
-                              <label for="sel1">Employee</label>
-                              <select name="employee" class="custom-select{{ $errors->has('employee') ? ' has-error' : '' }}" id="sel1" required="">
+                              <label for="sel1">Social Security Type</label>
+                              <select name="sss" class="custom-select{{ $errors->has('sss') ? ' has-error' : '' }}" id="sel1" required="">
                                 <option value=""> Choose... </option>
-                                @foreach(\App\Employee::All() as $employee)
-                                <option value="{{$employee->id}}"> {{$employee->full_name}} {{$employee->id}} </option>
+                                @foreach(\App\Models\Prlsstype::All() as $sss)
+                                <option value="{{$sss->id}}"> {{$sss->penname}}  </option>
                                 @endforeach
                               </select>
 
-                                @if ($errors->has('employee'))
+                                @if ($errors->has('sss'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('employee') }}</strong>
+                                        <strong>{{ $errors->first('sss') }}</strong>
                                     </span>
                                 @endif
                             </div>

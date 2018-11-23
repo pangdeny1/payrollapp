@@ -150,7 +150,7 @@ color:black'>Employer Social Security contribution</span></b></p>
 <p class=MsoNormal style='margin-top:3.0pt;margin-right:0in;margin-bottom:0in;
 margin-left:3.5pt;margin-bottom:.0001pt;text-autospace:none'><span lang=EN-AU
 style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>Name
-of Fund/Scheme: NSSF
+of Fund/Scheme: {{$payrolltrasaction->pension->penname}}
 Contribution: Tsh {{number_format($payrolltrasaction->ss_pay,2)}}</span></p>
 
 <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
@@ -195,11 +195,11 @@ color:black'>&nbsp;</span></p>
  </tr>
  @foreach(\App\Models\Prlothintransaction::where('payroll_id',$payroll->id)->where('employee_id',$employee->id)->get() as $income)
    <tr style='height:17.5pt'>
-  <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
+  <td width=492 colspan=5 style='width:194.5pt;border:solid #999999 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt;height:18.85pt'>
+  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'> {{optional($income->incometype)->othincdesc}} </span></b></p>
+  color:black'>  @foreach(\App\Models\Prlothinctype::where('id',$income->othinc_id)->get() as $inc) {{$inc->incomedesc}} @endforeach</span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
@@ -262,7 +262,7 @@ color:black'>&nbsp;</span></p>
   border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
   <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Social Security ->NSSF</span></b></p>
+  color:black'>Social Security ->{{$payrolltrasaction->pension->penname}}</span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
@@ -279,7 +279,7 @@ color:black'>&nbsp;</span></p>
   border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
   <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'> {{optional($deduction->deductiontype)->othincdesc}} </span></b></p>
+  color:black'>  @foreach(\App\Models\Prlothdedctype::where('id',$deduction->othded_id)->get() as $ded) {{$ded->othincdesc }} @endforeach</span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
@@ -297,36 +297,22 @@ color:black'>&nbsp;</span></p>
   border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
   <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'> loan</span></b></p>
+  color:black'>  @foreach(\App\Models\Prlloantype::where('id',$loan->loantype_id)->get() as $loantype) {{$loantype->loantypedesc}} @endforeach</span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
   background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
  <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
   style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($loan->amount,2)}}
+
+  
   </span></p>
   </td>
  </tr>
 
  @endforeach
 
-  @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payroll->id)->where('employee_id',$employee->id)->get() as $deduction)
-   <tr style='height:17.5pt'>
-  <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;
-  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
-  <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
-  lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'> {{optional($deduction->deductiontype)->othincdesc}} </span></b></p>
-  </td>
-  <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
-  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
-  background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
- <p class=MsoNormal style='text-autospace:none'><span lang=EN-AU
-  style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;color:black'>{{number_format($deduction->amount,2)}}
-  </span></p>
-  </td>
- </tr>
- @endforeach
+
  
  <tr style='height:19.6pt'>
   <td width=492 colspan=5 style='width:368.75pt;border:solid #999999 1.0pt;

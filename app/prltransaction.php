@@ -24,5 +24,10 @@ class prltransaction extends Model
         return $this->belongsTo("\App\Models\Payroll","payroll_id");
     }
 
+        public function pension()
+    {
+        return $this->belongsTo("\App\Models\Prlsstype","sstype_id");
+    }
+
 
 }

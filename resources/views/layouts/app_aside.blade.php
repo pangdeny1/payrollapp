@@ -88,8 +88,6 @@
                     
                     @endcan
 
-
-
                     <hr>
 
                      <div class="menu-header">Leave</div>
@@ -111,7 +109,7 @@
                   <a href="#" class="menu-link">
                     <i class="far fa-chart-bar text-muted mr-2"></i>
                     
-                    <span class="menu-text">Payroll</span>
+                    <span class="menu-text">Payroll Reports</span>
                   </a>
                   <!-- child menu -->
                   <ul class="menu">
@@ -125,10 +123,10 @@
                       <a href=" {{url("payslipform")}} " class="menu-link">Payslips</a>
                     </li>
                     <li class="menu-item">
-                      <a href="" class="menu-link">Tax Monthly return</a>
+                      <a href="{{url("monthlytaxform")}} " class="menu-link">Tax Monthly return</a>
                     </li>
                     <li class="menu-item">
-                      <a href="" class="menu-link">Pension Monthly Remittance</a>
+                      <a href=" {{url("monthlysssform")}} " class="menu-link">Social Security Monthly Remittance</a>
                     </li>
 
                      <li class="menu-item">
@@ -154,15 +152,15 @@
                                       
                   </ul>
                   <!-- /child menu -->
-                </li>
-                    <a href="{{url('payslipform')}}" class="menu-link mb-2">
+               </li>
+                    <!---<a href="{{url('payslipform')}}" class="menu-link mb-2">
                         <i class="fas fa-chart-line text-muted mr-2"></i>
                         <span class="menu-text">Payslip</span>
                     </a>
                     <a href="{{ route("payrolls.reports", ["period" => "daily"]) }}" class="menu-link mb-2">
                         <i class="far fa-chart-bar text-muted mr-2"></i>
                         <span class="menu-text">Payrolls Reports</span>
-                    </a>
+                    </a>-->
                 </nav>
                  @endif
             </nav>

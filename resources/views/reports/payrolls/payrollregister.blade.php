@@ -52,16 +52,17 @@ table.collapse td {
   <th align='right'><font color='white'>Basic Areas</font></th>
 
   @foreach(\App\Models\Prlothintransaction::where('payroll_id',$payrollid)->groupby('othinc_id')->get() as $income)
-  <th align='right'><font color='white'>{{optional($income->incometype)->othincdesc}}</font></th>
+  <th align='right'><font color='white'> @foreach(\App\Models\Prlothinctype::where('id',$income->othinc_id)->get() as $inc) {{$inc->incomedesc}} @endforeach</font></th>
   @endforeach
 
   <th align='right'><font color='white'>Gross</font></th>
-   @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payrollid)->get() as $deduction)
-  <th align='right'><font color='white'>{{optional($deduction->deductiontype)->othincdesc }}</font></th>
+   @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payrollid)->groupby('othded_id')->get() as $deduction)
+  <th align='right'><font color='white'>@foreach(\App\Models\Prlothdedctype::where('id',$deduction->othded_id)->get() as $ded) {{$ded->othincdesc }} @endforeach</font></th>
   @endforeach
 
- 
-  <th align='right'><font color='white'>NHIF Employee</font></th>
+ @foreach(\App\Models\Prlloantransaction::where('payroll_id',$payrollid)->groupby('loantype_id')->get() as $loan)
+  <th align='right'><font color='white'> @foreach(\App\Models\Prlloantype::where('id',$loan->loantype_id)->get() as $loantype) {{$loantype->loantypedesc}} @endforeach</font></th>
+  @endforeach
   <th align='right'><font color='white'>Taxable Earning</font></th> 
   
   
@@ -94,20 +95,24 @@ table.collapse td {
     <td align='right'></td>
       <td align='right'></td>
     <td>{{number_format($payroll->basicpay,2)}}</td>
+    <td>Areas</td>
 
-    @foreach(\App\Models\Prlothintransaction::where('payroll_id',$payrollid)->where('employee_id',$payroll->employee_id)->get() as $income)
-  <th align='right'><font color='white'>{{optional($income->incometype)->othincdesc}}</font></th>
+    @foreach(\App\Models\Prlothintransaction::where('payroll_id',$payrollid)->groupby('othinc_id')->get() as $income)
+  <td align='right'>income</font></td>
   @endforeach
-    <td>{{number_format($payroll->grosspay,2)}}</td>
+    <td align='right'>{{number_format($payroll->grosspay,2)}}</td>
    
 
-    @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payrollid)->get() as $deduction)
-  <th align='right'><font color='white'>{{optional($deduction->deductiontype)->othincdesc }}</font></th>
+    @foreach(\App\Models\Prlothdedtransaction::where('payroll_id',$payrollid)->groupby('othded_id')->get() as $deduction)
+ <td align='right'>deduction</td>
   @endforeach
+
+     @foreach(\App\Models\Prlloantransaction::where('payroll_id',$payrollid)->groupby('loantype_id')->get() as $loan)
+      <td align='right'>Loan</td>
+      @endforeach
+
+   
     
-
-   
-       <td align='right'></td> 
 
 
     
@@ -131,9 +136,9 @@ table.collapse td {
     <th align='right'><font color='white'>{{number_format($payroll->sum("basicpay"),2)}}</th>
     <th align='right'><font color='white'></th>
    <th align='right'><font color='white'>{{number_format($payroll->sum("grosspay"),2)}}</th>
-     @foreach(\App\Models\Prlothdedfile::where('payroll_id',$payrollid)->get() as $deduction)
-  <th align='right'><font color='white'>Deduction</font></th>
-  @endforeach
+    
+  <th align='right'><font color='white'> </font></th>
+
     <th align='right'><font color='white'></th>
     <th align='right'><font color='white'></th>
   
