@@ -117,7 +117,7 @@
                       <a href="{{url("payrollregister")}}" class="menu-link">Payroll Register</a>
                     </li>
                     <li class="menu-item">
-                      <a href="" class="menu-link">Payroll Summery</a>
+                      <a href="{{url("payrollsummeryform")}}" class="menu-link">Payroll Summery</a>
                     </li>
                     <li class="menu-item">
                       <a href=" {{url("payslipform")}} " class="menu-link">Payslips</a>
@@ -153,6 +153,23 @@
                   </ul>
                   <!-- /child menu -->
                </li>
+
+                  <li class="menu-item has-child">
+                  <a href="#" class="menu-link">
+                    <i class="far fa-chart-bar text-muted mr-2"></i>
+                    
+                    <span class="menu-text">Leave Reports</span>
+                  </a>
+                  <!-- child menu -->
+                  <ul class="menu">
+                    <li class="menu-item">
+                      <a href="{{url("leavebalance")}}" class="menu-link">Leave Balance</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="{{url("leaveform")}}" class="menu-link">Leave forms</a>
+                    </li>
+                </ul>
+            </li>
                     <!---<a href="{{url('payslipform')}}" class="menu-link mb-2">
                         <i class="fas fa-chart-line text-muted mr-2"></i>
                         <span class="menu-text">Payslip</span>

@@ -516,6 +516,11 @@ Route::prefix('settings')->group(function () {
         Route::get("monthlysssform","report\payroll\SSSReportController@index");
        Route::post("monthlysssreport","report\payroll\SSSReportController@print");
 
+       Route::get("payrollsummeryform","report\payroll\PayrollRegisterReportController@payrollsummeryform");
+       Route::post("payrollsummeryreport","report\payroll\PayrollRegisterReportController@payrollsummeryprint");
+
+       
+
 
 
 
