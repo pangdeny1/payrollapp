@@ -4,6 +4,9 @@ namespace App\Http\Controllers\report\leave;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Company;
+use App\Models\leave\leavebalance;
+use App\Models\leave\leave;
 
 class LeaveReportController extends Controller
 {
@@ -18,17 +21,23 @@ class LeaveReportController extends Controller
     	return view('reports.leaves.index');
     }
 
-    public function generate(Request $request)
+     public function print(Request $request)
     {
-    	  $this->validate($request, [
-            'payroll'     => 'required',
+         $this->validate($request, [
+            'employee'     => 'required',
+            'leavetype'     =>'required',
+
             ]);
-    	  $payrollid=request('payroll');
-    	  $index=1;
-
-            return view("reports.leaves.payrollregister",compact('payrollid','index'));
+         
+          $index=1;
             
+          
+           $company=Company::first();
+           $leaveform=leave::Where('leavetype_id',request('leavetype'))->where('employee_id',request('employee'))->get();
 
+          $pdf = \PDF::loadView('reports.leaves.leaveformreport',compact('index','company','leaveform'));
+
+        return $pdf->stream();
     }
 
       public function leavebalanceform()
@@ -36,21 +45,21 @@ class LeaveReportController extends Controller
         return view('reports.leaves.leavebalanceform');
     }
 
-      public function leavebalanceprint(Request $request)
+      public function balanceprint(Request $request)
     {
-          $this->validate($request, [
-            'payroll'     => 'required',
-            ]);
-          $payrollid=request('payroll');
-          $index=1;
-         
+         $this->validate($request, [
+            'as_ondate'     => 'required',
+            'leavetype'     =>'required',
 
-           $payroll=Payroll::where('id',$payrollid)->firstOrfail();
+            ]);
+         
+          $index=1;
+            
           
            $company=Company::first();
-           $payrolltransactions=prltransaction::Where('payroll_id',$payrollid)->get();
+           $leavebalances=leavebalance::Where('leavetype_id',request('leavetype'))->get();
 
-          $pdf = \PDF::loadView('reports.leaves.leavebalancereport',compact('payroll','index','company','payrolltransactions'));
+          $pdf = \PDF::loadView('reports.leaves.leavebalancereport',compact('index','company','leavebalances'));
 
         return $pdf->stream();
     }

@@ -519,6 +519,15 @@ Route::prefix('settings')->group(function () {
        Route::get("payrollsummeryform","report\payroll\PayrollRegisterReportController@payrollsummeryform");
        Route::post("payrollsummeryreport","report\payroll\PayrollRegisterReportController@payrollsummeryprint");
 
+
+       //Leave Reports
+
+        Route::get("leavebalance","report\leave\LeaveReportController@leavebalanceform");
+       Route::post("leavebalancereport","report\leave\LeaveReportController@balanceprint");
+
+        Route::get("leaveform","report\leave\LeaveReportController@index");
+       Route::post("leaveformreport","report\leave\LeaveReportController@print");
+
        
 
 

@@ -711,10 +711,10 @@
                                                     <select class="form-control select" name="deduct_ss">
                                                       
                                                            @foreach($yesornos as $ss)
-                                                        @if($ss->id==$employee->deduct_ss)
+                                                        @if($ss->name==$employee->deduct_ss)
                                                         <option  value="{{$employee->deduct_ss}}" selected="selected">{{$ss->name}}</option>
                                                         @else
-                                                        <option value="{{$ss->id}}">{{$ss->name}}</option>
+                                                        <option value="{{$ss->name}}">{{$ss->name}}</option>
                                                           @endif  
                                                         @endforeach
                                                                                                                                                                             
@@ -727,10 +727,10 @@
                                                 <div class="col-md-5">
                                                     <select class="form-control select" name="deduct_tax">
                                                           @foreach($yesornos as $ss)
-                                                        @if($ss->id==$employee->deduct_tax)
+                                                        @if($ss->name==$employee->deduct_tax)
                                                         <option  value="{{$employee->deduct_tax}}" selected="selected">{{$ss->name}}</option>
                                                         @else
-                                                        <option value="{{$ss->id}}">{{$ss->name}}</option>
+                                                        <option value="{{$ss->name}}">{{$ss->name}}</option>
                                                           @endif  
                                                         @endforeach
                                                                                                                                                                    
@@ -743,10 +743,10 @@
                                                 <div class="col-md-5">
                                                     <select class="form-control select" name="deduct_hdmf">
                                                      @foreach($yesornos as $ss)
-                                                        @if($ss->id==$employee->deduct_hdmf)
+                                                        @if($ss->name==$employee->deduct_hdmf)
                                                         <option  value="{{$employee->deduct_hdmf}}" selected="selected">{{$ss->name}}</option>
                                                         @else
-                                                        <option value="{{$ss->id}}">{{$ss->name}}</option>
+                                                        <option value="{{$ss->name}}">{{$ss->name}}</option>
                                                           @endif  
                                                         @endforeach
                                                                                                                                                                    
