@@ -22,7 +22,7 @@
                         <form action="{{ route("leaves.store") }}"
                               method="post"
                               class="card border-0"
-                        >
+                        >{{ csrf_field() }}
                             @csrf
                            @include('includes.flash')
                             <div class="card-body">
@@ -61,6 +61,17 @@
                                         <div class="invalid-feedback"> Please provide active leavetype </div>
                                     </div>
                                 </div>
+
+
+                                    <div class="form-group col-md-12 mb-3">
+                                        Available Amount:
+
+                                         <select name="balance" id="balance" class="form-control {{ $errors->has('duration') ? 'is-invalid' : '' }}">
+
+                                         </select>
+                                       
+                                      </div>
+                              
                             <div class="card-body">
                              
 
@@ -169,11 +180,49 @@
                 {{-- <h3 class="section-title"> I'm a sidebar </h3> --}}
 
 
+                <body>
+    <div id="app">
+
+
+    </div>
+</body>
+
+
             </div>
         </div>
     </div>
 </div>
-
+  <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+        
+    <script>
+             $(document).ready(function() {
+            $('#employee').on('change', function() {
+                var employeeID = $(this).val();
+                if(employeeID) {
+                    $.ajax({
+                        url: '/getLeaveBalance/'+employeeID,
+                        type: "GET",
+                        data : {"_token":"{{ csrf_token() }}"},
+                        dataType: "json",
+                        success:function(data) {
+                            //console.log(data);
+                          if(data){
+                            $('#balance').empty();
+                            $('#balance').focus;
+                            $.each(data, function(key, value){
+                            $('select[name="balance"]').append('<option value="'+ value.id +'">' + value.balance+' </option>');
+                        });
+                      }else{
+                        $('#balance').empty();
+                      }
+                      }
+                    });
+                }else{
+                  $('#balance').empty();
+                }
+            });
+        });
+        </script>
 
 @endsection
 <script type="text/javascript">

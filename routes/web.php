@@ -528,6 +528,10 @@ Route::prefix('settings')->group(function () {
         Route::get("leaveform","report\leave\LeaveReportController@index");
        Route::post("leaveformreport","report\leave\LeaveReportController@print");
 
+       Route::get('findLeaveForm/{id}','report\leave\LeaveReportController@findLeaveForm');
+       Route::get('getLeaveBalance/{id}','leave\LeavesController@getLeaveBalance');
+       
+
        
 
 

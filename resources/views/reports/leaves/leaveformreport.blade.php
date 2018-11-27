@@ -20,7 +20,7 @@
     </section>
 
     <section  class="mb-4">
-        <h4>Form: <span class="text-danger"></span></h4>
+        <h4>Form: {{$leaveform->id}}<span class="text-danger"></span></h4>
     </section>
 
     <section>
@@ -39,11 +39,11 @@
             <tbody>
                 
                 <tr>
-                    <td nowrap>{{$index++}}</td>
-                    <td nowrap ></td>
+                    <td nowrap>{{$leaveform->id}}</td>
+                    <td nowrap >{{$leaveform->start_date}}</td>
                    
                     <td nowrap class="text-right">
-                     
+                     {{$leaveform->end_date}}
                     </td>
                     <td nowrap class="text-right">
                     

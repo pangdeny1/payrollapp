@@ -25,7 +25,8 @@ class LeaveReportController extends Controller
     {
          $this->validate($request, [
             'employee'     => 'required',
-            'leavetype'     =>'required',
+            'leaveform'     =>'required',
+            
 
             ]);
          
@@ -33,11 +34,24 @@ class LeaveReportController extends Controller
             
           
            $company=Company::first();
-           $leaveform=leave::Where('leavetype_id',request('leavetype'))->where('employee_id',request('employee'))->get();
+           //$leaveform=leave::Where('leavetype_id',request('leavetype'))->where('employee_id',request('employee'))->get();
+           $leaveform=leave::Where('id',request('leaveform'))->first();
 
-          $pdf = \PDF::loadView('reports.leaves.leaveformreport',compact('index','company','leaveform'));
+          //$pdf = \PDF::loadView('reports.leaves.leaveformreport',compact('index','company','leaveform'));
+          $pdf = View('reports.leaves.leaveformreport',compact('index','company','leaveform'));
 
-        return $pdf->stream();
+       // return $pdf->stream();
+        return $pdf;
+    }
+
+    public function findLeaveForm($id)
+    {
+         $leaveform=Leave::where('employee_id',$id)->get();
+              
+
+              //$city = City::where('state_id',$id)->get();
+        return response()->json($leaveform);
+
     }
 
       public function leavebalanceform()

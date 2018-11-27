@@ -17,11 +17,17 @@
                         <legend>leave Balance</legend>
                         <!-- grid row -->
                         <div class="row">
-                         <!-- .form-group -->
+                          <!-- grid column -->
+
+
+                           <div class="col-md-6">
+                            <!-- .form-group -->
+                          
                           <div class="col-md-6">
+                            
                                <div class="form-group">
-                              <label for="employee">Employee</label>
-                              <select name="employee" class="custom-select{{ $errors->has('employee') ? ' has-error' : '' }}" id="employee" >
+                              <label for="sel1">Employee</label>
+                              <select name="employee" class="custom-select{{ $errors->has('employee') ? ' has-error' : '' }}" id="sel1" required="">
                                 <option value=""> Choose... </option>
                                 @foreach(\App\Employee::All() as $employee)
                                 <option value="{{$employee->id}}"> {{$employee->full_name}} {{$employee->id}} </option>
@@ -34,7 +40,26 @@
                                     </span>
                                 @endif
                             </div>
+
+                            <!-- .form-group -->
                             <div class="form-group">
+                              <label for="leavetype">Select Leave type</label>
+                              <select name="leavetype" class="custom-select{{ $errors->has('leavetype') ? ' has-error' : '' }}" id="leavetype">
+                                <option value=""> Choose... </option>
+                                @foreach(\App\Models\Leave\Leavetype::All() as $leavetype)
+                                <option value="{{$leavetype->id}}"> {{$leavetype->name}}</option>
+                                @endforeach
+                              </select>
+
+                               @if ($errors->has('leavetype'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('leavetype') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- /.form-group -->
+
+                                <div class="form-group">
                               <label for="leaveform">Leave Form</label>
                               <select name="leaveform" class="custom-select{{ $errors->has('leaveform') ? ' has-error' : '' }}" id="leaveform" >
                              
@@ -70,11 +95,11 @@
         
      <script>
              $(document).ready(function() {
-            $('#employee').on('change', function() {
-                var employeeID = $(this).val();
-                if(employeeID) {
+            $('#leavetype').on('change', function() {
+                var leavetypeID = $(this).val();
+                if(leavetypeID) {
                     $.ajax({
-                        url: '/findLeaveForm/'+employeeID,
+                        url: '/findLeaveForm/'+leavetypeID,
                         type: "GET",
                         data : {"_token":"{{ csrf_token() }}"},
                         dataType: "json",

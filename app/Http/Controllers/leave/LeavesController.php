@@ -205,6 +205,14 @@ class LeavesController extends Controller
 
         return redirect()->route("leaves.index");
     }
+
+    public function getLeaveBalance($employee)
+    {
+        // $leavebalance=Leavebalance::where('employee_id',$employee)->where('leavetype_id',$leavetype)->first();
+        $leavebalance=Leavebalance::where('employee_id',$employee)->where('leavetype_id',1)->get();
+
+          return response()->json($leavebalance);
+    }
     
   
 }
