@@ -530,6 +530,10 @@ Route::prefix('settings')->group(function () {
 
        Route::get('findLeaveForm/{id}','report\leave\LeaveReportController@findLeaveForm');
        Route::get('getLeaveBalance/{id}','leave\LeavesController@getLeaveBalance');
+
+
+       Route::post("approveleave/{id}","leave\LeaveApprovalsController@approveleave");
+       Route::post("rejectleave/{id}","leave\LeaveApprovalsController@rejectleave");
        
 
        

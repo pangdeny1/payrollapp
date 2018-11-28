@@ -19,8 +19,8 @@ class CreateLeaveapprovalsTable extends Migration
             
             $table->enum("action_type", [
                 "pending",
-                "approve",
-                "reject",                
+                "approved",
+                "rejected",                
             ])->default("pending");
 
             $table->integer('leavetype_id');

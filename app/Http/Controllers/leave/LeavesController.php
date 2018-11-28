@@ -10,6 +10,7 @@ use App\Models\Leave\Leaveapproval;
 use App\Models\Notification\Emailnotification;
 use DB;
 use App\Http\Controllers\Controller;
+use App\Models\Leave\leaveRequestApprover;
 
 class LeavesController extends Controller
 {

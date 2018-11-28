@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Leave;
 use Illuminate\Http\Request;
 use App\Models\Leave\leaveapproval;
 use App\Http\Controllers\Controller;
-
+use App\Models\Leave\leaveRequestApprover;
+use App\Models\Leave\leave;
+use App\Models\Notification\Emailnotification;
 class LeaveApprovalsController extends Controller
 {
    
@@ -44,5 +46,59 @@ class LeaveApprovalsController extends Controller
 
         return view('leaves.leaveapprovals.index', compact('pagetitle','leaveapprovals'));
 
+    }
+
+    public function approveleave($id)
+    {
+
+      $leaveapproval=leaveapproval::where('id',$id)->first();
+      $leaveapproval->update(['action_type'=>'approved']);
+
+      $nextapprover=leaveRequestApprover::where('request_id',$leaveapproval->request_id)->where('priority',$leaveapproval->priority+1)->first();
+
+      if(!empty($nextapprover->id))
+      {
+         $leaveapprovalnext=Leaveapproval::create(
+                               [ 'employee_id' =>$nextapprover->employee_id,
+                                 'leavetype_id' => $nextapprover->leavetype_id,
+                                 'request_id' => $nextapprover->request_id,
+                                 'priority'   =>$nextapprover->priority,
+                                 'level_id'   =>$nextapprover->level_id,
+                                 'approver'   =>$nextapprover->approver,
+                                 'approver_id'=>$nextapprover->approver_id,
+                                 'action_by'  =>auth()->id(),
+                                 "creator_id" => auth()->id()]);
+
+          $notification=Emailnotification::create(
+                ['body'=>"Please Approve Employee Leave",
+                'sendto'=>$nextapprover->approver,
+                'sendto_email'=>'pangdeny@gmail.com',
+                'sender'=>$leaveapproval->approver,
+                'url' =>'http://localhost/payrollapp/public/approvals',
+                'module'=>'leave',
+                "request_id"=>$nextapprover->request_id,
+                'notification_type'=>'Leave Approve']);
+      }
+
+      else
+      {
+        $leave=Leave::where('id',$leaveapproval->request_id)->first();
+        $leave->update(['status'=>'approved']);
+      }
+
+       return redirect()->back()->with('status',"Approved Successfully");
+        
+    }
+
+     public function rejectleave($id)
+    {
+
+      $leaveapproval=leaveapproval::where('id',$id)->first();
+
+      $leaveapproval->update(['action_type'=>'rejected']);
+
+
+        
+        return redirect()->back()->with('status_error',"Leave form Rejected Successfully");
     }
 }

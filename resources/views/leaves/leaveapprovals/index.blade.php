@@ -104,21 +104,46 @@
                                                 <td >{{ optional($leave->approverlevel)->name}} level:{{$leave->priority}}</td>
                                                 
                                                 <td class="align-middle text-right">
-                              <div class="dropdown">
-                          <button class="btn btn-reset px-2" data-toggle="dropdown">
-                            <i class="fa fa-ellipsis-v"></i>
-                          </button>
-                          <div class="dropdown-arrow"></div>
-                          <!-- .dropdown-menu -->
-                          <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Preview</a>
-                            <a href="#" class="dropdown-item">Approve</a>
-                            <a href="#" class="dropdown-item">Reject</a>
-                          
-                          </div>
-                          <!-- /.dropdown-menu -->
-                        </div>
-                                                
+                       <div class="dropdown">
+    <button type="button" class="btn btn-sm btn-light" data-toggle="dropdown">
+        <span>More</span>
+        <span class="caret"></span>
+    </button>
+
+    <div class="dropdown-arrow dropdown-arrow-right"></div>  
+     <div class="dropdown-menu dropdown-menu-right">
+
+    <a href="javascript:void(0)"
+   class="dropdown-item"
+   onclick="event.preventDefault(); document.getElementById('approveForm{{$leave->id}}').submit();"
+>
+    <i class="fas fa-check-circle"></i>  Approve
+    <form id="approveForm{{$leave->id}}"
+          action="{{url('approveleave',$leave->id)}}"
+          method="POST"
+          class="d-none"
+    >
+        @csrf
+        @method("post")
+    </form>
+</a>
+
+  <a href="javascript:void(0)"
+   class="dropdown-item"
+   onclick="event.preventDefault(); document.getElementById('rejectionForm{{$leave->id}}').submit();"
+>
+    <i class="far fa-times-circle"></i> Reject
+    <form id="rejectionForm{{$leave->id}}"
+          action="{{url('rejectleave',$leave->id)}}"
+          method="POST"
+          class="d-none"
+    >
+        @csrf
+        @method("post")
+    </form>
+</a>
+</div>
+           
                                                 </td>
                                             </tr>
                                             @endforeach
