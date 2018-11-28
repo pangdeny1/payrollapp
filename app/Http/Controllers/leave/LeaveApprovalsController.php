@@ -52,7 +52,7 @@ class LeaveApprovalsController extends Controller
     {
 
       $leaveapproval=leaveapproval::where('id',$id)->first();
-      $leaveapproval->update(['action_type'=>'approved']);
+      $leaveapproval->update(['action_type'=>'approved','action_by'=>auth()->user()->employee_id,]);
 
       $nextapprover=leaveRequestApprover::where('request_id',$leaveapproval->request_id)->where('priority',$leaveapproval->priority+1)->first();
 
@@ -66,7 +66,7 @@ class LeaveApprovalsController extends Controller
                                  'level_id'   =>$nextapprover->level_id,
                                  'approver'   =>$nextapprover->approver,
                                  'approver_id'=>$nextapprover->approver_id,
-                                 'action_by'  =>auth()->id(),
+                                 'action_by'  =>auth()->user()->employee_id,
                                  "creator_id" => auth()->id()]);
 
           $notification=Emailnotification::create(

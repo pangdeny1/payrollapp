@@ -78,7 +78,7 @@
                                             <tr>
                                                <th>Employee</th>
                                                 <th>Leave type</th>
-                                                 <th>Days</th>
+                                                 <th>status</th>
                                                  <th>Approver</th>
                                                 <th>Level</th>
                                             <th>Action</th>
@@ -98,7 +98,7 @@
                                                     </a>
                                                 </td>
                                                  <td>{{ optional($leave->leavetype)->name }}</td>
-                                                 <td></td>
+                                                 <td>{{$leave->action_type}}</td>
                                                  
                                                 <td >{{ optional($leave->approvername)->full_name}}</td>
                                                 <td >{{ optional($leave->approverlevel)->name}} level:{{$leave->priority}}</td>
