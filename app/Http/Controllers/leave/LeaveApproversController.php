@@ -64,7 +64,6 @@ class LeaveApproversController extends Controller
               "leavetype" => "required",
                 "level" => "required",
             
-            
         ]);
          
 
@@ -139,7 +138,7 @@ class LeaveApproversController extends Controller
 
     	 $leaveapprover = leaveEmployeeApprover::create([
             
-            "employee_id" => request("employee"),
+             "employee_id" => request("employee"),
              "approver" => request("approver"),
              "approver_id" => request("approver_id"),
              "leavetype_id"  => request("leavetype"),

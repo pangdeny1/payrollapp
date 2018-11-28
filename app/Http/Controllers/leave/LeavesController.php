@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Leave\Leave;
 use App\Models\Leave\Leavebalance;
 use App\Models\Leave\LeaveEmployeeApprover;
-use App\Models\Leave\Leaveapprovals;
+use App\Models\Leave\Leaveapproval;
 use App\Models\Notification\Emailnotification;
 use DB;
 use App\Http\Controllers\Controller;
@@ -69,7 +69,7 @@ class LeavesController extends Controller
             
         ]);
           $employee_approvers=leaveEmployeeApprover::where("employee_id",request('employee'))->where('active',1)->orderBy('level_id')->get();
-          $employee_balance=Leavebalance::where('employee_id',request('employee'))->firstOrFail();
+          $employee_balance=Leavebalance::where('employee_id',request('employee'))->where('leavetype_id',request('leavetype'))->firstOrFail();
           if($employee_balance->balance < request('duration'))
           {
           	return redirect()->back()->with('status_error', 'Insufficient leave days');
@@ -109,9 +109,22 @@ class LeavesController extends Controller
                                  "creator_id" => auth()->id()
                                ]; 
                        }
+                       
 
-              DB::table('leaveapprovals')->insert($inserts);
+
+              DB::table('leave_request_approvers')->insert($inserts);
               $firstApprover=leaveEmployeeApprover::where('active',1)->where('employee_id',request('employee'))->orderBy('level_id')->firstOrFail();
+            
+              $approvefirst=Leaveapproval::create(
+                               [ 'employee_id' => $firstApprover->employee_id,
+                                 'leavetype_id' => request("leavetype"),
+                                 'request_id' => $formnumber,
+                                 'priority'   =>1,
+                                 'level_id'   =>$firstApprover->level_id,
+                                 'approver'   =>$firstApprover->approver,
+                                 'approver_id'=>$firstApprover->approver_id,
+                                 "creator_id" => auth()->id()]);
+
               $notification=Emailnotification::create(
                 ['body'=>"Please Approve Employee Leave",
                 'sendto'=>$firstApprover->approver,

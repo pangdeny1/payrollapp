@@ -51,6 +51,7 @@ class LeaveBalanceController extends Controller
             "duration" => "required|integer|min:364|max:365",
             "balance"  =>'required',
             "allocated_days"  =>'required',
+            'days_spent'=>'required'
             
         ]);
        
