@@ -11,6 +11,7 @@ use App\Models\Notification\Emailnotification;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Models\Leave\leaveRequestApprover;
+use App\Http\Requests\LeaveRequest;
 
 class LeavesController extends Controller
 {
@@ -57,18 +58,10 @@ class LeavesController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function store(Request $request)
+    public function store(LeaveRequest $request)
     {
         $this->authorize("create", Leave::class);
-          $this->validate($request, [
-            "remark" => "required",
-            "employee" => "required",
-            "leavetype" => "required",
-            "start_date" => "required",
-            "end_date" => "required",
-            "duration" => "required|integer|min:1",
-            
-        ]);
+      
           $employee_approvers=leaveEmployeeApprover::where("employee_id",request('employee'))->where('active',1)->orderBy('level_id')->get();
           $employee_balance=Leavebalance::where('employee_id',request('employee'))->where('leavetype_id',request('leavetype'))->firstOrFail();
           if($employee_balance->balance < request('duration'))

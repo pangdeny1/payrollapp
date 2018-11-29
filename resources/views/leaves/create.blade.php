@@ -32,7 +32,7 @@
                                         <select name="employee"
                                                 class="form-control d-block w-100 {{ $errors->has('employee') ? 'is-invalid' : '' }}"
                                                 id="employee"
-                                                required=""
+                                                
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Employee::where('active','yes')->get() as $employee)
@@ -41,7 +41,12 @@
                                                 </option>
                                             @endforeach
                                         </select>
-                                        <div class="invalid-feedback"> Please provide active employee </div>
+                                         @if ($errors->has('employee'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('employee') }}</strong>
+                                    </span>
+                                @endif 
+
                                     </div>
                               
                                 <div class="form-group col-md-12 mb-3">
@@ -58,7 +63,11 @@
                                                 </option>
                                             @endforeach
                                         </select>
-                                        <div class="invalid-feedback"> Please provide active leavetype </div>
+                                        @if ($errors->has('leavetype'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('leavetype') }}</strong>
+                                    </span>
+                                @endif
                                     </div>
                                 </div>
 
@@ -88,7 +97,7 @@
                                         <strong>{{ $errors->first('start_date') }}</strong>
                                     </span>
                                 @endif  
-                          <div class="invalid-feedback"> Please select a valid date. </div>
+                         
                         </div>
                         <!-- /grid column -->
                         <!-- grid column -->
@@ -103,7 +112,7 @@
                                         <strong>{{ $errors->first('end_date') }}</strong>
                                     </span>
                                 @endif
-                          <div class="invalid-feedback"> Please provide a valid date. </div>
+                        
                         </div>
                         <!-- /grid column -->
                         <!-- grid column -->
