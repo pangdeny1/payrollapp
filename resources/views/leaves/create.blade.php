@@ -74,14 +74,7 @@
                                 </div>
 
 
-                                    <div class="form-group col-md-12 mb-3">
-                                        Available Amount:
-
-                                         <select name="balance" id="balance" class="form-control {{ $errors->has('duration') ? 'is-invalid' : '' }}">
-
-                                         </select>
-                                       
-                                      </div>
+                                  
                               
                             <div class="card-body">
                              

@@ -50,6 +50,7 @@ class LeaveRequest extends FormRequest
 
         public function messages()
 {
+      $leavebal=0;
      $employee=Employee::where('id',request('employee'))->first();
          $full_name=$employee->full_name;
          $leavetype=Leavetype::where('id',request('leavetype'))->first();
