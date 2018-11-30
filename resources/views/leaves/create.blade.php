@@ -32,6 +32,7 @@
                                         <select name="employee"
                                                 class="form-control d-block w-100 {{ $errors->has('employee') ? 'is-invalid' : '' }}"
                                                 id="employee"
+                                                required=""
                                                 
                                         >
                                             <option value=""> Choose... </option>
@@ -54,7 +55,8 @@
                                         <select name="leavetype"
                                                 class="form-control d-block w-100 {{ $errors->has('leavetype') ? 'is-invalid' : '' }}"
                                                 id="leavetype"
-                                                required=""
+                                                 required=""
+                                               
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\Leave\Leavetype::All() as $leavetype)
@@ -151,7 +153,7 @@
                                         <select name="approver"
                                                 class="form-control d-block w-100 {{ $errors->has('approver') ? 'is-invalid' : '' }}"
                                                 id="approver"
-                                                required=""
+                                              
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\Leave\leaveapprover::all() as $approver)
