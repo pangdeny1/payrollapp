@@ -8,6 +8,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use DB;
 
 class RolesController extends Controller
 {
@@ -52,13 +53,13 @@ class RolesController extends Controller
         $entities = [
             "users" => \App\User::class,
             "roles" => \App\User::class,
-            "farmers" => \App\Farmer::class,
-            "products" => \App\Product::class,
-            "product-categories" => \App\ProductCategory::class,
-            "purchases" => \App\Purchase::class,
-            "blocks" => \App\Block::class,
-            "batches" => \App\Batch::class,
-            "farms" => \App\Farm::class,
+            "employees" => \App\Employee::class,
+            "payrolls" => \App\Models\Payroll::class,
+            "leaves" => \App\Models\Leave\Leave::class,
+            "departments" => \App\Models\Department::class,
+            "branches" => \App\Models\Branch::class,
+            "jobs" => \App\Models\Job::class,
+            "company" => \App\Models\Company::class,
         ];
 
         $role = Role::forceCreate($request->only(["name", "title", "description"]));
@@ -87,20 +88,20 @@ class RolesController extends Controller
             "description" => "required",
         ]);
 $entities = [
-            "users" => \App\User::class,
+           "users" => \App\User::class,
             "roles" => \App\User::class,
-            "farmers" => \App\Farmer::class,
-            "products" => \App\Product::class,
-            "product-categories" => \App\ProductCategory::class,
-            "purchases" => \App\Purchase::class,
-            "blocks" => \App\Block::class,
-            "batches" => \App\Batch::class,
-            "farms" => \App\Farm::class,
+            "employees" => \App\Employee::class,
+            "payrolls" => \App\Models\Payroll::class,
+            "leaves" => \App\Models\Leave\Leave::class,
+            "departments" => \App\Models\Department::class,
+            "branches" => \App\Models\Branch::class,
+            "jobs" => \App\Models\Job::class,
+            "company" => \App\Models\Company::class,
         ];
 
         $role->update($request->only(["name", "title", "description"]));
 
-
+    DB::table('permissions')->where('entity_id',$role->id)->delete();
          foreach (request("permissions") as $key => $permissions) {
             foreach ($permissions as $name => $permission) {
                 if (key_exists($key, $entities)) {

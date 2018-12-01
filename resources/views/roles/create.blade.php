@@ -118,121 +118,7 @@
                                                     <input type="checkbox" name="permissions[users][delete]" value="delete-user">
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>Farmers</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[farmers][view]" value="view-farmer">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[farmers][create]" value="create-farmer">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[farmers][edit]" value="edit-farmer">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[farmers][delete]" value="delete-farmer">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Products</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[products][view]" value="view-product">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[products][create]" value="create-product">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[products][edit]" value="edit-product">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[products][delete]" value="delete-product">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Product categories</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[product-categories][view]" value="view-product-category">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[product-categories][create]" value="create-product-category">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[product-categories][edit]" value="edit-product-category">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[product-categories][delete]" value="delete-product-category">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Purchases</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][view]" value="purchase-view">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][create]" value="purchase-create">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][edit]" value="purchase-edit">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][delete]" value="purchase-delete">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Blocks</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[blocks][view]" value="purchase-view">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[blocks][create]" value="purchase-create">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[blocks][edit]" value="purchase-edit">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[blocks][delete]" value="purchase-delete">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Batches</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[batches][view]" value="purchase-view">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[batches][create]" value="purchase-create">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[batches][edit]" value="purchase-edit">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[batches][delete]" value="purchase-delete">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Farms</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[farms][view]" value="purchase-view">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[farms][create]" value="purchase-create">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[farms][edit]" value="purchase-edit">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[farms][delete]" value="purchase-delete">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Reports</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[reports][view]" value="purchase-view">
-                                                </td>
-                                                <td class="text-right"></td>
-                                                <td class="text-right"></td>
-                                                <td class="text-right"></td>
-                                            </tr>
-                                            <tr>
+                                             <tr>
                                                 <td>Dashboard</td>
                                                 <td class="text-right">
                                                     <input type="checkbox" name="permissions[dashbord][view]" value="purchase-view">
@@ -241,71 +127,62 @@
                                                 <td class="text-right"></td>
                                                 <td class="text-right"></td>
                                             </tr>
-
-                                             <tr>
-                                                <td>Clusters</td>
+                                            <tr>
+                                                <td>Employees</td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[batches][view]" value="cluster-view">
+                                                    <input type="checkbox" name="permissions[employees][view]" value="view-employee">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[batches][create]" value="cluster-create">
+                                                    <input type="checkbox" name="permissions[employees][create]" value="create-employee">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[batches][edit]" value="cluster-edit">
+                                                    <input type="checkbox" name="permissions[employees][edit]" value="edit-employee">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[batches][delete]" value="cluster-delete">
+                                                    <input type="checkbox" name="permissions[employees][delete]" value="delete-employee">
                                                 </td>
                                             </tr>
                                             <tr>
-                                            <tr>
-                                                <td>Packing house weight</td>
+                                                <td>Payrolls</td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][packing_house_weight_view]" value="purchase-view">
+                                                    <input type="checkbox" name="permissions[payrolls][view]" value="view-payroll">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][packing_house_weight_create]" value="purchase-create">
+                                                    <input type="checkbox" name="permissions[payrolls][create]" value="create-payroll">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][packing_house_weight_edit]" value="purchase-edit">
+                                                    <input type="checkbox" name="permissions[payrolls][edit]" value="edit-payroll">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][packing_house_weight_delete]" value="purchase-delete">
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Graded weight</td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][graded_weight_view]" value="purchase-view">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][graded_weight_create]" value="purchase-create">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][graded_weight_edit]" value="purchase-edit">
-                                                </td>
-                                                <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][graded_weight_delete]" value="purchase-delete">
+                                                    <input type="checkbox" name="permissions[payrolls][delete]" value="delete-payroll">
                                                 </td>
                                             </tr>
-
                                             <tr>
-                                                <td>Farm weight</td>
+                                                <td>Leaves</td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][farm_weight_view]"    value="purchase-view">
+                                                    <input type="checkbox" name="permissions[leaves][view]" value="view-leave">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][farm_weight_create]"  value="purchase-create">
+                                                    <input type="checkbox" name="permissions[leaves][create]" value="create-leave">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][farm_weight_edit]"    value="purchase-edit">
+                                                    <input type="checkbox" name="permissions[leaves][edit]" value="edit-leave">
                                                 </td>
                                                 <td class="text-right">
-                                                    <input type="checkbox" name="permissions[purchases][farm_weight_delete]"  value="purchase-delete">
+                                                    <input type="checkbox" name="permissions[leaves][delete]" value="delete-leave">
                                                 </td>
                                             </tr>
-
+                                              <tr>
+                                                <td>Reports</td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[reports][view]" value="purchase-view">
+                                                </td>
+                                                <td class="text-right"></td>
+                                                <td class="text-right"></td>
+                                                <td class="text-right"></td>
+                                            </tr>
+                                          
+                                           
                                         </tbody>
                                     </table>
                                     <hr>
