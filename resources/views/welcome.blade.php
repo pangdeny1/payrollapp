@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- End Required meta tags -->
-    <title>{{ config('app.name', 'Homeveg') }}</title>
+    <title>{{ config('app.name', 'Brightpay') }}</title>
 
     <!-- Favicons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/apple-touch-icon.png">
@@ -32,7 +32,7 @@
         @csrf
         <div class="mb-4">
             <div class="mb-3">
-                <img class="rounded" src="{{ asset("themes/looper/assets/homev_logo.jpg") }}" alt="" height="72">
+                <img class="rounded" src="{{ asset("themes/looper/assets/bright_pay.png") }}" alt="" height="72">
             </div>
             <h1 class="h3"> Sign In </h1>
         </div>

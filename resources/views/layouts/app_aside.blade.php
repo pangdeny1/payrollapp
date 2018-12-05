@@ -105,6 +105,30 @@
                     </a>
 
                     <div class="menu-header">Reports</div>
+
+                              <li class="menu-item has-child">
+                  <a href="#" class="menu-link">
+                    <i class="far fa-chart-bar text-muted mr-2"></i>
+                    
+                    <span class="menu-text">Employee Reports</span>
+                  </a>
+                  <!-- child menu -->
+                  <ul class="menu">
+                     <li class="menu-item">
+                      <a href="" class="menu-link">Employee Details</a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="" class="menu-link">Employee CV </a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="" class="menu-link">Employee Head Count</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="" class="menu-link">Newly Hired employees</a>
+                    </li>
+                </ul>
+            </li>
                      <li class="menu-item has-child">
                   <a href="#" class="menu-link">
                     <i class="far fa-chart-bar text-muted mr-2"></i>
@@ -122,37 +146,52 @@
                     <li class="menu-item">
                       <a href=" {{url("payslipform")}} " class="menu-link">Payslips</a>
                     </li>
-                    <li class="menu-item">
-                      <a href="{{url("monthlytaxform")}} " class="menu-link">Tax Monthly return</a>
-                    </li>
-                    <li class="menu-item">
-                      <a href=" {{url("monthlysssform")}} " class="menu-link">Social Security Monthly Remittance</a>
-                    </li>
-
-                     <li class="menu-item">
-                      <a href="" class="menu-link">Health Monthly Remittance</a>
-                    </li>
-
-
-                     <li class="menu-item">
-                      <a href="" class="menu-link">Skill Development Levy(SDL)</a>
-                    </li>
-
+                   
                       <li class="menu-item">
                       <a href="" class="menu-link">Bank Transmmittal</a>
                     </li>
-
                       <li class="menu-item">
                       <a href="" class="menu-link">Cash Payment Listing</a>
                     </li>
-
-                      <li class="menu-item">
-                      <a href="" class="menu-link">Workers Compassation Fund(WCF)</a>
-                    </li>
-                                      
+                                 
                   </ul>
                   <!-- /child menu -->
                </li>
+
+                 <li class="menu-item has-child">
+                  <a href="#" class="menu-link">
+                    <i class="far fa-chart-bar text-muted mr-2"></i>
+                    
+                    <span class="menu-text">Statutory Reports</span>
+                  </a>
+                  <!-- child menu -->
+                  <ul class="menu">
+                    <li class="menu-item">
+                      <a href="{{url("monthlysssform")}}" class="menu-link">Pension Fund</a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="{{url("monthlytaxform")}} " class="menu-link">Tax Monthly return</a>
+                    </li>
+                     <li class="menu-item">
+                      <a href="" class="menu-link">PAYE Income Tax P9</a>
+                    </li>
+                     <li class="menu-item">
+                      <a href="" class="menu-link">Skill Development Levy(SDL)</a>
+                    </li>
+                   <li class="menu-item">
+                      <a href="" class="menu-link">PAYE Employer Certificate P10</a>
+                    </li>
+                     <li class="menu-item">
+                      <a href="" class="menu-link">Workers Compassation Fund(WCF)</a>
+                    </li>
+
+
+                     <li class="menu-item">
+                      <a href="" class="menu-link">NHIF</a>
+                    </li>
+                </ul>
+            </li>
 
                   <li class="menu-item has-child">
                   <a href="#" class="menu-link">
@@ -170,14 +209,7 @@
                     </li>
                 </ul>
             </li>
-                    <!---<a href="{{url('payslipform')}}" class="menu-link mb-2">
-                        <i class="fas fa-chart-line text-muted mr-2"></i>
-                        <span class="menu-text">Payslip</span>
-                    </a>
-                    <a href="{{ route("payrolls.reports", ["period" => "daily"]) }}" class="menu-link mb-2">
-                        <i class="far fa-chart-bar text-muted mr-2"></i>
-                        <span class="menu-text">Payrolls Reports</span>
-                    </a>-->
+                   
                 </nav>
                  @endif
             </nav>

@@ -4,7 +4,7 @@
           <!-- .top-bar-brand -->
           <div class="top-bar-brand">
             <a href="index-2.html">
-               <img src="{{ asset("themes/looper/assets/images/brand-inverse2.png") }}" height="32" alt="">
+               <img src="{{ asset("themes/looper/assets/images/bright_pay.png") }}" height="32" alt="">
             </a>
           </div>
           <!-- /.top-bar-brand -->

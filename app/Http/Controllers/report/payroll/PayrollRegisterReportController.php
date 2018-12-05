@@ -28,8 +28,10 @@ class PayrollRegisterReportController extends Controller
             ]);
     	  $payrollid=request('payroll');
     	  $index=1;
+         $company=Company::first();
+         $payroll=Payroll::where('id',$payrollid)->firstOrfail();
 
-            return view("reports.payrolls.payrollregister",compact('payrollid','index'));
+            return view("reports.payrolls.payrollregister",compact('payrollid','index','company','payroll'));
             
 
     }

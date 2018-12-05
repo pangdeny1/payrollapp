@@ -103,10 +103,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                    
-                                            
-                                          
                                             <tr>
+                                         <td>Users</td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[users][view]" value="view-user">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[users][create]" value="create-user">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[users][edit]" value="edit-user">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[users][delete]" value="delete-user">
+                                                </td>
+                                            </tr>
+                                             <tr>
                                                 <td>Dashboard</td>
                                                 <td class="text-right">
                                                     <input type="checkbox" name="permissions[dashbord][view]" value="purchase-view">
@@ -115,52 +127,51 @@
                                                 <td class="text-right"></td>
                                                 <td class="text-right"></td>
                                             </tr>
-
-                                              <tr>
-                                                <td>Employees</td>
-                                                 @foreach(\App\Abilitie::where('entity_type','App\Employee')->get() as $ability)
-                                                <?php $string=explode(' ',$ability->title); ?>
-                                                <td class="text-right">
-                                                    <input type="checkbox"  @if(!empty(\App\Permission::where('ability_id',$ability->id)->first())) checked="true" @endif name="permissions[{{$string[1]}}][$ability->name]" value="{{$ability->name}}-{{$string[1]}}]">
-                                                </td>
-                                                                                           
-                                                @endforeach
-                                            </tr>
-                                      
-                                           
                                             <tr>
-                                                <td> Leaves</td>
-                                                 @foreach(\App\Abilitie::where('entity_type','App\Models\leave\Leave')->get() as $ability)
-                                                <?php $string=explode(' ',$ability->title); ?>
+                                                <td>Employees</td>
                                                 <td class="text-right">
-                                                    <input type="checkbox"  @if(!empty(\App\Permission::where('ability_id',$ability->id)->first())) checked="true" @endif name="permissions[{{$string[1]}}][$ability->name]" value="{{$ability->name}}-{{$string[1]}}]">
+                                                    <input type="checkbox" name="permissions[employees][view]" value="view-employee">
                                                 </td>
-                                                                                           
-                                                @endforeach
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[employees][create]" value="create-employee">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[employees][edit]" value="edit-employee">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[employees][delete]" value="delete-employee">
+                                                </td>
                                             </tr>
-
-                                             <tr>
+                                            <tr>
                                                 <td>Payrolls</td>
-                                                 @foreach(\App\Abilitie::where('entity_type','App\Models\Payroll')->get() as $ability)
-                                                <?php $string=explode(' ',$ability->title); ?>
                                                 <td class="text-right">
-                                                    <input type="checkbox"  @if(!empty(\App\Permission::where('ability_id',$ability->id)->first())) checked="true" @endif name="permissions[{{$string[1]}}][$ability->name]" value="{{$ability->name}}-{{$string[1]}}]">
+                                                    <input type="checkbox" name="permissions[payrolls][view]" value="view-payroll">
                                                 </td>
-                                                                                           
-                                                @endforeach
-                                            </tr>
-
-                                             <tr>
-                                                <td>Users</td>
-                                                 @foreach(\App\Abilitie::where('entity_type','App\User')->get() as $ability)
-                                                <?php $string=explode(' ',$ability->title); ?>
                                                 <td class="text-right">
-                                                    <input type="checkbox"  @if(!empty(\App\Permission::where('ability_id',$ability->id)->first())) checked="true" @endif name="permissions[{{$string[1]}}][{{$string[0]}}]" value="{{$string[0]}}-{{$string[1]}}]">
+                                                    <input type="checkbox" name="permissions[payrolls][create]" value="create-payroll">
                                                 </td>
-                                                @endforeach
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[payrolls][edit]" value="edit-payroll">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" name="permissions[payrolls][delete]" value="delete-payroll">
+                                                </td>
                                             </tr>
-                                            
-
+                                            <tr>
+                                                <td>Leaves</td>
+                                                <td class="text-right">
+                                                    <input type="checkbox"  @if(!empty(\App\Permission::where('ability_id',43)->first())) checked="true" @endif   name="permissions[leaves][view]" value="view-leave">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox"  @if(!empty(\App\Permission::where('ability_id',44)->first())) checked="true" @endif  name="permissions[leaves][create]" value="create-leave">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox" @if(!empty(\App\Permission::where('ability_id',45)->first())) checked="true" @endif  name="permissions[leaves][edit]" value="edit-leave">
+                                                </td>
+                                                <td class="text-right">
+                                                    <input type="checkbox"  @if(!empty(\App\Permission::where('ability_id',46)->first())) checked="true" @endif  name="permissions[leaves][delete]" value="delete-leave">
+                                                </td>
+                                            </tr>
                                               <tr>
                                                 <td>Reports</td>
                                                 <td class="text-right">
@@ -170,6 +181,7 @@
                                                 <td class="text-right"></td>
                                                 <td class="text-right"></td>
                                             </tr>
+                                          
 
                                         </tbody>
                                     </table>
