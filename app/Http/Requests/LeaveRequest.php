@@ -30,16 +30,15 @@ class LeaveRequest extends FormRequest
     {
           $leavebal=0;
           
-        $leavebalance=Leavebalance::where('employee_id',request('employee'))->where('leavetype_id',request('leavetype'))->first();
+        $leavebalance=Leavebalance::where('employee_id',request('employee'))->where('leavetype_id',request('leavetype'))->where('active','yes')->first();
          if(!empty($leavebalance->id))
          {
            $leavebal=$leavebalance->balance; 
          }
-             
 
         
         return [
-         "remark" => "required",
+            "remark" => "required",
             "employee" => "required|exists:leavebalances,employee_id|exists:leave_employee_approvers,employee_id",
             "leavetype" => "required|exists:leavebalances,leavetype_id,employee_id,".Request::get('employee'),
             "start_date" => "required",
@@ -51,7 +50,7 @@ class LeaveRequest extends FormRequest
         public function messages()
 {
       $leavebal=0; 
-     $employee=Employee::where('id',request('employee'))->first();
+         $employee=Employee::where('id',request('employee'))->first();
          $full_name=$employee->full_name;
          $leavetype=Leavetype::where('id',request('leavetype'))->first();
          $leavetype=$leavetype->name;

@@ -7,6 +7,8 @@ use App\Models\Leave\leaveapproval;
 use App\Http\Controllers\Controller;
 use App\Models\Leave\leaveRequestApprover;
 use App\Models\Leave\leave;
+use App\Models\Leave\Leavebalance;
+use App\Employee;
 use App\Models\Notification\Emailnotification;
 class LeaveApprovalsController extends Controller
 {
@@ -60,7 +62,7 @@ class LeaveApprovalsController extends Controller
       {
          $leaveapprovalnext=Leaveapproval::create(
                                [ 'employee_id' =>$nextapprover->employee_id,
-                                 'leavetype_id' => $nextapprover->leavetype_id,
+                                 'leavetype_id' =>$nextapprover->leavetype_id,
                                  'request_id' => $nextapprover->request_id,
                                  'priority'   =>$nextapprover->priority,
                                  'level_id'   =>$nextapprover->level_id,
@@ -72,18 +74,38 @@ class LeaveApprovalsController extends Controller
           $notification=Emailnotification::create(
                 ['body'=>"Please Approve Employee Leave",
                 'sendto'=>$nextapprover->approver,
-                'sendto_email'=>'pangdeny@gmail.com',
+                'sendto_email'=>email_to($nextapprover->approver),
                 'sender'=>$leaveapproval->approver,
                 'url' =>'http://localhost/payrollapp/public/approvals',
                 'module'=>'leave',
                 "request_id"=>$nextapprover->request_id,
                 'notification_type'=>'Leave Approve']);
+
+          send_email(email_to($leaveapproval->approver),"Approve Employee Leave","Hi Please Approve Leave for ","");
       }
 
       else
       {
         $leave=Leave::where('id',$leaveapproval->request_id)->first();
         $leave->update(['status'=>'approved']);
+
+        $employee_balance=Leavebalance::where('employee_id',$leaveapproval->employee_id)->where('active','yes')->first();
+        $employee_balance->update(['days_spent'=>$employee_balance->days_spent + $leave->total_days,
+                         'balance'=>$employee_balance->balance - $leave->total_days]);
+
+
+         $notification=Emailnotification::create(
+                ['body'=>"Your Leave Has been Approved",
+                'sendto'=>$leaveapproval->employee_id,
+                'sendto_email'=>email_to($leaveapproval->employee_id),
+                'sender'=>$leaveapproval->approver,
+                'url' =>'http://localhost/payrollapp/public/approvals',
+                'module'=>'leave',
+                "request_id"=>$leave->id,
+                'notification_type'=>'Employee Leave Approved']);
+
+
+          send_email(email_to($leaveapproval->employee_id),"Leave form Approved","Your Leave has been Approved","");
       }
 
        return redirect()->back()->with('status',"Approved Successfully");
@@ -97,7 +119,20 @@ class LeaveApprovalsController extends Controller
 
       $leaveapproval->update(['action_type'=>'rejected']);
 
+ $leave=Leave::where('id',$leaveapproval->request_id)->first();
+        $leave->update(['status'=>'rejected']);
 
+         $notification=Emailnotification::create(
+                ['body'=>"Your Leave Has been Rejected",
+                'sendto'=>$leaveapproval->employee_id,
+                'sendto_email'=>email_to($leaveapproval->employee_id),
+                'sender'=>$leaveapproval->approver,
+                'url' =>'http://localhost/payrollapp/public/approvals',
+                'module'=>'leave',
+                "request_id"=>$leave->id,
+                'notification_type'=>'Employee Leave Rejected']);
+
+         send_email(email_to($leaveapproval->employee_id),"Leave form rejected","Your Leace has been Rejected ","");
         
         return redirect()->back()->with('status_error',"Leave form Rejected Successfully");
     }

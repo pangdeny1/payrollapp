@@ -73,3 +73,23 @@ function getLoanTotal($payroll,$incometype)
 		return $amount;
 
 }
+
+function email_to($employee_id)
+{
+	$employee=\App\Employee::where('id',$employee_id)->firstOrFail();
+	 return $employee->email;
+}
+
+function send_email($to,$subject,$txt,$headers)
+{
+
+
+$to = $to;
+$subject = $subject;
+$txt = $txt;
+$headers = "From: webmaster@example.com" . "\r\n" .
+           "CC: somebodyelse@example.com";
+
+mail($to,$subject,$txt,$headers);
+
+}

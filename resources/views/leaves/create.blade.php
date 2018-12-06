@@ -140,8 +140,8 @@
                                 </div>
 
 
-                                <hr>
-                                <div class="form-group col-md-12 mb-3">
+                              
+                              <!--  <div class="form-group col-md-12 mb-3">
                                         <label for="approver">Approver</label>
                                         <select name="approver"
                                                 class="form-control d-block w-100 {{ $errors->has('approver') ? 'is-invalid' : '' }}"
@@ -156,9 +156,9 @@
                                             @endforeach
                                         </select>
                                        
-                                    </div>
+                                    </div> -->
                                                     
-                                <hr>
+                               
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">
                                     Save changes
                                 </button>

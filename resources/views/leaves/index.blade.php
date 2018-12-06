@@ -81,9 +81,7 @@
                                                 <th>Start Date</th>
                                                 <th>End Date</th>
                                                 <th>Days Requested</th>
-                                                <th>Days Approved</th>
-                                                <th>Salary</th>
-                                                <th>Active</th>
+                                                <th>Status</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -104,10 +102,9 @@
                                                 <td>{{ $leave->start_date }}</td>
                                                 <td >{{ $leave->end_date}}</td>
                                                 <td>{{ $leave->total_days}}</td>
-                                                <td>{{ $leave->working_days}}</td>
-                                                <td>{{ number_format($leave->period_rate,2) }}</td>
-                                                <td>{{ $leave->active }}</td>
+                                                <td>{{ $leave->status }}</td>
                                                 <td class="align-middle text-right">
+                                                    @if($leave->status=="pending" || $leave->status=="rejected")
                                                     @can("edit", \App\Models\leave\Leave::class)
                                                     <a href="{{ route("leaves.edit", $leave) }}" class="btn btn-sm btn-secondary">
                                                         <i class="fa fa-pencil-alt"></i>
@@ -121,6 +118,7 @@
                                                         <span class="sr-only">Remove</span>
                                                     </a>
                                                     @endcan
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @endforeach

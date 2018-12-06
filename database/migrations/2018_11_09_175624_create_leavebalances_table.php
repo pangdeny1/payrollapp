@@ -23,6 +23,7 @@ class CreateLeavebalancesTable extends Migration
             $table->integer('allocated_days');
             $table->integer('days_spent');
             $table->integer('balance');
+            $table->string('active')->default('yes');
             $table->integer("creator_id");
             $table->timestamps();
         });

@@ -122,12 +122,14 @@ class LeavesController extends Controller
               $notification=Emailnotification::create(
                 ['body'=>"Please Approve Employee Leave",
                 'sendto'=>$firstApprover->approver,
-                'sendto_email'=>'pangdeny@gmail.com',
+                'sendto_email'=>email_to($firstApprover->approver),
                 'sender'=>request('employee'),
                 'url' =>'http://localhost/payrollapp/public/approvals',
                 'module'=>'leave',
                 "request_id"=>$formnumber,
                 'notification_type'=>'Leave Approve']);
+
+              send_email(email_to($firstApprover->approver),"Approve Employee Leave","Hi Please Approve Leave for ","");
 
 
                

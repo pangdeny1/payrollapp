@@ -119,7 +119,7 @@
                     </li>
 
                      <li class="menu-item">
-                      <a href="" class="menu-link">Employee CV </a>
+                      <a href="" class="menu-link">Employee CV  </a>
                     </li>
                     <li class="menu-item">
                       <a href="" class="menu-link">Employee Head Count</a>
