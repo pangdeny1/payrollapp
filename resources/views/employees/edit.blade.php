@@ -48,8 +48,10 @@
                         <form action="{{ route("employees.update",$employee) }}"
                               method="POST"
                               class="card border-0"
+                              enctype="multipart/form-data"
                         >
                             @csrf
+
                                                             
                                 <div class="panel panel-default tabs">                            
                                     
@@ -352,13 +354,14 @@
                                                                                         
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Basic Salary</label>
-                                                <div class="col-md-3 col-xs-12">                                                                                                                                                        
+                                                <div class="col-md-3 col-xs-12">                                                                                                                                                         
                                                     <input type="text"
                                                name="period_rate"
                                                class="form-control {{ $errors->has('period_rate') ? 'is-invalid' : '' }}"
                                                id="period_rate"
-                                               value="{{ old("period_rate", optional($employee)->period_rate) }}"
+                                               value="{{ old("period_rate", optional($employee)->period_rate) }}" 
                                         >
+
                                         @if ($errors->has('period_rate'))
                                             <span class="invalid-feedback">
                                                 <strong>{{ $errors->first('period_rate') }}</strong>
@@ -548,6 +551,19 @@
 
                                         <div class="tab-pane"  id="tab-fifth">
                                          <p>Attachement</p> 
+
+                                           <div class="form-group">
+                          <label for="tf3">File input</label>
+                          <div class="col-md-6 col-xs-12">    
+                            <input type="file" name="pic "class="custom-file-input" id="pic" multiple>
+                            <label class="custom-file-label" for="tf3">Choose file</label>
+
+
+                            <input type="file"
+       id="pic" name="pic"
+       accept="image/png, image/jpeg ,image/JPG">
+                          </div>
+                        </div>
                                          
 
                                         </div>

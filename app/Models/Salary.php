@@ -12,7 +12,12 @@ class Salary extends Model
   protected $table='salaries';
     protected $fillable = [
           
-          'employeeid','salaryfrom','salaryto','changedby','changedamount','percentage','payrollid','datechanged'
+          'employee_id','salaryfrom','salaryto','changedby','changedamount','percentage','payroll_id','datechanged'
            ];
+
+              public function employee()
+    {
+        return $this->belongsTo("\App\Employee","employee_id");
+    }
 
 }

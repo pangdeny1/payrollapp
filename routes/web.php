@@ -302,6 +302,7 @@ Route::prefix('settings')->group(function () {
      Route::post('updatetax/{id}','tax\TaxController@update');
     Route::post('addsalary','salary\SalariesController@store');
     Route::get('createsalary','salary\SalariesController@create');
+     Route::get('salaries','salary\SalariesController@index');
     Route::post('addpayrollperiod','payroll\payrollsController@store');
     Route::get('showpayroll/{id}','payroll\payrollsController@show');
     Route::get('editpayroll/{id}','payroll\payrollsController@edit');

@@ -22,7 +22,7 @@
                                                           @foreach($employees as $employee)
 
                                                          
-                                                         <option value="{{ $employee->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option value="{{ $employee->id }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                           @endforeach
                                                                                                              
                                                     </select>
@@ -136,7 +136,7 @@
                             <label for="title" class="col-md-4 control-label">Date</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="DateChanged" class="form-control datepicker" value="{{old('DateChanged')}}">
+                                <input type="date" name="DateChanged" class="form-control datepicker" value="{{old('DateChanged')}}">
 
                                 @if ($errors->has('ParcentageChanged'))
                                     <span class="help-block">

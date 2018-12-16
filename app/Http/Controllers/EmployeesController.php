@@ -9,6 +9,7 @@ use App\Purchase;
 use App\Group;
 use App\Models\Payperiod;
 use App\GroupMember;
+use App\Models\Picture;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -16,6 +17,11 @@ use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 use Sms;
 use App\Models\YesOrNo;
+use Image;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
+
+
 class EmployeesController extends Controller
 {
 	public function __construct()
@@ -209,6 +215,40 @@ class EmployeesController extends Controller
 
 
         ]);
+
+       //picture 
+/*
+ if ($employee->pictures()->exists()){
+
+        $file = Input::file('pic');
+         $img = Image::make($file);
+         Response::make($img->encode('JPG'));
+
+         $picture = new Picture;
+            $employee->pictures()->update([
+                "name" => $request->get('name'),
+                "pic" => $img,
+                       ]);
+
+
+        } else {
+
+
+       $file = Input::file('pic');
+        $img = Image::make($file);
+         Response::make($img->encode('JPG'));
+
+         $picture = new Picture;
+            
+         $employee->pictures()->create([
+                "name" => $request->get('name'),
+                "pic" => $img,
+                       ]);
+        }
+*/
+
+//end of picture 
+
 
         if ($employee->address()->exists()){
             $employee->address()->update([

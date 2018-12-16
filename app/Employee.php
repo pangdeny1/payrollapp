@@ -64,6 +64,11 @@ class Employee extends Model implements Auditable
         return $this->morphMany(Address::class, "addressable");
     }
 
+     public function pictures()
+    {
+        return $this->morphMany(Models\Picture::class, "pictureable");
+    }
+
     public function batches()
     {
         return $this->belongsToMany(Batch::class, "farmer_batch")->withTimestamps();

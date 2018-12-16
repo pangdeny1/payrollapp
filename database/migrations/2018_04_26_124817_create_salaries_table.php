@@ -15,12 +15,12 @@ class CreateSalariesTable extends Migration
     {
         Schema::create('salaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('employeeid');
+            $table->integer('employee_id');
             $table->decimal('salaryfrom', 12, 2)->default(0);
             $table->decimal('salaryto', 12, 2)->default(0);;
             $table->string('changedby')->default(0);;
             $table->string('percentage')->default(0);;
-            $table->string('payrollid')->nullable;
+            $table->integer('payroll_id')->nullable;
             $table->date('datechanged');
             $table->timestamps();
         });

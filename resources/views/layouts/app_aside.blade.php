@@ -67,8 +67,12 @@
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">Browse a list</span>
                     </a>
+                     <a href="{{url('salaries')}}" class="menu-link mb-2">
+                        <i class="fa fa-paypal" aria-hidden="true"></i>
+                        <span class="menu-text">Salaries</span>
+                    </a>
 
-                    @can("create", \App\Farmer::class)
+                    @can("create", \App\Models\Payroll::class)
                     <a href="{{url('createpayrollperiod')}}" class="menu-link mb-2">
                         <i class="fas fa-plus text-muted mr-2"></i>
                         <span class="menu-text">Register new</span>
