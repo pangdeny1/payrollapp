@@ -232,6 +232,10 @@ Route::prefix('settings')->group(function () {
      "as" => "employees.update",
       "uses" => "EmployeesController@update"
   ]);
+
+   Route::get('import_employee','EmployeesController@import');
+Route::post('/importemployee_parse', 'EmployeesController@parseImport')->name('importemployee_parse');
+
     Route::get('employeemaster','employee\employeemaster@index');
     Route::get('addemployee','employee\employeemaster@addemployee');
     Route::post('employeestore','employee\employeemaster@store');

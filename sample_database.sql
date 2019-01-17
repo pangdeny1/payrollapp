@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2018 at 06:36 PM
+-- Generation Time: Jan 17, 2019 at 06:40 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -85,7 +85,22 @@ INSERT INTO `abilities` (`id`, `name`, `title`, `entity_id`, `entity_type`, `onl
 (38, 'graded_weight_view', 'Graded weight view purchases', NULL, 'App\\Purchase', 0, NULL, '2018-08-29 08:45:16', '2018-08-29 08:45:16'),
 (39, 'graded_weight_create', 'Graded weight create purchases', NULL, 'App\\Purchase', 0, NULL, '2018-08-29 08:45:16', '2018-08-29 08:45:16'),
 (40, 'graded_weight_edit', 'Graded weight edit purchases', NULL, 'App\\Purchase', 0, NULL, '2018-08-29 08:45:16', '2018-08-29 08:45:16'),
-(41, 'graded_weight_delete', 'Graded weight delete purchases', NULL, 'App\\Purchase', 0, NULL, '2018-08-29 08:45:16', '2018-08-29 08:45:16');
+(41, 'graded_weight_delete', 'Graded weight delete purchases', NULL, 'App\\Purchase', 0, NULL, '2018-08-29 08:45:16', '2018-08-29 08:45:16'),
+(42, 'view', 'View users', NULL, 'App\\User', 0, NULL, '2018-11-28 10:04:34', '2018-11-28 10:04:34'),
+(43, 'view', 'View leaves', NULL, 'App\\Models\\leave\\Leave', 0, NULL, '2018-12-01 12:11:52', '2018-12-01 12:11:52'),
+(44, 'create', 'Create leaves', NULL, 'App\\Models\\leave\\Leave', 0, NULL, '2018-12-01 12:11:52', '2018-12-01 12:11:52'),
+(45, 'edit', 'Edit leaves', NULL, 'App\\Models\\leave\\Leave', 0, NULL, '2018-12-01 12:11:52', '2018-12-01 12:11:52'),
+(46, 'delete', 'Delete leaves', NULL, 'App\\Models\\leave\\Leave', 0, NULL, '2018-12-01 12:11:52', '2018-12-01 12:11:52'),
+(47, 'view', 'View employees', NULL, 'App\\Employee', 0, NULL, '2018-12-01 12:37:40', '2018-12-01 12:37:40'),
+(48, 'create', 'Create employees', NULL, 'App\\Employee', 0, NULL, '2018-12-01 12:37:40', '2018-12-01 12:37:40'),
+(49, 'edit', 'Edit employees', NULL, 'App\\Employee', 0, NULL, '2018-12-01 12:37:40', '2018-12-01 12:37:40'),
+(50, 'delete', 'Delete employees', NULL, 'App\\Employee', 0, NULL, '2018-12-01 12:37:40', '2018-12-01 12:37:40'),
+(51, 'create', 'Create users', NULL, 'App\\User', 0, NULL, '2018-12-01 12:44:42', '2018-12-01 12:44:42'),
+(52, 'edit', 'Edit users', NULL, 'App\\User', 0, NULL, '2018-12-01 12:44:42', '2018-12-01 12:44:42'),
+(53, 'delete', 'Delete users', NULL, 'App\\User', 0, NULL, '2018-12-01 12:44:42', '2018-12-01 12:44:42'),
+(54, '$ability->name', '$ability >name employees', NULL, 'App\\Employee', 0, NULL, '2018-12-01 17:07:18', '2018-12-01 17:07:18'),
+(55, '$ability->name', '$ability >name leaves', NULL, 'App\\Models\\leave\\Leave', 0, NULL, '2018-12-01 17:07:18', '2018-12-01 17:07:18'),
+(56, 'view', 'View payrolls', NULL, 'App\\Models\\Payroll', 0, NULL, '2018-12-02 13:48:00', '2018-12-02 13:48:00');
 
 -- --------------------------------------------------------
 
@@ -625,15 +640,15 @@ INSERT INTO `addresses` (`id`, `street`, `address`, `country`, `state`, `postal_
 (510, 'Lushoto', 'fdsfdsf', 'Tanzania', 'Kigoma', '435', 'App\\User', 19, NULL, '2018-08-29 08:56:20', '2018-08-29 08:56:20'),
 (511, '3000', NULL, 'Tanzania', 'Dar es Salaam', '255', 'App\\Farmer', 235, NULL, '2018-09-05 09:07:08', '2018-09-05 09:07:08'),
 (512, '', NULL, 'Tanzania', 'Arusha', NULL, 'App\\Farm', 232, NULL, '2018-09-05 09:07:35', '2018-09-05 09:07:35'),
-(513, 'Kichangani St.', 'po box Mosho 1111', 'Tanzania', 'Kaskazini Pemba', '255', 'App\\Employee', 5, NULL, '2018-09-07 15:09:09', '2018-09-25 15:20:25'),
-(514, 'Kresncj', NULL, 'Tanzania', 'Kusini Pemba', '233', 'App\\Employee', 6, NULL, '2018-09-07 15:30:14', '2018-10-11 10:03:46'),
-(515, 'Kilimanjaro Bry mm', 'po box Mosho  ccc', 'Tanzania', 'Kilimanjaro', '449', 'App\\Employee', 7, NULL, '2018-09-08 15:55:35', '2018-09-13 11:08:19'),
-(516, 'zcxzc', '', 'Tanzania', 'Kusini Pemba', '888', 'App\\Employee', 3, NULL, '2018-09-08 16:21:23', '2018-09-19 16:49:53'),
-(517, 'STreet 889', '', 'Tanzania', 'Lindi', '344', 'App\\Employee', 4, NULL, '2018-09-08 16:22:32', '2018-10-11 10:02:51'),
-(518, 'maa', '', 'Tanzania', 'Mwanza', '255', 'App\\Employee', 2, NULL, '2018-09-08 16:23:43', '2018-09-25 15:20:43'),
-(519, 'Kelmon', 'po box Mosho 1111', 'Tanzania', 'Kusini Unguja', '777', 'App\\Employee', 1, NULL, '2018-09-08 16:24:23', '2018-09-26 13:11:54'),
-(520, 'Tanga', '73493849', 'Tanzania', 'Mara', '233', 'App\\Employee', 8, NULL, '2018-09-08 16:53:13', '2018-11-16 10:25:40'),
-(521, 'fra', 'P O BOX 3010 KCMC Moshi', 'Tanzania', 'Kusini Pemba', '233', 'App\\Employee', 9, NULL, '2018-09-08 17:08:27', '2018-09-13 11:46:17'),
+(513, 'Kichangani St.', 'po box Mosho 1111', 'Tanzania', 'Kaskazini Pemba', '255', 'App\\Employee', 5, NULL, '2018-09-07 15:09:09', '2018-12-01 11:14:29'),
+(514, 'Kresncj', NULL, 'Tanzania', 'Kusini Pemba', '233', 'App\\Employee', 6, NULL, '2018-09-07 15:30:14', '2018-12-05 07:44:00'),
+(515, 'Kilimanjaro Bry mm', 'po box Mosho  ccc', 'Tanzania', 'Kilimanjaro', '449', 'App\\Employee', 7, NULL, '2018-09-08 15:55:35', '2018-11-26 14:00:57'),
+(516, 'zcxzc', '', 'Tanzania', 'Kusini Pemba', '888', 'App\\Employee', 3, NULL, '2018-09-08 16:21:23', '2018-11-26 13:19:53'),
+(517, 'STreet 889', '', 'Tanzania', 'Lindi', '344', 'App\\Employee', 4, NULL, '2018-09-08 16:22:32', '2018-11-28 10:10:51'),
+(518, 'maa', '', 'Tanzania', 'Mwanza', '255', 'App\\Employee', 2, NULL, '2018-09-08 16:23:43', '2018-11-19 06:56:35'),
+(519, 'Kelmon', 'po box Mosho 1111', 'Tanzania', 'Kusini Unguja', '777', 'App\\Employee', 1, NULL, '2018-09-08 16:24:23', '2018-11-22 09:43:57'),
+(520, 'Tanga', '73493849', 'Tanzania', 'Dodoma', '244', 'App\\Employee', 8, NULL, '2018-09-08 16:53:13', '2018-12-05 14:33:55'),
+(521, 'fra', 'P O BOX 3010 KCMC Moshi', 'Tanzania', 'Kusini Pemba', '233', 'App\\Employee', 9, NULL, '2018-09-08 17:08:27', '2018-11-22 08:20:31'),
 (522, 'Tanga', NULL, 'Tanzania', 'Mara', NULL, 'App\\Employee', 10, NULL, '2018-09-12 19:27:24', '2018-09-13 09:33:43'),
 (523, 'Tanga', '73493849', 'Tanzania', 'Mjini Magharibi', '3222', 'App\\Employee', 11, NULL, '2018-09-12 19:31:10', '2018-10-11 10:05:04'),
 (524, 'fra', NULL, 'Tanzania', 'Morogoro', '233', 'App\\Employee', 12, NULL, '2018-09-12 19:33:20', '2018-10-11 10:05:21'),
@@ -675,7 +690,13 @@ INSERT INTO `addresses` (`id`, `street`, `address`, `country`, `state`, `postal_
 (560, NULL, '', 'Tanzania', 'Kilimanjaro', NULL, 'App\\Employee', 56, NULL, '2018-10-11 10:45:31', '2018-10-11 10:45:31'),
 (561, NULL, '', 'Tanzania', 'Mbeya', NULL, 'App\\Employee', 58, NULL, '2018-10-11 10:48:54', '2018-10-11 10:48:54'),
 (562, '111', '111', 'Tanzania', 'Kilimanjaro', '222', 'App\\Employee', 78, NULL, '2018-11-12 16:24:10', '2018-11-12 16:24:10'),
-(563, NULL, '', 'Tanzania', 'Lindi', NULL, 'App\\User', 27, NULL, '2018-11-16 15:15:31', '2018-11-16 15:56:26');
+(563, NULL, '', 'Tanzania', 'Lindi', NULL, 'App\\User', 27, NULL, '2018-11-16 15:15:31', '2018-11-16 15:56:26'),
+(564, '23', '111', 'Tanzania', 'Kusini Unguja', '222', 'App\\Employee', 79, NULL, '2018-11-18 11:13:58', '2018-11-22 08:21:10'),
+(565, '23', '111', 'Tanzania', 'Kusini Unguja', '222', 'App\\Employee', 80, NULL, '2018-11-18 11:14:20', '2018-12-06 05:30:33'),
+(566, '23', '111', 'Tanzania', 'Kusini Unguja', '222', 'App\\Employee', 81, NULL, '2018-11-18 11:16:10', '2018-11-19 13:55:04'),
+(567, 'devv', NULL, 'Tanzania', 'Mara', '22', 'App\\Employee', 82, NULL, '2018-11-18 11:51:08', '2018-11-21 16:20:24'),
+(568, NULL, '', 'Tanzania', 'Iringa', NULL, 'App\\Employee', 26, NULL, '2018-11-18 11:59:28', '2018-11-18 12:01:04'),
+(569, 'Mwenge Kilu', 'mikocheni A', 'Tanzania', 'Kigoma', '233', 'App\\Employee', 83, NULL, '2018-11-20 06:14:26', '2018-12-16 12:01:39');
 
 -- --------------------------------------------------------
 
@@ -727,7 +748,13 @@ INSERT INTO `assigned_roles` (`role_id`, `entity_id`, `entity_type`, `scope`) VA
 (6, 27, 'App\\User', NULL),
 (3, 16, 'App\\User', NULL),
 (3, 28, 'App\\User', NULL),
-(5, 28, 'App\\User', NULL);
+(5, 28, 'App\\User', NULL),
+(2, 34, 'App\\User', NULL),
+(1, 34, 'App\\User', NULL),
+(3, 39, 'App\\User', NULL),
+(3, 41, 'App\\User', NULL),
+(7, 42, 'App\\User', NULL),
+(8, 42, 'App\\User', NULL);
 
 -- --------------------------------------------------------
 
@@ -2368,7 +2395,147 @@ INSERT INTO `audits` (`id`, `user_type`, `user_id`, `event`, `auditable_type`, `
 (1595, 'App\\User', 28, 'updated', 'App\\User', 28, '{\"remember_token\":null}', '{\"remember_token\":\"duj0AhKMjfvt29tcAS8Co761ZYaLriWYMIVFENcWOgzYEx8E0ga7TmfQujPC\"}', 'http://localhost/payrollapp/public/logout?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-16 16:02:10', '2018-11-16 16:02:10'),
 (1596, 'App\\User', 1, 'updated', 'App\\User', 28, '{\"password\":\"$2y$10$Z.q.ULShIpWq2Y8Bs88lnuVoB6vwfr8Umec\\/E5\\/JwadzpHfmMmHCi\"}', '{\"password\":\"$2y$10$suKvnTZ7rPoxk0zo8e.Ur.yzG79XIilUTnzYA4UtMAasfui1K3L42\"}', 'http://127.0.0.1:8000/settings/users/28?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-16 16:13:42', '2018-11-16 16:13:42'),
 (1597, 'App\\User', 28, 'updated', 'App\\User', 28, '{\"remember_token\":\"duj0AhKMjfvt29tcAS8Co761ZYaLriWYMIVFENcWOgzYEx8E0ga7TmfQujPC\"}', '{\"remember_token\":\"xdoFRf9Y11pdkppLZpYlM5PtVNVd1GqADUlfyrcqe1ulPtPYtzlEvfUSZSc0\"}', 'http://localhost/payrollapp/public/logout?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-16 16:13:49', '2018-11-16 16:13:49'),
-(1598, 'App\\User', 28, 'updated', 'App\\User', 28, '{\"remember_token\":\"xdoFRf9Y11pdkppLZpYlM5PtVNVd1GqADUlfyrcqe1ulPtPYtzlEvfUSZSc0\"}', '{\"remember_token\":\"6jJ67kn1FXblhwLrGh61DjXNp95lVtijvq5Px5WqQ7vWwcMEam0f3OU403bc\"}', 'http://localhost/payrollapp/public/logout?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-16 16:14:44', '2018-11-16 16:14:44');
+(1598, 'App\\User', 28, 'updated', 'App\\User', 28, '{\"remember_token\":\"xdoFRf9Y11pdkppLZpYlM5PtVNVd1GqADUlfyrcqe1ulPtPYtzlEvfUSZSc0\"}', '{\"remember_token\":\"6jJ67kn1FXblhwLrGh61DjXNp95lVtijvq5Px5WqQ7vWwcMEam0f3OU403bc\"}', 'http://localhost/payrollapp/public/logout?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-16 16:14:44', '2018-11-16 16:14:44'),
+(1599, 'App\\User', 1, 'updated', 'App\\Employee', 5, '{\"first_name\":\"demo5\",\"last_name\":\"demo5\"}', '{\"first_name\":\"Brian\",\"last_name\":\"Henesey\"}', 'http://127.0.0.1:8000/employees/5?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-17 10:13:36', '2018-11-17 10:13:36'),
+(1600, 'App\\User', 1, 'updated', 'App\\User', 27, '{\"employee_id\":26,\"email\":\"jminja22@meda.org\",\"password\":\"$2y$10$4YSuJvf4vZfe2WpWufR3fehus9jzpmopyYV5J0V3uSjBkDTGePWCm\",\"manager\":\"manager\"}', '{\"employee_id\":\"5\",\"email\":\"brian@user.com\",\"password\":\"$2y$10$CviT7kDtn3bJlq71ol0UK.uFZ3PjVbhdh5favSLRGeXn9Dzad269u\",\"manager\":\"yes\"}', 'http://127.0.0.1:8000/settings/users/27?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-17 10:32:33', '2018-11-17 10:32:33'),
+(1601, 'App\\User', 27, 'updated', 'App\\User', 27, '{\"remember_token\":null}', '{\"remember_token\":\"szHyF3bQ8Xu4TcCa332mEpMeh7FyVUJZPbSgj68iiAoytb3e2iBX63zdIR87\"}', 'http://localhost/payrollapp/public/logout?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-17 10:46:10', '2018-11-17 10:46:10'),
+(1602, 'App\\User', 27, 'updated', 'App\\Employee', 1, '{\"first_name\":\"demo1\",\"last_name\":\"demo1\"}', '{\"first_name\":\"Kiluvya\",\"last_name\":\"Kimolo\"}', 'http://localhost/payrollapp/public/employees/1?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-17 10:55:22', '2018-11-17 10:55:22'),
+(1603, 'App\\User', 1, 'updated', 'App\\User', 28, '{\"employee_id\":32,\"password\":\"$2y$10$suKvnTZ7rPoxk0zo8e.Ur.yzG79XIilUTnzYA4UtMAasfui1K3L42\",\"manager\":\"no\"}', '{\"employee_id\":\"1\",\"password\":\"$2y$10$aSHDhPl53hcQsQuuxgikVuVzkuGqkd4iGLyZ9NW91D.AvcUXvSUza\",\"manager\":\"yes\"}', 'http://127.0.0.1:8000/settings/users/28?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-17 10:57:31', '2018-11-17 10:57:31'),
+(1604, 'App\\User', 27, 'updated', 'App\\User', 27, '{\"remember_token\":\"szHyF3bQ8Xu4TcCa332mEpMeh7FyVUJZPbSgj68iiAoytb3e2iBX63zdIR87\"}', '{\"remember_token\":\"OmQlWTgZFDz9WIcD8qXFnyPvR6oXP4w4Ny6pcwUbpbAd4RBtaHEFtv6Hpr0w\"}', 'http://localhost/payrollapp/public/logout?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-17 10:57:44', '2018-11-17 10:57:44'),
+(1605, 'App\\User', 1, 'updated', 'App\\User', 28, '{\"first_name\":\"demo32\",\"last_name\":\"demo32\",\"phone\":\"739075768.7\"}', '{\"first_name\":\"Kiluvya\",\"last_name\":\"Kimolo\",\"phone\":\"754977618\"}', 'http://127.0.0.1:8000/settings/users/28?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 10:46:27', '2018-11-18 10:46:27'),
+(1606, 'App\\User', 1, 'created', 'App\\Employee', 79, '[]', '{\"first_name\":\"Sebia\",\"last_name\":\"Jajovic\",\"other_name\":\"D\",\"phone\":\"0734233678\",\"email\":\"sebia@user.com\",\"gender\":\"female\",\"period_rate\":\"2000000\",\"pay_type\":\"Salary\",\"hourly_rate\":\"200\",\"pay_period\":\"1\",\"active\":\"yes\",\"creator_id\":1,\"id\":79}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:13:58', '2018-11-18 11:13:58'),
+(1607, 'App\\User', 1, 'created', 'App\\Address', 564, '[]', '{\"street\":\"23\",\"address\":\"111\",\"state\":\"Kusini Unguja\",\"country\":\"Tanzania\",\"postal_code\":\"222\",\"addressable_id\":79,\"addressable_type\":\"App\\\\Employee\",\"id\":564}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:13:58', '2018-11-18 11:13:58'),
+(1608, 'App\\User', 1, 'created', 'App\\Employee', 80, '[]', '{\"first_name\":\"Sebia\",\"last_name\":\"Jajovic\",\"other_name\":\"D\",\"phone\":\"0734233678\",\"email\":\"sebia@user.com\",\"gender\":\"female\",\"period_rate\":\"2000000\",\"pay_type\":\"Salary\",\"hourly_rate\":\"200\",\"pay_period\":\"1\",\"active\":\"yes\",\"creator_id\":1,\"id\":80}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:14:20', '2018-11-18 11:14:20'),
+(1609, 'App\\User', 1, 'created', 'App\\Address', 565, '[]', '{\"street\":\"23\",\"address\":\"111\",\"state\":\"Kusini Unguja\",\"country\":\"Tanzania\",\"postal_code\":\"222\",\"addressable_id\":80,\"addressable_type\":\"App\\\\Employee\",\"id\":565}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:14:20', '2018-11-18 11:14:20'),
+(1610, 'App\\User', 1, 'created', 'App\\Employee', 81, '[]', '{\"first_name\":\"Sebia\",\"last_name\":\"Jajovic\",\"other_name\":\"D\",\"phone\":\"0734233678\",\"email\":\"sebia@user.com\",\"gender\":\"female\",\"period_rate\":\"2000000\",\"pay_type\":\"Salary\",\"hourly_rate\":\"200\",\"pay_period\":\"1\",\"active\":\"yes\",\"creator_id\":1,\"id\":81}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:16:10', '2018-11-18 11:16:10'),
+(1611, 'App\\User', 1, 'created', 'App\\Address', 566, '[]', '{\"street\":\"23\",\"address\":\"111\",\"state\":\"Kusini Unguja\",\"country\":\"Tanzania\",\"postal_code\":\"222\",\"addressable_id\":81,\"addressable_type\":\"App\\\\Employee\",\"id\":566}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:16:10', '2018-11-18 11:16:10'),
+(1612, 'App\\User', 1, 'created', 'App\\User', 29, '[]', '{\"first_name\":\"Sebia\",\"last_name\":\"Jajovic\",\"email\":\"sebia@user.com\",\"gender\":\"female\",\"phone\":\"0734233678\",\"employee_id\":81,\"employee_type\":\"App\\\\Employee\",\"id\":29}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:16:10', '2018-11-18 11:16:10'),
+(1613, 'App\\User', 1, 'created', 'App\\Employee', 82, '[]', '{\"first_name\":\"mobdro\",\"last_name\":\"App\",\"other_name\":\"D.\",\"phone\":\"+255754977618\",\"email\":\"mobro@user.com\",\"gender\":\"female\",\"period_rate\":\"23000\",\"pay_type\":\"Salary\",\"hourly_rate\":\"200\",\"pay_period\":\"1\",\"active\":\"yes\",\"creator_id\":1,\"id\":82}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:51:08', '2018-11-18 11:51:08'),
+(1614, 'App\\User', 1, 'created', 'App\\Address', 567, '[]', '{\"street\":\"devv\",\"address\":null,\"state\":\"Mara\",\"country\":\"Tanzania\",\"postal_code\":\"22\",\"addressable_id\":82,\"addressable_type\":\"App\\\\Employee\",\"id\":567}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:51:08', '2018-11-18 11:51:08'),
+(1615, 'App\\User', 1, 'created', 'App\\User', 30, '[]', '{\"first_name\":\"mobdro\",\"last_name\":\"App\",\"email\":\"mobro@user.com\",\"gender\":\"female\",\"phone\":\"+255754977618\",\"employee_id\":82,\"employee_type\":\"App\\\\Employee\",\"id\":30}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:51:08', '2018-11-18 11:51:08'),
+(1616, 'App\\User', 1, 'created', 'App\\User', 31, '[]', '{\"first_name\":\"Sebia\",\"last_name\":\"Jajovic\",\"email\":\"sebia@user.com\",\"gender\":\"female\",\"phone\":\"0734233678\",\"password\":\"$2y$10$q475X\\/pVh5L56FsrhKsK7OKE9oSP.ZvkHR1S8UoF9ELcBDDDa76US\",\"employee_id\":79,\"employee_type\":\"App\\\\Employee\",\"id\":31}', 'http://127.0.0.1:8000/employees/79?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:54:02', '2018-11-18 11:54:02'),
+(1617, 'App\\User', 1, 'updated', 'App\\Employee', 79, '{\"first_name\":\"Sebia\",\"last_name\":\"Jajovic\",\"other_name\":\"D\",\"email\":\"sebia@user.com\"}', '{\"first_name\":\"milan\",\"last_name\":\"vidic\",\"other_name\":\"t\",\"email\":\"milan@user.com\"}', 'http://127.0.0.1:8000/employees/79?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:56:17', '2018-11-18 11:56:17'),
+(1618, 'App\\User', 1, 'updated', 'App\\Employee', 26, '{\"other_name\":\"\"}', '{\"other_name\":null}', 'http://127.0.0.1:8000/employees/26?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:59:28', '2018-11-18 11:59:28'),
+(1619, 'App\\User', 1, 'created', 'App\\Address', 568, '[]', '{\"street\":null,\"address\":\"\",\"state\":\"Iringa\",\"country\":\"Tanzania\",\"postal_code\":null,\"addressable_id\":26,\"addressable_type\":\"App\\\\Employee\",\"id\":568}', 'http://127.0.0.1:8000/employees/26?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:59:28', '2018-11-18 11:59:28'),
+(1620, 'App\\User', 1, 'created', 'App\\User', 32, '[]', '{\"first_name\":\"demo26\",\"last_name\":\"demo26\",\"email\":\"admin@homeverge.co.tz\",\"gender\":\"male\",\"phone\":\"742019859.3\",\"password\":\"$2y$10$qfFXmKBarP9RNm4Jj1AJ0OfSVZxKIl\\/WMPl0bn28YrFw61RiFct5.\",\"employee_id\":26,\"employee_type\":\"App\\\\Employee\",\"id\":32}', 'http://127.0.0.1:8000/employees/26?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 11:59:28', '2018-11-18 11:59:28'),
+(1621, 'App\\User', 1, 'updated', 'App\\Employee', 26, '{\"first_name\":\"demo26\",\"last_name\":\"demo26\",\"other_name\":\"\",\"phone\":\"742019859.3\",\"email\":\"admin@homeverge.co.tz\"}', '{\"first_name\":\"pambio\",\"last_name\":\"live\",\"other_name\":null,\"phone\":\"742019859\",\"email\":\"pambio@user.com\"}', 'http://127.0.0.1:8000/employees/26?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 12:01:04', '2018-11-18 12:01:04'),
+(1622, 'App\\User', 1, 'updated', 'App\\Employee', 1, '{\"first_name\":\"Kiluvya\",\"other_name\":\"d\",\"email\":\"pangdeny@gmail.com\"}', '{\"first_name\":\"Kiluvya gudii\",\"other_name\":\"mora\",\"email\":\"kiluvya@user.com\"}', 'http://127.0.0.1:8000/employees/1?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-18 12:04:52', '2018-11-18 12:04:52'),
+(1623, 'App\\User', 1, 'updated', 'App\\Employee', 80, '{\"first_name\":\"Sebia\",\"last_name\":\"Jajovic\",\"email\":\"sebia@user.com\"}', '{\"first_name\":\"Croati\",\"last_name\":\"Bilic\",\"email\":\"bilic@user.com\"}', 'http://127.0.0.1:8000/employees/80?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 06:10:18', '2018-11-19 06:10:18'),
+(1624, 'App\\User', 1, 'created', 'App\\User', 33, '[]', '{\"first_name\":\"Croati\",\"last_name\":\"Bilic\",\"email\":\"bilic@user.com\",\"gender\":\"female\",\"phone\":\"0734233678\",\"password\":\"$2y$10$AI0JJ2anDLa3dtauhXFSQugT22xPXpvQ2LUQWcdeOCto\\/SjHaaT6e\",\"employee_id\":80,\"employee_type\":\"App\\\\Employee\",\"id\":33}', 'http://127.0.0.1:8000/employees/80?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 06:10:18', '2018-11-19 06:10:18'),
+(1625, 'App\\User', 1, 'updated', 'App\\User', 28, '{\"password\":\"$2y$10$aSHDhPl53hcQsQuuxgikVuVzkuGqkd4iGLyZ9NW91D.AvcUXvSUza\"}', '{\"password\":\"$2y$10$JSeJuyawKlVQopbV5l7rAOEhzU3TI\\/ZJju7XP7bOR4GkjfHHxZDEa\"}', 'http://127.0.0.1:8000/settings/users/28?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 06:53:38', '2018-11-19 06:53:38'),
+(1626, 'App\\User', 1, 'updated', 'App\\Employee', 2, '{\"first_name\":\"demo2\",\"last_name\":\"demo2\",\"other_name\":\"\",\"email\":\"pangdeny@gmail.com\"}', '{\"first_name\":\"Milia\",\"last_name\":\"Beton\",\"other_name\":null,\"email\":\"milia@user.com\"}', 'http://127.0.0.1:8000/employees/2?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 06:56:35', '2018-11-19 06:56:35'),
+(1627, 'App\\User', 1, 'created', 'App\\User', 34, '[]', '{\"first_name\":\"Milia\",\"last_name\":\"Beton\",\"email\":\"milia@user.com\",\"gender\":\"male\",\"phone\":\"754977618\",\"password\":\"$2y$10$xLAM7gMtNhmZ0zFkEXFJ6eVxC8CA9xam9OYuXdBRCpA\\/r4GcIrZXq\",\"employee_id\":2,\"employee_type\":\"App\\\\Employee\",\"id\":34}', 'http://127.0.0.1:8000/employees/2?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 06:56:35', '2018-11-19 06:56:35'),
+(1628, 'App\\User', 1, 'updated', 'App\\User', 34, '{\"password\":\"$2y$10$xLAM7gMtNhmZ0zFkEXFJ6eVxC8CA9xam9OYuXdBRCpA\\/r4GcIrZXq\"}', '{\"password\":\"$2y$10$j4ZG5q\\/2A7TXp7gzhc8Td.8zNoFK3LRWQceZl8oYUi4eoT9koCk3q\"}', 'http://127.0.0.1:8000/settings/users/34?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 06:57:57', '2018-11-19 06:57:57'),
+(1629, 'App\\User', 34, 'updated', 'App\\User', 34, '{\"remember_token\":null}', '{\"remember_token\":\"JC2G7UmViBc5LXqbErUy3rB81spHHGAE5gtYI8VGgSueOxvupbeDvTTBjoLu\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36', NULL, '2018-11-19 06:59:57', '2018-11-19 06:59:57'),
+(1630, 'App\\User', 1, 'updated', 'App\\Employee', 82, '{\"branch_id\":0,\"department_id\":0,\"job_id\":0}', '{\"branch_id\":\"2\",\"department_id\":\"5\",\"job_id\":\"1\"}', 'http://127.0.0.1:8000/employees/82?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 13:54:47', '2018-11-19 13:54:47'),
+(1631, 'App\\User', 1, 'updated', 'App\\Employee', 81, '{\"branch_id\":0,\"department_id\":0,\"job_id\":0}', '{\"branch_id\":\"3\",\"department_id\":\"5\",\"job_id\":\"2\"}', 'http://127.0.0.1:8000/employees/81?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 13:55:04', '2018-11-19 13:55:04'),
+(1632, 'App\\User', 1, 'updated', 'App\\User', 1, '{\"remember_token\":\"yx2qtALKwAXGixvYxdbTM9MZmagR53ZXJ31k1pw8GYpnda1akI1tjcFufSWb\"}', '{\"remember_token\":\"kcWpBKKqN4VCgY7psxpxdYGGgQsuTguL9kfEnYyIxwmvLdvlNCVTE6c1XAop\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-19 15:36:20', '2018-11-19 15:36:20'),
+(1633, 'App\\User', 1, 'created', 'App\\Employee', 83, '[]', '{\"first_name\":\"Desolf\",\"last_name\":\"German\",\"other_name\":\"D\",\"phone\":\"0566944652\",\"email\":\"german@user.com\",\"gender\":\"female\",\"period_rate\":\"786000\",\"pay_type\":\"Salary\",\"hourly_rate\":\"7899\",\"pay_period\":\"2\",\"active\":\"no\",\"branch_id\":\"2\",\"department_id\":\"5\",\"job_id\":\"2\",\"creator_id\":1,\"id\":83}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-20 06:14:26', '2018-11-20 06:14:26'),
+(1634, 'App\\User', 1, 'created', 'App\\Address', 569, '[]', '{\"street\":\"Mwenge Kilu\",\"address\":\"mikocheni A\",\"state\":\"Kigoma\",\"country\":\"Tanzania\",\"postal_code\":\"233\",\"addressable_id\":83,\"addressable_type\":\"App\\\\Employee\",\"id\":569}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-20 06:14:26', '2018-11-20 06:14:26'),
+(1635, 'App\\User', 1, 'created', 'App\\User', 35, '[]', '{\"first_name\":\"Desolf\",\"last_name\":\"German\",\"email\":\"german@user.com\",\"gender\":\"female\",\"phone\":\"0566944652\",\"employee_id\":83,\"employee_type\":\"App\\\\Employee\",\"id\":35}', 'http://127.0.0.1:8000/employees?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-20 06:14:26', '2018-11-20 06:14:26'),
+(1636, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"other_name\":\"\",\"branch_id\":0,\"department_id\":0,\"job_id\":0}', '{\"other_name\":null,\"branch_id\":\"3\",\"department_id\":\"5\",\"job_id\":\"2\"}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-21 10:21:00', '2018-11-21 10:21:00'),
+(1637, 'App\\User', 1, 'created', 'App\\User', 36, '[]', '{\"first_name\":\"Lemaa\",\"last_name\":\"Msomi\",\"email\":\"ylowe@example.net\",\"gender\":\"male\",\"phone\":\"754977618\",\"password\":\"$2y$10$siQW\\/2LO9EXDrrzBb8e2f.3MOeumBUcvnDR7yqRCd7jFhsKMi3gyG\",\"employee_id\":8,\"employee_type\":\"App\\\\Employee\",\"id\":36}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-21 10:21:00', '2018-11-21 10:21:00'),
+(1638, 'App\\User', 1, 'updated', 'App\\Employee', 9, '{\"branch_id\":0,\"department_id\":0,\"job_id\":0}', '{\"branch_id\":\"3\",\"department_id\":\"5\",\"job_id\":\"1\"}', 'http://localhost/payrollapp/public/employees/9?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 08:20:31', '2018-11-22 08:20:31'),
+(1639, 'App\\User', 1, 'created', 'App\\User', 37, '[]', '{\"first_name\":\"demo9\",\"last_name\":\"demo9\",\"email\":\"admin@homeverge.co.tz\",\"gender\":\"male\",\"phone\":\"754977617\",\"password\":\"$2y$10$nqJpTuIC4bOpNghSQG9LWeTInSkP3vF4xDXVtGPNj3N.7WYW09XuC\",\"employee_id\":9,\"employee_type\":\"App\\\\Employee\",\"id\":37}', 'http://localhost/payrollapp/public/employees/9?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 08:20:31', '2018-11-22 08:20:31'),
+(1640, 'App\\User', 1, 'updated', 'App\\Employee', 79, '{\"gender\":\"female\",\"period_rate\":2000000,\"branch_id\":0,\"department_id\":0,\"job_id\":0}', '{\"gender\":\"male\",\"period_rate\":\"1470000\",\"branch_id\":\"3\",\"department_id\":\"5\",\"job_id\":\"1\"}', 'http://localhost/payrollapp/public/employees/79?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 08:21:10', '2018-11-22 08:21:10'),
+(1641, 'App\\User', 1, 'updated', 'App\\Employee', 1, '{\"branch_id\":0,\"department_id\":0,\"job_id\":0}', '{\"branch_id\":\"3\",\"department_id\":\"5\",\"job_id\":\"1\"}', 'http://localhost/payrollapp/public/employees/1?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 09:43:57', '2018-11-22 09:43:57'),
+(1642, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"other_name\":\"\",\"phone\":\"754977618\",\"email\":\"ylowe@example.net\",\"period_rate\":\"301312.00\",\"sstype_id\":1,\"hourly_rate\":\"0.00\",\"account_number\":null,\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"terminate_date\":null,\"birth_date\":null,\"probation_date\":0,\"employement_status\":\"active\",\"about_employee\":\"\"}', '{\"other_name\":\"Ms\",\"phone\":\"0754953645\",\"email\":\"lema@user.com\",\"period_rate\":\"700000\",\"sstype_id\":null,\"hourly_rate\":\"3000\",\"account_number\":\"Lemaa Albert Shija\",\"account_name\":\"Lemaa Albert Shija\",\"hire_date\":\"2017-12-06\",\"terminate_date\":\"2020-05-09\",\"birth_date\":\"1994-08-29\",\"probation_date\":\"2018-04-30\",\"employement_status\":null,\"about_employee\":null}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 13:54:12', '2018-11-22 13:54:12'),
+(1643, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"sstype_id\":0,\"bank_id\":null,\"account_number\":\"Lemaa Albert Shija\",\"ss_number\":null,\"retired_date\":null,\"probation_date\":\"0000-00-00\",\"about_employee\":\"\"}', '{\"sstype_id\":\"4\",\"bank_id\":\"1\",\"account_number\":\"78767445jkoooo\",\"ss_number\":\"77888bhhhghg\",\"retired_date\":\"2020-03-24\",\"probation_date\":null,\"about_employee\":null}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:29:39', '2018-11-22 14:29:39'),
+(1644, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"deduct_tax\":\"yes\",\"deduct_ss\":\"yes\",\"deduct_hdmf\":\"no\",\"health_id\":null,\"hdmf_id\":null,\"probation_date\":\"0000-00-00\",\"code\":null,\"title_id\":null,\"about_employee\":\"\"}', '{\"deduct_tax\":\"2\",\"deduct_ss\":\"2\",\"deduct_hdmf\":\"2\",\"health_id\":\"4\",\"hdmf_id\":\"3\",\"probation_date\":\"2018-11-05\",\"code\":\"Lema10\",\"title_id\":\"2\",\"about_employee\":\"chaming Employee\"}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:45:24', '2018-11-22 14:45:24'),
+(1645, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"health_id\":4,\"health_number\":null,\"hdmf_number\":null,\"title_id\":\"2\"}', '{\"health_id\":\"5\",\"health_number\":\"76867Health\",\"hdmf_number\":\"023183 Serving\",\"title_id\":\"1\"}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:51:27', '2018-11-22 14:51:27'),
+(1646, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"title_id\":\"1\"}', '{\"title_id\":\"2\"}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:51:58', '2018-11-22 14:51:58'),
+(1647, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"deduct_tax\":\"2\",\"deduct_ss\":\"2\",\"hdmf_id\":3,\"title_id\":\"2\"}', '{\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"hdmf_id\":\"4\",\"title_id\":\"1\"}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:52:31', '2018-11-22 14:52:31'),
+(1648, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"title_id\":\"1\"}', '{\"title_id\":\"2\"}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:56:02', '2018-11-22 14:56:02'),
+(1649, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"title_id\":\"2\"}', '{\"title_id\":\"1\"}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:57:38', '2018-11-22 14:57:38'),
+(1650, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"deduct_tax\":\"yes\",\"deduct_ss\":\"yes\",\"deduct_hdmf\":\"no\",\"health_id\":null,\"hdmf_id\":null,\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"employement_status\":\"active\",\"code\":null,\"title_id\":null,\"about_employee\":\"\"}', '{\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"deduct_hdmf\":\"1\",\"health_id\":\"5\",\"hdmf_id\":\"4\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"employement_status\":null,\"code\":\"109\",\"title_id\":\"1\",\"about_employee\":\"sdda\"}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:57:52', '2018-11-22 14:57:52'),
+(1651, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:59:32', '2018-11-22 14:59:32'),
+(1652, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"title_id\":\"1\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"title_id\":\"2\"}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:59:44', '2018-11-22 14:59:44'),
+(1653, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"active\":\"no\",\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"active\":\"yes\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 14:59:55', '2018-11-22 14:59:55'),
+(1654, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"active\":\"yes\",\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"active\":\"no\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 15:00:06', '2018-11-22 15:00:06'),
+(1655, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"active\":\"no\",\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"about_employee\":\"sdda\"}', '{\"active\":\"yes\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"about_employee\":\"sdda hDband\"}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 15:00:22', '2018-11-22 15:00:22'),
+(1656, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"health_id\":5,\"hdmf_id\":4}', '{\"health_id\":\"4\",\"hdmf_id\":\"2\"}', 'http://localhost/payrollapp/public/employees/8?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 15:08:23', '2018-11-22 15:08:23'),
+(1657, 'App\\User', 1, 'updated', 'App\\Employee', 6, '{\"other_name\":\"\",\"sstype_id\":1,\"deduct_tax\":\"yes\",\"deduct_ss\":\"yes\",\"deduct_hdmf\":\"no\",\"branch_id\":0,\"department_id\":0,\"job_id\":0,\"health_id\":null,\"hdmf_id\":null,\"account_name\":\"\",\"ss_number\":null,\"health_number\":null,\"hdmf_number\":null,\"hire_date\":\"0000-00-00\",\"birth_date\":null,\"probation_date\":\"0000-00-00\",\"employement_status\":\"active\",\"code\":null,\"title_id\":null,\"about_employee\":\"\"}', '{\"other_name\":null,\"sstype_id\":\"7\",\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"deduct_hdmf\":\"2\",\"branch_id\":\"2\",\"department_id\":\"6\",\"job_id\":\"2\",\"health_id\":\"3\",\"hdmf_id\":\"2\",\"account_name\":null,\"ss_number\":\"777ghgh\",\"health_number\":\"jjh\",\"hdmf_number\":\"uggffd6666\",\"hire_date\":\"2017-10-30\",\"birth_date\":\"1994-11-01\",\"probation_date\":\"2018-11-21\",\"employement_status\":null,\"code\":\"788\",\"title_id\":\"2\",\"about_employee\":\"nhfhfjfhj\"}', 'http://localhost/payrollapp/public/employees/6?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 15:22:18', '2018-11-22 15:22:18'),
+(1658, 'App\\User', 1, 'created', 'App\\User', 38, '[]', '{\"first_name\":\"demo6\",\"last_name\":\"demo6\",\"email\":\"ylowe@example.net\",\"gender\":\"male\",\"phone\":\"717990638\",\"password\":\"$2y$10$VnsJPrEkJ10Bjn7awdBSX.l.MNWDFRo0I8lMQb16\\/ANXl5Kr4rv0i\",\"employee_id\":6,\"employee_type\":\"App\\\\Employee\",\"id\":38}', 'http://localhost/payrollapp/public/employees/6?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 15:22:18', '2018-11-22 15:22:18'),
+(1659, 'App\\User', 1, 'updated', 'App\\Employee', 6, '{\"other_name\":\"\",\"pay_type\":\"Salary\",\"pay_period\":\"1\",\"bank_id\":null,\"account_number\":null,\"account_name\":\"\"}', '{\"other_name\":null,\"pay_type\":\"Hourly\",\"pay_period\":\"2\",\"bank_id\":\"2\",\"account_number\":\"6773231313131Kl\",\"account_name\":\"mb\"}', 'http://localhost/payrollapp/public/employees/6?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 15:23:12', '2018-11-22 15:23:12'),
+(1660, 'App\\User', 1, 'updated', 'App\\Employee', 6, '{\"other_name\":\"\",\"terminate_date\":null,\"retired_date\":null,\"title_id\":\"2\"}', '{\"other_name\":null,\"terminate_date\":\"2020-05-28\",\"retired_date\":\"2019-12-16\",\"title_id\":\"1\"}', 'http://localhost/payrollapp/public/employees/6?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 15:24:14', '2018-11-22 15:24:14'),
+(1661, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"hdmf_id\":4,\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"hdmf_id\":\"2\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-22 15:54:18', '2018-11-22 15:54:18'),
+(1662, 'App\\User', 1, 'updated', 'App\\Employee', 3, '{\"first_name\":\"demo3\",\"last_name\":\"demo3\",\"period_rate\":\"1479667.00\",\"deduct_tax\":\"yes\",\"deduct_ss\":\"yes\",\"deduct_hdmf\":\"no\",\"branch_id\":0,\"department_id\":0,\"job_id\":0,\"health_id\":null,\"hdmf_id\":null,\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"employement_status\":\"active\",\"title_id\":null,\"about_employee\":\"\"}', '{\"first_name\":\"Xavier\",\"last_name\":\"Qudan\",\"period_rate\":\"5687500\",\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"deduct_hdmf\":\"1\",\"branch_id\":\"3\",\"department_id\":\"5\",\"job_id\":\"2\",\"health_id\":\"5\",\"hdmf_id\":\"4\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"employement_status\":null,\"title_id\":\"1\",\"about_employee\":null}', 'http://localhost/payrollapp/public/employees/3?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-26 13:18:12', '2018-11-26 13:18:12'),
+(1663, 'App\\User', 1, 'created', 'App\\User', 39, '[]', '{\"first_name\":\"Xavier\",\"last_name\":\"Qudan\",\"email\":\"pangdeny@gmail.com\",\"gender\":\"male\",\"phone\":\"754977618\",\"password\":\"$2y$10$J2AbKpGwnkH0LAvY0uSQJ.ZKx4hK2TRPwiSqX9oVwpOIuniv.NThm\",\"employee_id\":3,\"employee_type\":\"App\\\\Employee\",\"id\":39}', 'http://localhost/payrollapp/public/employees/3?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-26 13:18:12', '2018-11-26 13:18:12');
+INSERT INTO `audits` (`id`, `user_type`, `user_id`, `event`, `auditable_type`, `auditable_id`, `old_values`, `new_values`, `url`, `ip_address`, `user_agent`, `tags`, `created_at`, `updated_at`) VALUES
+(1664, 'App\\User', 1, 'updated', 'App\\Employee', 3, '{\"deduct_hdmf\":\"1\",\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"about_employee\":\"\"}', '{\"deduct_hdmf\":\"2\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"about_employee\":null}', 'http://localhost/payrollapp/public/employees/3?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-26 13:19:53', '2018-11-26 13:19:53'),
+(1665, 'App\\User', 1, 'updated', 'App\\Employee', 7, '{\"period_rate\":\"301312.00\",\"deduct_tax\":\"yes\",\"deduct_ss\":\"yes\",\"deduct_hdmf\":\"no\",\"branch_id\":0,\"department_id\":0,\"job_id\":0,\"health_id\":null,\"hdmf_id\":null,\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"employement_status\":\"active\",\"code\":null,\"title_id\":null,\"about_employee\":\"\"}', '{\"period_rate\":\"5687500\",\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"deduct_hdmf\":\"1\",\"branch_id\":\"2\",\"department_id\":\"7\",\"job_id\":\"2\",\"health_id\":\"5\",\"hdmf_id\":\"4\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"employement_status\":null,\"code\":\"22\",\"title_id\":\"2\",\"about_employee\":null}', 'http://localhost/payrollapp/public/employees/7?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-26 13:25:02', '2018-11-26 13:25:02'),
+(1666, 'App\\User', 1, 'created', 'App\\User', 40, '[]', '{\"first_name\":\"demo7\",\"last_name\":\"demo7\",\"email\":\"bryton@dennis.com\",\"gender\":\"male\",\"phone\":\"754977617\",\"password\":\"$2y$10$RU28KhEv8Rj5uwV9uiwsA.JNOnWPlngCOjjGjdeUWZk\\/1kARdV9Qi\",\"employee_id\":7,\"employee_type\":\"App\\\\Employee\",\"id\":40}', 'http://localhost/payrollapp/public/employees/7?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-26 13:25:02', '2018-11-26 13:25:02'),
+(1667, 'App\\User', 1, 'updated', 'App\\Employee', 7, '{\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"deduct_hdmf\":\"1\",\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"about_employee\":\"\"}', '{\"deduct_tax\":\"NO\",\"deduct_ss\":\"NO\",\"deduct_hdmf\":\"NO\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"about_employee\":null}', 'http://localhost/payrollapp/public/employees/7?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-26 13:59:38', '2018-11-26 13:59:38'),
+(1668, 'App\\User', 1, 'updated', 'App\\Employee', 7, '{\"deduct_tax\":\"NO\",\"deduct_ss\":\"NO\",\"deduct_hdmf\":\"NO\",\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"about_employee\":\"\"}', '{\"deduct_tax\":\"YES\",\"deduct_ss\":\"YES\",\"deduct_hdmf\":\"YES\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"about_employee\":null}', 'http://localhost/payrollapp/public/employees/7?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-26 14:00:57', '2018-11-26 14:00:57'),
+(1669, 'App\\User', 1, 'updated', 'App\\User', 1, '{\"remember_token\":\"kcWpBKKqN4VCgY7psxpxdYGGgQsuTguL9kfEnYyIxwmvLdvlNCVTE6c1XAop\"}', '{\"remember_token\":\"aceZDGFFwEzKYuGLSaEhw9GyDsSdq1MErnnVJcLORprTPiX27DI1AZInBXPt\"}', 'http://localhost/payrollapp/public/logout?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-27 07:54:19', '2018-11-27 07:54:19'),
+(1670, 'App\\User', 1, 'updated', 'App\\User', 34, '{\"password\":\"$2y$10$j4ZG5q\\/2A7TXp7gzhc8Td.8zNoFK3LRWQceZl8oYUi4eoT9koCk3q\"}', '{\"password\":\"$2y$10$ud8d3435w9n72So5OuU5yOcjRuqqID9kiwfg0tcT1KvJGpnp2.k72\"}', 'http://127.0.0.1:8000/settings/users/34?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:04:04', '2018-11-28 10:04:04'),
+(1671, 'App\\User', 1, 'updated', 'App\\Role', 2, '{\"name\":\"Farm Group\",\"title\":\"Farm Group\"}', '{\"name\":\"Leave Admin\",\"title\":\"Leave Admin\"}', 'http://127.0.0.1:8000/settings/roles/2?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:04:34', '2018-11-28 10:04:34'),
+(1672, 'App\\User', 1, 'updated', 'App\\Role', 5, '{\"name\":\"Pack House Officers\",\"title\":\"Pack house officers\"}', '{\"name\":\"hr\",\"title\":\"Hr officer\"}', 'http://127.0.0.1:8000/settings/roles/5?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:05:09', '2018-11-28 10:05:09'),
+(1673, 'App\\User', 1, 'updated', 'App\\Role', 3, '{\"name\":\"Park house\",\"title\":\"Pack House\"}', '{\"name\":\"Payroll Admin\",\"title\":\"Payroll Admin\"}', 'http://127.0.0.1:8000/settings/roles/3?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:05:32', '2018-11-28 10:05:32'),
+(1674, 'App\\User', 1, 'updated', 'App\\Role', 6, '{\"name\":\"New Pack house\",\"title\":\"New pack house\"}', '{\"name\":\"Accountant\",\"title\":\"Accountant\"}', 'http://127.0.0.1:8000/settings/roles/6?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:06:00', '2018-11-28 10:06:00'),
+(1675, 'App\\User', 1, 'updated', 'App\\Role', 4, '{\"name\":\"Farm Group officers\",\"title\":\"Farm group officers\"}', '{\"name\":\"Finance\",\"title\":\"Finance Manager\"}', 'http://127.0.0.1:8000/settings/roles/4?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:06:45', '2018-11-28 10:06:45'),
+(1676, 'App\\User', 1, 'updated', 'App\\User', 39, '{\"email\":\"pangdeny@gmail.com\",\"password\":\"$2y$10$J2AbKpGwnkH0LAvY0uSQJ.ZKx4hK2TRPwiSqX9oVwpOIuniv.NThm\"}', '{\"email\":\"xavier@user.com\",\"password\":\"$2y$10$uDPXeCJ1kq3gkBYV40FBIuls65OTND5gHqUCDR\\/5hsNNTpJisqMJa\"}', 'http://127.0.0.1:8000/settings/users/39?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:07:57', '2018-11-28 10:07:57'),
+(1677, 'App\\User', 1, 'updated', 'App\\Employee', 4, '{\"first_name\":\"demo4\",\"last_name\":\"demo4\",\"other_name\":\"f\",\"email\":\"pangdeny@gmail.com\",\"active\":\"no\",\"deduct_tax\":\"yes\",\"deduct_ss\":\"yes\",\"deduct_hdmf\":\"no\",\"branch_id\":0,\"department_id\":0,\"job_id\":0,\"health_id\":null,\"hdmf_id\":null,\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"employement_status\":\"active\",\"title_id\":null,\"about_employee\":\"\"}', '{\"first_name\":\"Pamela\",\"last_name\":\"Moyata\",\"other_name\":\"I\",\"email\":\"pamela@user.com\",\"active\":\"yes\",\"deduct_tax\":\"YES\",\"deduct_ss\":\"YES\",\"deduct_hdmf\":\"YES\",\"branch_id\":\"3\",\"department_id\":\"6\",\"job_id\":\"2\",\"health_id\":\"5\",\"hdmf_id\":\"4\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"employement_status\":null,\"title_id\":\"1\",\"about_employee\":\"sdad\"}', 'http://127.0.0.1:8000/employees/4?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:10:51', '2018-11-28 10:10:51'),
+(1678, 'App\\User', 1, 'created', 'App\\User', 41, '[]', '{\"first_name\":\"Pamela\",\"last_name\":\"Moyata\",\"email\":\"pamela@user.com\",\"gender\":\"female\",\"phone\":\"754977618\",\"password\":\"$2y$10$OHUp.YSgxiDyh3E\\/BvQSEeiKMbYiSFOidSDQndWvAP5U2JzGjuSc6\",\"employee_id\":4,\"employee_type\":\"App\\\\Employee\",\"id\":41}', 'http://127.0.0.1:8000/employees/4?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:10:51', '2018-11-28 10:10:51'),
+(1679, 'App\\User', 1, 'updated', 'App\\User', 41, '{\"password\":\"$2y$10$OHUp.YSgxiDyh3E\\/BvQSEeiKMbYiSFOidSDQndWvAP5U2JzGjuSc6\"}', '{\"password\":\"$2y$10$sRaYqTtdBqRerFAw9WL1yumBhvMj.I9zGXI85kkraFJgShu7UcM4W\"}', 'http://127.0.0.1:8000/settings/users/41?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-28 10:11:33', '2018-11-28 10:11:33'),
+(1680, 'App\\User', 34, 'updated', 'App\\User', 34, '{\"remember_token\":\"JC2G7UmViBc5LXqbErUy3rB81spHHGAE5gtYI8VGgSueOxvupbeDvTTBjoLu\"}', '{\"remember_token\":\"UdedIn9thToRVpEJh3rfqVwaj05tV9b54yyipuhwD1nfmCVDNjp5xgzTNSd5\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-28 16:21:11', '2018-11-28 16:21:11'),
+(1681, 'App\\User', 41, 'updated', 'App\\User', 41, '{\"remember_token\":null}', '{\"remember_token\":\"Cg3zok8VEcgG6ceJDZzd0aZz9aMkrvfy8VYe963jmgiZxEUGCD7expiD8KQX\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-28 16:53:42', '2018-11-28 16:53:42'),
+(1682, 'App\\User', 34, 'updated', 'App\\User', 34, '{\"remember_token\":\"UdedIn9thToRVpEJh3rfqVwaj05tV9b54yyipuhwD1nfmCVDNjp5xgzTNSd5\"}', '{\"remember_token\":\"QHhmNplNK7GCdqO7omgT9uSSzIJfqQZXSKMqa2UNAfXZ0wIgfcXTv4t7lwkF\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-28 17:02:12', '2018-11-28 17:02:12'),
+(1683, 'App\\User', 41, 'updated', 'App\\User', 41, '{\"remember_token\":\"Cg3zok8VEcgG6ceJDZzd0aZz9aMkrvfy8VYe963jmgiZxEUGCD7expiD8KQX\"}', '{\"remember_token\":\"0CGKSBWdMZ0glJ5Ek8N8X0TLnenyHtTCp7xCGIglvDO0xZRnX1ni99jZL8qI\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134', NULL, '2018-11-29 14:17:00', '2018-11-29 14:17:00'),
+(1684, 'App\\User', 1, 'updated', 'App\\User', 28, '{\"password\":\"$2y$10$JSeJuyawKlVQopbV5l7rAOEhzU3TI\\/ZJju7XP7bOR4GkjfHHxZDEa\"}', '{\"password\":\"$2y$10$XLOLfz4P\\/HG3m\\/sE\\/c1KXOwh8kZ6JoE13kj.IImTdveYFeuwn\\/EIe\"}', 'http://127.0.0.1:8000/settings/users/28?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-11-29 14:18:01', '2018-11-29 14:18:01'),
+(1685, 'App\\User', 1, 'updated', 'App\\Employee', 5, '{\"email\":\"pangdeny@gmail.com\",\"deduct_tax\":\"yes\",\"deduct_ss\":\"yes\",\"deduct_hdmf\":\"no\",\"branch_id\":0,\"department_id\":0,\"job_id\":0,\"health_id\":null,\"hdmf_id\":null,\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"employement_status\":\"active\",\"code\":null,\"title_id\":null,\"about_employee\":\"\"}', '{\"email\":\"brian@user.com\",\"deduct_tax\":\"YES\",\"deduct_ss\":\"YES\",\"deduct_hdmf\":\"YES\",\"branch_id\":\"3\",\"department_id\":\"6\",\"job_id\":\"2\",\"health_id\":\"5\",\"hdmf_id\":\"4\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"employement_status\":null,\"code\":\"22\",\"title_id\":\"1\",\"about_employee\":null}', 'http://127.0.0.1:8000/employees/5?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-01 11:14:29', '2018-12-01 11:14:29'),
+(1686, 'App\\User', 1, 'created', 'App\\User', 42, '[]', '{\"first_name\":\"Brian\",\"last_name\":\"Henesey\",\"email\":\"brian@user.com\",\"gender\":\"male\",\"phone\":\"754977618\",\"password\":\"$2y$10$bw4N8PiL6LcFU2moZ7Bfx.PVlvBys9lpUPbz6IiidpNZinXWiGO8m\",\"employee_id\":5,\"employee_type\":\"App\\\\Employee\",\"id\":42}', 'http://127.0.0.1:8000/employees/5?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-01 11:14:29', '2018-12-01 11:14:29'),
+(1687, 'App\\User', 1, 'created', 'App\\Role', 7, '[]', '{\"name\":\"Leave Approver\",\"title\":\"Leave Approver\",\"description\":\"Leave Approver\",\"id\":7}', 'http://127.0.0.1:8000/settings/roles?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-01 11:16:09', '2018-12-01 11:16:09'),
+(1688, 'App\\User', 1, 'updated', 'App\\User', 42, '{\"password\":\"$2y$10$bw4N8PiL6LcFU2moZ7Bfx.PVlvBys9lpUPbz6IiidpNZinXWiGO8m\",\"manager\":\"no\"}', '{\"password\":\"$2y$10$hdqZVWk\\/kHR1WGtHZ4g7DO2s.LSNJT.TouQLZOVCVyanCvybrmGse\",\"manager\":\"yes\"}', 'http://127.0.0.1:8000/settings/users/42?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-01 11:16:43', '2018-12-01 11:16:43'),
+(1689, 'App\\User', 1, 'updated', 'App\\User', 42, '{\"password\":\"$2y$10$hdqZVWk\\/kHR1WGtHZ4g7DO2s.LSNJT.TouQLZOVCVyanCvybrmGse\"}', '{\"password\":\"$2y$10$pY3De295rBbXIfQF2Wjbi.DNo4kF2InFof9AEsnVeXI2OBLFlwZz2\"}', 'http://127.0.0.1:8000/settings/users/42?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-01 11:19:54', '2018-12-01 11:19:54'),
+(1690, 'App\\User', 1, 'updated', 'App\\User', 42, '{\"email\":\"brian@user.com\",\"password\":\"$2y$10$pY3De295rBbXIfQF2Wjbi.DNo4kF2InFof9AEsnVeXI2OBLFlwZz2\"}', '{\"email\":\"brian1@user.com\",\"password\":\"$2y$10$cKAaRAumK6fTgc.FdglRcuigKea6j.YT2dJF5x2NxY3SuWch9pnRi\"}', 'http://127.0.0.1:8000/settings/users/42?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-01 11:21:43', '2018-12-01 11:21:43'),
+(1691, 'App\\User', 1, 'created', 'App\\Role', 8, '[]', '{\"name\":\"Leave Approver 2\",\"title\":\"Leave Approver 2\",\"description\":\"Leave Approver 2\",\"id\":8}', 'http://127.0.0.1:8000/settings/roles?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-01 12:11:52', '2018-12-01 12:11:52'),
+(1692, 'App\\User', 1, 'updated', 'App\\User', 1, '{\"remember_token\":\"aceZDGFFwEzKYuGLSaEhw9GyDsSdq1MErnnVJcLORprTPiX27DI1AZInBXPt\"}', '{\"remember_token\":\"fd6x0WKk0yFdCDDPyoxCbleZMrOmOuaF3GbtUVb3Xnb1TcbNLWKtwQszXayo\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-03 10:35:41', '2018-12-03 10:35:41'),
+(1693, 'App\\User', 1, 'updated', 'App\\User', 1, '{\"remember_token\":\"fd6x0WKk0yFdCDDPyoxCbleZMrOmOuaF3GbtUVb3Xnb1TcbNLWKtwQszXayo\"}', '{\"remember_token\":\"IKu1SyaXAaLCN4swkJ2SB8GmzCnCwlorAfBGVIpMRVP8YK98wxDfRn3jtUJp\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-03 10:48:41', '2018-12-03 10:48:41'),
+(1694, 'App\\User', 1, 'updated', 'App\\User', 1, '{\"remember_token\":\"IKu1SyaXAaLCN4swkJ2SB8GmzCnCwlorAfBGVIpMRVP8YK98wxDfRn3jtUJp\"}', '{\"remember_token\":\"0tU6pqv2WRFxqI65EKoWmOyAauDv01mwNhSxT4kowbOMPNGc0r7iehlx5FgA\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-05 05:15:29', '2018-12-05 05:15:29'),
+(1695, 'App\\User', 1, 'updated', 'App\\User', 1, '{\"remember_token\":\"0tU6pqv2WRFxqI65EKoWmOyAauDv01mwNhSxT4kowbOMPNGc0r7iehlx5FgA\"}', '{\"remember_token\":\"U4ctfQqCjoN6UEcAjK7nvNs0OnHhy0wu0URS3ncWwwUpxQRCS6yCZK4t3FCj\"}', 'http://127.0.0.1:8000/logout?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-05 05:26:50', '2018-12-05 05:26:50'),
+(1696, 'App\\User', 1, 'updated', 'App\\Employee', 6, '{\"other_name\":\"\",\"active\":\"no\",\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"deduct_hdmf\":\"2\"}', '{\"other_name\":null,\"active\":\"yes\",\"deduct_tax\":\"YES\",\"deduct_ss\":\"YES\",\"deduct_hdmf\":\"YES\"}', 'http://127.0.0.1:8000/employees/6?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-05 07:43:06', '2018-12-05 07:43:06'),
+(1697, 'App\\User', 1, 'updated', 'App\\Employee', 6, '{\"other_name\":\"\",\"pay_type\":\"Hourly\",\"pay_period\":\"2\"}', '{\"other_name\":null,\"pay_type\":\"Salary\",\"pay_period\":\"1\"}', 'http://127.0.0.1:8000/employees/6?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-05 07:44:00', '2018-12-05 07:44:00'),
+(1698, 'App\\User', 1, 'updated', 'App\\Employee', 8, '{\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"deduct_hdmf\":\"2\"}', '{\"deduct_tax\":\"YES\",\"deduct_ss\":\"YES\",\"deduct_hdmf\":\"NO\"}', 'http://127.0.0.1:8000/employees/8?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-05 14:33:55', '2018-12-05 14:33:55'),
+(1699, 'App\\User', 1, 'updated', 'App\\Employee', 80, '{\"period_rate\":\"2000000.00\",\"deduct_tax\":\"yes\",\"deduct_ss\":\"yes\",\"deduct_hdmf\":\"no\",\"branch_id\":0,\"department_id\":0,\"job_id\":0,\"health_id\":null,\"hdmf_id\":null,\"account_name\":\"\",\"ss_number\":null,\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"employement_status\":\"active\",\"code\":null,\"title_id\":null,\"about_employee\":\"\"}', '{\"period_rate\":\"10000000.00\",\"deduct_tax\":\"YES\",\"deduct_ss\":\"YES\",\"deduct_hdmf\":\"NO\",\"branch_id\":\"2\",\"department_id\":\"6\",\"job_id\":\"1\",\"health_id\":\"5\",\"hdmf_id\":\"4\",\"account_name\":null,\"ss_number\":\"23423\",\"hire_date\":null,\"probation_date\":null,\"employement_status\":null,\"code\":\"44\",\"title_id\":\"1\",\"about_employee\":\"dsd\"}', 'http://127.0.0.1:8000/employees/80?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-06 05:30:33', '2018-12-06 05:30:33'),
+(1700, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"deduct_tax\":\"1\",\"deduct_ss\":\"1\",\"deduct_hdmf\":\"1\",\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"deduct_tax\":\"YES\",\"deduct_ss\":\"YES\",\"deduct_hdmf\":\"YES\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:19:54', '2018-12-12 16:19:54'),
+(1701, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:20:44', '2018-12-12 16:20:44'),
+(1702, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:22:02', '2018-12-12 16:22:02'),
+(1703, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:22:13', '2018-12-12 16:22:13'),
+(1704, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:23:21', '2018-12-12 16:23:21'),
+(1705, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:24:23', '2018-12-12 16:24:23'),
+(1706, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:24:49', '2018-12-12 16:24:49'),
+(1707, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:26:03', '2018-12-12 16:26:03'),
+(1708, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:27:16', '2018-12-12 16:27:16'),
+(1709, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:36:49', '2018-12-12 16:36:49'),
+(1710, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:40:20', '2018-12-12 16:40:20'),
+(1711, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:41:37', '2018-12-12 16:41:37'),
+(1712, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:49:05', '2018-12-12 16:49:05'),
+(1713, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:50:00', '2018-12-12 16:50:00'),
+(1714, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:50:48', '2018-12-12 16:50:48'),
+(1715, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:51:55', '2018-12-12 16:51:55'),
+(1716, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:52:06', '2018-12-12 16:52:06'),
+(1717, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:56:40', '2018-12-12 16:56:40'),
+(1718, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:57:55', '2018-12-12 16:57:55'),
+(1719, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:57:59', '2018-12-12 16:57:59'),
+(1720, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 16:58:39', '2018-12-12 16:58:39'),
+(1721, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:00:26', '2018-12-12 17:00:26'),
+(1722, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:01:48', '2018-12-12 17:01:48'),
+(1723, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:03:43', '2018-12-12 17:03:43'),
+(1724, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:09:50', '2018-12-12 17:09:50'),
+(1725, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:10:41', '2018-12-12 17:10:41'),
+(1726, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:13:02', '2018-12-12 17:13:02'),
+(1727, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:16:17', '2018-12-12 17:16:17'),
+(1728, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"first_name\":\"Desolf\",\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\",\"code\":\"109\"}', '{\"first_name\":\"Desolf h\",\"account_name\":null,\"hire_date\":null,\"probation_date\":null,\"code\":\"308\"}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:18:08', '2018-12-12 17:18:08'),
+(1729, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:19:08', '2018-12-12 17:19:08'),
+(1730, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:21:06', '2018-12-12 17:21:06'),
+(1731, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:23:54', '2018-12-12 17:23:54'),
+(1732, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:25:34', '2018-12-12 17:25:34'),
+(1733, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:25:50', '2018-12-12 17:25:50'),
+(1734, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://localhost/payrollapp/public/employees/83?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', NULL, '2018-12-12 17:31:13', '2018-12-12 17:31:13'),
+(1735, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', NULL, '2018-12-16 12:00:55', '2018-12-16 12:00:55'),
+(1736, 'App\\User', 1, 'updated', 'App\\Employee', 83, '{\"account_name\":\"\",\"hire_date\":\"0000-00-00\",\"probation_date\":\"0000-00-00\"}', '{\"account_name\":null,\"hire_date\":null,\"probation_date\":null}', 'http://127.0.0.1:8000/employees/83?', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', NULL, '2018-12-16 12:01:39', '2018-12-16 12:01:39'),
+(1737, 'App\\User', 1, 'updated', 'App\\User', 1, '{\"remember_token\":\"U4ctfQqCjoN6UEcAjK7nvNs0OnHhy0wu0URS3ncWwwUpxQRCS6yCZK4t3FCj\"}', '{\"remember_token\":\"w4kAGGwVt5fbzwOJHnIFgbBNdhTugAnhP3Gu1nyrMpikK8AzsEXiZtEwBjre\"}', 'http://localhost/payrollapp/public/logout?', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', NULL, '2018-12-18 13:30:45', '2018-12-18 13:30:45');
 
 -- --------------------------------------------------------
 
@@ -2385,6 +2552,14 @@ CREATE TABLE `banks` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `banks`
+--
+
+INSERT INTO `banks` (`id`, `bankname`, `bankaccount`, `banklocation`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'NBC', '', 'Dar es Salaam', NULL, NULL, NULL),
+(2, 'CRDB', '', 'CRDB', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2540,8 +2715,7 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`id`, `coycode`, `coyname`, `gstno`, `companynumber`, `regoffice1`, `regoffice2`, `regoffice3`, `regoffice4`, `regoffice5`, `regoffice6`, `telephone`, `fax`, `email`, `currentdefault`, `pytdiscountact`, `creditorsact`, `payrollact`, `grnact`, `exchangediffact`, `purchasesexchangediffact`, `retainedearnings`, `gillink_debtors`, `gillink_creditors`, `gillink_dstock`, `freightact`, `created_at`, `updated_at`) VALUES
-(1, 'MEDA', 'MEDA TANZANIA', '222222', '977888', '4555522999', '', '', '', '', '', '555', '243243', 'meda1@meda.org', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-10-20 08:54:19', '2018-10-20 09:29:33'),
-(2, 'TMT', 'Tanzania Mothers telecom', '6789', '12345', '1011', '', '', '', '', '', '1213', '1415', '1617@mail.com', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-10-20 09:33:05', '2018-10-20 09:33:05');
+(1, 'DEM Co ltz', 'DEMO Co Ltd', '222222', '977888', '4555522999', '', '', '', '', '', '555', '243243', 'meda1@meda.org', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-10-20 08:54:19', '2018-10-20 09:29:33');
 
 -- --------------------------------------------------------
 
@@ -2610,7 +2784,9 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `departmentname`, `departmentlocation`, `created_at`, `updated_at`) VALUES
-(5, 'kesho', 'Kesho', '2018-10-20 11:01:13', '2018-10-20 11:01:13');
+(5, 'Finance', 'Finance', '2018-10-20 11:01:13', '2018-10-20 11:01:13'),
+(6, 'Marketing', '', NULL, NULL),
+(7, 'Sales', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2658,13 +2834,40 @@ CREATE TABLE `emailnotifications` (
   `sendto` int(11) NOT NULL,
   `sendto_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `body` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `notification_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` int(11) NOT NULL DEFAULT '1',
+  `request_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `emailnotifications`
+--
+
+INSERT INTO `emailnotifications` (`id`, `sender`, `sendto`, `sendto_email`, `url`, `title`, `body`, `module`, `notification_type`, `active`, `request_id`, `creator_id`, `created_at`, `updated_at`) VALUES
+(1, 8, 17, '', '', 'Notification to Approve Leave', 'Please Approve Employee Leave', '', '', 1, 0, 0, '2018-11-16 17:51:25', '2018-11-16 17:51:25'),
+(2, 5, 1, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', 'Notification to Approve Leave', 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 0, 0, '2018-11-17 10:23:52', '2018-11-17 10:23:52'),
+(3, 5, 1, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', 'Notification to Approve Leave', 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 0, 0, '2018-11-17 10:25:47', '2018-11-17 10:25:47'),
+(4, 5, 1, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', 'Notification to Approve Leave', 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 0, 0, '2018-11-17 10:53:05', '2018-11-17 10:53:05'),
+(5, 5, 1, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 0, 0, '2018-11-19 10:05:19', '2018-11-19 10:05:19'),
+(6, 5, 1, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 0, 0, '2018-11-19 10:09:20', '2018-11-19 10:09:20'),
+(7, 5, 1, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 0, 0, '2018-11-19 10:10:58', '2018-11-19 10:10:58'),
+(8, 5, 1, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 13, 0, '2018-11-19 10:12:11', '2018-11-19 10:12:11'),
+(11, 1, 2, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 1, 0, '2018-11-28 10:50:32', '2018-11-28 10:50:32'),
+(12, 3, 4, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 1, 0, '2018-11-28 16:19:57', '2018-11-28 16:19:57'),
+(13, 1, 2, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 2, 0, '2018-11-28 16:53:19', '2018-11-28 16:53:19'),
+(14, 2, 3, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 2, 0, '2018-11-28 17:01:44', '2018-11-28 17:01:44'),
+(15, 3, 4, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 2, 0, '2018-11-28 17:02:01', '2018-11-28 17:02:01'),
+(16, 4, 1, 'pangdeny@gmail.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 3, 0, '2018-12-06 12:59:21', '2018-12-06 12:59:21'),
+(17, 1, 4, 'pamela@user.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Your Leave Has been Approved', 'leave', 'Employee Leave Approved', 1, 3, 0, '2018-12-06 13:11:55', '2018-12-06 13:11:55'),
+(18, 4, 1, 'kiluvya@user.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Please Approve Employee Leave', 'leave', 'Leave Approve', 1, 4, 0, '2018-12-06 14:33:51', '2018-12-06 14:33:51'),
+(19, 1, 4, 'pamela@user.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Your Leave Has been Approved', 'leave', 'Employee Leave Approved', 1, 4, 0, '2018-12-06 14:34:07', '2018-12-06 14:34:07'),
+(20, 4, 1, 'kiluvya@user.com', 'http://localhost/payrollapp/public/approvals', NULL, 'Your Leave Has been Rejected', 'leave', 'Employee Leave Rejected', 1, 1, 0, '2018-12-06 15:48:37', '2018-12-06 15:48:37');
 
 -- --------------------------------------------------------
 
@@ -2714,16 +2917,40 @@ CREATE TABLE `employees` (
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` enum('male','female') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `period_rate` double DEFAULT NULL,
-  `pay_type` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `period_rate` decimal(12,2) DEFAULT NULL,
+  `pay_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sstype_id` int(11) NOT NULL,
-  `hourly_rate` double DEFAULT NULL,
-  `pay_period` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `active` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `deduct_tax` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
-  `deduct_ss` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
-  `deduct_health` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
-  `deduct_hdmf` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
+  `hourly_rate` decimal(12,2) DEFAULT NULL,
+  `pay_period` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deduct_tax` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deduct_ss` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deduct_health` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deduct_hdmf` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `branch_id` int(11) DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `job_id` int(11) DEFAULT NULL,
+  `health_id` int(11) DEFAULT NULL,
+  `hdmf_id` int(11) DEFAULT NULL,
+  `bank_id` int(11) DEFAULT NULL,
+  `bankbranch_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `account_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `account_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ss_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `health_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `hdmf_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `marital` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `hire_date` date NOT NULL,
+  `terminate_date` date DEFAULT NULL,
+  `birth_date` date DEFAULT NULL,
+  `retired_date` date DEFAULT NULL,
+  `probation_date` date NOT NULL,
+  `employement_status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'active',
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about_employee` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `creator_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2733,85 +2960,90 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `first_name`, `last_name`, `other_name`, `phone`, `email`, `gender`, `period_rate`, `pay_type`, `sstype_id`, `hourly_rate`, `pay_period`, `active`, `deduct_tax`, `deduct_ss`, `deduct_health`, `deduct_hdmf`, `creator_id`, `created_at`, `updated_at`) VALUES
-(1, 'demo1', 'demo1', 'd', '754977618', 'pangdeny@gmail.com', 'male', 301312, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'demo2', 'demo2', '', '754977618', 'pangdeny@gmail.com', 'male', 366929, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'demo3', 'demo3', 'x', '754977618', 'pangdeny@gmail.com', 'male', 1479667, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'demo4', 'demo4', 'f', '754977618', 'pangdeny@gmail.com', 'female', 1146334, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'demo5', 'demo5', 'd', '754977618', 'pangdeny@gmail.com', 'male', 640780, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'demo6', 'demo6', '', '717990638', 'ylowe@example.net', 'male', 657055, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'demo7', 'demo7', 'z', '754977617', 'bryton@dennis.com', 'male', 301312, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'Lemaa', 'Msomi', '', '754977618', 'ylowe@example.net', 'male', 301312, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '2018-11-16 10:25:40'),
-(9, 'demo9', 'demo9', 'j', '754977617', 'admin@homeverge.co.tz', 'male', 873760, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 'demo10', 'demo10', 'k', '754977618', 'kiondo@homevegfarmers.co.tz', 'male', 301312, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(11, 'demo11', 'demo11', '', '754977618', 'ylowe@example.net', 'male', 301312, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 'demo12', 'demo12', 'g', '754977617', 'riama@mma.hun', 'male', 301312, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(13, 'demo13', 'demo13', '', '754977617', 'kibandaa@salim.com', 'male', 301312, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(14, 'demo14', 'demo14', 'o', '754977618', 'kibandaa@salim.com', 'male', 235696, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(15, 'demo15', 'demo15', 't', '754977618', 'bryton@dennis.com', 'female', 235696, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(16, 'demo16', 'demo16', '', '734233678', 'jeff@hello.com', 'female', 1146334, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(17, 'demo17', 'demo17', 'y', '734233678', 'admin@homeverge.co.tz', 'male', 4781774, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(18, 'demo18', 'demo18', '0', '745945313.5', 'pangdeny@gmail.com', 'male', 366929, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(19, 'demo19', 'demo19', '', '745454631.8', 'pangdeny@gmail.com', 'male', 2479666, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(20, 'demo20', 'demo20', '', '744963950', 'pangdeny@gmail.com', 'male', 1979666, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(21, 'demo21', 'demo21', '', '744473268.2', 'pangdeny@gmail.com', 'male', 2146334, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(22, 'demo22', 'demo22', '', '743982586.4', 'pangdeny@gmail.com', 'male', 1813000, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(23, 'demo23', 'demo23', '', '743491904.7', 'ylowe@example.net', 'male', 1646334, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(24, 'demo24', 'demo24', '', '743001222.9', 'bryton@dennis.com', 'male', 1813000, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(25, 'demo25', 'demo25', '', '742510541.1', 'ylowe@example.net', 'male', 1146334, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(26, 'demo26', 'demo26', '', '742019859.3', 'admin@homeverge.co.tz', 'male', 1979666, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(27, 'demo27', 'demo27', '', '741529177.5', 'kiondo@homevegfarmers.co.tz', 'male', 3146334, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(28, 'demo28', 'demo28', '', '741038495.8', 'ylowe@example.net', 'male', 2597866.35, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(29, 'demo29', 'demo29', '', '740547814', 'riama@mma.hun', 'male', 1146334, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(30, 'demo30', 'demo30', '', '740057132.2', 'kibandaa@salim.com', 'male', 1146334, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(31, 'demo31', 'demo31', '', '739566450.4', 'kibandaa@salim.com', 'male', 1146334, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(32, 'demo32', 'demo32', '', '739075768.7', 'bryton@dennis.com', 'male', 1146334, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(33, 'demo33', 'demo33', '', '738585086.9', 'jeff@hello.com', 'male', 4340000, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(34, 'demo34', 'demo34', '', '738094405.1', 'admin@homeverge.co.tz', 'female', 1229666, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(35, 'demo35', 'demo35', '', '737603723.3', 'pangdeny@gmail.com', 'male', 366929, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(36, 'demo36', 'demo36', '', '737113041.6', 'pangdeny@gmail.com', 'male', 1479667, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(37, 'demo37', 'demo37', '', '736622359.8', 'pangdeny@gmail.com', 'male', 5562890, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(38, 'demo38', 'demo38', '', '736131678', 'pangdeny@gmail.com', 'male', 6479667, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(39, 'demo39', 'demo39', '', '735640996.2', 'pangdeny@gmail.com', 'male', 4733000, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(40, 'demo40', 'demo40', '', '735150314.4', 'ylowe@example.net', 'male', 3979667, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(41, 'demo41', 'demo41', '', '734659632.7', 'bryton@dennis.com', 'male', 3979667, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(42, 'demo42', 'demo42', '', '734168950.9', 'ylowe@example.net', 'male', 1313000, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(43, 'demo43', 'demo43', '', '733678269.1', 'admin@homeverge.co.tz', 'female', 813000, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(44, 'demo44', 'demo44', '', '733187587.3', 'kiondo@homevegfarmers.co.tz', 'male', 1146334, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(45, 'demo45', 'demo45', '', '732696905.6', 'ylowe@example.net', 'male', 1120500, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(46, 'demo46', 'demo46', '', '732206223.8', 'riama@mma.hun', 'male', 580869, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(47, 'demo47', 'demo47', '', '731715542', 'kibandaa@salim.com', 'male', 657055, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(48, 'demo48', 'demo48', '', '731224860.2', 'kibandaa@salim.com', 'female', 450435, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(49, 'demo49', 'demo49', '', '730734178.5', 'bryton@dennis.com', 'female', 3090476.19, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(50, 'demo50', 'demo50', '', '730243496.7', 'jeff@hello.com', 'male', 955830, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(51, 'demo51', 'demo51', '', '729752814.9', 'admin@homeverge.co.tz', 'male', 813000, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(52, 'demo52', 'demo52', '', '729262133.1', 'pangdeny@gmail.com', 'male', 657055, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(53, 'demo53', 'demo53', '', '728771451.3', 'pangdeny@gmail.com', 'male', 359700, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(54, 'demo54', 'demo54', '', '728280769.6', 'pangdeny@gmail.com', 'female', 288190, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(55, 'demo55', 'demo55', '', '727790087.8', 'pangdeny@gmail.com', 'male', 1479667, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(56, 'demo56', 'demo56', '', '727299406', 'pangdeny@gmail.com', 'male', 813000, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(57, 'demo57', 'demo57', '', '726808724.2', 'ylowe@example.net', 'male', 5000000, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(58, 'demo58', 'demo58', '', '726318042.5', 'bryton@dennis.com', 'male', 3911500, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(59, 'demo59', 'demo59', '', '725827360.7', 'ylowe@example.net', 'male', 320052, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(60, 'demo60', 'demo60', '', '725336678.9', 'admin@homeverge.co.tz', 'male', 1614000, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(61, 'demo61', 'demo61', '', '724845997.1', 'kiondo@homevegfarmers.co.tz', 'female', 235696, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(62, 'demo62', 'demo62', '', '724355315.4', 'ylowe@example.net', 'male', 301312, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(63, 'demo63', 'demo63', '', '723864633.6', 'riama@mma.hun', 'male', 301312, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(64, 'demo64', 'demo64', '', '723373951.8', 'kibandaa@salim.com', 'female', 301312, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(65, 'demo65', 'demo65', '', '722883270', 'kibandaa@salim.com', 'male', 1777000, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(66, 'demo66', 'demo66', '', '722392588.2', 'bryton@dennis.com', 'female', 1120500, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(67, 'demo67', 'demo67', '', '721901906.5', 'jeff@hello.com', 'male', 1646334, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(68, 'demo68', 'demo68', '', '721411224.7', 'admin@homeverge.co.tz', 'male', 2269458.13, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(69, 'demo69', 'demo69', '', '720920542.9', 'pangdeny@gmail.com', 'male', 1470166.67, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(70, 'demo70', 'demo70', '', '720429861.1', 'pangdeny@gmail.com', 'female', 1146334, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(71, 'demo71', 'demo71', '', '719939179.4', 'pangdeny@gmail.com', 'male', 424000, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(72, 'demo72', 'demo72', '', '719448497.6', 'pangdeny@gmail.com', 'male', 955830, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(73, 'demo73', 'demo73', '', '718957815.8', 'pangdeny@gmail.com', 'male', 1448441, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(74, 'demo74', 'demo74', '', '718467134', 'ylowe@example.net', 'male', 640780, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(75, 'demo75', 'demo75', '', '717976452.3', 'bryton@dennis.com', 'male', 1612643.68, 'Salary', 1, 0, '1', 'yes', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(76, 'demo76', 'demo76', '', '717485770.5', 'ylowe@example.net', 'male', 300000, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(77, 'demo77', 'demo77', '', '716995088.7', 'admin@homeverge.co.tz', 'male', 300000, 'Salary', 1, 0, '1', 'no', 'yes', 'yes', 'yes', 'no', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(78, 'Jefason', 'Nganga', 'M', '0734233678', 'user@user.com', 'male', 2000000, 'Salary', 0, 200, '1', 'no', 'yes', 'yes', 'no', 'no', 1, '2018-11-12 16:24:10', '2018-11-12 16:24:10');
+INSERT INTO `employees` (`id`, `first_name`, `last_name`, `other_name`, `phone`, `email`, `gender`, `period_rate`, `pay_type`, `sstype_id`, `hourly_rate`, `pay_period`, `active`, `deduct_tax`, `deduct_ss`, `deduct_health`, `deduct_hdmf`, `branch_id`, `department_id`, `job_id`, `health_id`, `hdmf_id`, `bank_id`, `bankbranch_id`, `account_number`, `account_name`, `ss_number`, `health_number`, `hdmf_number`, `marital`, `company_id`, `hire_date`, `terminate_date`, `birth_date`, `retired_date`, `probation_date`, `employement_status`, `code`, `title_id`, `picture`, `about_employee`, `creator_id`, `created_at`, `updated_at`) VALUES
+(1, 'Kiluvya gudii', 'Kimolo', 'mora', '754977618', 'kiluvya@user.com', 'male', '301312.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 3, 5, 1, 1, 1, 1, '23232', '23254364645', '', 'fh32323232', 'rtret5643634', '32432fsdfsfsdf', 'singke', NULL, '2018-10-07', '2018-11-30', '1967-08-06', '2019-11-29', '0000-00-00', 'active', 'MEDA108', '1', 'dsdsd.jpg', 'Very Chaming', 1, '0000-00-00 00:00:00', '2018-11-22 09:43:56'),
+(2, 'Milia', 'Beton', '', '754977618', 'milia@user.com', 'male', '366929.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '2018-11-19 03:56:35'),
+(3, 'Xavier', 'Qudan', 'x', '754977618', 'pangdeny@gmail.com', 'male', '5687500.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'no', 'no', 3, 5, 2, 5, 4, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', NULL, NULL, '1', NULL, '', 1, '0000-00-00 00:00:00', '2018-11-26 13:19:53'),
+(4, 'Pamela', 'Moyata', 'I', '754977618', 'pamela@user.com', 'female', '1146334.00', 'Salary', 1, '0.00', '1', 'yes', 'YES', 'YES', 'yes', 'YES', 3, 6, 2, 5, 4, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', NULL, NULL, '1', NULL, 'sdad', 1, '0000-00-00 00:00:00', '2018-11-28 10:10:51'),
+(5, 'Brian', 'Henesey', 'd', '754977618', 'brian@user.com', 'male', '640780.00', 'Salary', 1, '0.00', '1', 'yes', 'YES', 'YES', 'yes', 'YES', 3, 6, 2, 5, 4, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', NULL, '22', '1', NULL, '', 1, '0000-00-00 00:00:00', '2018-12-01 11:14:28'),
+(6, 'demo6', 'demo6', '', '717990638', 'ylowe@example.net', 'male', '657055.00', 'Salary', 7, '0.00', '1', 'yes', 'YES', 'YES', 'yes', 'YES', 2, 6, 2, 3, 2, 2, NULL, '6773231313131Kl', 'mb', '777ghgh', 'jjh', 'uggffd6666', NULL, NULL, '2017-10-30', '2020-05-28', '1994-11-01', '2019-12-16', '2018-11-21', NULL, '788', '1', NULL, 'nhfhfjfhj', 1, '0000-00-00 00:00:00', '2018-12-05 07:44:00'),
+(7, 'demo7', 'demo7', 'z', '754977617', 'bryton@dennis.com', 'male', '5687500.00', 'Salary', 1, '0.00', '1', 'yes', 'YES', 'YES', 'yes', 'YES', 2, 7, 2, 5, 4, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', NULL, '22', '2', NULL, '', 1, '0000-00-00 00:00:00', '2018-11-26 14:00:57'),
+(8, 'Lemaa', 'Msomi', 'Ms', '0754953645', 'lema@user.com', 'male', '700000.00', 'Salary', 4, '3000.00', '1', 'yes', 'YES', 'YES', 'yes', 'NO', 3, 5, 2, 4, 2, 1, NULL, '78767445jkoooo', 'Lemaa Albert Shija', '77888bhhhghg', '76867Health', '023183 Serving', NULL, NULL, '2017-12-06', '2020-05-09', '1994-08-29', '2020-03-24', '2018-11-05', NULL, 'Lema10', '1', NULL, 'chaming Employee', 1, '0000-00-00 00:00:00', '2018-12-05 14:33:55'),
+(9, 'demo9', 'demo9', 'j', '754977617', 'admin@homeverge.co.tz', 'male', '873760.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 3, 5, 1, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '2018-11-22 05:20:30'),
+(10, 'demo10', 'demo10', 'k', '754977618', 'kiondo@homevegfarmers.co.tz', 'male', '301312.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 'demo11', 'demo11', '', '754977618', 'ylowe@example.net', 'male', '301312.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 'demo12', 'demo12', 'g', '754977617', 'riama@mma.hun', 'male', '301312.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(13, 'demo13', 'demo13', '', '754977617', 'kibandaa@salim.com', 'male', '301312.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(14, 'demo14', 'demo14', 'o', '754977618', 'kibandaa@salim.com', 'male', '235696.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(15, 'demo15', 'demo15', 't', '754977618', 'bryton@dennis.com', 'female', '235696.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(16, 'demo16', 'demo16', '', '734233678', 'jeff@hello.com', 'female', '1146334.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(17, 'demo17', 'demo17', 'y', '734233678', 'admin@homeverge.co.tz', 'male', '4781774.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(18, 'demo18', 'demo18', '0', '745945313.5', 'pangdeny@gmail.com', 'male', '366929.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(19, 'demo19', 'demo19', '', '745454631.8', 'pangdeny@gmail.com', 'male', '2479666.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(20, 'demo20', 'demo20', '', '744963950', 'pangdeny@gmail.com', 'male', '1979666.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(21, 'demo21', 'demo21', '', '744473268.2', 'pangdeny@gmail.com', 'male', '2146334.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(22, 'demo22', 'demo22', '', '743982586.4', 'pangdeny@gmail.com', 'male', '1813000.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(23, 'demo23', 'demo23', '', '743491904.7', 'ylowe@example.net', 'male', '1646334.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(24, 'demo24', 'demo24', '', '743001222.9', 'bryton@dennis.com', 'male', '1813000.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(25, 'demo25', 'demo25', '', '742510541.1', 'ylowe@example.net', 'male', '1146334.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(26, 'pambio', 'live', '', '742019859', 'pambio@user.com', 'male', '1979666.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '2018-11-18 09:01:04'),
+(27, 'demo27', 'demo27', '', '741529177.5', 'kiondo@homevegfarmers.co.tz', 'male', '3146334.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(28, 'demo28', 'demo28', '', '741038495.8', 'ylowe@example.net', 'male', '2597866.35', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(29, 'demo29', 'demo29', '', '740547814', 'riama@mma.hun', 'male', '1146334.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(30, 'demo30', 'demo30', '', '740057132.2', 'kibandaa@salim.com', 'male', '1146334.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(31, 'demo31', 'demo31', '', '739566450.4', 'kibandaa@salim.com', 'male', '1146334.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(32, 'demo32', 'demo32', '', '739075768.7', 'bryton@dennis.com', 'male', '1146334.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(33, 'demo33', 'demo33', '', '738585086.9', 'jeff@hello.com', 'male', '4340000.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(34, 'demo34', 'demo34', '', '738094405.1', 'admin@homeverge.co.tz', 'female', '1229666.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(35, 'demo35', 'demo35', '', '737603723.3', 'pangdeny@gmail.com', 'male', '366929.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(36, 'demo36', 'demo36', '', '737113041.6', 'pangdeny@gmail.com', 'male', '1479667.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(37, 'demo37', 'demo37', '', '736622359.8', 'pangdeny@gmail.com', 'male', '5562890.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(38, 'demo38', 'demo38', '', '736131678', 'pangdeny@gmail.com', 'male', '6479667.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(39, 'demo39', 'demo39', '', '735640996.2', 'pangdeny@gmail.com', 'male', '4733000.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(40, 'demo40', 'demo40', '', '735150314.4', 'ylowe@example.net', 'male', '3979667.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(41, 'demo41', 'demo41', '', '734659632.7', 'bryton@dennis.com', 'male', '3979667.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(42, 'demo42', 'demo42', '', '734168950.9', 'ylowe@example.net', 'male', '1313000.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(43, 'demo43', 'demo43', '', '733678269.1', 'admin@homeverge.co.tz', 'female', '813000.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(44, 'demo44', 'demo44', '', '733187587.3', 'kiondo@homevegfarmers.co.tz', 'male', '1146334.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(45, 'demo45', 'demo45', '', '732696905.6', 'ylowe@example.net', 'male', '1120500.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(46, 'demo46', 'demo46', '', '732206223.8', 'riama@mma.hun', 'male', '580869.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(47, 'demo47', 'demo47', '', '731715542', 'kibandaa@salim.com', 'male', '657055.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(48, 'demo48', 'demo48', '', '731224860.2', 'kibandaa@salim.com', 'female', '450435.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(49, 'demo49', 'demo49', '', '730734178.5', 'bryton@dennis.com', 'female', '3090476.19', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(50, 'demo50', 'demo50', '', '730243496.7', 'jeff@hello.com', 'male', '955830.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(51, 'demo51', 'demo51', '', '729752814.9', 'admin@homeverge.co.tz', 'male', '813000.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(52, 'demo52', 'demo52', '', '729262133.1', 'pangdeny@gmail.com', 'male', '657055.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(53, 'demo53', 'demo53', '', '728771451.3', 'pangdeny@gmail.com', 'male', '359700.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(54, 'demo54', 'demo54', '', '728280769.6', 'pangdeny@gmail.com', 'female', '288190.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(55, 'demo55', 'demo55', '', '727790087.8', 'pangdeny@gmail.com', 'male', '1479667.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(56, 'demo56', 'demo56', '', '727299406', 'pangdeny@gmail.com', 'male', '813000.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(57, 'demo57', 'demo57', '', '726808724.2', 'ylowe@example.net', 'male', '5000000.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(58, 'demo58', 'demo58', '', '726318042.5', 'bryton@dennis.com', 'male', '3911500.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(59, 'demo59', 'demo59', '', '725827360.7', 'ylowe@example.net', 'male', '320052.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(60, 'demo60', 'demo60', '', '725336678.9', 'admin@homeverge.co.tz', 'male', '1614000.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(61, 'demo61', 'demo61', '', '724845997.1', 'kiondo@homevegfarmers.co.tz', 'female', '235696.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(62, 'demo62', 'demo62', '', '724355315.4', 'ylowe@example.net', 'male', '301312.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(63, 'demo63', 'demo63', '', '723864633.6', 'riama@mma.hun', 'male', '301312.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(64, 'demo64', 'demo64', '', '723373951.8', 'kibandaa@salim.com', 'female', '301312.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(65, 'demo65', 'demo65', '', '722883270', 'kibandaa@salim.com', 'male', '1777000.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(66, 'demo66', 'demo66', '', '722392588.2', 'bryton@dennis.com', 'female', '1120500.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(67, 'demo67', 'demo67', '', '721901906.5', 'jeff@hello.com', 'male', '1646334.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(68, 'demo68', 'demo68', '', '721411224.7', 'admin@homeverge.co.tz', 'male', '2269458.13', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(69, 'demo69', 'demo69', '', '720920542.9', 'pangdeny@gmail.com', 'male', '1470166.67', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(70, 'demo70', 'demo70', '', '720429861.1', 'pangdeny@gmail.com', 'female', '1146334.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(71, 'demo71', 'demo71', '', '719939179.4', 'pangdeny@gmail.com', 'male', '424000.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(72, 'demo72', 'demo72', '', '719448497.6', 'pangdeny@gmail.com', 'male', '955830.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(73, 'demo73', 'demo73', '', '718957815.8', 'pangdeny@gmail.com', 'male', '1448441.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(74, 'demo74', 'demo74', '', '718467134', 'ylowe@example.net', 'male', '640780.00', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(75, 'demo75', 'demo75', '', '717976452.3', 'bryton@dennis.com', 'male', '1612643.68', 'Salary', 1, '0.00', '1', 'yes', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(76, 'demo76', 'demo76', '', '717485770.5', 'ylowe@example.net', 'male', '300000.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(77, 'demo77', 'demo77', '', '716995088.7', 'admin@homeverge.co.tz', 'male', '300000.00', 'Salary', 1, '0.00', '1', 'no', 'yes', 'yes', 'yes', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(78, 'Jefason', 'Nganga', 'M', '0734233678', 'user@user.com', 'male', '2000000.00', 'Salary', 1, '200.00', '1', 'no', 'yes', 'yes', 'no', 'no', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '2018-11-12 13:24:10', '2018-11-12 13:24:10'),
+(79, 'milan', 'vidic', 't', '0734233678', 'milan@user.com', 'male', '1470000.00', 'Salary', 1, '200.00', '1', 'yes', 'yes', 'yes', 'no', 'no', 3, 5, 1, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '2018-11-18 08:13:58', '2018-11-22 05:21:10'),
+(80, 'Croati', 'Bilic', 'D', '0734233678', 'bilic@user.com', 'female', '10000000.00', 'Salary', 1, '200.00', '1', 'yes', 'YES', 'YES', 'no', 'NO', 2, 6, 1, 5, 4, NULL, NULL, NULL, '', '23423', NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', NULL, '44', '1', NULL, 'dsd', 1, '2018-11-18 08:14:20', '2018-12-06 05:30:33'),
+(81, 'Sebia', 'Jajovic', 'D', '0734233678', 'sebia@user.com', 'female', '2000000.00', 'Salary', 1, '200.00', '1', 'yes', 'yes', 'yes', 'no', 'no', 3, 5, 2, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '2018-11-18 08:16:10', '2018-11-19 10:55:04'),
+(82, 'mobdro', 'App', 'D.', '+255754977618', 'mobro@user.com', 'female', '23000.00', 'Salary', 1, '200.00', '1', 'yes', 'yes', 'yes', 'no', 'no', 2, 5, 1, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', 'active', NULL, NULL, NULL, '', 1, '2018-11-18 08:51:08', '2018-11-19 10:54:47'),
+(83, 'Desolf h', 'German', 'D', '0566944652', 'german@user.com', 'female', '786000.00', 'Salary', 1, '7899.00', '2', 'yes', 'YES', 'YES', 'no', 'YES', 2, 5, 2, 5, 2, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, '0000-00-00', NULL, '308', '2', NULL, 'sdda hDband', 1, '2018-11-20 03:14:26', '2018-12-16 12:01:39');
 
 -- --------------------------------------------------------
 
@@ -4092,6 +4324,14 @@ CREATE TABLE `jobs` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `jobname`, `jobdesc`, `jobgroup`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Accountant', 'Accountant', '', NULL, NULL, NULL),
+(2, 'IT Manager', 'IT Manager', '', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -4143,10 +4383,10 @@ CREATE TABLE `leaveapprovallevels` (
 
 INSERT INTO `leaveapprovallevels` (`id`, `name`, `desctription`, `priority`, `creator_id`, `created_at`, `updated_at`) VALUES
 (1, 'Supervisor', 'Supe', 1, 0, NULL, NULL),
-(2, 'HR', NULL, 2, 1, '2018-11-13 06:04:12', '2018-11-13 06:04:12'),
+(2, 'HR', 'ahdg', 2, 1, '2018-11-13 06:04:12', '2018-11-27 15:10:30'),
 (3, 'HOD', 'HOD remark', 3, 1, '2018-11-13 06:06:20', '2018-11-13 06:38:18'),
 (8, 'ROM', 'ROM', 4, 1, '2018-11-13 06:15:26', '2018-11-13 06:38:41'),
-(9, 'HR asasdas', 'afsafs', 9, 1, '2018-11-13 06:16:36', '2018-11-13 06:16:36');
+(9, 'Final Approver', 'Final Approver', 5, 1, '2018-11-13 06:16:36', '2018-11-17 08:59:45');
 
 -- --------------------------------------------------------
 
@@ -4161,7 +4401,7 @@ CREATE TABLE `leaveapprovals` (
   `approver_id` int(11) NOT NULL,
   `level_id` int(11) NOT NULL,
   `priority` int(11) NOT NULL,
-  `action_type` enum('pending','approve','reject') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `action_type` enum('pending','approved','rejected') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `leavetype_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
   `action_by` int(11) NOT NULL,
@@ -4176,16 +4416,14 @@ CREATE TABLE `leaveapprovals` (
 --
 
 INSERT INTO `leaveapprovals` (`id`, `request_id`, `approver`, `approver_id`, `level_id`, `priority`, `action_type`, `leavetype_id`, `employee_id`, `action_by`, `creator_id`, `comment`, `created_at`, `updated_at`) VALUES
-(1, 0, 78, 14, 0, 1, 'pending', 0, 1, 0, 1, '', NULL, NULL),
-(2, 0, 9, 13, 0, 2, 'pending', 0, 1, 0, 1, '', NULL, NULL),
-(3, 1, 78, 14, 0, 1, 'pending', 0, 1, 0, 1, '', NULL, NULL),
-(4, 1, 9, 13, 0, 2, 'pending', 0, 1, 0, 1, '', NULL, NULL),
-(5, 2, 78, 14, 0, 1, 'pending', 0, 1, 0, 1, '', NULL, NULL),
-(6, 2, 9, 13, 0, 2, 'pending', 0, 1, 0, 1, '', NULL, NULL),
-(7, 3, 65, 14, 2, 1, 'pending', 4, 8, 0, 1, '', NULL, NULL),
-(8, 4, 65, 14, 0, 1, 'pending', 4, 8, 0, 1, '', NULL, NULL),
-(9, 4, 7, 12, 0, 2, 'pending', 4, 8, 0, 1, '', NULL, NULL),
-(10, 4, 11, 17, 0, 3, 'pending', 4, 8, 0, 1, '', NULL, NULL);
+(2, 1, 2, 2, 0, 1, 'approved', 1, 1, 0, 1, '', '2018-11-28 10:50:32', '2018-11-28 15:56:33'),
+(4, 1, 3, 3, 0, 2, 'approved', 1, 1, 0, 34, '', '2018-11-28 16:10:39', '2018-11-28 16:19:57'),
+(5, 1, 4, 4, 0, 3, 'rejected', 1, 1, 39, 39, '', '2018-11-28 16:19:57', '2018-12-06 15:48:37'),
+(6, 2, 2, 2, 0, 1, 'approved', 1, 1, 2, 1, '', '2018-11-28 16:53:19', '2018-11-28 17:01:44'),
+(7, 2, 3, 3, 0, 2, 'approved', 1, 1, 3, 34, '', '2018-11-28 17:01:44', '2018-11-28 17:02:01'),
+(8, 2, 4, 4, 0, 3, 'approved', 1, 1, 4, 39, '', '2018-11-28 17:02:01', '2018-11-28 17:03:29'),
+(9, 3, 1, 1, 0, 1, 'approved', 2, 4, 1, 1, '', '2018-12-06 12:59:21', '2018-12-06 13:08:46'),
+(10, 4, 1, 1, 0, 1, 'approved', 2, 4, 1, 1, '', '2018-12-06 14:33:51', '2018-12-06 14:34:07');
 
 -- --------------------------------------------------------
 
@@ -4208,17 +4446,12 @@ CREATE TABLE `leaveapprovers` (
 --
 
 INSERT INTO `leaveapprovers` (`id`, `approver`, `leavetype_id`, `level_id`, `creator_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, 1, 0, NULL, NULL),
-(5, 4, 0, 0, 1, '2018-11-13 12:06:50', '2018-11-13 12:06:50'),
-(7, 6, 0, 0, 1, '2018-11-13 12:09:16', '2018-11-13 12:09:16'),
-(8, 12, 0, 0, 1, '2018-11-13 12:09:24', '2018-11-13 12:09:24'),
-(9, 3, 0, 0, 1, '2018-11-13 12:10:13', '2018-11-13 12:10:13'),
-(11, 14, 0, 0, 1, '2018-11-13 12:23:36', '2018-11-13 12:23:36'),
-(12, 7, 4, 3, 1, '2018-11-14 04:05:14', '2018-11-16 08:50:03'),
-(13, 78, 5, 9, 1, '2018-11-14 05:06:28', '2018-11-16 08:39:19'),
-(14, 65, 4, 3, 1, '2018-11-14 05:22:30', '2018-11-16 08:45:43'),
-(16, 10, 2, 2, 1, '2018-11-15 15:42:02', '2018-11-15 15:42:02'),
-(17, 11, 1, 1, 1, '2018-11-15 15:56:06', '2018-11-16 08:51:25');
+(1, 1, 1, 1, 1, '2018-11-17 09:09:50', '2018-11-17 09:10:42'),
+(2, 2, 1, 2, 1, '2018-11-17 09:11:01', '2018-11-17 09:11:01'),
+(3, 3, 1, 3, 1, '2018-11-17 09:11:21', '2018-11-17 09:11:21'),
+(4, 4, 1, 8, 1, '2018-11-17 09:12:07', '2018-11-17 09:12:07'),
+(5, 7, 2, 1, 1, '2018-11-17 09:38:27', '2018-11-17 09:38:27'),
+(6, 11, 4, 2, 1, '2018-11-28 04:51:26', '2018-11-28 04:51:26');
 
 -- --------------------------------------------------------
 
@@ -4234,8 +4467,9 @@ CREATE TABLE `leavebalances` (
   `end_date` date NOT NULL,
   `days` int(12) NOT NULL,
   `allocated_days` int(11) NOT NULL,
-  `days_spent` int(11) NOT NULL,
+  `days_spent` int(11) DEFAULT '0',
   `balance` int(11) NOT NULL,
+  `active` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
   `creator_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -4245,20 +4479,11 @@ CREATE TABLE `leavebalances` (
 -- Dumping data for table `leavebalances`
 --
 
-INSERT INTO `leavebalances` (`id`, `employee_id`, `leavetype_id`, `start_date`, `end_date`, `days`, `allocated_days`, `days_spent`, `balance`, `creator_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2018-01-01', '2018-12-31', 28, 0, 0, 0, 0, NULL, NULL),
-(3, 1, 4, '2018-11-04', '2019-11-04', 365, 0, 0, 28, 1, '2018-11-11 08:52:31', '2018-11-16 07:12:40'),
-(4, 7, 1, '2017-11-13', '2018-11-13', 365, 0, 0, 0, 1, '2018-11-11 08:53:55', '2018-11-11 08:53:55'),
-(5, 7, 1, '2017-11-13', '2018-11-13', 365, 0, 0, 0, 1, '2018-11-11 08:54:58', '2018-11-11 08:54:58'),
-(6, 7, 5, '2018-11-11', '2019-11-11', 365, 0, 0, 0, 1, '2018-11-11 09:14:57', '2018-11-11 09:15:57'),
-(7, 8, 4, '2018-10-01', '2019-10-01', 365, 4, 0, 4, 1, '2018-11-11 09:16:47', '2018-11-16 10:22:46'),
-(8, 2, 1, '2018-11-01', '2019-11-01', 365, 0, 0, 26, 1, '2018-11-16 06:26:57', '2018-11-16 06:31:58'),
-(9, 3, 2, '2018-01-01', '2018-12-31', 364, 0, 0, 26, 1, '2018-11-16 06:54:18', '2018-11-16 06:54:18'),
-(10, 4, 1, '2018-01-01', '2018-12-31', 364, 0, 0, 23, 1, '2018-11-16 06:56:36', '2018-11-16 06:56:36'),
-(11, 7, 4, '2018-01-01', '2018-12-31', 364, 30, 2, 28, 1, '2018-11-16 06:57:59', '2018-11-16 06:57:59'),
-(12, 7, 4, '2018-01-01', '2018-12-31', 364, 40, 21, 19, 1, '2018-11-16 07:08:26', '2018-11-16 07:46:03'),
-(13, 7, 4, '2018-01-01', '2018-12-31', 364, 30, 2, 28, 1, '2018-11-16 07:09:02', '2018-11-16 07:09:02'),
-(14, 7, 4, '2018-01-01', '2018-12-31', 364, 55, 44, 11, 1, '2018-11-16 07:09:25', '2018-11-16 07:34:36');
+INSERT INTO `leavebalances` (`id`, `employee_id`, `leavetype_id`, `start_date`, `end_date`, `days`, `allocated_days`, `days_spent`, `balance`, `active`, `creator_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2018-01-01', '2018-12-31', 364, 28, 0, 28, 'yes', 1, '2018-11-28 09:40:10', '2018-11-28 09:40:10'),
+(2, 1, 4, '2018-01-01', '2018-12-31', 364, 2, 0, 2, 'yes', 1, '2018-11-28 09:44:53', '2018-11-28 09:44:53'),
+(3, 79, 1, '2018-01-01', '2018-12-31', 364, 28, 0, 28, 'yes', 1, '2018-11-29 16:43:35', '2018-11-29 16:43:35'),
+(4, 4, 2, '2018-01-01', '2018-12-31', 364, 6, 5, 1, 'yes', 1, '2018-12-06 12:34:18', '2018-12-06 14:34:07');
 
 -- --------------------------------------------------------
 
@@ -4278,7 +4503,7 @@ CREATE TABLE `leaves` (
   `employee_id` int(12) NOT NULL,
   `leavetype_id` int(12) NOT NULL,
   `manager_id` int(11) NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `reason_for_rejection` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `creator_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -4290,11 +4515,10 @@ CREATE TABLE `leaves` (
 --
 
 INSERT INTO `leaves` (`id`, `start_date`, `end_date`, `working_days`, `holiday_days`, `total_days`, `reason_for_leave`, `user_id`, `employee_id`, `leavetype_id`, `manager_id`, `status`, `reason_for_rejection`, `creator_id`, `created_at`, `updated_at`) VALUES
-(1, '2018-11-05', '2018-11-23', NULL, NULL, 18, 'safasfds', 0, 1, 4, 0, '', '', 1, '2018-11-16 10:14:08', '2018-11-16 10:14:08'),
-(2, '2018-11-04', '2018-11-16', NULL, NULL, 12, 'ZczcZC', 0, 1, 5, 0, '', '', 1, '2018-11-16 10:18:20', '2018-11-16 10:18:20'),
-(3, '2018-11-15', '2018-11-16', NULL, NULL, 1, 'msomi jeff', 0, 8, 4, 0, '', '', 1, '2018-11-16 10:32:24', '2018-11-16 10:32:24'),
-(4, '2018-11-05', '2018-11-06', NULL, NULL, 1, 'dennisd', 0, 8, 4, 0, '', '', 1, '2018-11-16 11:29:23', '2018-11-16 11:29:23'),
-(30, '2018-11-05', '2018-11-12', NULL, NULL, 7, 'sadsad', 0, 1, 1, 0, '', '', 1, '2018-11-16 10:09:10', '2018-11-16 10:09:10');
+(1, '2018-10-30', '2018-11-02', NULL, NULL, 3, 'Annual Leave', 0, 1, 1, 0, 'rejected', '', 1, '2018-11-28 10:50:32', '2018-12-06 15:48:37'),
+(2, '2018-10-29', '2018-11-08', NULL, NULL, 10, 'e', 0, 1, 1, 0, 'approved', '', 1, '2018-11-28 16:53:19', '2018-11-28 17:03:29'),
+(3, '2018-12-03', '2018-12-07', NULL, NULL, 4, 'ASDSAD', 0, 4, 2, 0, 'approved', '', 1, '2018-12-06 12:59:21', '2018-12-06 13:08:46'),
+(4, '2018-12-02', '2018-12-03', NULL, NULL, 1, 'vxcv', 0, 4, 2, 0, 'approved', '', 1, '2018-12-06 14:33:51', '2018-12-06 14:34:07');
 
 -- --------------------------------------------------------
 
@@ -4346,39 +4570,47 @@ CREATE TABLE `leave_employee_approvers` (
 --
 
 INSERT INTO `leave_employee_approvers` (`id`, `approver_id`, `approver`, `employee_id`, `leavetype_id`, `level_id`, `active`, `creator_id`, `created_at`, `updated_at`) VALUES
-(1, 78, 0, 3, 1, 1, 1, 0, NULL, NULL),
-(2, 78, 0, 4, 1, 1, 0, 0, NULL, NULL),
-(3, 78, 1, 6, 0, 0, 1, 1, '2018-11-15 12:33:17', '2018-11-15 12:33:17'),
-(4, 78, 1, 7, 0, 0, 1, 1, '2018-11-15 14:20:30', '2018-11-15 14:20:30'),
-(5, 14, 78, 10, 0, 0, 1, 1, '2018-11-15 14:38:01', '2018-11-15 14:38:01'),
-(6, 14, 78, 5, 0, 0, 1, 1, '2018-11-15 14:38:08', '2018-11-15 14:38:08'),
-(7, 14, 78, 5, 0, 0, 1, 1, '2018-11-15 14:38:19', '2018-11-15 14:38:19'),
-(8, 14, 78, 72, 0, 0, 1, 1, '2018-11-15 14:38:35', '2018-11-15 14:38:35'),
-(9, 14, 78, 1, 0, 0, 1, 1, '2018-11-15 14:54:27', '2018-11-15 14:54:27'),
-(10, 14, 78, 9, 0, 0, 0, 1, '2018-11-15 14:55:06', '2018-11-15 15:19:25'),
-(11, 14, 78, 9, 0, 0, 0, 1, '2018-11-15 15:19:29', '2018-11-15 15:19:32'),
-(12, 14, 78, 9, 0, 0, 1, 1, '2018-11-15 15:20:21', '2018-11-15 15:20:21'),
-(13, 13, 9, 1, 0, 0, 1, 1, '2018-11-15 15:24:15', '2018-11-15 15:24:15'),
-(14, 16, 10, 2, 0, 0, 0, 1, '2018-11-15 15:57:04', '2018-11-15 15:57:22'),
-(15, 16, 10, 3, 0, 0, 0, 1, '2018-11-15 15:57:07', '2018-11-15 15:57:25'),
-(16, 16, 10, 3, 0, 0, 1, 1, '2018-11-15 15:57:30', '2018-11-15 15:57:30'),
-(17, 16, 10, 5, 0, 0, 1, 1, '2018-11-15 15:57:33', '2018-11-15 15:57:33'),
-(18, 17, 10, 7, 0, 0, 0, 1, '2018-11-15 16:09:52', '2018-11-15 16:13:57'),
-(19, 17, 10, 7, 0, 0, 1, 1, '2018-11-15 16:14:02', '2018-11-15 16:14:02'),
-(20, 17, 10, 10, 0, 0, 0, 1, '2018-11-15 16:14:08', '2018-11-15 16:14:21'),
-(21, 17, 10, 10, 0, 0, 0, 1, '2018-11-15 16:16:03', '2018-11-16 05:43:05'),
-(22, 15, 6, 3, 0, 0, 0, 1, '2018-11-15 16:32:45', '2018-11-15 16:34:52'),
-(23, 15, 6, 7, 0, 0, 1, 1, '2018-11-15 16:32:48', '2018-11-15 16:32:48'),
-(24, 15, 6, 9, 0, 0, 1, 1, '2018-11-15 16:33:47', '2018-11-15 16:33:47'),
-(25, 15, 6, 10, 0, 0, 1, 1, '2018-11-15 16:35:14', '2018-11-15 16:35:14'),
-(26, 17, 10, 3, 1, 0, 0, 1, '2018-11-15 16:54:31', '2018-11-15 17:00:20'),
-(27, 17, 10, 5, 1, 0, 1, 1, '2018-11-15 16:54:57', '2018-11-15 16:54:57'),
-(28, 17, 10, 13, 1, 0, 1, 1, '2018-11-15 16:55:51', '2018-11-15 16:55:51'),
-(29, 17, 10, 15, 1, 0, 0, 1, '2018-11-15 16:58:14', '2018-11-15 16:58:55'),
-(30, 17, 10, 17, 1, 0, 1, 1, '2018-11-16 05:43:13', '2018-11-16 05:43:13'),
-(31, 14, 65, 8, 4, 0, 1, 1, '2018-11-16 10:26:33', '2018-11-16 10:26:33'),
-(32, 12, 7, 8, 4, 0, 1, 1, '2018-11-16 11:28:18', '2018-11-16 11:28:18'),
-(33, 17, 11, 8, 1, 0, 1, 1, '2018-11-16 11:28:28', '2018-11-16 11:28:28');
+(4, 2, 2, 1, 1, 2, 1, 1, '2018-11-28 10:49:28', '2018-11-28 10:49:28'),
+(5, 4, 4, 1, 1, 8, 1, 1, '2018-11-28 10:49:48', '2018-11-28 10:49:48'),
+(6, 3, 3, 1, 1, 3, 1, 1, '2018-11-28 10:50:07', '2018-11-28 10:50:07'),
+(7, 3, 3, 79, 1, 3, 1, 1, '2018-11-29 16:42:11', '2018-11-29 16:42:11'),
+(8, 1, 1, 4, 1, 1, 1, 1, '2018-12-06 12:33:20', '2018-12-06 12:33:20'),
+(9, 6, 11, 73, 4, 2, 1, 1, '2019-01-17 15:07:10', '2019-01-17 15:07:10'),
+(10, 6, 11, 81, 4, 2, 0, 1, '2019-01-17 15:07:23', '2019-01-17 15:07:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `leave_request_approvers`
+--
+
+CREATE TABLE `leave_request_approvers` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `approver_id` int(11) NOT NULL,
+  `approver` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `leavetype_id` int(11) NOT NULL,
+  `request_id` int(11) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `leave_request_approvers`
+--
+
+INSERT INTO `leave_request_approvers` (`id`, `approver_id`, `approver`, `employee_id`, `leavetype_id`, `request_id`, `priority`, `level_id`, `creator_id`, `created_at`, `updated_at`) VALUES
+(4, 2, 2, 1, 1, 1, 1, 2, 1, NULL, NULL),
+(5, 3, 3, 1, 1, 1, 2, 3, 1, NULL, NULL),
+(6, 4, 4, 1, 1, 1, 3, 8, 1, NULL, NULL),
+(7, 2, 2, 1, 1, 2, 1, 2, 1, NULL, NULL),
+(8, 3, 3, 1, 1, 2, 2, 3, 1, NULL, NULL),
+(9, 4, 4, 1, 1, 2, 3, 8, 1, NULL, NULL),
+(10, 1, 1, 4, 2, 3, 1, 1, 1, NULL, NULL),
+(11, 1, 1, 4, 2, 4, 1, 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -4548,7 +4780,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (599, '2018_11_12_183439_create_leaveapprovers_table', 14),
 (600, '2018_11_12_191016_create_leaveapprovals_table', 15),
 (601, '2018_11_13_100301_create_leave_employee_approvers_table', 16),
-(602, '2018_11_16_202919_create_emailnotifications_table', 17);
+(602, '2018_11_16_202919_create_emailnotifications_table', 17),
+(604, '2018_11_22_115043_create_employee_table', 18),
+(605, '2018_11_28_114615_create_leave_request_approvers_table', 19),
+(606, '2018_12_12_185802_create_pictures_table', 20);
 
 -- --------------------------------------------------------
 
@@ -4787,30 +5022,37 @@ INSERT INTO `permissions` (`ability_id`, `entity_id`, `entity_type`, `forbidden`
 (28, 5, 'roles', 0, NULL),
 (29, 5, 'roles', 0, NULL),
 (30, 5, 'roles', 0, NULL),
-(2, 6, 'roles', 0, NULL),
-(3, 6, 'roles', 0, NULL),
-(20, 6, 'roles', 0, NULL),
-(14, 6, 'roles', 0, NULL),
-(15, 6, 'roles', 0, NULL),
-(16, 6, 'roles', 0, NULL),
-(32, 6, 'roles', 0, NULL),
-(17, 6, 'roles', 0, NULL),
-(18, 6, 'roles', 0, NULL),
-(19, 6, 'roles', 0, NULL),
-(33, 6, 'roles', 0, NULL),
-(5, 6, 'roles', 0, NULL),
-(34, 6, 'roles', 0, NULL),
-(35, 6, 'roles', 0, NULL),
-(36, 6, 'roles', 0, NULL),
-(37, 6, 'roles', 0, NULL),
-(38, 6, 'roles', 0, NULL),
-(39, 6, 'roles', 0, NULL),
-(40, 6, 'roles', 0, NULL),
-(41, 6, 'roles', 0, NULL),
-(27, 6, 'roles', 0, NULL),
-(28, 6, 'roles', 0, NULL),
-(29, 6, 'roles', 0, NULL),
-(30, 6, 'roles', 0, NULL);
+(42, 2, 'roles', 0, NULL),
+(42, 5, 'roles', 0, NULL),
+(42, 3, 'roles', 0, NULL),
+(42, 4, 'roles', 0, NULL),
+(42, 6, 'roles', 0, NULL),
+(51, 6, 'roles', 0, NULL),
+(52, 6, 'roles', 0, NULL),
+(53, 6, 'roles', 0, NULL),
+(47, 6, 'roles', 0, NULL),
+(48, 6, 'roles', 0, NULL),
+(49, 6, 'roles', 0, NULL),
+(50, 6, 'roles', 0, NULL),
+(43, 6, 'roles', 0, NULL),
+(43, 8, 'roles', 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pictures`
+--
+
+CREATE TABLE `pictures` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pic` blob NOT NULL,
+  `pictureable_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pictureable_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `creator_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -5051,62 +5293,6 @@ CREATE TABLE `prlhealthtransactions` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `prlhealthtransactions`
---
-
-INSERT INTO `prlhealthtransactions` (`id`, `employee_id`, `payroll_id`, `grosspay`, `employee_contr`, `employer_contr`, `total`, `creator_id`, `created_at`, `updated_at`) VALUES
-(3329, 1, 9, '1061312.00', '6026.24', '30131.20', 36157, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3330, 2, 9, '403621.90', '7338.58', '36692.90', 44031, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3331, 3, 9, '1479667.00', '29593.34', '147966.70', 177560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3332, 5, 9, '640780.00', '12815.60', '64078.00', 76894, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3333, 7, 9, '301312.00', '6026.24', '30131.20', 36157, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3334, 9, 9, '873760.00', '17475.20', '87376.00', 104851, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3335, 10, 9, '301312.00', '6026.24', '30131.20', 36157, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3336, 13, 9, '301312.00', '6026.24', '30131.20', 36157, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3337, 14, 9, '235696.00', '4713.92', '23569.60', 28284, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3338, 15, 9, '235696.00', '4713.92', '23569.60', 28284, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3339, 17, 9, '4781774.00', '95635.48', '478177.40', 573813, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3340, 18, 9, '366929.00', '7338.58', '36692.90', 44031, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3341, 19, 9, '2479666.00', '49593.32', '247966.60', 297560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3342, 22, 9, '1813000.00', '36260.00', '181300.00', 217560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3343, 23, 9, '1646334.00', '32926.68', '164633.40', 197560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3344, 24, 9, '1813000.00', '36260.00', '181300.00', 217560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3345, 26, 9, '1979666.00', '39593.32', '197966.60', 237560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3346, 28, 9, '2597866.35', '51957.33', '259786.64', 311744, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3347, 29, 9, '1146334.00', '22926.68', '114633.40', 137560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3348, 30, 9, '1146334.00', '22926.68', '114633.40', 137560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3349, 31, 9, '1146334.00', '22926.68', '114633.40', 137560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3350, 32, 9, '1146334.00', '22926.68', '114633.40', 137560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3351, 33, 9, '4340000.00', '86800.00', '434000.00', 520800, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3352, 34, 9, '1229666.00', '24593.32', '122966.60', 147560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3353, 36, 9, '1479667.00', '29593.34', '147966.70', 177560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3354, 42, 9, '1313000.00', '26260.00', '131300.00', 157560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3355, 43, 9, '813000.00', '16260.00', '81300.00', 97560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3356, 45, 9, '1120500.00', '22410.00', '112050.00', 134460, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3357, 46, 9, '580869.00', '11617.38', '58086.90', 69704, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3358, 48, 9, '450435.00', '9008.70', '45043.50', 54052, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3359, 50, 9, '955830.00', '19116.60', '95583.00', 114700, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3360, 52, 9, '657055.00', '13141.10', '65705.50', 78847, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3361, 53, 9, '359700.00', '7194.00', '35970.00', 43164, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3362, 54, 9, '288190.00', '5763.80', '28819.00', 34583, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3363, 55, 9, '1479667.00', '29593.34', '147966.70', 177560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3364, 58, 9, '3911500.00', '78230.00', '391150.00', 469380, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3365, 59, 9, '320052.00', '6401.04', '32005.20', 38406, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3366, 60, 9, '1614000.00', '32280.00', '161400.00', 193680, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3367, 61, 9, '235696.00', '4713.92', '23569.60', 28284, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3368, 64, 9, '301312.00', '6026.24', '30131.20', 36157, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3369, 65, 9, '1777000.00', '35540.00', '177700.00', 213240, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3370, 66, 9, '1120500.00', '22410.00', '112050.00', 134460, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3371, 67, 9, '1646334.00', '32926.68', '164633.40', 197560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3372, 68, 9, '2269458.13', '45389.16', '226945.81', 272335, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3373, 70, 9, '1146334.00', '22926.68', '114633.40', 137560, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3374, 71, 9, '424000.00', '8480.00', '42400.00', 50880, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3375, 72, 9, '955830.00', '19116.60', '95583.00', 114700, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3376, 73, 9, '1448441.00', '28968.82', '144844.10', 173813, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3377, 74, 9, '640780.00', '12815.60', '64078.00', 76894, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(3378, 75, 9, '1612643.68', '32252.87', '161264.37', 193517, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -5170,8 +5356,8 @@ CREATE TABLE `prlloanfiles` (
 --
 
 INSERT INTO `prlloanfiles` (`id`, `loanfiledesc`, `employee_id`, `loandate`, `loantype_id`, `loanamount`, `amortization`, `amount_term`, `transaction_type`, `percent`, `startdeduction`, `ytddeduction`, `loanbalance`, `accountcode`, `status`, `payroll_id`, `updated_at`, `created_at`) VALUES
-(10, 'Loan for Heslb', 9, '2018-10-08', 1, '5000000.00', '400000.00', 'Amount', NULL, NULL, '2018-06-04', '4850000.00', '150000.00', NULL, '1', 8, '2018-10-25 09:45:25', '2018-10-11 17:06:39'),
-(12, 'Loan for Heslbb64', 23, '2018-07-09', 1, '7800000.00', '0.00', 'Percent', 'Basic', '15.00', '2018-07-16', '7700000.00', '100000.00', NULL, '1', NULL, '2018-10-25 09:45:25', '2018-10-11 17:31:09'),
+(10, 'Loan for Heslb', 9, '2018-10-08', 1, '5000000.00', '400000.00', 'Amount', NULL, NULL, '2018-06-04', '5150000.00', '-150000.00', NULL, '1', 8, '2018-11-21 14:53:27', '2018-10-11 17:06:39'),
+(12, 'Loan for Heslbb64', 23, '2018-07-09', 1, '7800000.00', '0.00', 'Percent', 'Basic', '15.00', '2018-07-16', '7900000.00', '-100000.00', NULL, '1', NULL, '2018-11-21 14:53:27', '2018-10-11 17:31:09'),
 (13, 'Loan for Heslb', 23, '2018-10-01', 2, '7800000.00', '200000.00', 'Amount', 'Gross', NULL, '2018-11-02', '5800000.00', '2000000.00', NULL, '1', 9, '2018-10-12 07:37:29', '2018-10-12 07:32:57'),
 (14, 'loan test', 15, '2018-07-30', 2, '3400000.00', '0.00', 'Percent', 'Basic', '7.00', '2018-11-02', '3000000.00', '400000.00', NULL, '1', 9, '2018-10-12 07:39:22', '2018-10-12 07:39:22'),
 (15, 'loan board', 14, '2018-11-08', 1, '1000000.00', '0.00', 'Percent', NULL, '15.00', '2018-12-11', '-5000000.00', '6000000.00', NULL, '1', 10, '2018-11-08 07:29:57', '2018-11-08 07:29:57'),
@@ -5220,12 +5406,11 @@ INSERT INTO `prlloantransactions` (`id`, `payroll_id`, `employee_id`, `loantype_
 (63, 5, 6, 2, '400000.00', 0, 1, '2018-10-10 09:59:06', '0000-00-00 00:00:00'),
 (155, 8, 9, 1, '150000.00', 0, 1, '2018-10-25 09:45:18', '0000-00-00 00:00:00'),
 (156, 8, 23, 1, '100000.00', 0, 1, '2018-10-25 09:45:18', '0000-00-00 00:00:00'),
-(157, 10, 9, 1, '150000.00', 0, 1, '2018-11-08 07:30:58', '0000-00-00 00:00:00'),
-(158, 10, 23, 1, '100000.00', 0, 1, '2018-11-08 07:30:58', '0000-00-00 00:00:00'),
-(159, 10, 23, 2, '200000.00', 0, 1, '2018-11-08 07:30:58', '0000-00-00 00:00:00'),
-(160, 10, 15, 2, '16498.72', 0, 1, '2018-11-08 07:30:58', '0000-00-00 00:00:00'),
 (161, 9, 9, 1, '150000.00', 0, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
-(162, 9, 23, 1, '100000.00', 0, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00');
+(162, 9, 23, 1, '100000.00', 0, 1, '2018-11-11 09:17:14', '0000-00-00 00:00:00'),
+(199, 10, 23, 2, '200000.00', 0, 1, '2019-01-17 14:43:24', '0000-00-00 00:00:00'),
+(200, 10, 15, 2, '16498.72', 0, 1, '2019-01-17 14:43:24', '0000-00-00 00:00:00'),
+(201, 10, 5, 2, '0.00', 0, 1, '2019-01-17 14:43:24', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5276,7 +5461,7 @@ CREATE TABLE `prlothdedctypes` (
 INSERT INTO `prlothdedctypes` (`id`, `othincdesc`, `deductiondesc`, `taxable`, `appearoninvoice`, `accountcode`, `active`, `creator_id`, `created_at`, `updated_at`) VALUES
 (1, 'Less NSSF', 'Less nssf', 'non-taxabl', 0, 0, 0, 0, '2018-10-11 12:40:38', '2018-10-11 12:40:38'),
 (2, 'Advance Salary', 'Advance for nSalary', 'non-taxabl', 0, 0, 0, 0, '2018-10-11 12:40:53', '2018-10-11 12:40:53'),
-(3, 'HELSB', '', 'taxable', 0, 0, 0, 0, '2018-10-11 12:41:48', '2018-10-11 12:41:48');
+(3, 'House Advance', '', 'taxable', 0, 0, 0, 0, '2018-11-23 09:43:00', '2018-10-11 12:41:48');
 
 -- --------------------------------------------------------
 
@@ -5318,7 +5503,7 @@ CREATE TABLE `prlothdedfiles` (
 --
 
 INSERT INTO `prlothdedfiles` (`id`, `othfileref`, `othfiledesc`, `employee_id`, `othdate`, `stopdate`, `othded_id`, `othdedamount`, `subamount`, `quantity`, `amount_term`, `percent`, `transaction_type`, `payroll_id`, `approved`, `verified`, `accountcode`, `attachement`, `approver`, `verifyer`, `recurrent`, `status`, `madeat`, `creator_id`, `updated_at`, `created_at`) VALUES
-(13, NULL, NULL, 3, '2018-07-02', '2019-03-09', 3, '221950.05', NULL, NULL, 'Amount', NULL, NULL, 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-11 12:42:57', '2018-10-11 12:42:57'),
+(13, NULL, NULL, 3, '2018-07-02', '2018-10-31', 3, NULL, NULL, NULL, 'Amount', NULL, 'Gross', 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, NULL, 0, '2018-11-26 13:31:50', '2018-10-11 12:42:57'),
 (14, NULL, NULL, 7, '2018-07-02', '2018-11-10', 3, '45196.80', NULL, NULL, 'Amount', NULL, NULL, 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-11 12:45:07', '2018-10-11 12:45:07'),
 (15, NULL, NULL, 24, '2018-07-03', '2018-11-10', 3, '271950.00', NULL, NULL, 'Amount', NULL, NULL, 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-11 12:49:38', '2018-10-11 12:49:38'),
 (16, NULL, NULL, 31, '2018-02-02', '2018-02-05', 3, NULL, NULL, NULL, 'Percent', '15.00', 'Basic', 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-11 15:53:45', '2018-10-11 12:50:52'),
@@ -5346,12 +5531,11 @@ CREATE TABLE `prlothdedtransactions` (
 --
 
 INSERT INTO `prlothdedtransactions` (`id`, `payroll_id`, `employee_id`, `othded_id`, `amount`, `creator_id`, `created_at`, `updated_at`) VALUES
-(844, '10', '3', 3, '221950.05', 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(845, '10', '7', 3, '45196.80', 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(846, '10', '24', 3, '271950.00', 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(847, '9', '3', 3, '221950.05', 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(848, '9', '7', 3, '45196.80', 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(849, '9', '24', 3, '271950.00', 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00');
+(850, '9', '3', 3, '221950.05', 1, '2018-11-21 14:53:18', '0000-00-00 00:00:00'),
+(851, '9', '7', 3, '45196.80', 1, '2018-11-21 14:53:18', '0000-00-00 00:00:00'),
+(852, '9', '24', 3, '271950.00', 1, '2018-11-21 14:53:18', '0000-00-00 00:00:00'),
+(923, '10', '7', 3, '45196.80', 1, '2019-01-17 14:43:22', '0000-00-00 00:00:00'),
+(924, '10', '24', 3, '271950.00', 1, '2019-01-17 14:43:22', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5378,7 +5562,7 @@ CREATE TABLE `prlothinctypes` (
 
 INSERT INTO `prlothinctypes` (`id`, `incomedesc`, `othincdesc`, `taxable`, `appearoninvoice`, `accountcode`, `active`, `creator_id`, `created_at`, `updated_at`) VALUES
 (1, 'BONUS', 'Bonus', 'taxable', 0, 0, 0, 0, '2018-10-10 13:09:05', '2018-10-10 13:09:05'),
-(3, '', 'Supplements', 'taxable', 0, 0, 0, 0, '2018-09-14 03:23:50', '0000-00-00 00:00:00');
+(3, 'Supplement', 'Supplements', 'taxable', 0, 0, 0, 0, '2018-11-21 14:03:54', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5424,7 +5608,9 @@ INSERT INTO `prlothinfiles` (`id`, `othfileref`, `othfiledesc`, `employee_id`, `
 (11, NULL, NULL, 2, '2018-07-02', '2018-11-10', 3, NULL, NULL, NULL, 'Percent', '10.00', 'Basic', 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-11 16:00:45', '2018-10-11 16:00:45'),
 (12, NULL, NULL, 3, '2018-07-31', '2018-07-31', 1, NULL, NULL, NULL, 'Percent', '7.00', 'Basic', 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-11 16:22:05', '2018-10-11 16:02:57'),
 (13, NULL, NULL, 11, '2018-10-25', '2018-10-25', 1, '3444444.00', NULL, NULL, 'Amount', NULL, NULL, 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-25 16:28:48', '2018-10-25 16:28:48'),
-(14, NULL, NULL, 6, '2018-11-03', '2018-12-08', 3, '3444444.00', NULL, NULL, 'Amount', NULL, 'Gross', 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-25 16:32:57', '2018-10-25 16:31:31');
+(14, NULL, NULL, 6, '2018-11-03', '2018-12-08', 3, '3444444.00', NULL, NULL, 'Amount', NULL, 'Gross', 8, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-10-25 16:32:57', '2018-10-25 16:31:31'),
+(15, NULL, NULL, 1, '2018-11-01', '2019-03-01', 1, '1230000.00', NULL, NULL, 'Amount', NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-11-21 15:44:17', '2018-11-21 15:44:17'),
+(16, NULL, NULL, 5, '2018-10-28', '2019-01-05', 3, '667000.00', NULL, NULL, 'Amount', NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, '2018-11-21 15:44:50', '2018-11-21 15:44:50');
 
 -- --------------------------------------------------------
 
@@ -5449,13 +5635,15 @@ CREATE TABLE `prlothintransactions` (
 --
 
 INSERT INTO `prlothintransactions` (`id`, `payroll_id`, `employee_id`, `othinc_id`, `taxable`, `amount`, `creator_id`, `created_at`, `updated_at`) VALUES
-(705, '10', '1', 1, 'taxable', '760000.00', 1, '2018-11-08 07:30:56', '0000-00-00 00:00:00'),
-(706, '10', '2', 3, 'taxable', '36692.90', 1, '2018-11-08 07:30:56', '0000-00-00 00:00:00'),
-(707, '10', '6', 3, 'taxable', '3444444.00', 1, '2018-11-08 07:30:56', '0000-00-00 00:00:00'),
-(708, '9', '1', 1, 'taxable', '760000.00', 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(709, '9', '2', 3, 'taxable', '36692.90', 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(710, '9', '11', 1, 'taxable', '3444444.00', 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(711, '9', '6', 3, 'taxable', '3444444.00', 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00');
+(712, '9', '1', 1, 'taxable', '760000.00', 1, '2018-11-21 14:53:18', '0000-00-00 00:00:00'),
+(713, '9', '2', 3, 'taxable', '36692.90', 1, '2018-11-21 14:53:18', '0000-00-00 00:00:00'),
+(714, '9', '11', 1, 'taxable', '3444444.00', 1, '2018-11-21 14:53:18', '0000-00-00 00:00:00'),
+(715, '9', '6', 3, 'taxable', '3444444.00', 1, '2018-11-21 14:53:18', '0000-00-00 00:00:00'),
+(832, '10', '1', 1, 'taxable', '760000.00', 1, '2019-01-17 14:43:21', '0000-00-00 00:00:00'),
+(833, '10', '2', 3, 'taxable', '36692.90', 1, '2019-01-17 14:43:21', '0000-00-00 00:00:00'),
+(834, '10', '6', 3, 'taxable', '3444444.00', 1, '2019-01-17 14:43:21', '0000-00-00 00:00:00'),
+(835, '10', '1', 1, 'taxable', '1230000.00', 1, '2019-01-17 14:43:21', '0000-00-00 00:00:00'),
+(836, '10', '5', 3, 'taxable', '667000.00', 1, '2019-01-17 14:43:21', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5510,9 +5698,9 @@ CREATE TABLE `prlpayrollperiod` (
 --
 
 INSERT INTO `prlpayrollperiod` (`id`, `payrollid`, `payrolldesc`, `payperiodid`, `startdate`, `enddate`, `fsmonth`, `fsyear`, `financial_id`, `deductsss`, `deducthdmf`, `deductphilhealth`, `iscurrent`, `payclosed`, `created_at`, `updated_at`) VALUES
-(8, 'July2018', 'July 2018', 1, '2018-07-01', '2018-10-31', 7, 2018, NULL, 1, 2, 1, 1, 1, '2018-10-11 09:17:51', '2018-10-25 09:45:25'),
-(9, 'August2018', 'August 2018', 1, '2018-08-01', '2018-08-31', 8, 2018, NULL, 1, 2, 1, 1, 1, '2018-10-12 07:11:11', '2018-10-15 09:53:30'),
-(10, 'NOV2018', 'November 2018', 1, '2018-11-01', '2018-11-30', 11, 2018, NULL, 1, 2, 2, 1, 1, '2018-11-08 07:23:21', '2018-11-08 07:23:21');
+(8, 'July2018', 'July 2018', 1, '2018-07-01', '2018-10-31', 7, 2018, NULL, 1, 2, 1, 1, 2, '2018-10-11 09:17:51', '2018-11-21 14:52:57'),
+(9, 'August2018', 'August 2018', 1, '2018-08-01', '2018-08-31', 8, 2018, NULL, 1, 2, 1, 1, 2, '2018-10-12 07:11:11', '2018-11-21 14:53:27'),
+(10, 'NOV2018', 'November 2018', 1, '2018-11-01', '2018-11-30', 11, 2018, NULL, 1, 2, 2, 1, 1, '2018-11-08 07:23:21', '2018-11-26 13:20:23');
 
 -- --------------------------------------------------------
 
@@ -5625,106 +5813,63 @@ CREATE TABLE `prlsstransactions` (
 --
 
 INSERT INTO `prlsstransactions` (`id`, `payroll_id`, `employee_id`, `grosspay`, `rangefrom`, `rangeto`, `salarycredit`, `employerss`, `employerec`, `employeess`, `total`, `sstype_id`, `fsmonth`, `fsyear`, `creator_id`, `created_at`, `updated_at`) VALUES
-(4046, 10, 1, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4047, 10, 2, '366929.00', '0.00', '0.00', '0.00', '36692.90', '0.00', '36692.90', '73385.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4048, 10, 3, '1479667.00', '0.00', '0.00', '0.00', '147966.70', '0.00', '147966.70', '295933.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4049, 10, 5, '640780.00', '0.00', '0.00', '0.00', '64078.00', '0.00', '64078.00', '128156.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4050, 10, 7, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4051, 10, 9, '873760.00', '0.00', '0.00', '0.00', '87376.00', '0.00', '87376.00', '174752.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4052, 10, 10, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4053, 10, 13, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4054, 10, 14, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4055, 10, 15, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4056, 10, 17, '4781774.00', '0.00', '0.00', '0.00', '478177.40', '0.00', '478177.40', '956354.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4057, 10, 18, '366929.00', '0.00', '0.00', '0.00', '36692.90', '0.00', '36692.90', '73385.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4058, 10, 19, '2479666.00', '0.00', '0.00', '0.00', '247966.60', '0.00', '247966.60', '495933.20', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4059, 10, 22, '1813000.00', '0.00', '0.00', '0.00', '181300.00', '0.00', '181300.00', '362600.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4060, 10, 23, '1646334.00', '0.00', '0.00', '0.00', '164633.40', '0.00', '164633.40', '329266.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4061, 10, 24, '1813000.00', '0.00', '0.00', '0.00', '181300.00', '0.00', '181300.00', '362600.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4062, 10, 26, '1979666.00', '0.00', '0.00', '0.00', '197966.60', '0.00', '197966.60', '395933.20', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4063, 10, 28, '2597866.35', '0.00', '0.00', '0.00', '259786.64', '0.00', '259786.64', '519573.27', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4064, 10, 29, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4065, 10, 30, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4066, 10, 31, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4067, 10, 32, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4068, 10, 33, '4340000.00', '0.00', '0.00', '0.00', '434000.00', '0.00', '434000.00', '868000.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4069, 10, 34, '1229666.00', '0.00', '0.00', '0.00', '122966.60', '0.00', '122966.60', '245933.20', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4070, 10, 36, '1479667.00', '0.00', '0.00', '0.00', '147966.70', '0.00', '147966.70', '295933.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4071, 10, 42, '1313000.00', '0.00', '0.00', '0.00', '131300.00', '0.00', '131300.00', '262600.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4072, 10, 43, '813000.00', '0.00', '0.00', '0.00', '81300.00', '0.00', '81300.00', '162600.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4073, 10, 45, '1120500.00', '0.00', '0.00', '0.00', '112050.00', '0.00', '112050.00', '224100.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4074, 10, 46, '580869.00', '0.00', '0.00', '0.00', '58086.90', '0.00', '58086.90', '116173.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4075, 10, 48, '450435.00', '0.00', '0.00', '0.00', '45043.50', '0.00', '45043.50', '90087.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4076, 10, 50, '955830.00', '0.00', '0.00', '0.00', '95583.00', '0.00', '95583.00', '191166.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4077, 10, 52, '657055.00', '0.00', '0.00', '0.00', '65705.50', '0.00', '65705.50', '131411.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4078, 10, 53, '359700.00', '0.00', '0.00', '0.00', '35970.00', '0.00', '35970.00', '71940.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4079, 10, 54, '288190.00', '0.00', '0.00', '0.00', '28819.00', '0.00', '28819.00', '57638.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4080, 10, 55, '1479667.00', '0.00', '0.00', '0.00', '147966.70', '0.00', '147966.70', '295933.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4081, 10, 58, '3911500.00', '0.00', '0.00', '0.00', '391150.00', '0.00', '391150.00', '782300.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4082, 10, 59, '320052.00', '0.00', '0.00', '0.00', '32005.20', '0.00', '32005.20', '64010.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4083, 10, 60, '1614000.00', '0.00', '0.00', '0.00', '161400.00', '0.00', '161400.00', '322800.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4084, 10, 61, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4085, 10, 64, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4086, 10, 65, '1777000.00', '0.00', '0.00', '0.00', '177700.00', '0.00', '177700.00', '355400.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4087, 10, 66, '1120500.00', '0.00', '0.00', '0.00', '112050.00', '0.00', '112050.00', '224100.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4088, 10, 67, '1646334.00', '0.00', '0.00', '0.00', '164633.40', '0.00', '164633.40', '329266.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4089, 10, 68, '2269458.13', '0.00', '0.00', '0.00', '226945.81', '0.00', '226945.81', '453891.63', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4090, 10, 70, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4091, 10, 71, '424000.00', '0.00', '0.00', '0.00', '42400.00', '0.00', '42400.00', '84800.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4092, 10, 72, '955830.00', '0.00', '0.00', '0.00', '95583.00', '0.00', '95583.00', '191166.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4093, 10, 73, '1448441.00', '0.00', '0.00', '0.00', '144844.10', '0.00', '144844.10', '289688.20', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4094, 10, 74, '640780.00', '0.00', '0.00', '0.00', '64078.00', '0.00', '64078.00', '128156.00', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4095, 10, 75, '1612643.68', '0.00', '0.00', '0.00', '161264.37', '0.00', '161264.37', '322528.74', 1, 0, 0, 1, '2018-11-08 07:30:57', '0000-00-00 00:00:00'),
-(4096, 9, 1, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4097, 9, 2, '366929.00', '0.00', '0.00', '0.00', '36692.90', '0.00', '36692.90', '73385.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4098, 9, 3, '1479667.00', '0.00', '0.00', '0.00', '147966.70', '0.00', '147966.70', '295933.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4099, 9, 5, '640780.00', '0.00', '0.00', '0.00', '64078.00', '0.00', '64078.00', '128156.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4100, 9, 7, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4101, 9, 9, '873760.00', '0.00', '0.00', '0.00', '87376.00', '0.00', '87376.00', '174752.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4102, 9, 10, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4103, 9, 13, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4104, 9, 14, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4105, 9, 15, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4106, 9, 17, '4781774.00', '0.00', '0.00', '0.00', '478177.40', '0.00', '478177.40', '956354.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4107, 9, 18, '366929.00', '0.00', '0.00', '0.00', '36692.90', '0.00', '36692.90', '73385.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4108, 9, 19, '2479666.00', '0.00', '0.00', '0.00', '247966.60', '0.00', '247966.60', '495933.20', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4109, 9, 22, '1813000.00', '0.00', '0.00', '0.00', '181300.00', '0.00', '181300.00', '362600.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4110, 9, 23, '1646334.00', '0.00', '0.00', '0.00', '164633.40', '0.00', '164633.40', '329266.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4111, 9, 24, '1813000.00', '0.00', '0.00', '0.00', '181300.00', '0.00', '181300.00', '362600.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4112, 9, 26, '1979666.00', '0.00', '0.00', '0.00', '197966.60', '0.00', '197966.60', '395933.20', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4113, 9, 28, '2597866.35', '0.00', '0.00', '0.00', '259786.64', '0.00', '259786.64', '519573.27', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4114, 9, 29, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4115, 9, 30, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4116, 9, 31, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4117, 9, 32, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4118, 9, 33, '4340000.00', '0.00', '0.00', '0.00', '434000.00', '0.00', '434000.00', '868000.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4119, 9, 34, '1229666.00', '0.00', '0.00', '0.00', '122966.60', '0.00', '122966.60', '245933.20', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4120, 9, 36, '1479667.00', '0.00', '0.00', '0.00', '147966.70', '0.00', '147966.70', '295933.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4121, 9, 42, '1313000.00', '0.00', '0.00', '0.00', '131300.00', '0.00', '131300.00', '262600.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4122, 9, 43, '813000.00', '0.00', '0.00', '0.00', '81300.00', '0.00', '81300.00', '162600.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4123, 9, 45, '1120500.00', '0.00', '0.00', '0.00', '112050.00', '0.00', '112050.00', '224100.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4124, 9, 46, '580869.00', '0.00', '0.00', '0.00', '58086.90', '0.00', '58086.90', '116173.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4125, 9, 48, '450435.00', '0.00', '0.00', '0.00', '45043.50', '0.00', '45043.50', '90087.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4126, 9, 50, '955830.00', '0.00', '0.00', '0.00', '95583.00', '0.00', '95583.00', '191166.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4127, 9, 52, '657055.00', '0.00', '0.00', '0.00', '65705.50', '0.00', '65705.50', '131411.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4128, 9, 53, '359700.00', '0.00', '0.00', '0.00', '35970.00', '0.00', '35970.00', '71940.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4129, 9, 54, '288190.00', '0.00', '0.00', '0.00', '28819.00', '0.00', '28819.00', '57638.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4130, 9, 55, '1479667.00', '0.00', '0.00', '0.00', '147966.70', '0.00', '147966.70', '295933.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4131, 9, 58, '3911500.00', '0.00', '0.00', '0.00', '391150.00', '0.00', '391150.00', '782300.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4132, 9, 59, '320052.00', '0.00', '0.00', '0.00', '32005.20', '0.00', '32005.20', '64010.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4133, 9, 60, '1614000.00', '0.00', '0.00', '0.00', '161400.00', '0.00', '161400.00', '322800.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4134, 9, 61, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4135, 9, 64, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4136, 9, 65, '1777000.00', '0.00', '0.00', '0.00', '177700.00', '0.00', '177700.00', '355400.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4137, 9, 66, '1120500.00', '0.00', '0.00', '0.00', '112050.00', '0.00', '112050.00', '224100.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4138, 9, 67, '1646334.00', '0.00', '0.00', '0.00', '164633.40', '0.00', '164633.40', '329266.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4139, 9, 68, '2269458.13', '0.00', '0.00', '0.00', '226945.81', '0.00', '226945.81', '453891.63', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4140, 9, 70, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4141, 9, 71, '424000.00', '0.00', '0.00', '0.00', '42400.00', '0.00', '42400.00', '84800.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4142, 9, 72, '955830.00', '0.00', '0.00', '0.00', '95583.00', '0.00', '95583.00', '191166.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4143, 9, 73, '1448441.00', '0.00', '0.00', '0.00', '144844.10', '0.00', '144844.10', '289688.20', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4144, 9, 74, '640780.00', '0.00', '0.00', '0.00', '64078.00', '0.00', '64078.00', '128156.00', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00'),
-(4145, 9, 75, '1612643.68', '0.00', '0.00', '0.00', '161264.37', '0.00', '161264.37', '322528.74', 1, 0, 0, 1, '2018-11-11 09:17:13', '0000-00-00 00:00:00');
+(4797, 10, 1, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4798, 10, 2, '366929.00', '0.00', '0.00', '0.00', '36692.90', '0.00', '36692.90', '73385.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4799, 10, 3, '5687500.00', '0.00', '0.00', '0.00', '568750.00', '0.00', '568750.00', '1137500.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4800, 10, 4, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4801, 10, 5, '640780.00', '0.00', '0.00', '0.00', '64078.00', '0.00', '64078.00', '128156.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4802, 10, 6, '657055.00', '0.00', '0.00', '0.00', '78846.60', '0.00', '52564.40', '131411.00', 7, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4803, 10, 7, '5687500.00', '0.00', '0.00', '0.00', '568750.00', '0.00', '568750.00', '1137500.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4804, 10, 8, '700000.00', '0.00', '0.00', '0.00', '70000.00', '0.00', '140000.00', '210000.00', 4, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4805, 10, 9, '873760.00', '0.00', '0.00', '0.00', '87376.00', '0.00', '87376.00', '174752.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4806, 10, 10, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4807, 10, 13, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4808, 10, 14, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4809, 10, 15, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4810, 10, 17, '4781774.00', '0.00', '0.00', '0.00', '478177.40', '0.00', '478177.40', '956354.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4811, 10, 18, '366929.00', '0.00', '0.00', '0.00', '36692.90', '0.00', '36692.90', '73385.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4812, 10, 19, '2479666.00', '0.00', '0.00', '0.00', '247966.60', '0.00', '247966.60', '495933.20', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4813, 10, 22, '1813000.00', '0.00', '0.00', '0.00', '181300.00', '0.00', '181300.00', '362600.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4814, 10, 23, '1646334.00', '0.00', '0.00', '0.00', '164633.40', '0.00', '164633.40', '329266.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4815, 10, 24, '1813000.00', '0.00', '0.00', '0.00', '181300.00', '0.00', '181300.00', '362600.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4816, 10, 26, '1979666.00', '0.00', '0.00', '0.00', '197966.60', '0.00', '197966.60', '395933.20', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4817, 10, 28, '2597866.35', '0.00', '0.00', '0.00', '259786.64', '0.00', '259786.64', '519573.27', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4818, 10, 29, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4819, 10, 30, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4820, 10, 31, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4821, 10, 32, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4822, 10, 33, '4340000.00', '0.00', '0.00', '0.00', '434000.00', '0.00', '434000.00', '868000.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4823, 10, 34, '1229666.00', '0.00', '0.00', '0.00', '122966.60', '0.00', '122966.60', '245933.20', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4824, 10, 36, '1479667.00', '0.00', '0.00', '0.00', '147966.70', '0.00', '147966.70', '295933.40', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4825, 10, 42, '1313000.00', '0.00', '0.00', '0.00', '131300.00', '0.00', '131300.00', '262600.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4826, 10, 43, '813000.00', '0.00', '0.00', '0.00', '81300.00', '0.00', '81300.00', '162600.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4827, 10, 45, '1120500.00', '0.00', '0.00', '0.00', '112050.00', '0.00', '112050.00', '224100.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4828, 10, 46, '580869.00', '0.00', '0.00', '0.00', '58086.90', '0.00', '58086.90', '116173.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4829, 10, 48, '450435.00', '0.00', '0.00', '0.00', '45043.50', '0.00', '45043.50', '90087.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4830, 10, 50, '955830.00', '0.00', '0.00', '0.00', '95583.00', '0.00', '95583.00', '191166.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4831, 10, 52, '657055.00', '0.00', '0.00', '0.00', '65705.50', '0.00', '65705.50', '131411.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4832, 10, 53, '359700.00', '0.00', '0.00', '0.00', '35970.00', '0.00', '35970.00', '71940.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4833, 10, 54, '288190.00', '0.00', '0.00', '0.00', '28819.00', '0.00', '28819.00', '57638.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4834, 10, 55, '1479667.00', '0.00', '0.00', '0.00', '147966.70', '0.00', '147966.70', '295933.40', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4835, 10, 58, '3911500.00', '0.00', '0.00', '0.00', '391150.00', '0.00', '391150.00', '782300.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4836, 10, 59, '320052.00', '0.00', '0.00', '0.00', '32005.20', '0.00', '32005.20', '64010.40', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4837, 10, 60, '1614000.00', '0.00', '0.00', '0.00', '161400.00', '0.00', '161400.00', '322800.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4838, 10, 61, '235696.00', '0.00', '0.00', '0.00', '23569.60', '0.00', '23569.60', '47139.20', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4839, 10, 64, '301312.00', '0.00', '0.00', '0.00', '30131.20', '0.00', '30131.20', '60262.40', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4840, 10, 65, '1777000.00', '0.00', '0.00', '0.00', '177700.00', '0.00', '177700.00', '355400.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4841, 10, 66, '1120500.00', '0.00', '0.00', '0.00', '112050.00', '0.00', '112050.00', '224100.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4842, 10, 67, '1646334.00', '0.00', '0.00', '0.00', '164633.40', '0.00', '164633.40', '329266.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4843, 10, 68, '2269458.13', '0.00', '0.00', '0.00', '226945.81', '0.00', '226945.81', '453891.63', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4844, 10, 70, '1146334.00', '0.00', '0.00', '0.00', '114633.40', '0.00', '114633.40', '229266.80', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4845, 10, 71, '424000.00', '0.00', '0.00', '0.00', '42400.00', '0.00', '42400.00', '84800.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4846, 10, 72, '955830.00', '0.00', '0.00', '0.00', '95583.00', '0.00', '95583.00', '191166.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4847, 10, 73, '1448441.00', '0.00', '0.00', '0.00', '144844.10', '0.00', '144844.10', '289688.20', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4848, 10, 74, '640780.00', '0.00', '0.00', '0.00', '64078.00', '0.00', '64078.00', '128156.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4849, 10, 75, '1612643.68', '0.00', '0.00', '0.00', '161264.37', '0.00', '161264.37', '322528.74', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4850, 10, 79, '1470000.00', '0.00', '0.00', '0.00', '147000.00', '0.00', '147000.00', '294000.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4851, 10, 80, '10000000.00', '0.00', '0.00', '0.00', '1000000.00', '0.00', '1000000.00', '2000000.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4852, 10, 81, '2000000.00', '0.00', '0.00', '0.00', '200000.00', '0.00', '200000.00', '400000.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00'),
+(4853, 10, 82, '23000.00', '0.00', '0.00', '0.00', '2300.00', '0.00', '2300.00', '4600.00', 1, 0, 0, 1, '2019-01-17 14:43:23', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5753,7 +5898,7 @@ CREATE TABLE `prlsstypes` (
 --
 
 INSERT INTO `prlsstypes` (`id`, `bracket`, `rangefrom`, `rangeto`, `salarycredit`, `pencode`, `penname`, `employerss`, `employerec`, `employeess`, `total`, `created_at`, `updated_at`) VALUES
-(1, 0, '0.00', '9999999999.99', NULL, 'NSSF', 'NSSSF', '10.00', '10.00', '10.00', '20.00', NULL, '2018-10-16 19:05:37'),
+(1, 0, '0.00', '9999999999.99', NULL, 'PSSSF', 'PSSSF', '10.00', '10.00', '10.00', '20.00', NULL, '2018-10-16 19:05:37'),
 (3, 10, '0.00', '99999999.00', NULL, 'PSSS', 'publick ss  social', '10.00', '10.00', '10.00', '20.00', '2018-04-26 08:24:51', '2018-04-26 08:24:51'),
 (4, 10, '0.00', '9999999999.99', NULL, 'PPF', 'PPF old', '20.00', '20.00', '10.00', '30.00', '2018-04-26 09:42:30', '2018-10-16 19:06:36'),
 (7, 10, '0.00', '77777777.00', NULL, 'DCM', 'DCM and T', '8.00', '8.00', '12.00', '20.00', '2018-10-16 19:19:24', '2018-10-16 19:19:24'),
@@ -5842,106 +5987,63 @@ CREATE TABLE `prltaxtransactions` (
 --
 
 INSERT INTO `prltaxtransactions` (`id`, `payroll_id`, `employee_id`, `taxable_income`, `tax`, `fsmonth`, `fsyear`, `created_at`, `updated_at`, `creator_id`) VALUES
-(3858, 10, 1, '1031180.80', '191454.24', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3859, 10, 2, '366929.00', '18485.80', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3860, 10, 3, '1331700.30', '281610.09', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3861, 10, 5, '576702.00', '62275.50', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3862, 10, 7, '271180.80', '9106.27', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3863, 10, 9, '786384.00', '118015.20', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3864, 10, 10, '271180.80', '9106.27', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3865, 10, 13, '271180.80', '9106.27', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3866, 10, 14, '212126.40', '3791.38', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3867, 10, 15, '212126.40', '3791.38', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3868, 10, 17, '4303596.60', '1173178.98', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3869, 10, 18, '330236.10', '14421.25', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3870, 10, 19, '2231699.40', '551609.82', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3871, 10, 22, '1631700.00', '371610.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3872, 10, 23, '1481700.60', '326610.18', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3873, 10, 24, '1631700.00', '371610.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3874, 10, 26, '1781699.40', '416609.82', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3875, 10, 28, '2338079.71', '583523.91', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3876, 10, 29, '1031700.60', '191610.18', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3877, 10, 30, '1031700.60', '191610.18', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3878, 10, 31, '1031700.60', '191610.18', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3879, 10, 32, '1031700.60', '191610.18', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3880, 10, 33, '3906000.00', '1053900.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3881, 10, 34, '1106699.40', '214109.82', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3882, 10, 36, '1331700.30', '281610.09', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3883, 10, 42, '1181700.00', '236610.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3884, 10, 43, '731700.00', '101610.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3885, 10, 45, '1008450.00', '184635.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3886, 10, 46, '522782.10', '49656.42', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3887, 10, 48, '405391.50', '26178.30', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3888, 10, 50, '860247.00', '140174.10', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3889, 10, 52, '591349.50', '65937.38', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3890, 10, 53, '323730.00', '13835.70', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3891, 10, 54, '259371.00', '8043.39', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3892, 10, 55, '1331700.30', '281610.09', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3893, 10, 58, '3520350.00', '938205.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3894, 10, 59, '288046.80', '10624.21', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3895, 10, 60, '1452600.00', '317880.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3896, 10, 61, '212126.40', '3791.38', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3897, 10, 64, '271180.80', '9106.27', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3898, 10, 65, '1599300.00', '361890.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3899, 10, 66, '1008450.00', '184635.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3900, 10, 67, '1481700.60', '326610.18', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3901, 10, 68, '2042512.32', '494853.70', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3902, 10, 70, '1031700.60', '191610.18', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3903, 10, 71, '381600.00', '21420.00', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3904, 10, 72, '860247.00', '140174.10', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3905, 10, 73, '1303596.90', '273179.07', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3906, 10, 74, '576702.00', '62275.50', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3907, 10, 75, '1451379.31', '317513.79', 0, 0, '2018-11-08 07:30:58', '0000-00-00 00:00:00', 1),
-(3908, 9, 1, '1025154.56', '189646.37', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3909, 9, 2, '359590.42', '17063.14', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3910, 9, 3, '1302106.96', '272732.09', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3911, 9, 5, '563886.40', '59071.60', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3912, 9, 7, '265154.56', '8563.91', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3913, 9, 9, '768908.80', '112772.64', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3914, 9, 10, '265154.56', '8563.91', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3915, 9, 13, '265154.56', '8563.91', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3916, 9, 14, '207412.48', '3367.12', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3917, 9, 15, '207412.48', '3367.12', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3918, 9, 17, '4207961.12', '1144488.34', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3919, 9, 18, '322897.52', '13760.78', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3920, 9, 19, '2182106.08', '536731.82', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3921, 9, 22, '1595440.00', '360732.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3922, 9, 23, '1448773.92', '316732.18', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3923, 9, 24, '1595440.00', '360732.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3924, 9, 26, '1742106.08', '404731.82', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3925, 9, 28, '2286122.38', '567936.71', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3926, 9, 29, '1008773.92', '184732.18', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3927, 9, 30, '1008773.92', '184732.18', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3928, 9, 31, '1008773.92', '184732.18', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3929, 9, 32, '1008773.92', '184732.18', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3930, 9, 33, '3819200.00', '1027860.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3931, 9, 34, '1082106.08', '206731.82', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3932, 9, 36, '1302106.96', '272732.09', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3933, 9, 42, '1155440.00', '228732.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3934, 9, 43, '715440.00', '96960.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3935, 9, 45, '986040.00', '177912.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3936, 9, 46, '511164.72', '47332.94', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3937, 9, 48, '396382.80', '24376.56', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3938, 9, 50, '841130.40', '134439.12', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3939, 9, 52, '578208.40', '62652.10', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3940, 9, 53, '316536.00', '13188.24', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3941, 9, 54, '253607.20', '7524.65', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3942, 9, 55, '1302106.96', '272732.09', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3943, 9, 58, '3442120.00', '914736.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3944, 9, 59, '281645.76', '10048.12', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3945, 9, 60, '1420320.00', '308196.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3946, 9, 61, '207412.48', '3367.12', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3947, 9, 64, '265154.56', '8563.91', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3948, 9, 65, '1563760.00', '351228.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3949, 9, 66, '986040.00', '177912.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3950, 9, 67, '1448773.92', '316732.18', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3951, 9, 68, '1997123.16', '481236.95', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3952, 9, 70, '1008773.92', '184732.18', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3953, 9, 71, '373120.00', '19724.00', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3954, 9, 72, '841130.40', '134439.12', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3955, 9, 73, '1274628.08', '264488.42', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3956, 9, 74, '563886.40', '59071.60', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1),
-(3957, 9, 75, '1419126.44', '307837.93', 0, 0, '2018-11-11 09:17:14', '0000-00-00 00:00:00', 1);
+(4624, 10, 1, '2261180.80', '560454.24', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4625, 10, 2, '366929.00', '18485.80', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4626, 10, 3, '5118750.00', '1417725.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4627, 10, 4, '1031700.60', '191610.18', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4628, 10, 5, '1243702.00', '255210.60', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4629, 10, 6, '4022652.40', '1088895.72', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4630, 10, 7, '5118750.00', '1417725.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4631, 10, 8, '630000.00', '75600.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4632, 10, 9, '786384.00', '118015.20', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4633, 10, 10, '271180.80', '9106.27', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4634, 10, 13, '271180.80', '9106.27', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4635, 10, 14, '212126.40', '3791.38', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4636, 10, 15, '212126.40', '3791.38', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4637, 10, 17, '4303596.60', '1173178.98', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4638, 10, 18, '330236.10', '14421.25', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4639, 10, 19, '2231699.40', '551609.82', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4640, 10, 22, '1631700.00', '371610.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4641, 10, 23, '1481700.60', '326610.18', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4642, 10, 24, '1631700.00', '371610.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4643, 10, 26, '1781699.40', '416609.82', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4644, 10, 28, '2338079.71', '583523.91', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4645, 10, 29, '1031700.60', '191610.18', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4646, 10, 30, '1031700.60', '191610.18', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4647, 10, 31, '1031700.60', '191610.18', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4648, 10, 32, '1031700.60', '191610.18', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4649, 10, 33, '3906000.00', '1053900.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4650, 10, 34, '1106699.40', '214109.82', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4651, 10, 36, '1331700.30', '281610.09', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4652, 10, 42, '1181700.00', '236610.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4653, 10, 43, '731700.00', '101610.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4654, 10, 45, '1008450.00', '184635.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4655, 10, 46, '522782.10', '49656.42', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4656, 10, 48, '405391.50', '26178.30', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4657, 10, 50, '860247.00', '140174.10', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4658, 10, 52, '591349.50', '65937.38', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4659, 10, 53, '323730.00', '13835.70', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4660, 10, 54, '259371.00', '8043.39', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4661, 10, 55, '1331700.30', '281610.09', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4662, 10, 58, '3520350.00', '938205.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4663, 10, 59, '288046.80', '10624.21', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4664, 10, 60, '1452600.00', '317880.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4665, 10, 61, '212126.40', '3791.38', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4666, 10, 64, '271180.80', '9106.27', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4667, 10, 65, '1599300.00', '361890.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4668, 10, 66, '1008450.00', '184635.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4669, 10, 67, '1481700.60', '326610.18', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4670, 10, 68, '2042512.32', '494853.70', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4671, 10, 70, '1031700.60', '191610.18', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4672, 10, 71, '381600.00', '21420.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4673, 10, 72, '860247.00', '140174.10', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4674, 10, 73, '1303596.90', '273179.07', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4675, 10, 74, '576702.00', '62275.50', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4676, 10, 75, '1451379.31', '317513.79', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4677, 10, 79, '1323000.00', '279000.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4678, 10, 80, '9000000.00', '2582100.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4679, 10, 81, '1800000.00', '422100.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1),
+(4680, 10, 82, '20700.00', '0.00', 0, 0, '2019-01-17 14:43:24', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -5987,106 +6089,118 @@ CREATE TABLE `prltransactions` (
 --
 
 INSERT INTO `prltransactions` (`id`, `payroll_id`, `employee_id`, `pay_type`, `sstype_id`, `deduct_tax`, `deduct_ss`, `deduct_health`, `deduct_hdmf`, `pay_period`, `period_rate`, `hourly_rate`, `reg_hours`, `basicpay`, `grosspay`, `ss_pay`, `health`, `hdmf`, `other_income_taxable`, `other_income_nontaxable`, `other_income`, `taxable_income`, `tax`, `other_deduction`, `loan_deduction`, `total_deduction`, `netpay`, `creator_id`, `created_at`, `updated_at`) VALUES
-(6384, 10, 1, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 1061312, '30131.20', '0.00', '0.00', '760000.00', '0.00', 760000, '1031180.80', '191454.24', 0, '0.00', '221585.44', 839726.56, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6385, 10, 2, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 366929, 0, 0, 366929, 403621.9, '36692.90', '0.00', '0.00', '36692.90', '0.00', 36692.9, '366929.00', '18485.80', 0, '0.00', '55178.70', 348443.2, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6386, 10, 3, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '0.00', '0.00', '0.00', '0.00', 0, '1331700.30', '281610.09', 221950.05, '0.00', '651526.84', 828140.16, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6387, 10, 5, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 640780, 0, 0, 640780, 640780, '64078.00', '0.00', '0.00', '0.00', '0.00', 0, '576702.00', '62275.50', 0, '0.00', '126353.50', 514426.5, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6388, 10, 7, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '271180.80', '9106.27', 45196.8, '0.00', '84434.27', 216877.72999999998, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6389, 10, 9, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 873760, 0, 0, 873760, 873760, '87376.00', '0.00', '0.00', '0.00', '0.00', 0, '786384.00', '118015.20', 0, '150000.00', '355391.20', 518368.8, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6390, 10, 10, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '271180.80', '9106.27', 0, '0.00', '39237.47', 262074.53, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6391, 10, 13, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '271180.80', '9106.27', 0, '0.00', '39237.47', 262074.53, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6392, 10, 14, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '212126.40', '3791.38', 0, '0.00', '27360.98', 208335.02, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6393, 10, 15, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '212126.40', '3791.38', 0, '16498.72', '43859.70', 191836.3, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6394, 10, 17, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 4781774, 0, 0, 4781774, 4781774, '478177.40', '0.00', '0.00', '0.00', '0.00', 0, '4303596.60', '1173178.98', 0, '0.00', '1651356.38', 3130417.62, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6395, 10, 18, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 366929, 0, 0, 366929, 366929, '36692.90', '0.00', '0.00', '0.00', '0.00', 0, '330236.10', '14421.25', 0, '0.00', '51114.15', 315814.85, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6396, 10, 19, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2479666, 0, 0, 2479666, 2479666, '247966.60', '0.00', '0.00', '0.00', '0.00', 0, '2231699.40', '551609.82', 0, '0.00', '799576.42', 1680089.58, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6397, 10, 22, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1813000, 0, 0, 1813000, 1813000, '181300.00', '0.00', '0.00', '0.00', '0.00', 0, '1631700.00', '371610.00', 0, '0.00', '552910.00', 1260090, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6398, 10, 23, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1646334, 0, 0, 1646334, 1646334, '164633.40', '0.00', '0.00', '0.00', '0.00', 0, '1481700.60', '326610.18', 0, '300000.00', '791243.58', 855090.42, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6399, 10, 24, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1813000, 0, 0, 1813000, 1813000, '181300.00', '0.00', '0.00', '0.00', '0.00', 0, '1631700.00', '371610.00', 271950, '0.00', '824860.00', 988140, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6400, 10, 26, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1979666, 0, 0, 1979666, 1979666, '197966.60', '0.00', '0.00', '0.00', '0.00', 0, '1781699.40', '416609.82', 0, '0.00', '614576.42', 1365089.58, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6401, 10, 28, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2597866.35, 0, 0, 2597866.35, 2597866.35, '259786.64', '0.00', '0.00', '0.00', '0.00', 0, '2338079.71', '583523.91', 0, '0.00', '843310.55', 1754555.8, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6402, 10, 29, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6403, 10, 30, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6404, 10, 31, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6405, 10, 32, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6406, 10, 33, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 4340000, 0, 0, 4340000, 4340000, '434000.00', '0.00', '0.00', '0.00', '0.00', 0, '3906000.00', '1053900.00', 0, '0.00', '1487900.00', 2852100, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6407, 10, 34, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1229666, 0, 0, 1229666, 1229666, '122966.60', '0.00', '0.00', '0.00', '0.00', 0, '1106699.40', '214109.82', 0, '0.00', '337076.42', 892589.5800000001, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6408, 10, 36, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '0.00', '0.00', '0.00', '0.00', 0, '1331700.30', '281610.09', 0, '0.00', '429576.79', 1050090.21, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6409, 10, 42, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1313000, 0, 0, 1313000, 1313000, '131300.00', '0.00', '0.00', '0.00', '0.00', 0, '1181700.00', '236610.00', 0, '0.00', '367910.00', 945090, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6410, 10, 43, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 813000, 0, 0, 813000, 813000, '81300.00', '0.00', '0.00', '0.00', '0.00', 0, '731700.00', '101610.00', 0, '0.00', '182910.00', 630090, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6411, 10, 45, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1120500, 0, 0, 1120500, 1120500, '112050.00', '0.00', '0.00', '0.00', '0.00', 0, '1008450.00', '184635.00', 0, '0.00', '296685.00', 823815, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6412, 10, 46, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 580869, 0, 0, 580869, 580869, '58086.90', '0.00', '0.00', '0.00', '0.00', 0, '522782.10', '49656.42', 0, '0.00', '107743.32', 473125.68, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6413, 10, 48, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 450435, 0, 0, 450435, 450435, '45043.50', '0.00', '0.00', '0.00', '0.00', 0, '405391.50', '26178.30', 0, '0.00', '71221.80', 379213.2, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6414, 10, 50, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 955830, 0, 0, 955830, 955830, '95583.00', '0.00', '0.00', '0.00', '0.00', 0, '860247.00', '140174.10', 0, '0.00', '235757.10', 720072.9, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6415, 10, 52, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 657055, 0, 0, 657055, 657055, '65705.50', '0.00', '0.00', '0.00', '0.00', 0, '591349.50', '65937.38', 0, '0.00', '131642.88', 525412.12, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6416, 10, 53, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 359700, 0, 0, 359700, 359700, '35970.00', '0.00', '0.00', '0.00', '0.00', 0, '323730.00', '13835.70', 0, '0.00', '49805.70', 309894.3, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6417, 10, 54, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 288190, 0, 0, 288190, 288190, '28819.00', '0.00', '0.00', '0.00', '0.00', 0, '259371.00', '8043.39', 0, '0.00', '36862.39', 251327.61, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6418, 10, 55, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '0.00', '0.00', '0.00', '0.00', 0, '1331700.30', '281610.09', 0, '0.00', '429576.79', 1050090.21, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6419, 10, 58, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 3911500, 0, 0, 3911500, 3911500, '391150.00', '0.00', '0.00', '0.00', '0.00', 0, '3520350.00', '938205.00', 0, '0.00', '1329355.00', 2582145, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6420, 10, 59, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 320052, 0, 0, 320052, 320052, '32005.20', '0.00', '0.00', '0.00', '0.00', 0, '288046.80', '10624.21', 0, '0.00', '42629.41', 277422.58999999997, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6421, 10, 60, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1614000, 0, 0, 1614000, 1614000, '161400.00', '0.00', '0.00', '0.00', '0.00', 0, '1452600.00', '317880.00', 0, '0.00', '479280.00', 1134720, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6422, 10, 61, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '212126.40', '3791.38', 0, '0.00', '27360.98', 208335.02, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6423, 10, 64, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '271180.80', '9106.27', 0, '0.00', '39237.47', 262074.53, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6424, 10, 65, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1777000, 0, 0, 1777000, 1777000, '177700.00', '0.00', '0.00', '0.00', '0.00', 0, '1599300.00', '361890.00', 0, '0.00', '539590.00', 1237410, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6425, 10, 66, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1120500, 0, 0, 1120500, 1120500, '112050.00', '0.00', '0.00', '0.00', '0.00', 0, '1008450.00', '184635.00', 0, '0.00', '296685.00', 823815, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6426, 10, 67, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1646334, 0, 0, 1646334, 1646334, '164633.40', '0.00', '0.00', '0.00', '0.00', 0, '1481700.60', '326610.18', 0, '0.00', '491243.58', 1155090.42, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6427, 10, 68, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2269458.13, 0, 0, 2269458.13, 2269458.13, '226945.81', '0.00', '0.00', '0.00', '0.00', 0, '2042512.32', '494853.70', 0, '0.00', '721799.51', 1547658.6199999999, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6428, 10, 70, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6429, 10, 71, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 424000, 0, 0, 424000, 424000, '42400.00', '0.00', '0.00', '0.00', '0.00', 0, '381600.00', '21420.00', 0, '0.00', '63820.00', 360180, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6430, 10, 72, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 955830, 0, 0, 955830, 955830, '95583.00', '0.00', '0.00', '0.00', '0.00', 0, '860247.00', '140174.10', 0, '0.00', '235757.10', 720072.9, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6431, 10, 73, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1448441, 0, 0, 1448441, 1448441, '144844.10', '0.00', '0.00', '0.00', '0.00', 0, '1303596.90', '273179.07', 0, '0.00', '418023.17', 1030417.8300000001, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6432, 10, 74, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 640780, 0, 0, 640780, 640780, '64078.00', '0.00', '0.00', '0.00', '0.00', 0, '576702.00', '62275.50', 0, '0.00', '126353.50', 514426.5, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6433, 10, 75, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1612643.68, 0, 0, 1612643.68, 1612643.68, '161264.37', '0.00', '0.00', '0.00', '0.00', 0, '1451379.31', '317513.79', 0, '0.00', '478778.16', 1133865.52, 1, '2018-11-08 07:30:56', '2018-11-08 07:30:59'),
-(6434, 9, 1, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 1061312, '30131.20', '6026.24', '0.00', '760000.00', '0.00', 760000, '1025154.56', '189646.37', 0, '0.00', '225803.81', 835508.19, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6435, 9, 2, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 366929, 0, 0, 366929, 403621.9, '36692.90', '7338.58', '0.00', '36692.90', '0.00', 36692.9, '359590.42', '17063.14', 0, '0.00', '61094.62', 342527.28, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6436, 9, 3, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '29593.34', '0.00', '0.00', '0.00', 0, '1302106.96', '272732.09', 221950.05, '0.00', '672242.18', 807424.82, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6437, 9, 5, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 640780, 0, 0, 640780, 640780, '64078.00', '12815.60', '0.00', '0.00', '0.00', 0, '563886.40', '59071.60', 0, '0.00', '135965.20', 504814.8, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6438, 9, 7, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '6026.24', '0.00', '0.00', '0.00', 0, '265154.56', '8563.91', 45196.8, '0.00', '89918.15', 211393.85, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6439, 9, 9, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 873760, 0, 0, 873760, 873760, '87376.00', '17475.20', '0.00', '0.00', '0.00', 0, '768908.80', '112772.64', 0, '150000.00', '367623.84', 506136.16, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6440, 9, 10, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '6026.24', '0.00', '0.00', '0.00', 0, '265154.56', '8563.91', 0, '0.00', '44721.35', 256590.65, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6441, 9, 13, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '6026.24', '0.00', '0.00', '0.00', 0, '265154.56', '8563.91', 0, '0.00', '44721.35', 256590.65, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6442, 9, 14, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '4713.92', '0.00', '0.00', '0.00', 0, '207412.48', '3367.12', 0, '0.00', '31650.64', 204045.36, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6443, 9, 15, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '4713.92', '0.00', '0.00', '0.00', 0, '207412.48', '3367.12', 0, '0.00', '31650.64', 204045.36, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6444, 9, 17, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 4781774, 0, 0, 4781774, 4781774, '478177.40', '95635.48', '0.00', '0.00', '0.00', 0, '4207961.12', '1144488.34', 0, '0.00', '1718301.22', 3063472.7800000003, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6445, 9, 18, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 366929, 0, 0, 366929, 366929, '36692.90', '7338.58', '0.00', '0.00', '0.00', 0, '322897.52', '13760.78', 0, '0.00', '57792.26', 309136.74, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6446, 9, 19, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2479666, 0, 0, 2479666, 2479666, '247966.60', '49593.32', '0.00', '0.00', '0.00', 0, '2182106.08', '536731.82', 0, '0.00', '834291.74', 1645374.26, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6447, 9, 22, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1813000, 0, 0, 1813000, 1813000, '181300.00', '36260.00', '0.00', '0.00', '0.00', 0, '1595440.00', '360732.00', 0, '0.00', '578292.00', 1234708, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6448, 9, 23, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1646334, 0, 0, 1646334, 1646334, '164633.40', '32926.68', '0.00', '0.00', '0.00', 0, '1448773.92', '316732.18', 0, '100000.00', '614292.26', 1032041.74, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6449, 9, 24, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1813000, 0, 0, 1813000, 1813000, '181300.00', '36260.00', '0.00', '0.00', '0.00', 0, '1595440.00', '360732.00', 271950, '0.00', '850242.00', 962758, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6450, 9, 26, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1979666, 0, 0, 1979666, 1979666, '197966.60', '39593.32', '0.00', '0.00', '0.00', 0, '1742106.08', '404731.82', 0, '0.00', '642291.74', 1337374.26, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6451, 9, 28, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2597866.35, 0, 0, 2597866.35, 2597866.35, '259786.64', '51957.33', '0.00', '0.00', '0.00', 0, '2286122.38', '567936.71', 0, '0.00', '879680.68', 1718185.67, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6452, 9, 29, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '22926.68', '0.00', '0.00', '0.00', 0, '1008773.92', '184732.18', 0, '0.00', '322292.26', 824041.74, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6453, 9, 30, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '22926.68', '0.00', '0.00', '0.00', 0, '1008773.92', '184732.18', 0, '0.00', '322292.26', 824041.74, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6454, 9, 31, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '22926.68', '0.00', '0.00', '0.00', 0, '1008773.92', '184732.18', 0, '0.00', '322292.26', 824041.74, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6455, 9, 32, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '22926.68', '0.00', '0.00', '0.00', 0, '1008773.92', '184732.18', 0, '0.00', '322292.26', 824041.74, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6456, 9, 33, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 4340000, 0, 0, 4340000, 4340000, '434000.00', '86800.00', '0.00', '0.00', '0.00', 0, '3819200.00', '1027860.00', 0, '0.00', '1548660.00', 2791340, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6457, 9, 34, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1229666, 0, 0, 1229666, 1229666, '122966.60', '24593.32', '0.00', '0.00', '0.00', 0, '1082106.08', '206731.82', 0, '0.00', '354291.74', 875374.26, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6458, 9, 36, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '29593.34', '0.00', '0.00', '0.00', 0, '1302106.96', '272732.09', 0, '0.00', '450292.13', 1029374.87, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6459, 9, 42, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1313000, 0, 0, 1313000, 1313000, '131300.00', '26260.00', '0.00', '0.00', '0.00', 0, '1155440.00', '228732.00', 0, '0.00', '386292.00', 926708, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6460, 9, 43, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 813000, 0, 0, 813000, 813000, '81300.00', '16260.00', '0.00', '0.00', '0.00', 0, '715440.00', '96960.00', 0, '0.00', '194520.00', 618480, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6461, 9, 45, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1120500, 0, 0, 1120500, 1120500, '112050.00', '22410.00', '0.00', '0.00', '0.00', 0, '986040.00', '177912.00', 0, '0.00', '312372.00', 808128, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6462, 9, 46, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 580869, 0, 0, 580869, 580869, '58086.90', '11617.38', '0.00', '0.00', '0.00', 0, '511164.72', '47332.94', 0, '0.00', '117037.22', 463831.78, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6463, 9, 48, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 450435, 0, 0, 450435, 450435, '45043.50', '9008.70', '0.00', '0.00', '0.00', 0, '396382.80', '24376.56', 0, '0.00', '78428.76', 372006.24, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6464, 9, 50, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 955830, 0, 0, 955830, 955830, '95583.00', '19116.60', '0.00', '0.00', '0.00', 0, '841130.40', '134439.12', 0, '0.00', '249138.72', 706691.28, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6465, 9, 52, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 657055, 0, 0, 657055, 657055, '65705.50', '13141.10', '0.00', '0.00', '0.00', 0, '578208.40', '62652.10', 0, '0.00', '141498.70', 515556.3, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6466, 9, 53, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 359700, 0, 0, 359700, 359700, '35970.00', '7194.00', '0.00', '0.00', '0.00', 0, '316536.00', '13188.24', 0, '0.00', '56352.24', 303347.76, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6467, 9, 54, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 288190, 0, 0, 288190, 288190, '28819.00', '5763.80', '0.00', '0.00', '0.00', 0, '253607.20', '7524.65', 0, '0.00', '42107.45', 246082.55, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6468, 9, 55, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '29593.34', '0.00', '0.00', '0.00', 0, '1302106.96', '272732.09', 0, '0.00', '450292.13', 1029374.87, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6469, 9, 58, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 3911500, 0, 0, 3911500, 3911500, '391150.00', '78230.00', '0.00', '0.00', '0.00', 0, '3442120.00', '914736.00', 0, '0.00', '1384116.00', 2527384, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6470, 9, 59, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 320052, 0, 0, 320052, 320052, '32005.20', '6401.04', '0.00', '0.00', '0.00', 0, '281645.76', '10048.12', 0, '0.00', '48454.36', 271597.64, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6471, 9, 60, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1614000, 0, 0, 1614000, 1614000, '161400.00', '32280.00', '0.00', '0.00', '0.00', 0, '1420320.00', '308196.00', 0, '0.00', '501876.00', 1112124, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6472, 9, 61, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '4713.92', '0.00', '0.00', '0.00', 0, '207412.48', '3367.12', 0, '0.00', '31650.64', 204045.36, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6473, 9, 64, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '6026.24', '0.00', '0.00', '0.00', 0, '265154.56', '8563.91', 0, '0.00', '44721.35', 256590.65, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6474, 9, 65, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1777000, 0, 0, 1777000, 1777000, '177700.00', '35540.00', '0.00', '0.00', '0.00', 0, '1563760.00', '351228.00', 0, '0.00', '564468.00', 1212532, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6475, 9, 66, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1120500, 0, 0, 1120500, 1120500, '112050.00', '22410.00', '0.00', '0.00', '0.00', 0, '986040.00', '177912.00', 0, '0.00', '312372.00', 808128, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6476, 9, 67, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1646334, 0, 0, 1646334, 1646334, '164633.40', '32926.68', '0.00', '0.00', '0.00', 0, '1448773.92', '316732.18', 0, '0.00', '514292.26', 1132041.74, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6477, 9, 68, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2269458.13, 0, 0, 2269458.13, 2269458.13, '226945.81', '45389.16', '0.00', '0.00', '0.00', 0, '1997123.16', '481236.95', 0, '0.00', '753571.92', 1515886.21, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6478, 9, 70, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '22926.68', '0.00', '0.00', '0.00', 0, '1008773.92', '184732.18', 0, '0.00', '322292.26', 824041.74, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6479, 9, 71, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 424000, 0, 0, 424000, 424000, '42400.00', '8480.00', '0.00', '0.00', '0.00', 0, '373120.00', '19724.00', 0, '0.00', '70604.00', 353396, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6480, 9, 72, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 955830, 0, 0, 955830, 955830, '95583.00', '19116.60', '0.00', '0.00', '0.00', 0, '841130.40', '134439.12', 0, '0.00', '249138.72', 706691.28, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6481, 9, 73, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1448441, 0, 0, 1448441, 1448441, '144844.10', '28968.82', '0.00', '0.00', '0.00', 0, '1274628.08', '264488.42', 0, '0.00', '438301.34', 1010139.6599999999, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6482, 9, 74, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 640780, 0, 0, 640780, 640780, '64078.00', '12815.60', '0.00', '0.00', '0.00', 0, '563886.40', '59071.60', 0, '0.00', '135965.20', 504814.8, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14'),
-(6483, 9, 75, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1612643.68, 0, 0, 1612643.68, 1612643.68, '161264.37', '32252.87', '0.00', '0.00', '0.00', 0, '1419126.44', '307837.93', 0, '0.00', '501355.17', 1111288.51, 1, '2018-11-11 09:17:12', '2018-11-11 09:17:14');
+(6484, 9, 1, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 1061312, '30131.20', '0.00', '0.00', '760000.00', '0.00', 760000, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6485, 9, 2, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 366929, 0, 0, 366929, 403621.9, '36692.90', '0.00', '0.00', '36692.90', '0.00', 36692.9, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6486, 9, 3, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 221950.05, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6487, 9, 5, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 640780, 0, 0, 640780, 640780, '64078.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6488, 9, 7, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 45196.8, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6489, 9, 8, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6490, 9, 9, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 873760, 0, 0, 873760, 873760, '87376.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6491, 9, 10, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6492, 9, 13, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6493, 9, 14, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6494, 9, 15, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6495, 9, 17, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 4781774, 0, 0, 4781774, 4781774, '478177.40', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6496, 9, 18, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 366929, 0, 0, 366929, 366929, '36692.90', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6497, 9, 19, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2479666, 0, 0, 2479666, 2479666, '247966.60', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6498, 9, 22, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1813000, 0, 0, 1813000, 1813000, '181300.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6499, 9, 23, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1646334, 0, 0, 1646334, 1646334, '164633.40', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6500, 9, 24, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1813000, 0, 0, 1813000, 1813000, '181300.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 271950, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6501, 9, 26, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1979666, 0, 0, 1979666, 1979666, '197966.60', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6502, 9, 28, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2597866.35, 0, 0, 2597866.35, 2597866.35, '259786.64', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6503, 9, 29, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6504, 9, 30, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6505, 9, 31, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6506, 9, 32, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6507, 9, 33, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 4340000, 0, 0, 4340000, 4340000, '434000.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6508, 9, 34, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1229666, 0, 0, 1229666, 1229666, '122966.60', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6509, 9, 36, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6510, 9, 42, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1313000, 0, 0, 1313000, 1313000, '131300.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6511, 9, 43, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 813000, 0, 0, 813000, 813000, '81300.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6512, 9, 45, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1120500, 0, 0, 1120500, 1120500, '112050.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6513, 9, 46, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 580869, 0, 0, 580869, 580869, '58086.90', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6514, 9, 48, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 450435, 0, 0, 450435, 450435, '45043.50', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6515, 9, 50, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 955830, 0, 0, 955830, 955830, '95583.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6516, 9, 52, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 657055, 0, 0, 657055, 657055, '65705.50', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6517, 9, 53, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 359700, 0, 0, 359700, 359700, '35970.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6518, 9, 54, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 288190, 0, 0, 288190, 288190, '28819.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6519, 9, 55, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6520, 9, 58, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 3911500, 0, 0, 3911500, 3911500, '391150.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6521, 9, 59, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 320052, 0, 0, 320052, 320052, '32005.20', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6522, 9, 60, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1614000, 0, 0, 1614000, 1614000, '161400.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6523, 9, 61, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6524, 9, 64, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6525, 9, 65, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1777000, 0, 0, 1777000, 1777000, '177700.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6526, 9, 66, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1120500, 0, 0, 1120500, 1120500, '112050.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6527, 9, 67, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1646334, 0, 0, 1646334, 1646334, '164633.40', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6528, 9, 68, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2269458.13, 0, 0, 2269458.13, 2269458.13, '226945.81', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6529, 9, 70, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6530, 9, 71, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 424000, 0, 0, 424000, 424000, '42400.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6531, 9, 72, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 955830, 0, 0, 955830, 955830, '95583.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6532, 9, 73, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1448441, 0, 0, 1448441, 1448441, '144844.10', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6533, 9, 74, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 640780, 0, 0, 640780, 640780, '64078.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6534, 9, 75, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1612643.68, 0, 0, 1612643.68, 1612643.68, '161264.37', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:19'),
+(6535, 9, 79, 'Salary', 0, 'yes', 'yes', 'no', 'no', '1', 2000000, 200, 0, 2000000, 2000000, '0.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:18'),
+(6536, 9, 80, 'Salary', 0, 'yes', 'yes', 'no', 'no', '1', 2000000, 200, 0, 2000000, 2000000, '0.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:18'),
+(6537, 9, 81, 'Salary', 0, 'yes', 'yes', 'no', 'no', '1', 2000000, 200, 0, 2000000, 2000000, '0.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:18'),
+(6538, 9, 82, 'Salary', 0, 'yes', 'yes', 'no', 'no', '1', 23000, 200, 0, 23000, 23000, '0.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', 0, '0.00', '0.00', 0, 1, '2018-11-21 14:53:17', '2018-11-21 14:53:18'),
+(8305, 10, 1, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 2291312, '30131.20', '0.00', '0.00', '1990000.00', '0.00', 1990000, '2261180.80', '560454.24', 0, '0.00', '590585.44', 1700726.56, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8306, 10, 2, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 366929, 0, 0, 366929, 403621.9, '36692.90', '0.00', '0.00', '36692.90', '0.00', 36692.9, '366929.00', '18485.80', 0, '0.00', '55178.70', 348443.2, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8307, 10, 3, 'Salary', 1, 'yes', 'yes', 'no', 'no', '1', 5687500, 0, 0, 5687500, 5687500, '568750.00', '0.00', '0.00', '0.00', '0.00', 0, '5118750.00', '1417725.00', 0, '0.00', '1986475.00', 3701025, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8308, 10, 4, 'Salary', 1, 'YES', 'YES', 'yes', 'YES', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8309, 10, 5, 'Salary', 1, 'YES', 'YES', 'yes', 'YES', '1', 640780, 0, 0, 640780, 1307780, '64078.00', '0.00', '0.00', '667000.00', '0.00', 667000, '1243702.00', '255210.60', 0, '0.00', '319288.60', 988491.4, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8310, 10, 6, 'Salary', 7, 'YES', 'YES', 'yes', 'YES', '1', 657055, 0, 0, 657055, 4101499, '78846.60', '0.00', '0.00', '3444444.00', '0.00', 3444444, '4022652.40', '1088895.72', 0, '0.00', '1167742.32', 2933756.6799999997, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8311, 10, 7, 'Salary', 1, 'YES', 'YES', 'yes', 'YES', '1', 5687500, 0, 0, 5687500, 5687500, '568750.00', '0.00', '0.00', '0.00', '0.00', 0, '5118750.00', '1417725.00', 45196.8, '0.00', '2031671.80', 3655828.2, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8312, 10, 8, 'Salary', 4, 'YES', 'YES', 'yes', 'NO', '1', 700000, 3000, 0, 700000, 700000, '70000.00', '0.00', '0.00', '0.00', '0.00', 0, '630000.00', '75600.00', 0, '0.00', '145600.00', 554400, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8313, 10, 9, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 873760, 0, 0, 873760, 873760, '87376.00', '0.00', '0.00', '0.00', '0.00', 0, '786384.00', '118015.20', 0, '0.00', '205391.20', 668368.8, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8314, 10, 10, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '271180.80', '9106.27', 0, '0.00', '39237.47', 262074.53, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8315, 10, 13, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '271180.80', '9106.27', 0, '0.00', '39237.47', 262074.53, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8316, 10, 14, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '212126.40', '3791.38', 0, '0.00', '27360.98', 208335.02, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8317, 10, 15, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '212126.40', '3791.38', 0, '16498.72', '43859.70', 191836.3, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8318, 10, 17, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 4781774, 0, 0, 4781774, 4781774, '478177.40', '0.00', '0.00', '0.00', '0.00', 0, '4303596.60', '1173178.98', 0, '0.00', '1651356.38', 3130417.62, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8319, 10, 18, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 366929, 0, 0, 366929, 366929, '36692.90', '0.00', '0.00', '0.00', '0.00', 0, '330236.10', '14421.25', 0, '0.00', '51114.15', 315814.85, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8320, 10, 19, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2479666, 0, 0, 2479666, 2479666, '247966.60', '0.00', '0.00', '0.00', '0.00', 0, '2231699.40', '551609.82', 0, '0.00', '799576.42', 1680089.58, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8321, 10, 22, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1813000, 0, 0, 1813000, 1813000, '181300.00', '0.00', '0.00', '0.00', '0.00', 0, '1631700.00', '371610.00', 0, '0.00', '552910.00', 1260090, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8322, 10, 23, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1646334, 0, 0, 1646334, 1646334, '164633.40', '0.00', '0.00', '0.00', '0.00', 0, '1481700.60', '326610.18', 0, '200000.00', '691243.58', 955090.42, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8323, 10, 24, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1813000, 0, 0, 1813000, 1813000, '181300.00', '0.00', '0.00', '0.00', '0.00', 0, '1631700.00', '371610.00', 271950, '0.00', '824860.00', 988140, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8324, 10, 26, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1979666, 0, 0, 1979666, 1979666, '197966.60', '0.00', '0.00', '0.00', '0.00', 0, '1781699.40', '416609.82', 0, '0.00', '614576.42', 1365089.58, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8325, 10, 28, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2597866.35, 0, 0, 2597866.35, 2597866.35, '259786.64', '0.00', '0.00', '0.00', '0.00', 0, '2338079.71', '583523.91', 0, '0.00', '843310.55', 1754555.8, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8326, 10, 29, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8327, 10, 30, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8328, 10, 31, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8329, 10, 32, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8330, 10, 33, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 4340000, 0, 0, 4340000, 4340000, '434000.00', '0.00', '0.00', '0.00', '0.00', 0, '3906000.00', '1053900.00', 0, '0.00', '1487900.00', 2852100, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8331, 10, 34, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1229666, 0, 0, 1229666, 1229666, '122966.60', '0.00', '0.00', '0.00', '0.00', 0, '1106699.40', '214109.82', 0, '0.00', '337076.42', 892589.5800000001, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8332, 10, 36, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '0.00', '0.00', '0.00', '0.00', 0, '1331700.30', '281610.09', 0, '0.00', '429576.79', 1050090.21, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8333, 10, 42, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1313000, 0, 0, 1313000, 1313000, '131300.00', '0.00', '0.00', '0.00', '0.00', 0, '1181700.00', '236610.00', 0, '0.00', '367910.00', 945090, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8334, 10, 43, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 813000, 0, 0, 813000, 813000, '81300.00', '0.00', '0.00', '0.00', '0.00', 0, '731700.00', '101610.00', 0, '0.00', '182910.00', 630090, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8335, 10, 45, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1120500, 0, 0, 1120500, 1120500, '112050.00', '0.00', '0.00', '0.00', '0.00', 0, '1008450.00', '184635.00', 0, '0.00', '296685.00', 823815, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8336, 10, 46, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 580869, 0, 0, 580869, 580869, '58086.90', '0.00', '0.00', '0.00', '0.00', 0, '522782.10', '49656.42', 0, '0.00', '107743.32', 473125.68, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8337, 10, 48, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 450435, 0, 0, 450435, 450435, '45043.50', '0.00', '0.00', '0.00', '0.00', 0, '405391.50', '26178.30', 0, '0.00', '71221.80', 379213.2, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8338, 10, 50, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 955830, 0, 0, 955830, 955830, '95583.00', '0.00', '0.00', '0.00', '0.00', 0, '860247.00', '140174.10', 0, '0.00', '235757.10', 720072.9, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8339, 10, 52, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 657055, 0, 0, 657055, 657055, '65705.50', '0.00', '0.00', '0.00', '0.00', 0, '591349.50', '65937.38', 0, '0.00', '131642.88', 525412.12, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8340, 10, 53, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 359700, 0, 0, 359700, 359700, '35970.00', '0.00', '0.00', '0.00', '0.00', 0, '323730.00', '13835.70', 0, '0.00', '49805.70', 309894.3, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8341, 10, 54, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 288190, 0, 0, 288190, 288190, '28819.00', '0.00', '0.00', '0.00', '0.00', 0, '259371.00', '8043.39', 0, '0.00', '36862.39', 251327.61, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8342, 10, 55, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1479667, 0, 0, 1479667, 1479667, '147966.70', '0.00', '0.00', '0.00', '0.00', 0, '1331700.30', '281610.09', 0, '0.00', '429576.79', 1050090.21, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8343, 10, 58, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 3911500, 0, 0, 3911500, 3911500, '391150.00', '0.00', '0.00', '0.00', '0.00', 0, '3520350.00', '938205.00', 0, '0.00', '1329355.00', 2582145, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8344, 10, 59, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 320052, 0, 0, 320052, 320052, '32005.20', '0.00', '0.00', '0.00', '0.00', 0, '288046.80', '10624.21', 0, '0.00', '42629.41', 277422.58999999997, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8345, 10, 60, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1614000, 0, 0, 1614000, 1614000, '161400.00', '0.00', '0.00', '0.00', '0.00', 0, '1452600.00', '317880.00', 0, '0.00', '479280.00', 1134720, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8346, 10, 61, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 235696, 0, 0, 235696, 235696, '23569.60', '0.00', '0.00', '0.00', '0.00', 0, '212126.40', '3791.38', 0, '0.00', '27360.98', 208335.02, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8347, 10, 64, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 301312, 0, 0, 301312, 301312, '30131.20', '0.00', '0.00', '0.00', '0.00', 0, '271180.80', '9106.27', 0, '0.00', '39237.47', 262074.53, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8348, 10, 65, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1777000, 0, 0, 1777000, 1777000, '177700.00', '0.00', '0.00', '0.00', '0.00', 0, '1599300.00', '361890.00', 0, '0.00', '539590.00', 1237410, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8349, 10, 66, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1120500, 0, 0, 1120500, 1120500, '112050.00', '0.00', '0.00', '0.00', '0.00', 0, '1008450.00', '184635.00', 0, '0.00', '296685.00', 823815, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8350, 10, 67, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1646334, 0, 0, 1646334, 1646334, '164633.40', '0.00', '0.00', '0.00', '0.00', 0, '1481700.60', '326610.18', 0, '0.00', '491243.58', 1155090.42, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8351, 10, 68, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 2269458.13, 0, 0, 2269458.13, 2269458.13, '226945.81', '0.00', '0.00', '0.00', '0.00', 0, '2042512.32', '494853.70', 0, '0.00', '721799.51', 1547658.6199999999, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8352, 10, 70, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1146334, 0, 0, 1146334, 1146334, '114633.40', '0.00', '0.00', '0.00', '0.00', 0, '1031700.60', '191610.18', 0, '0.00', '306243.58', 840090.4199999999, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8353, 10, 71, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 424000, 0, 0, 424000, 424000, '42400.00', '0.00', '0.00', '0.00', '0.00', 0, '381600.00', '21420.00', 0, '0.00', '63820.00', 360180, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8354, 10, 72, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 955830, 0, 0, 955830, 955830, '95583.00', '0.00', '0.00', '0.00', '0.00', 0, '860247.00', '140174.10', 0, '0.00', '235757.10', 720072.9, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8355, 10, 73, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1448441, 0, 0, 1448441, 1448441, '144844.10', '0.00', '0.00', '0.00', '0.00', 0, '1303596.90', '273179.07', 0, '0.00', '418023.17', 1030417.8300000001, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8356, 10, 74, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 640780, 0, 0, 640780, 640780, '64078.00', '0.00', '0.00', '0.00', '0.00', 0, '576702.00', '62275.50', 0, '0.00', '126353.50', 514426.5, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8357, 10, 75, 'Salary', 1, 'yes', 'yes', 'yes', 'no', '1', 1612643.68, 0, 0, 1612643.68, 1612643.68, '161264.37', '0.00', '0.00', '0.00', '0.00', 0, '1451379.31', '317513.79', 0, '0.00', '478778.16', 1133865.52, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:24'),
+(8358, 10, 79, 'Salary', 1, 'yes', 'yes', 'no', 'no', '1', 1470000, 200, 0, 1470000, 1470000, '147000.00', '0.00', '0.00', '0.00', '0.00', 0, '1323000.00', '279000.00', 0, '0.00', '426000.00', 1044000, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:25'),
+(8359, 10, 80, 'Salary', 1, 'YES', 'YES', 'no', 'NO', '1', 10000000, 200, 0, 10000000, 10000000, '1000000.00', '0.00', '0.00', '0.00', '0.00', 0, '9000000.00', '2582100.00', 0, '0.00', '3582100.00', 6417900, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:25'),
+(8360, 10, 81, 'Salary', 1, 'yes', 'yes', 'no', 'no', '1', 2000000, 200, 0, 2000000, 2000000, '200000.00', '0.00', '0.00', '0.00', '0.00', 0, '1800000.00', '422100.00', 0, '0.00', '622100.00', 1377900, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:25'),
+(8361, 10, 82, 'Salary', 1, 'yes', 'yes', 'no', 'no', '1', 23000, 200, 0, 23000, 23000, '2300.00', '0.00', '0.00', '0.00', '0.00', 0, '20700.00', '0.00', 0, '0.00', '2300.00', 20700, 1, '2019-01-17 14:43:21', '2019-01-17 14:43:25');
 
 -- --------------------------------------------------------
 
@@ -6366,11 +6480,13 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `title`, `level`, `scope`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'System administrator', 1, NULL, 'Responsible for the upkeep, configuration, and reliable operation of the systems; The system administrator seeks to ensure that the uptime, performance, resources, and security of the computers they manage meet the needs of the users.', '2018-07-25 10:56:42', '2018-07-25 10:56:42'),
-(2, 'Farm Group', 'Farm Group', NULL, NULL, 'Farm Group', '2018-07-29 20:07:27', '2018-07-29 20:07:27'),
-(3, 'Park house', 'Pack House', NULL, NULL, 'Pach', '2018-07-29 20:08:49', '2018-07-29 20:08:49'),
-(4, 'Farm Group officers', 'Farm group officers', NULL, NULL, 'Officers from farm group', '2018-08-29 08:39:50', '2018-08-29 08:39:50'),
-(5, 'Pack House Officers', 'Pack house officers', NULL, NULL, 'Officers form Pack house', '2018-08-29 08:45:14', '2018-08-29 08:45:14'),
-(6, 'New Pack house', 'New pack house', NULL, NULL, 'new pack house', '2018-08-29 08:55:31', '2018-08-29 08:55:31');
+(2, 'Leave Admin', 'Leave Admin', NULL, NULL, 'Farm Group', '2018-07-29 20:07:27', '2018-11-28 10:04:34'),
+(3, 'Payroll Admin', 'Payroll Admin', NULL, NULL, 'Pach', '2018-07-29 20:08:49', '2018-11-28 10:05:32'),
+(4, 'Finance', 'Finance Manager', NULL, NULL, 'Officers from farm group', '2018-08-29 08:39:50', '2018-11-28 10:06:45'),
+(5, 'hr', 'Hr officer', NULL, NULL, 'Officers form Pack house', '2018-08-29 08:45:14', '2018-11-28 10:05:09'),
+(6, 'Accountant', 'Accountant', NULL, NULL, 'new pack house', '2018-08-29 08:55:31', '2018-11-28 10:06:00'),
+(7, 'Leave Approver', 'Leave Approver', NULL, NULL, 'Leave Approver', '2018-12-01 11:16:09', '2018-12-01 11:16:09'),
+(8, 'Leave Approver 2', 'Leave Approver 2', NULL, NULL, 'Leave Approver 2', '2018-12-01 12:11:52', '2018-12-01 12:11:52');
 
 -- --------------------------------------------------------
 
@@ -6380,17 +6496,25 @@ INSERT INTO `roles` (`id`, `name`, `title`, `level`, `scope`, `description`, `cr
 
 CREATE TABLE `salaries` (
   `id` int(10) UNSIGNED NOT NULL,
-  `employeeid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `employee_id` int(255) NOT NULL,
   `salaryfrom` decimal(12,2) NOT NULL DEFAULT '0.00',
   `salaryto` decimal(12,2) NOT NULL DEFAULT '0.00',
   `changedby` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `changedamount` int(11) NOT NULL DEFAULT '0',
   `percentage` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `payrollid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payroll_id` int(255) NOT NULL,
   `datechanged` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `salaries`
+--
+
+INSERT INTO `salaries` (`id`, `employee_id`, `salaryfrom`, `salaryto`, `changedby`, `changedamount`, `percentage`, `payroll_id`, `datechanged`, `created_at`, `updated_at`) VALUES
+(1, 1, '1000000.00', '2400000.00', 'percent', 1300000, '23', 1, '2018-12-16', NULL, NULL),
+(2, 0, '50000.00', '200000.00', 'Amount', 30000, '0', 0, '2018-12-16', '2018-12-16 13:20:55', '2018-12-16 13:20:55');
 
 -- --------------------------------------------------------
 
@@ -6418,6 +6542,14 @@ CREATE TABLE `titles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `titles`
+--
+
+INSERT INTO `titles` (`id`, `titlename`, `created_at`, `updated_at`) VALUES
+(1, 'Mr', NULL, NULL),
+(2, 'Mrs', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -6429,6 +6561,7 @@ CREATE TABLE `users` (
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `employee_id` int(11) NOT NULL,
+  `employee_type` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` enum('male','female') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -6446,35 +6579,49 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `employee_id`, `email`, `phone`, `gender`, `birthday`, `password`, `country`, `manager`, `remember_token`, `creator_id`, `created_at`, `updated_at`) VALUES
-(1, 'Stephen', 'Gerald', 3, 'jminja@meda.org', '+1-946-643-5710', 'male', '1988-08-08', '$2y$10$l.WU4Y5swdbVqIZFZp1/Zu07m5sZaX3bwWnVXeXeMJUj8Od04VaiC', 'Serbia', 'yes', 'yx2qtALKwAXGixvYxdbTM9MZmagR53ZXJ31k1pw8GYpnda1akI1tjcFufSWb', NULL, '2018-07-25 07:56:43', '2018-07-25 07:56:43'),
-(2, 'Ivony7', 'Sherry', 0, 'ivona@gmail.com', '0754455332', 'male', '1987-07-25', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'alAsGppYHKr6myHLmKBlqqzSMXfSUil0CHGLYzOHUfdV0cdiGUKAaUPdn7dv', 1, '2018-07-25 13:14:46', '2018-08-06 15:08:40'),
-(3, 'Humphrey', 'Augustine', 0, 'hajmocube@gmail.com', '0785983869', 'male', '2018-07-17', '$2y$10$NbjNMO/.78E2qcVfgFRMzuHIDHfIlkC13Yov.MnTTVA.em8fQGC3C', 'Tanzania', 'no', 'LouYZsHBdlCqNq0EMYls5NTgjPE6lEwYUy8DLi7Rp82bBuxiTGUGyCbB8cb4', 1, '2018-07-28 06:08:47', '2018-08-10 20:34:54'),
-(4, 'lukoveg', '933', 0, 'lukoveg933@gmail.com', '0999999999', 'male', '2018-07-15', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', NULL, 1, '2018-07-29 20:10:46', '2018-07-29 20:10:46'),
-(5, 'lubuveg', '2012', 0, 'lubuveg2012@gmail.com', '0999999999', 'male', '2018-07-15', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', NULL, 1, '2018-07-29 20:12:54', '2018-07-29 20:12:54'),
-(6, 'Bahati', 'H Kiondo', 0, 'bahati.kiondo@homevegfarmers.co.tz', '0714293608', 'female', '2018-07-01', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'FmTo1S7Po3jkx4bgVX4tXrmjrznqV3r7cJDgsGgIfkbH0UzlUNhzplCgAbU2', 1, '2018-07-30 16:49:34', '2018-07-30 16:49:34'),
-(7, 'Kyarua', 'S Mussa', 0, 'kyarua.mussa@homevegfarmers.co.tz', '0672411085', 'male', '2018-07-15', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'bRvUMCXQCqDQSG3irWJ85PmGRqUBNYK7j2L9tVhf2rYWxVaZu1HBcA9OnCKD', 1, '2018-07-30 16:52:17', '2018-07-30 16:52:17'),
-(8, 'Rodgers', 'K Makange', 0, 'rodgers.makange@homevegfarmers.co.tz', '0713477764', 'male', '2018-07-08', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'ygyvDzqH67tUFv7nRKTHhjy0nyVkXiXFgEj81aTOeBRAdJWvgpd5KEkZpw4e', 1, '2018-07-30 16:54:43', '2018-07-30 16:54:43'),
-(9, 'Samwel', 'E Nassary', 0, 'samwel.nassary@homevegfarmers.co.tz', '0784884585', 'male', '2018-07-08', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'eupQgsKkexPbyRbeGLgkXvscs6vQ9aB80eCpwVBCyZfeSH7ssCNUKXMf6NlR', 1, '2018-07-30 16:57:12', '2018-07-30 16:57:12'),
-(10, 'Juma', 'M Kawanje', 0, 'juma.kawanje@homevegfarmers.co.tz', '0678236629', 'male', '2018-07-08', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'JDzxmu1BD0C5uJ5XirZp71i5fcRUzeJcI1S4ARUSyqaabXLtDiEC7A7z1ET1', 1, '2018-07-30 16:59:45', '2018-07-30 16:59:45'),
-(11, 'Seth', 'Athumani', 0, 'seth.athumani@homevegfarmers.co.tz', '0659507284', 'male', '2018-07-01', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'ENuXZcqwxYGClrD2Gzi2FVqKSVIGkQjmH2ZNyWAzcMWj81izee37NS8F5dtT', 1, '2018-07-30 17:01:14', '2018-07-30 17:01:14'),
-(12, 'Meda', 'Tanzania', 0, 'meda@homevegfarmers.co.tz', '0989988987', 'male', '2018-08-20', '$2y$10$Rt8n34InfdaUSB867e7pU.rROT16cCRAalmUiikvi6uvXXaWiPOHC', 'Tanzania', 'no', 'CKZlws0OpEvKVLr9EqfqxjFKh9LOudWrJKDlwLTJGtJy6oFYbKX8VbU3Wk70', 1, '2018-08-02 13:40:27', '2018-08-02 13:40:27'),
-(13, 'Mussa', 'Mvungi', 0, 'mussamvungi.homevegtz@gmail.com', '0784326206', 'male', '2018-07-16', '$2y$10$NbjNMO/.78E2qcVfgFRMzuHIDHfIlkC13Yov.MnTTVA.em8fQGC3C', 'Tanzania', 'no', NULL, 1, '2018-08-10 20:29:08', '2018-08-10 20:29:08'),
-(14, 'Tarimo', 'Machel', 0, 'tmachel.homevegtz@gmail.com', '0786683212', 'male', '2018-08-05', '$2y$10$NbjNMO/.78E2qcVfgFRMzuHIDHfIlkC13Yov.MnTTVA.em8fQGC3C', 'Tanzania', 'no', NULL, 1, '2018-08-10 20:38:10', '2018-08-10 20:38:10'),
-(15, 'Winifrida', 'Ndamugoba', 0, 'boney.neema@gmail.com', '0759266551', 'female', '1981-03-11', '$2y$10$ZrPVyve.KO1eFqWYpLT9ruK.mk7dV9zeVTFQNNbLMij5JeKomsmTW', 'Tanzania', 'no', 'BtxuHAqdDZfrz9v5n4iseG52MuK0Bfgq9SMYq7xVlNmChrA4boaM77C4zkVH', 3, '2018-08-28 17:26:42', '2018-08-28 20:42:22'),
-(16, 'Halima', 'Mwenda', 14, 'halimamwenda320@gmail.com', '07999999', 'female', '2018-07-29', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'yes', 'lVY8Afx8Qur9BpGmnupNEmOgO8YLy8uf1JmxkCPCwd5s0Esm6tzRovQRF7Hw', 12, '2018-08-28 17:44:11', '2018-11-16 16:00:50'),
-(17, 'Flora', 'Wado', 0, 'flofilowado@gmail.com', '0988766555', 'female', '2018-07-29', '$2y$10$guTCrvfPy.CC4rHBZ7n8lOkJNLRKHYc4f5mgxPmJH.6GptIaw21xm', 'Tanzania', 'no', 'nCbDF9fEdiEVo8rFDqandDHJ7UNYtp6SlQORw37GnpYbUyBLZ4vChzVvbUAZ', 12, '2018-08-28 17:45:56', '2018-08-28 20:38:07'),
-(18, 'Pack', 'Officer', 0, 'pack@officer.com', '0754997619', 'male', '2018-08-20', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'DmasZQetAD0GZdZiVWxIsPbGCdLjYA1OvJZVWZWKjXhWGM6ybMt8ABpj6fqD', 12, '2018-08-29 08:46:21', '2018-08-29 08:46:21'),
-(19, 'Vista', 'Vaos', 0, 'vista@farmers.com', '0987564882', 'female', '2018-07-29', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', NULL, 12, '2018-08-29 08:56:20', '2018-08-29 08:56:20'),
-(20, 'demo1', 'demo1', 0, 'demo@demo.com', '754977618', 'male', NULL, '$2y$10$q2qeP0W8h5ZzhHfWYB7Zqu5qIJ88aZRJ36zpYzu9.3tI0VCth2tEK', '1', 'no', NULL, 1, '2018-11-16 13:27:34', '2018-11-16 13:27:34'),
-(21, 'demo10', 'demo10', 10, 'demo10@demo.com', '754977618', 'male', NULL, '$2y$10$H1c/emOlpiJv13.W4nMdP.IdjIZ2HAAVDVL253RDWGQDDtF/EkI6C', '1', 'no', NULL, 1, '2018-11-16 13:28:32', '2018-11-16 13:28:32'),
-(22, 'demo7', 'demo7', 0, 'dennis@dennis.com', '754977617', 'male', NULL, '$2y$10$RXbABTY4WKdNS45XEztCTupDhHSn27j2U2JH47o3kPpoUQkgtbgSq', '1', 'no', NULL, 1, '2018-11-16 13:29:49', '2018-11-16 13:29:49'),
-(23, 'demo14', 'demo14', 0, 'bryton@meda.org', '754977618', 'male', NULL, '$2y$10$z0hyP6Bawa3n9lSSKyKuZ.vSdw68hzVncR7VKRB/Qs4rvYyY57wMy', '1', 'no', 'PFXDKiyLLj0K1ej0nvvQiJyQ6XpbM4FrB7mfnXhcOC9sBf7Rj4yRncRDmslM', 1, '2018-11-16 13:32:32', '2018-11-16 13:32:32'),
-(24, 'demo7', 'demo7', 7, 'demo7@demo.com', '754977617', 'male', NULL, '$2y$10$1B4iWqJf1uPk2Y8ABywJtOcilK.1s/YqJettjvM40rdjPmY7EBwaa', '1', 'no', NULL, 1, '2018-11-16 13:55:40', '2018-11-16 13:55:40'),
-(25, 'demo18', 'demo18', 18, 'jminja1@meda.org', '745945313.5', 'male', NULL, '$2y$10$qNNZ/ptUNhTCrBHUkJFH5uKR47VWzYLF6JOceMP3j2jIjkO/Q7OQu', NULL, 'yes', NULL, 1, '2018-11-16 14:20:49', '2018-11-16 14:20:49'),
-(26, 'demo29', 'demo29', 29, 'jminja2@meda.org', '740547814', 'male', NULL, '$2y$10$fd2FYR0L0/qJRd2sBVQYde4AzDW0ScQnSmfWyvkqZt8dVSiGMohV.', NULL, NULL, NULL, 1, '2018-11-16 14:21:20', '2018-11-16 14:21:20'),
-(27, 'demo26', 'demo26', 26, 'jminja22@meda.org', '742019859.3', 'male', '2018-11-05', '$2y$10$4YSuJvf4vZfe2WpWufR3fehus9jzpmopyYV5J0V3uSjBkDTGePWCm', 'Tanzania', 'manager', NULL, 1, '2018-11-16 14:24:31', '2018-11-16 15:15:31'),
-(28, 'demo32', 'demo32', 32, 'pilato@user.com', '739075768.7', 'male', NULL, '$2y$10$suKvnTZ7rPoxk0zo8e.Ur.yzG79XIilUTnzYA4UtMAasfui1K3L42', NULL, 'no', '6jJ67kn1FXblhwLrGh61DjXNp95lVtijvq5Px5WqQ7vWwcMEam0f3OU403bc', 1, '2018-11-16 14:49:51', '2018-11-16 16:13:42');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `employee_id`, `employee_type`, `email`, `phone`, `gender`, `birthday`, `password`, `country`, `manager`, `remember_token`, `creator_id`, `created_at`, `updated_at`) VALUES
+(1, 'Super', 'Admin', 3, '', 'jminja@meda.org', '+1-946-643-5710', 'male', '1988-08-08', '$2y$10$l.WU4Y5swdbVqIZFZp1/Zu07m5sZaX3bwWnVXeXeMJUj8Od04VaiC', 'Serbia', 'yes', 'w4kAGGwVt5fbzwOJHnIFgbBNdhTugAnhP3Gu1nyrMpikK8AzsEXiZtEwBjre', NULL, '2018-07-25 07:56:43', '2018-07-25 07:56:43'),
+(2, 'Ivony7', 'Sherry', 0, '', 'ivona@gmail.com', '0754455332', 'male', '1987-07-25', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'alAsGppYHKr6myHLmKBlqqzSMXfSUil0CHGLYzOHUfdV0cdiGUKAaUPdn7dv', 1, '2018-07-25 13:14:46', '2018-08-06 15:08:40'),
+(3, 'Humphrey', 'Augustine', 0, '', 'hajmocube@gmail.com', '0785983869', 'male', '2018-07-17', '$2y$10$NbjNMO/.78E2qcVfgFRMzuHIDHfIlkC13Yov.MnTTVA.em8fQGC3C', 'Tanzania', 'no', 'LouYZsHBdlCqNq0EMYls5NTgjPE6lEwYUy8DLi7Rp82bBuxiTGUGyCbB8cb4', 1, '2018-07-28 06:08:47', '2018-08-10 20:34:54'),
+(4, 'lukoveg', '933', 0, '', 'lukoveg933@gmail.com', '0999999999', 'male', '2018-07-15', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', NULL, 1, '2018-07-29 20:10:46', '2018-07-29 20:10:46'),
+(5, 'lubuveg', '2012', 0, '', 'lubuveg2012@gmail.com', '0999999999', 'male', '2018-07-15', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', NULL, 1, '2018-07-29 20:12:54', '2018-07-29 20:12:54'),
+(6, 'Bahati', 'H Kiondo', 0, '', 'bahati.kiondo@homevegfarmers.co.tz', '0714293608', 'female', '2018-07-01', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'FmTo1S7Po3jkx4bgVX4tXrmjrznqV3r7cJDgsGgIfkbH0UzlUNhzplCgAbU2', 1, '2018-07-30 16:49:34', '2018-07-30 16:49:34'),
+(7, 'Kyarua', 'S Mussa', 0, '', 'kyarua.mussa@homevegfarmers.co.tz', '0672411085', 'male', '2018-07-15', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'bRvUMCXQCqDQSG3irWJ85PmGRqUBNYK7j2L9tVhf2rYWxVaZu1HBcA9OnCKD', 1, '2018-07-30 16:52:17', '2018-07-30 16:52:17'),
+(8, 'Rodgers', 'K Makange', 0, '', 'rodgers.makange@homevegfarmers.co.tz', '0713477764', 'male', '2018-07-08', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'ygyvDzqH67tUFv7nRKTHhjy0nyVkXiXFgEj81aTOeBRAdJWvgpd5KEkZpw4e', 1, '2018-07-30 16:54:43', '2018-07-30 16:54:43'),
+(9, 'Samwel', 'E Nassary', 0, '', 'samwel.nassary@homevegfarmers.co.tz', '0784884585', 'male', '2018-07-08', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'eupQgsKkexPbyRbeGLgkXvscs6vQ9aB80eCpwVBCyZfeSH7ssCNUKXMf6NlR', 1, '2018-07-30 16:57:12', '2018-07-30 16:57:12'),
+(10, 'Juma', 'M Kawanje', 0, '', 'juma.kawanje@homevegfarmers.co.tz', '0678236629', 'male', '2018-07-08', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'JDzxmu1BD0C5uJ5XirZp71i5fcRUzeJcI1S4ARUSyqaabXLtDiEC7A7z1ET1', 1, '2018-07-30 16:59:45', '2018-07-30 16:59:45'),
+(11, 'Seth', 'Athumani', 0, '', 'seth.athumani@homevegfarmers.co.tz', '0659507284', 'male', '2018-07-01', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'ENuXZcqwxYGClrD2Gzi2FVqKSVIGkQjmH2ZNyWAzcMWj81izee37NS8F5dtT', 1, '2018-07-30 17:01:14', '2018-07-30 17:01:14'),
+(12, 'Meda', 'Tanzania', 0, '', 'meda@homevegfarmers.co.tz', '0989988987', 'male', '2018-08-20', '$2y$10$Rt8n34InfdaUSB867e7pU.rROT16cCRAalmUiikvi6uvXXaWiPOHC', 'Tanzania', 'no', 'CKZlws0OpEvKVLr9EqfqxjFKh9LOudWrJKDlwLTJGtJy6oFYbKX8VbU3Wk70', 1, '2018-08-02 13:40:27', '2018-08-02 13:40:27'),
+(13, 'Mussa', 'Mvungi', 0, '', 'mussamvungi.homevegtz@gmail.com', '0784326206', 'male', '2018-07-16', '$2y$10$NbjNMO/.78E2qcVfgFRMzuHIDHfIlkC13Yov.MnTTVA.em8fQGC3C', 'Tanzania', 'no', NULL, 1, '2018-08-10 20:29:08', '2018-08-10 20:29:08'),
+(14, 'Tarimo', 'Machel', 0, '', 'tmachel.homevegtz@gmail.com', '0786683212', 'male', '2018-08-05', '$2y$10$NbjNMO/.78E2qcVfgFRMzuHIDHfIlkC13Yov.MnTTVA.em8fQGC3C', 'Tanzania', 'no', NULL, 1, '2018-08-10 20:38:10', '2018-08-10 20:38:10'),
+(15, 'Winifrida', 'Ndamugoba', 0, '', 'boney.neema@gmail.com', '0759266551', 'female', '1981-03-11', '$2y$10$ZrPVyve.KO1eFqWYpLT9ruK.mk7dV9zeVTFQNNbLMij5JeKomsmTW', 'Tanzania', 'no', 'BtxuHAqdDZfrz9v5n4iseG52MuK0Bfgq9SMYq7xVlNmChrA4boaM77C4zkVH', 3, '2018-08-28 17:26:42', '2018-08-28 20:42:22'),
+(16, 'Halima', 'Mwenda', 14, '', 'halimamwenda320@gmail.com', '07999999', 'female', '2018-07-29', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'yes', 'lVY8Afx8Qur9BpGmnupNEmOgO8YLy8uf1JmxkCPCwd5s0Esm6tzRovQRF7Hw', 12, '2018-08-28 17:44:11', '2018-11-16 16:00:50'),
+(17, 'Flora', 'Wado', 0, '', 'flofilowado@gmail.com', '0988766555', 'female', '2018-07-29', '$2y$10$guTCrvfPy.CC4rHBZ7n8lOkJNLRKHYc4f5mgxPmJH.6GptIaw21xm', 'Tanzania', 'no', 'nCbDF9fEdiEVo8rFDqandDHJ7UNYtp6SlQORw37GnpYbUyBLZ4vChzVvbUAZ', 12, '2018-08-28 17:45:56', '2018-08-28 20:38:07'),
+(18, 'Pack', 'Officer', 0, '', 'pack@officer.com', '0754997619', 'male', '2018-08-20', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', 'DmasZQetAD0GZdZiVWxIsPbGCdLjYA1OvJZVWZWKjXhWGM6ybMt8ABpj6fqD', 12, '2018-08-29 08:46:21', '2018-08-29 08:46:21'),
+(19, 'Vista', 'Vaos', 0, '', 'vista@farmers.com', '0987564882', 'female', '2018-07-29', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'Tanzania', 'no', NULL, 12, '2018-08-29 08:56:20', '2018-08-29 08:56:20'),
+(20, 'demo1', 'demo1', 0, '', 'demo@demo.com', '754977618', 'male', NULL, '$2y$10$q2qeP0W8h5ZzhHfWYB7Zqu5qIJ88aZRJ36zpYzu9.3tI0VCth2tEK', '1', 'no', NULL, 1, '2018-11-16 13:27:34', '2018-11-16 13:27:34'),
+(21, 'demo10', 'demo10', 10, '', 'demo10@demo.com', '754977618', 'male', NULL, '$2y$10$H1c/emOlpiJv13.W4nMdP.IdjIZ2HAAVDVL253RDWGQDDtF/EkI6C', '1', 'no', NULL, 1, '2018-11-16 13:28:32', '2018-11-16 13:28:32'),
+(22, 'demo7', 'demo7', 0, '', 'dennis@dennis.com', '754977617', 'male', NULL, '$2y$10$RXbABTY4WKdNS45XEztCTupDhHSn27j2U2JH47o3kPpoUQkgtbgSq', '1', 'no', NULL, 1, '2018-11-16 13:29:49', '2018-11-16 13:29:49'),
+(23, 'demo14', 'demo14', 0, '', 'bryton@meda.org', '754977618', 'male', NULL, '$2y$10$z0hyP6Bawa3n9lSSKyKuZ.vSdw68hzVncR7VKRB/Qs4rvYyY57wMy', '1', 'no', 'PFXDKiyLLj0K1ej0nvvQiJyQ6XpbM4FrB7mfnXhcOC9sBf7Rj4yRncRDmslM', 1, '2018-11-16 13:32:32', '2018-11-16 13:32:32'),
+(24, 'demo7', 'demo7', 7, '', 'demo7@demo.com', '754977617', 'male', NULL, '$2y$10$1B4iWqJf1uPk2Y8ABywJtOcilK.1s/YqJettjvM40rdjPmY7EBwaa', '1', 'no', NULL, 1, '2018-11-16 13:55:40', '2018-11-16 13:55:40'),
+(25, 'demo18', 'demo18', 18, '', 'jminja1@meda.org', '745945313.5', 'male', NULL, '$2y$10$qNNZ/ptUNhTCrBHUkJFH5uKR47VWzYLF6JOceMP3j2jIjkO/Q7OQu', NULL, 'yes', NULL, 1, '2018-11-16 14:20:49', '2018-11-16 14:20:49'),
+(26, 'demo29', 'demo29', 29, '', 'jminja2@meda.org', '740547814', 'male', NULL, '$2y$10$fd2FYR0L0/qJRd2sBVQYde4AzDW0ScQnSmfWyvkqZt8dVSiGMohV.', NULL, NULL, NULL, 1, '2018-11-16 14:21:20', '2018-11-16 14:21:20'),
+(27, 'demo26', 'demo26', 26, '', 'brian@user.com', '742019859.3', 'male', '2018-11-05', '$2y$10$CviT7kDtn3bJlq71ol0UK.uFZ3PjVbhdh5favSLRGeXn9Dzad269u', 'Tanzania', 'yes', 'OmQlWTgZFDz9WIcD8qXFnyPvR6oXP4w4Ny6pcwUbpbAd4RBtaHEFtv6Hpr0w', 1, '2018-11-16 14:24:31', '2018-11-17 10:32:33'),
+(28, 'Kiluvya gudii', 'Kimolo', 1, 'App\\Employee', 'kiluvya@user.com', '754977618', 'male', NULL, '$2y$10$XLOLfz4P/HG3m/sE/c1KXOwh8kZ6JoE13kj.IImTdveYFeuwn/EIe', NULL, 'yes', '6jJ67kn1FXblhwLrGh61DjXNp95lVtijvq5Px5WqQ7vWwcMEam0f3OU403bc', 1, '2018-11-16 14:49:51', '2018-11-29 14:18:01'),
+(29, 'Sebia', 'Jajovic', 81, 'App\\Employee', 'sebia@user.com', '0734233678', 'female', NULL, '', NULL, 'no', NULL, NULL, '2018-11-18 11:16:10', '2018-11-19 13:55:04'),
+(30, 'mobdro', 'App', 82, 'App\\Employee', 'mobro@user.com', '+255754977618', 'female', NULL, '', NULL, 'no', NULL, NULL, '2018-11-18 11:51:08', '2018-11-21 16:20:24'),
+(31, 'milan', 'vidic', 79, 'App\\Employee', 'milan@user.com', '0734233678', 'male', NULL, '$2y$10$q475X/pVh5L56FsrhKsK7OKE9oSP.ZvkHR1S8UoF9ELcBDDDa76US', NULL, 'no', NULL, NULL, '2018-11-18 11:54:02', '2018-11-22 08:21:10'),
+(32, 'pambio', 'live', 26, 'App\\Employee', 'pambio@user.com', '742019859', 'male', NULL, '$2y$10$qfFXmKBarP9RNm4Jj1AJ0OfSVZxKIl/WMPl0bn28YrFw61RiFct5.', NULL, 'no', NULL, NULL, '2018-11-18 11:59:28', '2018-11-18 12:01:04'),
+(33, 'Croati', 'Bilic', 80, 'App\\Employee', 'bilic@user.com', '0734233678', 'female', NULL, '$2y$10$AI0JJ2anDLa3dtauhXFSQugT22xPXpvQ2LUQWcdeOCto/SjHaaT6e', NULL, 'no', NULL, NULL, '2018-11-19 06:10:18', '2018-12-06 05:30:33'),
+(34, 'Milia', 'Beton', 2, 'App\\Employee', 'milia@user.com', '754977618', 'male', NULL, '$2y$10$ud8d3435w9n72So5OuU5yOcjRuqqID9kiwfg0tcT1KvJGpnp2.k72', NULL, 'no', 'QHhmNplNK7GCdqO7omgT9uSSzIJfqQZXSKMqa2UNAfXZ0wIgfcXTv4t7lwkF', NULL, '2018-11-19 06:56:35', '2018-11-28 10:04:04'),
+(35, 'Desolf h', 'German', 83, 'App\\Employee', 'german@user.com', '0566944652', 'female', NULL, '', NULL, 'no', NULL, NULL, '2018-11-20 06:14:26', '2018-12-16 12:01:39'),
+(36, 'Lemaa', 'Msomi', 8, 'App\\Employee', 'lema@user.com', '0754953645', 'male', NULL, '$2y$10$siQW/2LO9EXDrrzBb8e2f.3MOeumBUcvnDR7yqRCd7jFhsKMi3gyG', NULL, 'no', NULL, NULL, '2018-11-21 10:21:00', '2018-12-05 14:33:55'),
+(37, 'demo9', 'demo9', 9, 'App\\Employee', 'admin@homeverge.co.tz', '754977617', 'male', NULL, '$2y$10$nqJpTuIC4bOpNghSQG9LWeTInSkP3vF4xDXVtGPNj3N.7WYW09XuC', NULL, 'no', NULL, NULL, '2018-11-22 08:20:31', '2018-11-22 08:20:31'),
+(38, 'demo6', 'demo6', 6, 'App\\Employee', 'ylowe@example.net', '717990638', 'male', NULL, '$2y$10$VnsJPrEkJ10Bjn7awdBSX.l.MNWDFRo0I8lMQb16/ANXl5Kr4rv0i', NULL, 'no', NULL, NULL, '2018-11-22 15:22:18', '2018-12-05 07:44:00'),
+(39, 'Xavier', 'Qudan', 3, 'App\\Employee', 'xavier@user.com', '754977618', 'male', NULL, '$2y$10$uDPXeCJ1kq3gkBYV40FBIuls65OTND5gHqUCDR/5hsNNTpJisqMJa', NULL, 'no', NULL, NULL, '2018-11-26 13:18:12', '2018-11-28 10:07:57'),
+(40, 'demo7', 'demo7', 7, 'App\\Employee', 'bryton@dennis.com', '754977617', 'male', NULL, '$2y$10$RU28KhEv8Rj5uwV9uiwsA.JNOnWPlngCOjjGjdeUWZk/1kARdV9Qi', NULL, 'no', NULL, NULL, '2018-11-26 13:25:02', '2018-11-26 14:00:57'),
+(41, 'Pamela', 'Moyata', 4, 'App\\Employee', 'pamela@user.com', '754977618', 'female', NULL, '$2y$10$sRaYqTtdBqRerFAw9WL1yumBhvMj.I9zGXI85kkraFJgShu7UcM4W', NULL, 'no', '0CGKSBWdMZ0glJ5Ek8N8X0TLnenyHtTCp7xCGIglvDO0xZRnX1ni99jZL8qI', NULL, '2018-11-28 10:10:51', '2018-11-28 10:11:33'),
+(42, 'Brian', 'Henesey', 5, 'App\\Employee', 'brian1@user.com', '754977618', 'male', NULL, '$2y$10$cKAaRAumK6fTgc.FdglRcuigKea6j.YT2dJF5x2NxY3SuWch9pnRi', NULL, 'yes', NULL, NULL, '2018-12-01 11:14:29', '2018-12-01 11:21:43');
 
 -- --------------------------------------------------------
 
@@ -6808,6 +6955,12 @@ ALTER TABLE `leave_employee_approvers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `leave_request_approvers`
+--
+ALTER TABLE `leave_request_approvers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `loans`
 --
 ALTER TABLE `loans`
@@ -6898,6 +7051,13 @@ ALTER TABLE `permissions`
   ADD KEY `permissions_entity_index` (`entity_id`,`entity_type`,`scope`),
   ADD KEY `permissions_ability_id_index` (`ability_id`),
   ADD KEY `permissions_scope_index` (`scope`);
+
+--
+-- Indexes for table `pictures`
+--
+ALTER TABLE `pictures`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pictures_pictureable_type_pictureable_id_index` (`pictureable_type`(191),`pictureable_id`);
 
 --
 -- Indexes for table `prldailytrans`
@@ -7162,25 +7322,25 @@ ALTER TABLE `yes_or_nos`
 -- AUTO_INCREMENT for table `abilities`
 --
 ALTER TABLE `abilities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=564;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=570;
 
 --
 -- AUTO_INCREMENT for table `audits`
 --
 ALTER TABLE `audits`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1599;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1738;
 
 --
 -- AUTO_INCREMENT for table `banks`
 --
 ALTER TABLE `banks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `batches`
@@ -7204,7 +7364,7 @@ ALTER TABLE `branches`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cost_centers`
@@ -7222,7 +7382,7 @@ ALTER TABLE `delivery_notes`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `dependants`
@@ -7240,7 +7400,7 @@ ALTER TABLE `dependanttypes`
 -- AUTO_INCREMENT for table `emailnotifications`
 --
 ALTER TABLE `emailnotifications`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `employeelanguages`
@@ -7258,7 +7418,7 @@ ALTER TABLE `employeequalifications`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `employementstatus`
@@ -7354,7 +7514,7 @@ ALTER TABLE `jobgroups`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `languages`
@@ -7384,19 +7544,19 @@ ALTER TABLE `leaveapprovals`
 -- AUTO_INCREMENT for table `leaveapprovers`
 --
 ALTER TABLE `leaveapprovers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `leavebalances`
 --
 ALTER TABLE `leavebalances`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `leavetypes`
@@ -7408,7 +7568,13 @@ ALTER TABLE `leavetypes`
 -- AUTO_INCREMENT for table `leave_employee_approvers`
 --
 ALTER TABLE `leave_employee_approvers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `leave_request_approvers`
+--
+ALTER TABLE `leave_request_approvers`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `loans`
@@ -7438,7 +7604,7 @@ ALTER TABLE `maritalstatus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=603;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=607;
 
 --
 -- AUTO_INCREMENT for table `months`
@@ -7489,6 +7655,12 @@ ALTER TABLE `payroll_trans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `pictures`
+--
+ALTER TABLE `pictures`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `prldailytrans`
 --
 ALTER TABLE `prldailytrans`
@@ -7528,7 +7700,7 @@ ALTER TABLE `prlhdmftypes`
 -- AUTO_INCREMENT for table `prlhealthtransactions`
 --
 ALTER TABLE `prlhealthtransactions`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3379;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `prlhealthtypes`
@@ -7546,7 +7718,7 @@ ALTER TABLE `prlloanfiles`
 -- AUTO_INCREMENT for table `prlloantransactions`
 --
 ALTER TABLE `prlloantransactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT for table `prlloantypes`
@@ -7570,7 +7742,7 @@ ALTER TABLE `prlothdedfiles`
 -- AUTO_INCREMENT for table `prlothdedtransactions`
 --
 ALTER TABLE `prlothdedtransactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=850;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=925;
 
 --
 -- AUTO_INCREMENT for table `prlothinctypes`
@@ -7582,13 +7754,13 @@ ALTER TABLE `prlothinctypes`
 -- AUTO_INCREMENT for table `prlothinfiles`
 --
 ALTER TABLE `prlothinfiles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `prlothintransactions`
 --
 ALTER TABLE `prlothintransactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=712;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=837;
 
 --
 -- AUTO_INCREMENT for table `prlpayrollperiod`
@@ -7618,7 +7790,7 @@ ALTER TABLE `prlsstable`
 -- AUTO_INCREMENT for table `prlsstransactions`
 --
 ALTER TABLE `prlsstransactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4146;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4854;
 
 --
 -- AUTO_INCREMENT for table `prlsstypes`
@@ -7642,13 +7814,13 @@ ALTER TABLE `prltaxtablerates`
 -- AUTO_INCREMENT for table `prltaxtransactions`
 --
 ALTER TABLE `prltaxtransactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3958;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4681;
 
 --
 -- AUTO_INCREMENT for table `prltransactions`
 --
 ALTER TABLE `prltransactions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6484;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8362;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -7696,13 +7868,13 @@ ALTER TABLE `remarks`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `salaries`
 --
 ALTER TABLE `salaries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `skills`
@@ -7714,13 +7886,13 @@ ALTER TABLE `skills`
 -- AUTO_INCREMENT for table `titles`
 --
 ALTER TABLE `titles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `work_experiences`

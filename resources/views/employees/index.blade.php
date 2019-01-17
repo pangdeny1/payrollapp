@@ -22,6 +22,11 @@
                             <h1 class="page-title mr-sm-auto mb-0">
                                 Employees
                             </h1>
+                             <div class="btn-toolbar">
+                                <a href="{{url('import_employee')}}" class="btn btn-light">
+                                    <i class="oi oi-data-transfer-upload"></i>
+                                    <span class="ml-1">Import</span>
+                                </a>
                             <div class="btn-toolbar">
                                 <a href="" class="btn btn-light">
                                     <i class="oi oi-data-transfer-download"></i>

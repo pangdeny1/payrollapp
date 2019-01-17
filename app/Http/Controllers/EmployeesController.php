@@ -15,11 +15,14 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
-use Sms;
+use employees;
 use App\Models\YesOrNo;
 use Image;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
+use App\Http\Requests\CsvImportRequest;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 
 class EmployeesController extends Controller
@@ -112,7 +115,7 @@ class EmployeesController extends Controller
 
        // $employee->groups()->attach($request->group_id);
         
-        /* \Sms::send(phone(request("phone"), "TZ"), $this->messageBody(
+        /* \employees::send(phone(request("phone"), "TZ"), $this->messageBody(
             request("first_name"),
             request("last_name"),
             request("phone")
@@ -317,15 +320,61 @@ class EmployeesController extends Controller
         return redirect()->route("employees.index");
     }
     
-    public function messageBody($firstname, $lastname, $group)
-    {
-        $format = 'Habari %s %s,Hongera  umesajiliwa kwenye mfumo wa Uzalishaji wa Homeveg';
+   public function import()
+   {
+    return view('employees.import');
+   }
 
-        return sprintf(
-            $format,
-            $firstname,
-            $lastname,
-            $group
-        );
+
+   public function parseImport(CsvImportRequest $request)
+    {
+
+        $path = $request->file('csv_file')->getRealPath();
+
+        if ($request->has('header')) {
+            $data = Excel::load($path, function($reader) {})->get()->toArray();
+        } else {
+            $data = array_map('str_getcsv', file($path));
+        }
+
+        if (count($data) > 0) {
+            if ($request->has('header')) {
+                $csv_header_fields = [];
+                foreach ($data[0] as $key => $value) {
+                    $csv_header_fields[] = $key;
+                }
+            }
+            $csv_data = array_slice($data, 0, count($data));
+
+            $csv_data_file = CsvData::create([
+                'csv_filename' => $request->file('csv_file')->getClientOriginalName(),
+                'csv_header' => $request->has('header'),
+                'csv_data' => json_encode($data)
+            ]);
+        } else {
+            return redirect()->back();
+        }
+
+        return view('employees.import_fields', compact( 'csv_header_fields', 'csv_data', 'csv_data_file'));
+
+    }
+
+    public function processImport(Request $request)
+    {
+        $data = CsvData::find($request->csv_data_file_id);
+        $csv_data = json_decode($data->csv_data, true);
+        foreach ($csv_data as $row) {
+            $importsm = new Importsm();
+            foreach (config('app.employees_fields') as $index => $field) {
+                if ($data->csv_header) {
+                    $importsm->$field = $row[$request->fields[$field]];
+                } else {
+                    $importsm->$field = $row[$request->fields[$index]];
+                }
+            }
+            $importsm->save();
+        }
+
+        return view('employees.import_success');
     }
 }
