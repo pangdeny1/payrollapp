@@ -47,14 +47,12 @@
                     </a>
 
                     <hr>
-@if(auth()->user()->manager=="yes")
+                    @if(auth()->user()->manager=="yes")
                     <div class="menu-header">Employees</div>
                     <a href="{{ route("employees.index")}}" class="menu-link mb-2">
                         <i class="fas fa-user-friends text-muted mr-2"></i>
                         <span class="menu-text">Browse a list</span>
                     </a>
-
-                  
                     @can("create", \App\Employee::class)
                     <a href="{{ route("employee.create")}}" class="menu-link mb-2">
                         <i class="fas fa-plus text-muted mr-2"></i>
@@ -67,11 +65,14 @@
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">Browse a list</span>
                     </a>
-                     <a href="{{url('salaries')}}" class="menu-link mb-2">
+                    <a href="{{url('salaries')}}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">Salaries</span>
                     </a>
-
+                    <a href="{{ route('payrolls.approves.index') }}" class="menu-link mb-2">
+                        <i class="fa fa-paypal" aria-hidden="true"></i>
+                        <span class="menu-text">Send payroll approve</span>
+                    </a>
                     @can("create", \App\Models\Payroll::class)
                     <a href="{{url('createpayrollperiod')}}" class="menu-link mb-2">
                         <i class="fas fa-plus text-muted mr-2"></i>
@@ -93,17 +94,16 @@
                     @endcan
 
                     <hr>
-
-                     <div class="menu-header">Leave</div>
+                    <div class="menu-header">Leave</div>
                     <a href="{{ route("leaves.index") }}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">Browse Leave forms</span>
                     </a>
-                     <a href="{{ route("leaves.create") }}" class="menu-link mb-2">
+                    <a href="{{ route("leaves.create") }}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">New Leave form</span>
                     </a>
-                     <a href="{{ route("approvals.index") }}" class="menu-link mb-2">
+                    <a href="{{ route("approvals.index") }}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">Proces Leave</span>
                     </a>

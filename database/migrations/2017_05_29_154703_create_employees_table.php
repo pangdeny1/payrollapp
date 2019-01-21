@@ -14,7 +14,6 @@ class CreateEmployeesTable extends Migration
     public function up()
     {
          Schema::create('prlemployeemaster', function (Blueprint $table) {
-
             $table->increments('employeeid');
             $table->string('employeecode');
             $table->string('title');
@@ -73,12 +72,8 @@ class CreateEmployeesTable extends Migration
             $table->string('costcenterid')->nullable();
             $table->string('position')->nullable();
             $table->string('employeepicture')->nullable();
-
-
-
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 

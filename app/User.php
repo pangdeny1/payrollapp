@@ -10,9 +10,7 @@ use Silber\Bouncer\Database\HasRolesAndAbilities;
 class User extends Authenticatable implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
-
     use Notifiable;
-
     use HasRolesAndAbilities;
 
     protected $guarded  = [];

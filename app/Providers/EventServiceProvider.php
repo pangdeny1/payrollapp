@@ -16,6 +16,10 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\UserRegistered::class => [
             \App\Listeners\SendActivationEmail::class,
         ],
+
+        \App\Events\Payrolls\Approve::class => [
+            \App\Listeners\Payrolls\SendManagerApproveEmail::class
+        ]
     ];
 
     /**

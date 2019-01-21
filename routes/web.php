@@ -1,8 +1,17 @@
 <?php
+
+Route::get("tests", function(){
+    return \App\Employee::get();
+});
 Auth::routes();
 Route::view("/", "welcome");
 Route::view("template", "template");
 Route::view("pdf", "pdf");
+
+Route::get("payrolls_approves", "PayrollApprovesController@index")->name("payrolls.approves.index");
+Route::get("payrolls_approves/{payroll}", "PayrollApprovesController@store")->name("payrolls.approves.store");
+Route::get("payrolls_approves/{payroll}/code", "PayrollApprovesController@update")->name("payrolls.approves.update");
+
 Route::get('dashboard', [
     "as" => "home",
     "uses" => "HomeController@index"

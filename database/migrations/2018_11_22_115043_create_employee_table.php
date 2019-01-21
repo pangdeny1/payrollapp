@@ -34,34 +34,29 @@ class CreateEmployeeTable extends Migration
             $table->integer('branch_id')->nullable();
             $table->integer('department_id')->nullable();
             $table->integer('job_id')->nullable();
+            $table->integer('health_id')->nullable();
+            $table->integer('hdmf_id')->nullable();
+            $table->integer('bank_id')->nullable();
+            $table->string('bankbranch_id')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('account_name')->nullable();
+            $table->string('ss_number')->nullable();
+            $table->string('health_number')->nullable();
+            $table->string('hdmf_number')->nullable();
+            $table->string('marital')->nullable();
+            $table->string('company_id')->nullable();
 
-$table->integer('health_id')->nullable();
-$table->integer('hdmf_id')->nullable();
-$table->integer('bank_id')->nullable();
-$table->string('bankbranch_id')->nullable();
-$table->string('account_number')->nullable();
-$table->string('account_name')->nullable();
-$table->string('ss_number')->nullable();
-$table->string('health_number')->nullable();
-$table->string('hdmf_number')->nullable();
-$table->string('marital')->nullable();
-$table->string('company_id')->nullable();
+            $table->date('hire_date');
+            $table->date('terminate_date')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->date('retired_date')->nullable();
+            $table->date('probation_date')->nullable();
 
-$table->date('hire_date');
-$table->date('terminate_date')->nullable();
-$table->date('birth_date')->nullable();
-$table->date('retired_date')->nullable();
-$table->date('probation_date')->nullable();
-
-
-$table->string('employement_status')->default('active')->nullable();
-$table->string('code')->nullable();
-$table->string('title_id')->nullable();
-$table->string('picture')->nullable();
-$table->string('about_employee')->nullable();
-
-
-
+            $table->string('employement_status')->default('active')->nullable();
+            $table->string('code')->nullable();
+            $table->string('title_id')->nullable();
+            $table->string('picture')->nullable();
+            $table->string('about_employee')->nullable();
 
             $table->unsignedInteger('creator_id')->nullable();
             $table->timestamps();

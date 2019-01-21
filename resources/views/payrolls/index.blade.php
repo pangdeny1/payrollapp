@@ -75,41 +75,35 @@
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
-                                             <tr>
-                                    <th>Payroll code</th>
-                                    <th>Payroll Name</th>
-                                    <th>Status</th>
-                                   
-                                    <th style="text-align:center" colspan="2">Actions</th>
-                                </tr>
+                                            <tr>
+                                                <th>Payroll code</th>
+                                                <th>Payroll Name</th>
+                                                <th>Status</th>
+                                                <th style="text-align:center" colspan="2">Actions</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                             @foreach ($payrolls as $payroll)
+                                            @foreach ($payrolls as $payroll)
                                             <tr>
-                                               <td>
-                                        <a href="{{ url('showpayroll/'.$payroll->id) }}">
-                                            {{ $payroll->id }} - {{ $payroll->payrollid }}
-                                        </a>
-                                    </td>
-                                    <td>
-                                 {{ $payroll->payrolldesc }}
-                                  
-                                    </td>
-                                    <td>@if($payroll->payclosed==1){{"Open"}} @else {{"Closed"}} @endif</td>
-                                    <td class="align-middle text-right">
-                                      
-                                   
-                                      @if($payroll->payclosed== 1)
-                                   <a href="{{ url('editpayroll/'.$payroll->id) }}" class="btn btn-sm btn-secondary">
-                                                        <i class="fa fa-pencil-alt"></i>
-                                                        <span class="sr-only">Edit</span>
+                                                <td>
+                                                    <a href="{{ url('showpayroll/'.$payroll->id) }}">
+                                                        {{ $payroll->id }} - {{ $payroll->payrollid }}
                                                     </a>
-                                    <a href="{{ url('deletepayroll/'.$payroll->id) }}" onclick="return confirm('Are you sure you want to Delete this record')"  class="btn btn-sm btn-secondary">
-                                                        <i class="far fa-trash-alt"></i>
-                                                        <span class="sr-only">Remove</span>
-                                                    </a>
+                                                </td>
+                                                <td>{{ $payroll->payrolldesc }}</td>
+                                                <td>{{ $payroll->payclosed == 1 ? "Open" : "Closed" }}</td>
+                                                <td class="align-middle text-right">       
+                                                    @if($payroll->payclosed== 1)
+                                                        <a href="{{ url('editpayroll/'.$payroll->id) }}" class="btn btn-sm btn-secondary">
+                                                            <i class="fa fa-pencil-alt"></i>
+                                                            <span class="sr-only">Edit</span>
+                                                        </a>
+                                                        <a href="{{ url('deletepayroll/'.$payroll->id) }}" onclick="return confirm('Are you sure you want to Delete this record')"  class="btn btn-sm btn-secondary">
+                                                            <i class="far fa-trash-alt"></i>
+                                                            <span class="sr-only">Remove</span>
+                                                        </a>
                                                     @endif
-                                                      <a href="{{ url('showpayroll/'.$payroll->id) }}" class="btn btn-primary">Select</a>
+                                                    <a href="{{ url('showpayroll/'.$payroll->id) }}" class="btn btn-primary">Select</a>
                                                 </td>
                                             </tr>
                                             @endforeach
