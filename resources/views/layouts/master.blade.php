@@ -40,28 +40,17 @@
     <!-- BEGIN THEME STYLES -->
     <link rel="stylesheet" href="{{ asset("themes/looper/assets/stylesheets/main.min.css") }}">
     <link rel="stylesheet" href="{{ asset("themes/looper/assets/stylesheets/custom.css") }}">
-
-
     <!-- END THEME STYLES -->
 </head>
 <body>
 <!-- .app -->
 <div id="app">
     <!-- .app-header -->
-    
     @include('layouts.app_header')
 
     <!-- .app-aside -->
     @include('layouts.app_aside')
-}
     
-
-
-
-   
-
-    
-
     <!-- .app-main -->
     <main class="app-main">
         @yield("content")
@@ -142,8 +131,7 @@
     <script>
       window.dataLayer = window.dataLayer || [];
 
-      function gtag()
-      {
+      function gtag() {
         dataLayer.push(arguments);
       }
       gtag('js', new Date());

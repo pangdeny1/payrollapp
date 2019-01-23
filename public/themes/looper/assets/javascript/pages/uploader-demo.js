@@ -4,7 +4,7 @@
 // =============================================================
 $(function () {
   // Change this to the location of your server-side upload handler:
-  var url = '//jquery-file-upload.appspot.com/';
+  var url = '/api/employees/82/avatar';
   // const url = (window.location.hostname === 'blueimp.github.io') ? '//jquery-file-upload.appspot.com/' : 'server/php/'
 
   // file upload avatar

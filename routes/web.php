@@ -12,6 +12,8 @@ Route::get("payrolls_approves", "PayrollApprovesController@index")->name("payrol
 Route::get("payrolls_approves/{payroll}", "PayrollApprovesController@store")->name("payrolls.approves.store");
 Route::get("payrolls_approves/{payroll}/code", "PayrollApprovesController@update")->name("payrolls.approves.update");
 
+Route::get("employee_profiles/{employee}", "EmployeeProfileController@index")->name("employee_profiles.index");
+
 Route::get('dashboard', [
     "as" => "home",
     "uses" => "HomeController@index"

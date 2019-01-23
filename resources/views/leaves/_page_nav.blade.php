@@ -14,7 +14,6 @@
                 Leave balance
                 <span class="badge"></span>
             </a>
-            
         </div>
         <!-- /.nav -->
     </div>

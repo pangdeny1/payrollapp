@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Employee extends Model implements Auditable
+class Employee extends Model implements Auditable, HasMedia
 {
     use \OwenIt\Auditing\Auditable;
+    use HasMediaTrait;
 
     protected $fillable = ['id','first_name','last_name','other_name','phone','email','gender',
 'period_rate','pay_type','sstype_id','hourly_rate','pay_period',
@@ -20,9 +23,7 @@ class Employee extends Model implements Auditable
 
     protected $guarded = [];
 
-    protected $appends = [
-        "full_name"
-    ];
+    protected $appends = ["full_name"];
 
       public function farms()
     {
