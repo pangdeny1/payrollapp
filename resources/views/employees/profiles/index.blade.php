@@ -55,7 +55,12 @@
                                     <img src="{{ Avatar::create($employee->full_name)->toBase64() }}" alt="">
                                     @endif
                                      
-                                    <input id="fileupload-avatar" type="file" name="avatar">
+                                    <input 
+                                        id="fileupload-avatar" 
+                                        type="file" 
+                                        name="avatar" 
+                                        data-url="/api/employees/{{ $employee->id }}/avatar"
+                                    >
                                 </div><!-- /avatar -->
                                 <!-- .media-body -->
                                 <div class="media-body pl-3">
