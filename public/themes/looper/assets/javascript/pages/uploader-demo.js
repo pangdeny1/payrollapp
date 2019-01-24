@@ -4,14 +4,14 @@
 // =============================================================
 $(function () {
   // Change this to the location of your server-side upload handler:
-  var url = '/api/employees/82/avatar';
+  //var url = '/api/employees/82/avatar';
   // const url = (window.location.hostname === 'blueimp.github.io') ? '//jquery-file-upload.appspot.com/' : 'server/php/'
 
   // file upload avatar
   // =============================================================
 
   $('#fileupload-avatar').fileupload({
-    url: url,
+    //url: url,
     dropZone: null,
     dataType: 'json',
     autoUpload: true,
@@ -31,7 +31,9 @@ $(function () {
 
     $('#progress-avatar').addClass('show').children().css('width', progress + '%');
   }).on('fileuploaddone', function (e, data) {
-    var file = data.result.files[0];
+    //var file = data.result.files[0];
+    var file = data.result;
+    console.log(data.result);
     var $img = $(this).parent().children('img');
     var $old = $img.prop('src');
 

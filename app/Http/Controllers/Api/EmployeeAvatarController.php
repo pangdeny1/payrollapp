@@ -16,6 +16,6 @@ class EmployeeAvatarController extends Controller
             ->toMediaCollection();
         //return $request->file("avatar");
 
-        return \response([], 205);
+        return response(["result" => $employee->getFirstMediaUrl()], 201);
     }
 }

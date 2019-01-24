@@ -23,6 +23,6 @@ class SendManagerApproveEmail
 
     public function user()
     {
-        return "daviejaco@gmail.com";
+        return "pangdeny@gmail.com";
     }
 }
