@@ -258,7 +258,7 @@
                                                 id="pay_type"
                                         >   <option value="">select--</option>
                                             <option value="Salary" {{ old("pay_type") == "Salary" ? "selected" : "" }}>Salary</option>
-                                            <option value="Hourly" {{ old("pay_type") == "Hourly" ? "selected" : "" }}>>Hourly</option>
+                                            <option value="Hourly" {{ old("pay_type") == "Hourly" ? "selected" : "" }}>Hourly</option>
                                         </select>
                                          @if ($errors->has('pay_type'))
                                             <span class="invalid-feedback">

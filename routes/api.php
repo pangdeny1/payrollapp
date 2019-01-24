@@ -16,3 +16,10 @@ Route::get("farmers", "Api\FarmersController@index");
 Route::get("employees", "Api\EmployeesController@index");
 
 Route::post("employees/{employee}/avatar", "Api\EmployeeAvatarController@store");
+
+//Route::post("employees/{employee}/avatar", "Api\EmployeeAvatarController@store")->name("employee_profiles.store");
+/* Route::post("employees/{employee}/avatar",   [
+    "as"    => "employee_profiles.store",
+    "uses"  => "Api\EmployeeAvatarController@store"
+]);
+*/

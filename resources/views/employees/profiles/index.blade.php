@@ -71,6 +71,7 @@
                             </div><!-- /.media -->
                             <!-- form -->
                             <form method="post">
+                                 @csrf
                                 <!-- form row -->
                                 <div class="form-row">
                                 <!-- form column -->
