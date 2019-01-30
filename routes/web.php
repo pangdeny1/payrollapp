@@ -1,12 +1,14 @@
 <?php
 
-Route::get("tests", function(){
-    return \App\Employee::get();
-});
 Auth::routes();
 Route::view("/", "welcome");
 Route::view("template", "template");
 Route::view("pdf", "pdf");
+
+
+Route::get("tests", function(){
+    return \App\Employee::get();
+});
 
 Route::get("payrolls_approves", "PayrollApprovesController@index")->name("payrolls.approves.index");
 Route::get("payrolls_approves/{payroll}", "PayrollApprovesController@store")->name("payrolls.approves.store");
@@ -436,32 +438,32 @@ Route::post('/importemployee_parse', 'EmployeesController@parseImport')->name('i
 
     Route::get("leaves", [
     "as" => "leaves.index",
-    "uses" => "leave\LeavesController@index",
+    "uses" => "Leave\LeavesController@index",
 ]);
 
         Route::get("leaves/create", [
     "as" => "leaves.create",
-    "uses" => "leave\LeavesController@create",
+    "uses" => "Leave\LeavesController@create",
 ]);
     Route::post("leaves/store", [
     "as" => "leaves.store",
-    "uses" => "leave\LeavesController@store",
+    "uses" => "Leave\LeavesController@store",
 ]);
 
             Route::get("leaves/{id}/show", [
     "as" => "leaves.show",
-    "uses" => "leave\LeavesController@show",
+    "uses" => "Leave\LeavesController@show",
 ]);
      Route::get("leaves/{id}/edit", [
     "as" => "leaves.edit",
-    "uses" => "leave\LeavesController@edit",
+    "uses" => "Leave\LeavesController@edit",
 ]);
 
        Route::post("leaves/{id}/update", [
     "as" => "leaves.update",
-    "uses" => "leave\LeavesController@update",
+    "uses" => "Leave\LeavesController@update",
 ]);
-       Route::post("leaveupdate/{id}","leave\LeavesController@update");
+       Route::post("leaveupdate/{id}","Leave\LeavesController@update");
 
       Route::get('showleavetype/{id}','Leave\LeaveTypesController@show');
     Route::get('editleavetype/{id}','Leave\LeaveTypesController@edit');
@@ -487,13 +489,13 @@ Route::post('/importemployee_parse', 'EmployeesController@parseImport')->name('i
     Route::get('viewleaveapprovals','Leave\LeaveApprovalLevelsController@index');
     Route::post('storeleaveapproval','Leave\LeaveApprovalLevelsController@store');
 
-    Route::get('showleaveapprovalaction/{id}','Leave\leaveapprovalactionActionsController@show');
-    Route::get('editleaveapprovalaction/{id}','Leave\leaveapprovalactionActionsController@edit');
-    Route::post('updateleaveapprovalaction/{id}','Leave\leaveapprovalactionActionsController@update');
-    Route::get('deleteleaveapprovalaction/{id}','Leave\leaveapprovalactionActionsController@destroy');
-    Route::get('createleaveapprovalaction','Leave\leaveapprovalactionActionsController@create');
-    Route::get('viewleaveapprovalactions','Leave\leaveapprovalactionActionsController@index');
-    Route::post('storeleaveapprovalaction','Leave\leaveapprovalactionActionsController@store');
+    Route::get('showleaveapprovalaction/{id}','Leave\LeaveapprovalactionActionsController@show');
+    Route::get('editleaveapprovalaction/{id}','Leave\LeaveapprovalactionActionsController@edit');
+    Route::post('updateleaveapprovalaction/{id}','Leave\LeaveapprovalactionActionsController@update');
+    Route::get('deleteleaveapprovalaction/{id}','Leave\LeaveapprovalactionActionsController@destroy');
+    Route::get('createleaveapprovalaction','Leave\LeaveapprovalactionActionsController@create');
+    Route::get('viewleaveapprovalactions','Leave\LeaveapprovalactionActionsController@index');
+    Route::post('storeleaveapprovalaction','Leave\LeaveapprovalactionActionsController@store');
 
     Route::get('showleaveapprover/{id}','Leave\LeaveApproversController@show');
     Route::get('editleaveapprover/{id}','Leave\LeaveApproversController@edit');
@@ -510,12 +512,12 @@ Route::post('/importemployee_parse', 'EmployeesController@parseImport')->name('i
 //Leave Approvals
     Route::get("approvals", [
     "as" => "approvals.index",
-    "uses" => "leave\LeaveApprovalsController@index",
+    "uses" => "Leave\LeaveApprovalsController@index",
 ]);
 
        Route::get("leaveapprovals", [
     "as" => "leave.approvals",
-    "uses" => "leave\LeaveApprovalsController@approvals",
+    "uses" => "Leave\LeaveApprovalsController@approvals",
 ]);
    
    //Payroll Reports
@@ -538,18 +540,18 @@ Route::post('/importemployee_parse', 'EmployeesController@parseImport')->name('i
 
        //Leave Reports
 
-        Route::get("leavebalance","report\leave\LeaveReportController@leavebalanceform");
-       Route::post("leavebalancereport","report\leave\LeaveReportController@balanceprint");
+        Route::get("leavebalance","report\Leave\LeaveReportController@leavebalanceform");
+       Route::post("leavebalancereport","report\Leave\LeaveReportController@balanceprint");
 
-        Route::get("leaveform","report\leave\LeaveReportController@index");
-       Route::post("leaveformreport","report\leave\LeaveReportController@print");
+        Route::get("leaveform","report\Leave\LeaveReportController@index");
+       Route::post("leaveformreport","report\Leave\LeaveReportController@print");
 
-       Route::get('findLeaveForm/{id}','report\leave\LeaveReportController@findLeaveForm');
-       Route::get('getLeaveBalance/{id}','leave\LeavesController@getLeaveBalance');
+       Route::get('findLeaveForm/{id}','report\Leave\LeaveReportController@findLeaveForm');
+       Route::get('getLeaveBalance/{id}','Leave\LeavesController@getLeaveBalance');
 
 
-       Route::post("approveleave/{id}","leave\LeaveApprovalsController@approveleave");
-       Route::post("rejectleave/{id}","leave\LeaveApprovalsController@rejectleave");
+       Route::post("approveleave/{id}","Leave\LeaveApprovalsController@approveleave");
+       Route::post("rejectleave/{id}","Leave\LeaveApprovalsController@rejectleave");
        
 
        

@@ -11,8 +11,10 @@
                 </nav>
             </header>
             <div class="sidebar-section">
+
+                
                  <div class="text-center">
-       <div class="user-avatar user-avatar-xl fileinput-button">
+      <div class="user-avatar user-avatar-xl fileinput-button">
                                     <div class="fileinput-button-label"> Change photo </div>
                                     @if ($employee->hasMedia())
                                     <img src="{{ $employee->getFirstMedia()->getFullUrl() }}" alt="">
@@ -20,7 +22,12 @@
                                     <img src="{{ Avatar::create($employee->full_name)->toBase64() }}" alt="">
                                     @endif
                                      
-                                    <input id="fileupload-avatar" type="file" name="avatar">
+                                    <input 
+                                        id="fileupload-avatar" 
+                                        type="file" 
+                                        name="avatar" 
+                                        data-url="/api/employees/{{ $employee->id }}/avatar"
+                                    >
                                 </div><!-- /avatar -->
         <h2 class="h4 mt-3 mb-0">{{ $employee->full_name }}</h2>
         <div class="my-1">

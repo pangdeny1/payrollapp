@@ -266,13 +266,13 @@
                             </a>
                             @endcan
 
-                              @can("view", \App\Models\Leave\leaveapprovalaction::class)
+                              @can("view", \App\Models\Leave\Leaveapprovalaction::class)
                             <a href="{{ url('viewleaveapprovalactions') }}" class="dropdown-item ">
                                 <i class="fas fa-users"></i> Leave Approval Action
                             </a>
                             @endcan
                              
-                             @can("view", \App\Models\Leave\leaveapprover::class)
+                             @can("view", \App\Models\Leave\Leaveapprover::class)
                             <a href="{{ url('viewleaveapprovers') }}" class="dropdown-item ">
                                 <i class="fas fa-users"></i> Leave Approvers
                             </a>

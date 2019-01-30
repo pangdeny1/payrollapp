@@ -149,7 +149,7 @@
                                               
                                         >
                                             <option value=""> Choose... </option>
-                                            @foreach(\App\Models\Leave\leaveapprover::all() as $approver)
+                                            @foreach(\App\Models\Leave\Leaveapprover::all() as $approver)
                                                 <option value="{{ $approver->id }}" {{ old("approver") == $approver->id ? "selected" : "" }}>
                                                     {{ $approver->approvername->fullname }}
                                                 </option>

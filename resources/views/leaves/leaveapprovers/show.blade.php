@@ -21,7 +21,7 @@
 
 
 
-                            @if(\App\Models\Leave\leaveEmployeeApprover::where('active',1)->where("approver_id",$leaveapprover->id)->where('employee_id',$employee->id)->count()==0)
+                            @if(\App\Models\Leave\LeaveEmployeeApprover::where('active',1)->where("approver_id",$leaveapprover->id)->where('employee_id',$employee->id)->count()==0)
                             
                                <li class="dd-item" data-id="3">
                             <div class="dd-handle">
@@ -75,7 +75,7 @@
                       <div id="nestable02" class="dd">
                         <!-- .dd-list -->
                         <ol class="dd-list">
-                            @foreach(\App\Models\Leave\leaveEmployeeApprover::where('active',1)->where('approver_id',$leaveapprover->id)->latest()->get() as $employee)
+                            @foreach(\App\Models\Leave\LeaveEmployeeApprover::where('active',1)->where('approver_id',$leaveapprover->id)->latest()->get() as $employee)
                             
                           <li class="dd-item" data-id="{{$employee->id}}">
                             <div class="dd-handle">

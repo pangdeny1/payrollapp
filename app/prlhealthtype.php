@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class prlhealthtype extends Model
+class Prlhealthtype extends Model
 {
    protected $primaryKey='id';
    protected $table = 'prlhealthtypes';

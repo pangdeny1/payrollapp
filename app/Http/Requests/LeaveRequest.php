@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Models\Leave\leavebalance;
+use App\Models\Leave\Leavebalance;
 use App\Employee;
 use App\Models\Leave\Leavetype;
 

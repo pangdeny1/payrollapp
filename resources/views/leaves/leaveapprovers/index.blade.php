@@ -28,7 +28,7 @@
                                     <span class="ml-1">Export as excel</span>
                                 </a>
                                 
-                                @can("create", \App\Models\leave\leaveapprover::class)
+                                @can("create", \App\Models\Leave\Leaveapprover::class)
                                 
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                 
@@ -116,7 +116,7 @@
                                                 required=""
                                         >
                                             <option value=""> Choose... </option>
-                                            @foreach(\App\Models\Leave\leaveapprovallevel::All() as $level)
+                                            @foreach(\App\Models\Leave\Leaveapprovallevel::All() as $level)
                                                 <option value="{{ $level->id }}" {{ old("level") == $level->id ? "selected" : "" }}>
                                                     {{ $level->name }} 
                                                 </option>
@@ -216,7 +216,7 @@
                                                
                                                  
                                                  <td class="align-middle text-right">
-                                                    @can("view", \App\Models\leave\leaveapprover::class)
+                                                    @can("view", \App\Models\Leave\Leaveapprover::class)
                                                     <a href="{{ url("showleaveapprover", $leave) }}" class="btn btn-primary">
                                                         
                                                         select
@@ -224,14 +224,14 @@
                                                     @endcan
                                                 
                                                 <td class="align-middle text-right">
-                                                    @can("edit", \App\Models\leave\leaveapprover::class)
+                                                    @can("edit", \App\Models\Leave\Leaveapprover::class)
                                                     <a href="{{ url("editleaveapprover", $leave) }}" class="btn btn-sm btn-secondary">
                                                         <i class="fa fa-pencil-alt"></i>
                                                         <span class="sr-only">Edit</span>
                                                     </a>
                                                     @endcan
 
-                                                    @can("delete", \App\Models\leave\leaveapprover::class)
+                                                    @can("delete", \App\Models\Leave\Leaveapprover::class)
                                                     <a href="{{ url("deleteleaveapprover", $leave) }}" onclick="return confirm('Are you sure you want to Delete this record')"  class="btn btn-sm btn-secondary">
                                                         <i class="far fa-trash-alt"></i>
                                                         <span class="sr-only">Remove</span>
@@ -269,7 +269,7 @@
                     <p class="state-description lead text-muted">
                         Use the button below to Apply new Leave.
                     </p>
-                    @can("create", \App\Models\leave\leaveapprover::class)
+                    @can("create", \App\Models\Leave\Leaveapprover::class)
                     <div class="state-action">
                         <a href="{{ url("createleaveapprover") }}" class="btn btn-primary">Register new Leave</a>
                     </div>

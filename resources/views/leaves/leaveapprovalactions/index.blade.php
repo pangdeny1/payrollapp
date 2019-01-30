@@ -28,7 +28,7 @@
                                     <span class="ml-1">Export as excel</span>
                                 </a>
                                 
-                                @can("create", \App\Models\leave\Leavebalance::class)
+                                @can("create", \App\Models\Leave\Leavebalance::class)
                                 <a href="{{ url("createleavebalance") }}" class="btn btn-primary">
                                     <span class="fas fa-plus mr-1"></span>
                                     New Leave type
@@ -103,14 +103,14 @@
                                                 <td >{{ $leave->days}}</td>
                                                 
                                                 <td class="align-middle text-right">
-                                                    @can("edit", \App\Models\leave\Leavebalance::class)
+                                                    @can("edit", \App\Models\Leave\Leavebalance::class)
                                                     <a href="{{ url("editleavebalance", $leave) }}" class="btn btn-sm btn-secondary">
                                                         <i class="fa fa-pencil-alt"></i>
                                                         <span class="sr-only">Edit</span>
                                                     </a>
                                                     @endcan
 
-                                                    @can("delete", \App\Models\leave\Leavebalance::class)
+                                                    @can("delete", \App\Models\Leave\Leavebalance::class)
                                                     <a href="{{ url("deleteleavebalance", $leave) }}" onclick="return confirm('Are you sure you want to Delete this record')"  class="btn btn-sm btn-secondary">
                                                         <i class="far fa-trash-alt"></i>
                                                         <span class="sr-only">Remove</span>
@@ -148,7 +148,7 @@
                     <p class="state-description lead text-muted">
                         Use the button below to Apply new Leave.
                     </p>
-                    @can("create", \App\Models\leave\Leavebalance::class)
+                    @can("create", \App\Models\Leave\Leavebalance::class)
                     <div class="state-action">
                         <a href="{{ url("createleavebalance") }}" class="btn btn-primary">Register new Leave</a>
                     </div>

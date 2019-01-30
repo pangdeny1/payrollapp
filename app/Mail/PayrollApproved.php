@@ -28,8 +28,19 @@ class PayrollApproved extends Mailable
     {
         return $this
             ->markdown('emails.payrolls.approves')
+            ->attachFromStorage("emails\attachments\payrolls", 'file.pdf', [
+                'mime' => 'application/pdf'
+            ]);
+    }
+
+/*
+     public function build()
+    {
+        return $this
+            ->markdown('emails.payrolls.approves')
             ->attachFromStorage('emails/attachments/payrolls', 'file.pdf', [
                 'mime' => 'application/pdf'
             ]);;
     }
+    */
 }

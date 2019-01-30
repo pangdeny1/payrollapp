@@ -28,7 +28,7 @@
                                     <span class="ml-1">Export as excel</span>
                                 </a>
                                 
-                                @can("create", \App\Models\leave\Leavetype::class)
+                                @can("create", \App\Models\Leave\Leavetype::class)
                                 <a href="{{ url("createleavetype") }}" class="btn btn-primary">
                                     <span class="fas fa-plus mr-1"></span>
                                     New Leave type
@@ -99,14 +99,14 @@
                                                 <td >{{ $leave->max_number}}</td>
                                                 
                                                 <td class="align-middle text-right">
-                                                    @can("edit", \App\Models\leave\Leavetype::class)
+                                                    @can("edit", \App\Models\Leave\Leavetype::class)
                                                     <a href="{{ url("editleavetype", $leave) }}" class="btn btn-sm btn-secondary">
                                                         <i class="fa fa-pencil-alt"></i>
                                                         <span class="sr-only">Edit</span>
                                                     </a>
                                                     @endcan
 
-                                                    @can("delete", \App\Models\leave\Leavetype::class)
+                                                    @can("delete", \App\Models\Leave\Leavetype::class)
                                                     <a href="{{ url("deleteleavetype", $leave) }}" onclick="return confirm('Are you sure you want to Delete this record')"  class="btn btn-sm btn-secondary">
                                                         <i class="far fa-trash-alt"></i>
                                                         <span class="sr-only">Remove</span>
@@ -144,7 +144,7 @@
                     <p class="state-description lead text-muted">
                         Use the button below to Apply new Leave.
                     </p>
-                    @can("create", \App\Models\leave\Leavetype::class)
+                    @can("create", \App\Models\Leave\Leavetype::class)
                     <div class="state-action">
                         <a href="{{ url("createleavetype") }}" class="btn btn-primary">Register new Leave</a>
                     </div>

@@ -91,7 +91,7 @@
                                                 required=""
                                         >
                                             <option value=""> Choose... </option>
-                                            @foreach(\App\Models\Leave\leaveapprovallevel::All() as $level)
+                                            @foreach(\App\Models\Leave\Leaveapprovallevel::All() as $level)
                                                 <option value="{{ $level->id }}" {{ old("level",$leaveapprover->level_id) == $level->id ? "selected" : "" }}>
                                                     {{ $level->name }} 
                                                 </option>
