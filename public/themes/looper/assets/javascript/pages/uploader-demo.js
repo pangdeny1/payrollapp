@@ -33,12 +33,11 @@ $(function () {
   }).on('fileuploaddone', function (e, data) {
     //var file = data.result.files[0];
     var file = data.result;
-    console.log(data.result);
     var $img = $(this).parent().children('img');
     var $old = $img.prop('src');
-
-    if (file.url) {
-      $img.prop('src', file.url);
+    if (file) {
+      //$img.prop('src', file);
+      //$img.attr('src', file);
     } else if (file.error) {
       $('#avatar-warning-container').addClass('show').text(file.error);
     }

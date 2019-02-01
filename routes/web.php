@@ -1,14 +1,12 @@
 <?php
+use Illuminate\Support\Facades\Artisan;
 
 Auth::routes();
 Route::view("/", "welcome");
 Route::view("template", "template");
 Route::view("pdf", "pdf");
 
-
-Route::get("tests", function(){
-    return \App\Employee::get();
-});
+Route::get("storage_link", function(){ Artisan::call('storage:link'); });
 
 Route::get("payrolls_approves", "PayrollApprovesController@index")->name("payrolls.approves.index");
 Route::get("payrolls_approves/{payroll}", "PayrollApprovesController@store")->name("payrolls.approves.store");
