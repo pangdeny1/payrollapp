@@ -224,7 +224,7 @@
                                                 required=""
                                         >
                                             <option value=""> Choose... </option>
-                                            @foreach(\App\Models\department::latest()->get() as $department)
+                                            @foreach(\App\Models\Department::latest()->get() as $department)
                                                 <option value="{{ $department->id }}" {{ old("department",$employee->department_id) == $department->id ? "selected" : "" }}>
                                                     {{ $department->departmentname }} 
                                                 </option>
