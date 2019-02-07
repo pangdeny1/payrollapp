@@ -29,7 +29,7 @@
                 <span class="badge"></span>
             </a>
             <a class="nav-link" href="#tab-fifth" role="tab" data-toggle="tab">
-                Attachement
+                Other Info
                 <span class="badge"></span>
             </a>
              <a class="nav-link" href="#tab-fourth" role="tab" data-toggle="tab">
@@ -303,7 +303,7 @@
 
                                            
                                             <div class="form-group">
-                                                <label class="col-md-3 col-xs-12 control-label">About employee</label>
+                                                <label class="col-md-3 col-xs-12 control-label">Declaration</label>
                                                 <div class="col-md-6 col-xs-12">                                            
                                                     <textarea class="form-control" rows="5" name="about_employee">{{$employee->about_employee}}</textarea>
                                                     <span class="help-block">Any particular condition that the Administrator may require to know</span>
@@ -550,22 +550,91 @@
                                         </div>
 
                                         <div class="tab-pane"  id="tab-fifth">
-                                         <p>Attachement</p> 
-
-                                           <div class="form-group">
-                          <label for="tf3">File input</label>
-                          <div class="col-md-6 col-xs-12">    
-                            <input type="file" name="pic "class="custom-file-input" id="pic" multiple>
-                            <label class="custom-file-label" for="tf3">Choose file</label>
-
-
-                            <input type="file"
-       id="pic" name="pic"
-       accept="image/png, image/jpeg ,image/JPG">
-                          </div>
-                        </div>
-                                         
-
+                                        
+                                      <h6 class="card-header">Other Details </h6>
+                      <!-- .nav -->
+                      <nav class="nav nav-tabs flex-column">
+                        <a href="#" class="nav-link active"><b>Dependents</b> </a>
+                        <ul>
+                            @foreach( \App\Models\Dependant::where('employee_id',$employee->id)->get() as $dependant )
+                          <li> {{$dependant->fullname}}</li>
+                          @endforeach
+                        </ul>
+                        <a href="#" class="nav-link"><b>Education Qualification Details</b> </a>
+                         <ul>
+                            @foreach( \App\Models\Employeequalification::where('employee_id',$employee->id)->get() as  $equalification)
+                          <li> computer siccss</li>
+                          @endforeach
+                        </ul>
+                        <a href="#" class="nav-link"><b>Working Experience Details</b> </a>
+                         <ul>
+                             @foreach( \App\Models\WorkExperience::where('employee_id',$employee->id)->get() as  $equalification)
+                          <li> computer siccss</li>
+                          @endforeach
+                        </ul>
+                                <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Company</th>
+                                    <th>Employee</th>
+                                     <th>Job Title</th>
+                                     <th>Start Date</th>
+                                    <th>End Date</th>
+                                    
+                                    <th style="text-align:center" colspan="2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @foreach( \App\Models\WorkExperience::where('employee_id',$employee->id)->get() as $workexperience)
+                                <tr>
+                                   
+                                   
+                                    <td>
+                                  {{ $workexperience->id}}
+                                   
+                                    </td>
+                                   
+                                    <td>{{ $workexperience->companyname }}</td>
+                                    <td>
+                                     @foreach ($employees as $employee)
+                                        @if ($employee->id == $workexperience->employee_id)
+                                            {{ $employee->first_name }} {{$employee->last_name}}
+                                        @endif
+                                    @endforeach</td>
+                                   
+                                    <td>
+                                       {{$workexperience->jobtitle}} 
+                                    </td>
+                                     <td>
+                                       {{$workexperience->startdate}} 
+                                    </td>
+                                    <td>
+                                        {{$workexperience->enddate }}
+                                    </td>
+                                     <td>
+                                        <a href="{{ url('showworkexperience/'.$workexperience->id) }}" class="btn btn-primary">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('editworkexperience/'.$workexperience->id) }}" class="btn btn-primary">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('deleteworkexperience/'.$workexperience->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to Delete this record')" >Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                        <a href="#" class="nav-link"><b>Referee details </b></a>
+                         <ul>
+                             @foreach( \App\Models\Employeequalification::where('employee_id',$employee->id)->get() as  $equalification)
+                          <li> computer siccss</li>
+                          @endforeach
+                        </ul>
+                      </nav>
+                      <!-- /.nav -->
+                  
+ @include("employees._page_profilepic")
                                         </div>
 
                                          <div class="tab-pane"  id="tab-sixth">

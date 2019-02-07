@@ -50,11 +50,11 @@
                                                           <option value=""> Select employee </option>
                                                           @foreach($employees as $employee)
 
-                                                           @if($employee->employeeid==$workexperience->employeeid)
+                                                           @if($employee->id==$workexperience->employee_id)
                                                         
-                                                         <option selected value="{{ $workexperience->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option selected value="{{ $workexperience->employee_id }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                         @else
-                                                         <option value="{{ $employee->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option value="{{ $employee->id }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                           @endif  
                                                        
                                                           @endforeach                                           

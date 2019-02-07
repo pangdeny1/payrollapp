@@ -35,7 +35,7 @@
                                                           @foreach($employees as $employee)
 
                                                          
-                                                         <option value="{{ $employee->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option value="{{ $employee->id }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                           @endforeach
                                                                                                              
                                                     </select>
@@ -69,34 +69,32 @@
                                 @endif
                             </div> 
 
-                            <div class="form-group{{ $errors->has('Gender') ? ' has-error' : '' }}">                                      
-                                                <label for="title" class="col-md-4 control-label">Gender</label>
+                                      <div class="form-group{{ $errors->has('DependantType') ? ' has-error' : '' }}">                                      
+                                                <label for="title" class="col-md-4 control-label">Gender </lebel>
                                                 <div class="col-md-6">
-                                                    <select class="form-control select" name="Gender">
+                                                    <select class="form-control select" name="gender">
 
-                                                       <option value=""> Select gender </option>
-                                                          @foreach($genders as $gender)
-
+                                                       <option value=""> Select  </option>
                                                          
-                                                         <option value="{{ $gender->id }}">{{ $gender->name }}</option>
-                                                          @endforeach
+                                                         
+                                                         <option value="male"> Male</option>
+                                                      <option value="female"> Female</option>
                                                                                                              
                                                     </select>
                                                 </div> 
-                                                @if ($errors->has('Gender'))
+                                                @if ($errors->has('DependantType'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('Gender') }}</strong>
+                                        <strong>{{ $errors->first('DependantType') }}</strong>
                                     </span>
                                 @endif
                             </div> 
-                             
                             
                              
                             <div class="form-group{{ $errors->has('DOB') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Date of Birth</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="DOB" class="form-control datepicker" value="{{old('DOB')}}">
+                                <input type="date" name="DOB" class="form-control datepicker" value="{{old('DOB')}}">
 
                                 @if ($errors->has('DOB'))
                                     <span class="help-block">

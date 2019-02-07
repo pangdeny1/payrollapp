@@ -59,6 +59,11 @@
                         <span class="menu-text">Register new</span>
                     </a>
                     @endcan
+
+                     <a href="{{ route("employee.create")}}" class="menu-link mb-2">
+                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <span class="menu-text">Register new</span>
+                    </a>
                     <hr>
                     <div class="menu-header">Payroll</div>
                     <a href="{{url('viewpayrollperiods')}}" class="menu-link mb-2">

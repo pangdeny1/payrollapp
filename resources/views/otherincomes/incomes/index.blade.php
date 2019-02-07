@@ -45,7 +45,7 @@
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
                                     <a class="nav-link {{ request()->query("status") ? "" : "active" }}"
-                                       href="{{ route("purchases.index") }}"
+                                       href=""
                                     >
                                         All
                                     </a>

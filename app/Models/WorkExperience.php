@@ -11,7 +11,7 @@ class WorkExperience extends Model
 
   
     protected $fillable = [
-          'employeeid','companyname','jobtitle','website','email','startdate','enddate'
+          'employee_id','companyname','jobtitle','website','email','startdate','enddate'
            ];
    
 }

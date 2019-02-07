@@ -4,7 +4,7 @@ namespace App\Http\Controllers\dependant;
 
 use Illuminate\Http\Request;
 use App\Models\YesOrNo;
-use App\Models\Employee;
+use App\Employee;
 use App\Models\Dependant;
 use App\Models\gender;
 use App\Models\Dependanttype;
@@ -19,9 +19,19 @@ class dependantscontroller extends Controller
         $employees=Employee::All();
         $yesornos=YesOrNo::All();
         $dependanttypes=Dependanttype::All();
-        $genders=gender::All();
+      
         $pagetitle="Dependants ";
-        return view('dependants.index',compact('pagetitle','dependants','employees','yesornos','dependanttypes','genders'));
+        //return view('dependants.index',compact('pagetitle','dependants','employees','yesornos','dependanttypes','genders'));
+
+         $dependants=Dependant::latest()
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("fullname", "LIKE", "%". request("q") ."%")
+                    ->orWhere("sex", "LIKE", "%". request("q") ."%");
+
+            })
+            ->paginate();
+        return view('dependants.index', compact('pagetitle','employees','yesornos','dependants','dependanttypes'));
 
 	}
  public function create()
@@ -30,17 +40,17 @@ class dependantscontroller extends Controller
         $employees=Employee::All();
         $yesornos=YesOrNo::All();
         $dependanttypes=Dependanttype::All();
-        $genders=gender::All();
+        
         $pagetitle="Add New dependant";
         
 
-        return view('dependants.create', compact('pagetitle','dependants','employees','yesornos','dependanttypes','genders'));
+        return view('dependants.create', compact('pagetitle','dependants','employees','yesornos','dependanttypes'));
     }
 
     public function createemployeedependant($employeeid)
     {
         $dependants=Dependant::All();
-        $employees = Employee::where('employeeid', $employeeid)->get();
+        $employees = Employee::where('employee_id', $employeeid)->get();
         $yesornos=YesOrNo::All();
         $dependanttypes=Dependanttype::All();
         $genders=gender::All();
@@ -59,15 +69,14 @@ class dependantscontroller extends Controller
             'employee'     => 'required',
             'FullName'     => 'required',
             'DOB'     => 'required',
-            'Gender'     => 'required',
             'DependantType'=>'required'
         ]);
 
         $dependant= new dependant([
             'fullname'     => $request->input('FullName'),
-            'employeeid'     => $request->input('employee'),
+            'employee_id'     => $request->input('employee'),
             'deptypeid'     => $request->input('DependantType'),
-            'sex'     => $request->input('Gender'),
+            'sex'     => $request->input('gender'),
             'email'     => $request->input('Email'),
             'phone'     => $request->input('Phone'),
             'dob'     => $request->input('DOB'),
@@ -94,15 +103,15 @@ class dependantscontroller extends Controller
             'employee'     => 'required',
             'FullName'     => 'required',
             'DOB'     => 'required',
-            'Gender'     => 'required',
+            'gender'     => 'required',
             'DependantType'=>'required'
         ]);
 
         $dependant= new dependant([
             'fullname'     => $request->input('FullName'),
-            'employeeid'     => $request->input('employee'),
+            'employee_id'     => $request->input('employee'),
             'deptypeid'     => $request->input('DependantType'),
-            'sex'     => $request->input('Gender'),
+            'sex'     => $request->input('gender'),
             'email'     => $request->input('Email'),
             'phone'     => $request->input('Phone'),
             'dob'     => $request->input('DOB'),
@@ -155,7 +164,7 @@ class dependantscontroller extends Controller
             'employee'     => 'required',
             'FullName'     => 'required',
             'DOB'     => 'required',
-            'Gender'     => 'required',
+            'gender'     => 'required',
             'DependantType'=>'required'
         ]);
        
@@ -163,9 +172,9 @@ class dependantscontroller extends Controller
             $dependant = Dependant::where('id', $dependant_id)->firstOrFail();
 
              $dependant->fullname    = $request->input('FullName');
-            $dependant->employeeid     = $request->input('employee');
+            $dependant->employee_id     = $request->input('employee');
             $dependant->deptypeid     = $request->input('DependantType');
-            $dependant->sex            =$request->input('Gender');
+            $dependant->sex            =$request->input('gender');
            $dependant->email     = $request->input('Email');
            $dependant->phone     = $request->input('Phone');
            $dependant->dob    = $request->input('DOB');

@@ -211,10 +211,7 @@
                                 <i class="fas fa-box"></i> Tax table
                             </a>
                               @endcan
-                            <a href="{{ route("groups.index") }}" class="dropdown-item ">
-                                <i class="fas fa-hands-helping"></i> Departments
-                            </a>
-
+                           
 
                             <div class="dropdown-divider"></div>
 

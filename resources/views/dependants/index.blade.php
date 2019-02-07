@@ -38,8 +38,8 @@
                                     <td>{{ $dependant->fullname }}</td>
                                     <td>
                                      @foreach ($employees as $employee)
-                                        @if ($employee->employeeid == $dependant->employeeid)
-                                            {{ $employee->firstname }} {{$employee->lastname}}
+                                        @if ($employee->id == $dependant->employee_id)
+                                            {{ $employee->first_name }} {{$employee->last_name}}
                                         @endif
                                     @endforeach</td>
                                     <td>

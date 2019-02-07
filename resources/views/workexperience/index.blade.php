@@ -39,8 +39,8 @@
                                     <td>{{ $workexperience->companyname }}</td>
                                     <td>
                                      @foreach ($employees as $employee)
-                                        @if ($employee->employeeid == $workexperience->employeeid)
-                                            {{ $employee->firstname }} {{$employee->lastname}}
+                                        @if ($employee->id == $workexperience->employee_id)
+                                            {{ $employee->first_name }} {{$employee->last_name}}
                                         @endif
                                     @endforeach</td>
                                    

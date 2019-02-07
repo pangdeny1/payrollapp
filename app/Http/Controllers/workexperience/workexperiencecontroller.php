@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\workexperience;
-use App\Models\Employee;
+use App\Employee;
 use App\Mailers\AppMailer;
 use App\Models\WorkExperience;
 use Illuminate\Http\Request;
@@ -42,7 +42,7 @@ class workexperiencecontroller extends Controller
         ]);
 
         $WorkExperience= new WorkExperience([
-            'employeeid'     => $request->input('employee'),
+            'employee_id'     => $request->input('employee'),
             'companyname'     => $request->input('CompanyName'),
             'startdate'     => $request->input('StartDate'),
             'enddate'     => $request->input('EndDate'),
@@ -104,7 +104,7 @@ class workexperiencecontroller extends Controller
 
             $WorkExperience = WorkExperience::where('id', $WorkExperience_id)->firstOrFail();
 
-            $WorkExperience->employeeid     = $request->input('employee');
+            $WorkExperience->employee_id     = $request->input('employee');
             $WorkExperience->companyname    = $request->input('CompanyName');
             $WorkExperience->jobtitle       = $request->input('JobTitle');
             $WorkExperience->startdate      = $request->input('StartDate');

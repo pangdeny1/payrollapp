@@ -688,7 +688,7 @@ class payrollsController extends Controller
 
                   
 
-                   DB::table('Prlothdedtransactions')->insert($inserts);
+                   DB::table('prlothdedtransactions')->insert($inserts);
 
             }
 

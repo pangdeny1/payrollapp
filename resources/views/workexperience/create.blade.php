@@ -22,7 +22,7 @@
                                                           @foreach($employees as $employee)
 
                                                          
-                                                         <option value="{{ $employee->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option value="{{$employee->id}}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                           @endforeach
                                                                                                              
                                                     </select>
@@ -71,7 +71,7 @@
                             <label for="title" class="col-md-4 control-label">Start Date</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="StartDate" class="form-control datepicker" value="{{old('StartDate')}}">
+                                <input type="date" name="StartDate" class="form-control datepicker" value="{{old('StartDate')}}">
 
                                 @if ($errors->has('StartDate'))
                                     <span class="help-block">
@@ -85,7 +85,7 @@
                             <label for="title" class="col-md-4 control-label">End Date</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="EndDate" class="form-control datepicker" value="{{old('EndDate')}}">
+                                <input type="date" name="EndDate" class="form-control datepicker" value="{{old('EndDate')}}">
 
                                 @if ($errors->has('EndDate'))
                                     <span class="help-block">
