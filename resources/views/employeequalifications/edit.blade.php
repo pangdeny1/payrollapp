@@ -21,11 +21,11 @@
                                                        <option value=""> Select employee </option>
                                                           @foreach($employees as $employee)
 
-                                                           @if($employee->employeeid==$employeequalification->employeeid)
+                                                           @if($employee->id==$employeequalification->employee_id)
                                                         
-                                                         <option selected value="{{ $employeequalification->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option selected value="{{ $employeequalification->employee_id }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                         @else
-                                                         <option value="{{ $employee->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option value="{{ $employee->id }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                           @endif  
                                                        
                                                           @endforeach
@@ -46,9 +46,9 @@
 
                                                        <option value=""> Select qualification </option>
                                                           @foreach($qualifications as $qualification)
-                                                          @if($qualification->id==$employeequalification->qualificationid)
+                                                          @if($qualification->id==$employeequalification->qualification_id)
                                                         
-                                                         <option selected value="{{ $employeequalification->qualificationid }}">{{ $qualification->qualificationname}}</option>
+                                                         <option selected value="{{ $employeequalification->qualification_id }}">{{ $qualification->qualificationname}}</option>
                                                            @else
                                                          <option value="{{ $qualification->id }}">{{ $qualification->qualificationname }}</option>
                                                           @endif  
@@ -69,9 +69,9 @@
 
                                                        <option value=""> Select institution </option>
                                                           @foreach($institutions as $institution)
-                                                         @if($institution->id==$employeequalification->institutionid)
+                                                         @if($institution->id==$employeequalification->institution_id)
                                                         
-                                                         <option selected value="{{ $employeequalification->institutionid}}">{{ $institution->institutename}}</option>
+                                                         <option selected value="{{ $employeequalification->institution_id}}">{{ $institution->institutename}}</option>
                                                            @else
                                                          <option value="{{ $institution->id }}">{{ $institution->institutename}}</option>
                                                           @endif 
@@ -96,9 +96,9 @@
                                                        <option value=""> Select level </option>
                                                           @foreach($levels as $level)
 
-                                                          @if($level->id==$employeequalification->levelid)
+                                                          @if($level->id==$employeequalification->level_id)
                                                         
-                                                         <option selected value="{{ $employeequalification->levelid}}">{{ $level->qlevelname }}</option>
+                                                         <option selected value="{{ $employeequalification->level_id}}">{{ $level->qlevelname }}</option>
                                                            @else
                                                          <option value="{{ $level->id }}">{{ $level->qlevelname }}</option>
                                                           @endif 
@@ -117,7 +117,7 @@
                             <label for="title" class="col-md-4 control-label">From Date</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="DateFrom" class="form-control datepicker" value="{{ $employeequalification->datefrom }}">
+                                <input type="date" name="DateFrom" class="form-control datepicker" value="{{ $employeequalification->datefrom }}">
 
                                 @if ($errors->has('DateFrom'))
                                     <span class="help-block">
@@ -131,7 +131,7 @@
                             <label for="title" class="col-md-4 control-label">To Date</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="DateTo" class="form-control datepicker" value="{{ $employeequalification->dateto }}">
+                                <input type="date" name="DateTo" class="form-control datepicker" value="{{ $employeequalification->dateto }}">
 
                                 @if ($errors->has('DateTo'))
                                     <span class="help-block">

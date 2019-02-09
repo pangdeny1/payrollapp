@@ -567,41 +567,23 @@
                           @endforeach
                         </ul>
                         <a href="#" class="nav-link"><b>Working Experience Details</b> </a>
-                         <ul>
-                             @foreach( \App\Models\WorkExperience::where('employee_id',$employee->id)->get() as  $equalification)
-                          <li> computer siccss</li>
-                          @endforeach
-                        </ul>
+                       
                                 <table class="table">
                             <thead>
                                 <tr>
-                                    <th>id</th>
                                     <th>Company</th>
-                                    <th>Employee</th>
                                      <th>Job Title</th>
                                      <th>Start Date</th>
                                     <th>End Date</th>
-                                    
-                                    <th style="text-align:center" colspan="2">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                              @foreach( \App\Models\WorkExperience::where('employee_id',$employee->id)->get() as $workexperience)
                                 <tr>
-                                   
-                                   
-                                    <td>
-                                  {{ $workexperience->id}}
-                                   
                                     </td>
                                    
                                     <td>{{ $workexperience->companyname }}</td>
-                                    <td>
-                                     @foreach ($employees as $employee)
-                                        @if ($employee->id == $workexperience->employee_id)
-                                            {{ $employee->first_name }} {{$employee->last_name}}
-                                        @endif
-                                    @endforeach</td>
+                                  
                                    
                                     <td>
                                        {{$workexperience->jobtitle}} 
@@ -612,15 +594,7 @@
                                     <td>
                                         {{$workexperience->enddate }}
                                     </td>
-                                     <td>
-                                        <a href="{{ url('showworkexperience/'.$workexperience->id) }}" class="btn btn-primary">View</a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ url('editworkexperience/'.$workexperience->id) }}" class="btn btn-primary">Edit</a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ url('deleteworkexperience/'.$workexperience->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to Delete this record')" >Delete</a>
-                                    </td>
+                                  
                                 </tr>
                             @endforeach
                             </tbody>

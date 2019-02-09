@@ -218,6 +218,15 @@ Route::post('/importemployee_parse', 'EmployeesController@parseImport')->name('i
     Route::get('deleteinstitution/{id}','institution\institutescontroller@destroy');
     Route::get('createinstitution','institution\institutescontroller@create');
     Route::get('viewinstitutions','institution\institutescontroller@index');
+
+    //refereee
+    Route::post('addReferee','Referee\RefereesController@store');
+    Route::get('showReferee/{id}','Referee\RefereesController@show');
+    Route::get('editReferee/{id}','Referee\RefereesController@edit');
+    Route::post('updateReferee/{id}','Referee\RefereesController@update');
+    Route::get('deleteReferee/{id}','Referee\RefereesController@destroy');
+    Route::get('createReferee','Referee\RefereesController@create');
+    Route::get('viewReferees','Referee\RefereesController@index');
 //dependants
     Route::post('adddependant','dependant\dependantscontroller@store');
      Route::post('addemployeedependant','dependant\dependantscontroller@storeemployeedependant');

@@ -54,28 +54,28 @@
                                    
                                     <td>
                                       @foreach ($employees as $employee)
-                                        @if ($employee->employeeid == $employeequalification->employeeid)
-                                            {{ $employee->firstname }} {{$employee->lastname}}
+                                        @if ($employee->id == $employeequalification->employee_id)
+                                            {{ $employee->first_name }} {{$employee->last_name}}
                                         @endif
                                     @endforeach
                                     </td>
                                     <td>
                                        @foreach ($qualifications as $qualification)
-                                        @if ($qualification->id == $employeequalification->qualificationid)
+                                        @if ($qualification->id == $employeequalification->qualification_id)
                                             {{ $qualification->qualificationname }}
                                         @endif
                                     @endforeach
                                     </td>
                                     <td>
                                   @foreach ($levels as $level)
-                                        @if ($level->id == $employeequalification->levelid)
+                                        @if ($level->id == $employeequalification->level_id)
                                             {{ $level->qlevelname }}
                                         @endif
                                     @endforeach
                                   
                                     </td>
                                     <td>@foreach ($institutions as $institution)
-                                        @if ($institution->id == $employeequalification->institutionid)
+                                        @if ($institution->id == $employeequalification->institution_id)
                                             {{ $institution->institutename }}
                                         @endif
                                     @endforeach</td>

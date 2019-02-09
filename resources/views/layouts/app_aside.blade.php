@@ -51,24 +51,47 @@
                     <div class="menu-header">Employees</div>
                     <a href="{{ route("employees.index")}}" class="menu-link mb-2">
                         <i class="fas fa-user-friends text-muted mr-2"></i>
-                        <span class="menu-text">Browse a list</span>
+                        <span class="menu-text">Employee list</span>
                     </a>
                     @can("create", \App\Employee::class)
                     <a href="{{ route("employee.create")}}" class="menu-link mb-2">
                         <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Register new</span>
+                        <span class="menu-text">New Employee</span>
                     </a>
                     @endcan
 
-                     <a href="{{ route("employee.create")}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Register new</span>
-                    </a>
+                                         <li class="menu-item has-child">
+                  <a href="#" class="menu-link">
+                    <i class="far fa-chart-bar text-muted mr-2"></i>
+                    
+                    <span class="menu-text">Hr data</span>
+                  </a>
+                  <!-- child menu -->
+                  <ul class="menu">
+                     <li class="menu-item">
+                      <a href="{{ url("viewdependants") }}" class="menu-link">Dependants</a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="{{ url("viewemployeequalifications") }}" class="menu-link">Qualifications  </a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="{{ url("viewworkexpiriences") }}" class="menu-link">Work Experiences </a>
+                    </li>
+                  
+                   <li class="menu-item">
+                      <a href="{{ url("viewReferees") }}" class="menu-link">Referee details </a>
+                    </li>
+                </ul>
+            </li>
+
+                     
                     <hr>
                     <div class="menu-header">Payroll</div>
                     <a href="{{url('viewpayrollperiods')}}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
-                        <span class="menu-text">Browse a list</span>
+                        <span class="menu-text">Payrolls list</span>
                     </a>
                     <a href="{{url('salaries')}}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>

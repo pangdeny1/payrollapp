@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\employeequalification;
-use App\Models\Employee;
+use App\Employee;
 use App\Models\qualification;
 use App\Models\institute;
 use App\Models\qualificationlevel;
@@ -53,23 +53,28 @@ class employeequalificationscontroller extends Controller
         ]);
 
         $employeequalification= new employeequalification([
-            'qualificationid'     => $request->input('qualification'),
-            'employeeid'     => $request->input('employee'),
+            'qualification_id'     => $request->input('qualification'),
+            'employee_id'     => $request->input('employee'),
             'datefrom'     => $request->input('DateFrom'),
             'dateto'     => $request->input('DateTo'),
-            'levelid'     => $request->input('level'),
-            'institutionid'     => $request->input('institution')
+            'level_id'     => $request->input('level'),
+            'institution_id'     => $request->input('institution')
             
         ]);
 
         $employeequalification->save();
 
-       // $mailer->sendTicketInformation(Auth::user(), $ticket);
+     
          $employeequalifications=employeequalification::All();
          $pagetitle="employeequalifications ";
-         //return view('employeequalifications.index',compact('employeequalifications','pagetitle'))->with("status", $request->input('employeequalificationDesc')." employeequalification  Added Successfully.");
-        return redirect()->back()->with("status", $request->input('employeequalificationDesc')." employeequalification  Added Successfully.");
-    }
+         $employees=Employee::All();
+          $qualifications=qualification::All();
+        $institutions=institute::All();
+        $levels=qualificationlevel::All();
+         
+          return view('employeequalifications.index', compact('employeequalifications','pagetitle','employees','qualifications','institutions','levels'))->with("status", "employeequalification  Added Successfully");
+}
+     
 
 
      public function show($employeequalification_id)
@@ -118,12 +123,12 @@ class employeequalificationscontroller extends Controller
 
             $employeequalification = employeequalification::where('id', $employeequalification_id)->firstOrFail();
 
-             $employeequalification->qualificationid     = $request->input('qualification');
-             $employeequalification->employeeid     = $request->input('employee');
+             $employeequalification->qualification_id     = $request->input('qualification');
+             $employeequalification->employee_id     = $request->input('employee');
              $employeequalification->datefrom    = $request->input('DateFrom');
              $employeequalification->dateto    = $request->input('DateTo');
-             $employeequalification->levelid    = $request->input('level');
-             $employeequalification->institutionid     = $request->input('institution');
+             $employeequalification->level_id    = $request->input('level');
+             $employeequalification->institution_id     = $request->input('institution');
         
              $employeequalification->save();
 
@@ -131,8 +136,12 @@ class employeequalificationscontroller extends Controller
 
          $employeequalifications=employeequalification::All();
          $pagetitle="employeequalifications ";
+         $employees=Employee::All();
+          $qualifications=qualification::All();
+        $institutions=institute::All();
+        $levels=qualificationlevel::All();
          
-          return view('employeequalifications.index', compact('employeequalifications','pagetitle'))->with("status", "employeequalification  Updated Successfully");
+          return view('employeequalifications.index', compact('employeequalifications','pagetitle','employees','qualifications','institutions','levels'))->with("status", "employeequalification  Updated Successfully");
 
        // return redirect()->back()->with("status", "A employeequalification Title has been Updated.");
     }
