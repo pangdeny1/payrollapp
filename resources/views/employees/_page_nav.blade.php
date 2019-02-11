@@ -3,7 +3,7 @@
     <div class="nav-scroller">
         <!-- .nav -->
         <div class="nav nav-center nav-tabs">
-            <a class="nav-link" href="{{ route("farmers.show", $employee) }}">
+            <a class="nav-link" href="">
                 Overview
             </a>
             <a class="nav-link" href="">

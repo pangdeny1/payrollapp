@@ -77,10 +77,10 @@
                                         <select name="employee"
                                                 class="form-control d-block w-100 {{ $errors->has('employee') ? 'is-invalid' : '' }}"
                                                 id="employee"
-                                                required=""
+                                                
                                         >
                                            
-                                            @foreach(\App\Employee::where('id',$user->employee_id)->get() as $employee)
+                                            @foreach(\App\Employee::where('email',$user->email)->get() as $employee)
                                             
                                                 <option value="{{ $employee->id }}" {{ old("employee",$user->employee_id) == $employee->id ? "selected" : "" }}>
                                                     {{ $employee->first_name }} {{ $employee->last_name }} 

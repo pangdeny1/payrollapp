@@ -86,7 +86,7 @@
                                         <select name="employee"
                                                 class="form-control d-block w-100 {{ $errors->has('employee') ? 'is-invalid' : '' }}"
                                                 id="employee"
-                                                required=""
+                                               
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Employee::where('active','yes')->get() as $employee)

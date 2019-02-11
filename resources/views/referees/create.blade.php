@@ -46,37 +46,37 @@
                             <div class="card-body">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="street">Position</label>
+                                        <label for="title">Position</label>
                                         <input type="text"
-                                               name="street"
-                                               class="form-control {{ $errors->has('street') ? 'is-invalid' : '' }}"
-                                               id="street"
-                                               value="{{ old("street") }}"
-                                               placeholder="1234 Main St"
+                                               name="title"
+                                               class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
+                                               id="title"
+                                               value="{{ old("title") }}"
+                                               placeholder="Tittle"
                                         >
-                                        @if ($errors->has('street'))
+                                        @if ($errors->has('title'))
                                             <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('street') }}</strong>
+                                                <strong>{{ $errors->first('title') }}</strong>
                                             </span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="address">
+                                        <label for="company">
                                           Company
                                            
                                         </label>
                                         <input type="text"
-                                               name="address"
-                                               class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
-                                               id="address"
-                                               placeholder="Apartment or suite"
-                                               value="{{ old("address") }}"
+                                               name="company"
+                                               class="form-control {{ $errors->has('company') ? 'is-invalid' : '' }}"
+                                               id="company"
+                                               placeholder="Company/Organisation"
+                                               value="{{ old("company") }}"
                                         >
-                                        @if ($errors->has('address'))
+                                        @if ($errors->has('company'))
                                             <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('address') }}</strong>
+                                                <strong>{{ $errors->first('company') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -116,7 +116,7 @@
                         <!-- /grid column -->
                         <!-- grid column -->
                         <div class="col-md-3 mb-3">
-                          <label for="zip">DWebsite</label>
+                          <label for="zip">Website</label>
                           <input type="text" name="website" class="form-control {{ $errors->has('website') ? 'is-invalid' : '' }}" id="website" value="{{old('website')}}" readonly required="">
                           @if ($errors->has('website'))
                                     <span class="invalid-feedback">
@@ -137,13 +137,13 @@
                       <hr class="mb-4">
                            <div class="form-group">
                           <label class="d-flex justify-content-between" for="lbl4">
-                            <span>Address</span>
+                            <span>company</span>
                             <span class="text-muted"></span>
                           </label>
-                          <textarea name="address"  class="form-control {{ $errors->has('address') ? "is-invalid" : "" }}" id="lbl4" rows="3" placeholder=" description"></textarea>
-                            @if ($errors->has('address'))
+                          <textarea name="company"  class="form-control {{ $errors->has('company') ? "is-invalid" : "" }}" id="lbl4" rows="3" placeholder=" description"></textarea>
+                            @if ($errors->has('company'))
                                                         <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('address') }}</strong>
+                                                            <strong>{{ $errors->first('company') }}</strong>
                                                         </span>
                                                     @endif
                         </div>

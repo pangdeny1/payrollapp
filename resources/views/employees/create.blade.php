@@ -158,7 +158,7 @@
                                         <select name="branch"
                                                 class="form-control d-block w-100 {{ $errors->has('branch') ? 'is-invalid' : '' }}"
                                                 id="branch"
-                                                required=""
+                                             
                                         >
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\Branch::latest()->get() as $branch)
@@ -175,7 +175,7 @@
                                        
                                     </div>
                                      <div class="form-group col-md-12 mb-3">
-                                        <label for="department">Department</label>
+                                        <label for="department">Department <a href="" data-toggle="modal" data-target="#exampleModal">+ Add new department</a></label>
                                         <select name="department"
                                                 class="form-control d-block w-100 {{ $errors->has('department') ? 'is-invalid' : '' }}"
                                                 id="department"
@@ -194,8 +194,11 @@
                                                     <strong>{{ $errors->first('department') }}</strong>
                                                 </span>
                                         @endif
+                                        
+
                                        
                                     </div>
+                       
                                        <div class="form-group col-md-12 mb-3">
                                         <label for="job">Job</label>
                                         <select name="job"
@@ -461,4 +464,66 @@
         </div>
     </div>
 </div>
+
+
+
+             <!--- department model -->
+
+                                      <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form action="{{ url('/adddepartment') }}" method="post">
+                                            @csrf
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">New Department</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            
+                                              <div class="form-group{{ $errors->has('departmentname') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Department Name</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control" name="departmentname" value="{{ old('departmentname') }}">
+
+                                @if ($errors->has('departmentname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('departmentname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                         <div class="form-group{{ $errors->has('departmentlocation') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Location</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control" name="departmentlocation" value="{{ old('departmentlocation') }}">
+
+                                @if ($errors->has('departmentlocation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('departmentlocation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                                              
+                                            <hr>
+                                            
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                      
+                       
+                   
+                
+
+                                    <!--   !-->
 @endsection

@@ -60,9 +60,11 @@ class DepartmentsController extends Controller
         $pagetitle="departments";
         $departments = department::paginate(10);
 
-          return view('departments.index', compact('pagetitle','departments'))->with("status", "A Department with Title has been created.");
+         // return view('departments.index', compact('pagetitle','departments'))->with("status", "A Department with Title has been created.");
 
-       // return redirect()->back()->with("status", "A Department with Title has been created.");
+      return redirect()->back()->with("status", "A Department with Title has been created.");
+
+        //return back();
     }
  public function show($departmentid)
     {   

@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 
 class RefereesController extends Controller
 {
+	    public function __construct()
+    {
+        $this->middleware("auth");
+    }
      public function index()
     {
         
@@ -37,8 +41,10 @@ class RefereesController extends Controller
         
         $this->validate($request, [
            
-            'InstituteName'     => 'required|unique:referees',
-            'country'             =>'required'   
+            'employee'     => 'required|unique:referees',
+            'title'             =>'required', 
+            'company'             =>'required', 
+            'phone'             =>'required', 
         ]);
 
         $institution= new institute([
@@ -115,7 +121,7 @@ class RefereesController extends Controller
     $referees->delete();
 
       // return redirect()->route('tasks.index');
-     return redirect()->back()->with("status", "institution successfully deleted!");
+     return redirect()->back()->with("status", "Referee successfully deleted!");
            }
 }
 
