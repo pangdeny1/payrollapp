@@ -26,8 +26,8 @@
                                 <label for="csv_file" class="col-md-4 control-label">CSV file to import</label>
 
                                 <div class="col-md-6">
-                                    <input id="csv_file" type="file" class="form-control" name="csv_file" required>
-                                   <select name="Batch" >
+                                  <input id="csv_file" type="file" class="form-control" name="csv_file" required>
+                                 <!--    <select name="Batch" >
                                     @foreach(\App\Batch::All() as $batch)
                                     {
                                     <option value="{{$batch->number}}"> {{$batch->number}}</option>
@@ -40,8 +40,8 @@
                                         <strong>{{ $errors->first('csv_file') }}</strong>
                                     </span>
                                     @endif
-                                </div>
-                            </div>
+                                </div>> -->
+                            </div
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

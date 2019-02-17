@@ -13,6 +13,12 @@ use App\Http\Controllers\Controller;
 
 class dependantscontroller extends Controller
 {
+
+   public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 	public function index()
 	{
         $dependants=Dependant::All();

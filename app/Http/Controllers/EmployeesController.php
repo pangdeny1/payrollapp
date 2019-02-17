@@ -6,10 +6,12 @@ use App\Http\Requests\EmployeeCreateRequest;
 use App\State;
 use App\Employee;
 use App\Purchase;
-use App\Group;
+use App\Models\job;
+use App\Models\Jobgroup;
 use App\Models\Payperiod;
 use App\GroupMember;
 use App\Models\Picture;
+use App\Models\CsvData;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -22,6 +24,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use App\Http\Requests\CsvImportRequest;
 use Maatwebsite\Excel\Facades\Excel;
+
 
 
 
@@ -121,7 +124,7 @@ class EmployeesController extends Controller
             request("phone")
         ));
         */
-        return redirect()->route("employees.show", $employee);
+        return redirect()->route("employees.index", $employee);
     }
 
     /**
@@ -137,8 +140,6 @@ class EmployeesController extends Controller
         return view("employees.edit", [
             "states" => State::getCountryName("Tanzania"),
             "employee" =>$employee,
-            "groups" =>Group::All(),
-            "groupmember"=>GroupMember::All(),
             "payperiods" =>Payperiod::All(),
             "yesornos"   =>YesOrNo::All(),
 
@@ -346,7 +347,7 @@ class EmployeesController extends Controller
             }
             $csv_data = array_slice($data, 0, count($data));
 
-            $csv_data_file = CsvData::create([
+                $csv_data_file = CsvData::create([
                 'csv_filename' => $request->file('csv_file')->getClientOriginalName(),
                 'csv_header' => $request->has('header'),
                 'csv_data' => json_encode($data)
@@ -364,7 +365,7 @@ class EmployeesController extends Controller
         $data = CsvData::find($request->csv_data_file_id);
         $csv_data = json_decode($data->csv_data, true);
         foreach ($csv_data as $row) {
-            $importsm = new Importsm();
+            $importsm = new Employee();
             foreach (config('app.employees_fields') as $index => $field) {
                 if ($data->csv_header) {
                     $importsm->$field = $row[$request->fields[$field]];
@@ -375,6 +376,7 @@ class EmployeesController extends Controller
             $importsm->save();
         }
 
-        return view('employees.import_success');
+       // return view('employees.import_success');
+        return redirect()->route("employees.index")->with('status','Employees imported Successfully');
     }
 }

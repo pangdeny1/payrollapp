@@ -88,7 +88,7 @@
                   <!-- .dropdown-menu -->
                   <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right">
                     <h6 class="dropdown-header stop-propagation">
-                      <span>Messages</span>
+                      <span>Notifications</span>
                       <a href="#">Mark all as read</a>
                     </h6>
                     <!-- .dropdown-scroll -->
@@ -98,63 +98,14 @@
                         <div class="user-avatar">
                           <img src="assets/images/avatars/team1.jpg" alt=""> </div>
                         <div class="dropdown-item-body">
-                          <p class="subject"> Stilearning </p>
-                          <p class="text text-truncate"> Invitation: Joe's Dinner @ Fri Aug 22 </p>
+                          <p class="subject"> Hr and payroll System</p>
+                          <p class="text text-truncate"> System menu comming soon</p>
                           <span class="date">2 hours ago</span>
                         </div>
                       </a>
                       <!-- /.dropdown-item -->
                       <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="user-avatar">
-                          <img src="assets/images/avatars/team3.png" alt=""> </div>
-                        <div class="dropdown-item-body">
-                          <p class="subject"> Openlane </p>
-                          <p class="text text-truncate"> Final reminder: Upgrade to Pro </p>
-                          <span class="date">23 hours ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="tile tile-circle bg-green"> GZ </div>
-                        <div class="dropdown-item-body">
-                          <p class="subject"> Gogo Zoom </p>
-                          <p class="text text-truncate"> Live healthy with this wireless sensor. </p>
-                          <span class="date">1 day ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="tile tile-circle bg-teal"> GD </div>
-                        <div class="dropdown-item-body">
-                          <p class="subject"> Gold Dex </p>
-                          <p class="text text-truncate"> Invitation: Design Review @ Mon Jul 7 </p>
-                          <span class="date">1 day ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="user-avatar">
-                          <img src="assets/images/avatars/team2.png" alt=""> </div>
-                        <div class="dropdown-item-body">
-                          <p class="subject"> Creative Division </p>
-                          <p class="text text-truncate"> Need some feedback on this please </p>
-                          <span class="date">2 days ago</span>
-                        </div>
-                      </a>
-                      <!-- /.dropdown-item -->
-                      <!-- .dropdown-item -->
-                      <a href="#" class="dropdown-item">
-                        <div class="tile tile-circle bg-pink"> LD </div>
-                        <div class="dropdown-item-body">
-                          <p class="subject"> Lab Drill </p>
-                          <p class="text text-truncate"> Our UX exercise is ready </p>
-                          <span class="date">6 days ago</span>
-                        </div>
-                      </a>
+                  
                       <!-- /.dropdown-item -->
                     </div>
                     <!-- /.dropdown-scroll -->

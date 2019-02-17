@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 
 class workexperiencecontroller extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware("auth");
+    }
     public function index()
 	{
         $workexperiences=WorkExperience::All();

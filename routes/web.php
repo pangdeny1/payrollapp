@@ -104,6 +104,8 @@ Route::prefix('settings')->group(function () {
    Route::get('import_employee','EmployeesController@import');
 Route::post('/importemployee_parse', 'EmployeesController@parseImport')->name('importemployee_parse');
 
+Route::post('/import_process', 'EmployeesController@processImport')->name('import_process');
+
     Route::get('employeemaster','employee\employeemaster@index');
     Route::get('addemployee','employee\employeemaster@addemployee');
     Route::post('employeestore','employee\employeemaster@store');

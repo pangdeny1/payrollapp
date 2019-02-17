@@ -11,8 +11,8 @@
                 </span>
 
                 <span class="account-summary">
-                    <span class="account-name">Beni Arisandi</span>
-                    <span class="account-description">Marketing Manager</span>
+                    <span class="account-name">{{ auth()->user()->full_name }}</span>
+                    <span class="account-description">{{ auth()->user()->role() }}</span>
                 </span>
             </button>
 
@@ -55,14 +55,14 @@
                     </a>
                     @can("create", \App\Employee::class)
                     <a href="{{ route("employee.create")}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <i class="fa fa-user-plus"></i>
                         <span class="menu-text">New Employee</span>
                     </a>
                     @endcan
 
                                          <li class="menu-item has-child">
                   <a href="#" class="menu-link">
-                    <i class="far fa-chart-bar text-muted mr-2"></i>
+                    <i class="fa fa-address-card"></i>
                     
                     <span class="menu-text">Hr data</span>
                   </a>
@@ -86,15 +86,42 @@
                 </ul>
             </li>
 
+                                          <li class="menu-item has-child">
+                  <a href="#" class="menu-link">
+                    <i class="menu-icon oi oi-list-rich"></i>
+                    
+                    <span class="menu-text">Location</span>
+                  </a>
+                  <!-- child menu -->
+                  <ul class="menu">
+                     <li class="menu-item">
+                      <a href="{{ url("viewbranches") }}" class="menu-link">Branch</a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="{{ url("viewdepartments") }}" class="menu-link">Departments  </a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="{{ url("viewjobgroups") }}" class="menu-link">Job Group</a>
+                    </li>
+                  
+                   <li class="menu-item">
+                      <a href="{{ url("jobs") }}" class="menu-link">Jobs</a>
+                    </li>
+                </ul>
+            </li>
+
+
                      
                     <hr>
                     <div class="menu-header">Payroll</div>
                     <a href="{{url('viewpayrollperiods')}}" class="menu-link mb-2">
-                        <i class="fa fa-paypal" aria-hidden="true"></i>
+                       <i class="fa fa-google-wallet" aria-hidden="true"></i>
                         <span class="menu-text">Payrolls list</span>
                     </a>
                     <a href="{{url('salaries')}}" class="menu-link mb-2">
-                        <i class="fa fa-paypal" aria-hidden="true"></i>
+                        <i class="fa fa-paypal"></i>
                         <span class="menu-text">Salaries</span>
                     </a>
                     <a href="{{ route('payrolls.approves.index') }}" class="menu-link mb-2">
@@ -104,18 +131,18 @@
                     @can("create", \App\Models\Payroll::class)
                     <a href="{{url('createpayrollperiod')}}" class="menu-link mb-2">
                         <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Register new</span>
+                        <span class="menu-text">New Payroll</span>
                     </a>
                      <a href="{{url('viewotherincomes')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <i class="fa fa-plus-square"></i>
                         <span class="menu-text">Incomes</span>
                     </a>
                      <a href="{{url('viewotherdeductions')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <i class="fa fa-minus-square"></i>
                         <span class="menu-text">Deductions</span>
                     </a>
                      <a href="{{url('viewloans')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
+                       <i class="fa fa-minus-circle"></i>
                         <span class="menu-text">Loans</span>
                     </a>
                     

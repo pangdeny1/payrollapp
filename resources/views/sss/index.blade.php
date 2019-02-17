@@ -43,7 +43,7 @@
                             <header class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs">
                                     <li class="nav-item">
-                                        <a class="nav-link {{ request()->query("status") ? "" : "active" }}" href="{{ route("farmers.index") }}">
+                                        <a class="nav-link {{ request()->query("status") ? "" : "active" }}" href="">
                                             All
                                         </a>
                                     </li>

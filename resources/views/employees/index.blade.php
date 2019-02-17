@@ -73,7 +73,7 @@
                                 <!-- .table-responsive -->
 
                                 <div class="text-muted">  Showing {{ $employees->firstItem() }} to {{ $employees->lastItem() }} of {{ $employees->total() }} entries </div>
-
+ @include('includes.flash')
                                 
 
                                 <div class="table-responsive">
@@ -161,6 +161,11 @@
                     <div class="state-action">
                         <a href="{{ route("employees.create") }}" class="btn btn-primary">Register new</a>
                     </div>
+
+                      <a href="{{url('import_employee')}}" class="btn btn-light">
+                                    <i class="oi oi-data-transfer-upload"></i>
+                                    <span class="ml-1">Import</span>
+                                </a>
                     @endcan
                 </div>
                 <!-- /.empty-state-container -->

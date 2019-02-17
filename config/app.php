@@ -215,4 +215,43 @@ return [
        'Image'     => Intervention\Image\Facades\Image::class,
     ],
 
+    'db_fields' => [
+        'first_name',
+        'last_name',
+        'other_name',
+        'email',
+        'phone',
+        'gender',
+        'pay_type',
+        'pay_period',
+        'period_rate',
+        'hourly_rate'
+    ],
+
+    'employee_fields' => [
+        'first_name',
+        'last_name',
+        'other_name',
+        'email',
+        'phone',
+        'gender',
+        'pay_type',
+        'pay_period',
+        'period_rate',
+        'hourly_rate'
+    ],
+
+    'employees_fields' => [
+        'first_name',
+        'last_name',
+        'other_name',
+        'email',
+        'phone',
+        'gender',
+        'pay_type',
+        'pay_period',
+        'period_rate',
+        'hourly_rate'
+    ],
+
 ];
