@@ -470,7 +470,7 @@
              <!--- department model -->
 
                                       <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div  data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <form action="{{ url('/adddepartment') }}" method="post">
@@ -531,7 +531,7 @@
                                      <!--- branch model -->
 
                                       <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/addbranch') }}">
@@ -586,7 +586,7 @@
                           <!--- job model -->
 
                                       <!-- Modal -->
-                           <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                           <div  data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                          <form class="form-horizontal" role="form" method="POST" action="{{ url('/new_job') }}">

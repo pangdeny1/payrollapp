@@ -192,7 +192,7 @@
                                             </div>
 
                                             <div class="form-group">                                        
-                                                <label class="col-md-3 col-xs-12 control-label">Branch</label>
+                                               <label for="branch">Branch <a href="" data-toggle="modal" data-target="#exampleModal1">+ Add new </a></label>
                                                 <div class="col-md-5">
                                                        <select name="branch"
                                                 class="form-control d-block w-100 {{ $errors->has('branch') ? 'is-invalid' : '' }}"
@@ -216,7 +216,7 @@
 
 
                                             <div class="form-group">                                        
-                                                <label class="col-md-3 col-xs-12 control-label">Departments</label>
+                                                <label for="department">Department <a href="" data-toggle="modal" data-target="#exampleModal">+ Add new </a></label>
                                                 <div class="col-md-5">
                                                     <select name="department"
                                                 class="form-control d-block w-100 {{ $errors->has('department') ? 'is-invalid' : '' }}"
@@ -241,7 +241,7 @@
 
 
                                                <div class="form-group">                                        
-                                                <label class="col-md-3 col-xs-12 control-label">Job Title</label>
+                                               <label for="job">Job <a href="" data-toggle="modal" data-target="#exampleModal2">+ Add new </a></label>
                                                 <div class="col-md-5">
                                                     <select name="job"
                                                 class="form-control d-block w-100 {{ $errors->has('job') ? 'is-invalid' : '' }}"
@@ -954,7 +954,7 @@
 
 
                    <!-- Modal -->
-                           <div class="modal fade" id="exampleModalSalary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                           <div  data-keyboard="false" data-backdrop="static"  class="modal fade" id="exampleModalSalary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/addsalary') }}">
@@ -1064,7 +1064,200 @@
                             </div>
                       
                        
+                  
+
+             <!--- department model -->
+
+                                      <!-- Modal -->
+                            <div  data-keyboard="false" data-backdrop="static"  class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form action="{{ url('/adddepartment') }}" method="post">
+                                            @csrf
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">New Department</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            
+                                              <div class="form-group{{ $errors->has('departmentname') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Department Name</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control" name="departmentname" value="{{ old('departmentname') }}">
+
+                                @if ($errors->has('departmentname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('departmentname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                         <div class="form-group{{ $errors->has('departmentlocation') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Location</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control" name="departmentlocation" value="{{ old('departmentlocation') }}">
+
+                                @if ($errors->has('departmentlocation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('departmentlocation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                                              
+                                            <hr>
+                                            
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                 
+
+                                    <!--   !-->
+
+
+                                     <!--- branch model -->
+
+                                      <!-- Modal -->
+                                    <div  data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <form class="form-horizontal" role="form" method="POST" action="{{ url('/addbranch') }}">
+                        {!! csrf_field() !!}
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">New Branch</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            
+                                              <div class="form-group{{ $errors->has('departmentname') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Branch Name</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control" name="branchname" value="{{ old('branchname') }}">
+
+                                @if ($errors->has('branchname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('branchname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                         <div class="form-group{{ $errors->has('departmentlocation') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Location</label>
+
+                            <div class="col-md-6">
+                                 <input id="title" type="text" class="form-control" name="branclocation" value="{{ old('branclocation')}}">
+
+                                @if ($errors->has('branclocation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('branclocation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                                              
+                                            <hr>
+                                            
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                      
+
+                          <!--- job model -->
+
+                                      <!-- Modal -->
+                           <div data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/new_job') }}">
+                        {!! csrf_field() !!}
+                                                <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">New Job</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Job Title</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}">
+
+                                @if ($errors->has('title'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('jobGroup') ? ' has-error' : '' }}">
+                            <label for="jobGroup" class="col-md-4 control-label">Job Group</label>
+
+                            <div class="col-md-6">
+                                <select id="category" type="jobGroup" class="form-control" name="jobGroup">
+                                    <option value="">Select Job Group</option>
+                                   
+                               @foreach (App\Models\Jobgroup::All() as $jobgroup)
+                        <option value="{{ $jobgroup->id }}">{{ $jobgroup->jobgroupname }}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('jopGroup'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('jobGroup') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                      
+
+                        <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
+                            <label for="message" class="col-md-4 control-label">Job Description</label>
+
+                            <div class="col-md-6">
+                                <textarea rows="10" id="message" class="form-control" name="message"></textarea>
+
+                                @if ($errors->has('message'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('message') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>            
+                                            <hr>
+                                            
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                      
+                       
                    
+                
+
+                                    <!--   !--> 
                 
 
                                     <!--   !-->
