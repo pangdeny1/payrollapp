@@ -53,6 +53,9 @@ class SalariesController extends Controller
         $this->validate($request, [
             'employee'     => 'required',
             'ChangedBy'     => 'required',
+            'SalaryFrom'    =>'required',
+            'SalaryTo'      =>'required',
+            'ChangedBy'     =>'required'
         ]);
 
         $salary= new Salary([

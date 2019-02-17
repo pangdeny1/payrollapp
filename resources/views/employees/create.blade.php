@@ -591,7 +591,12 @@
                                     <div class="modal-content">
                                          <form class="form-horizontal" role="form" method="POST" action="{{ url('/new_job') }}">
                         {!! csrf_field() !!}
-
+                                                <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">New Job</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Job Title</label>
 

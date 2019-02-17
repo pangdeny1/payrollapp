@@ -120,6 +120,10 @@
                        <i class="fa fa-google-wallet" aria-hidden="true"></i>
                         <span class="menu-text">Payrolls list</span>
                     </a>
+                     <a href="{{url('createpayrollperiod')}}" class="menu-link mb-2">
+                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <span class="menu-text">New Payroll</span>
+                    </a>
                     <a href="{{url('salaries')}}" class="menu-link mb-2">
                         <i class="fa fa-paypal"></i>
                         <span class="menu-text">Salaries</span>
@@ -129,10 +133,7 @@
                         <span class="menu-text">Send payroll approve</span>
                     </a>
                     @can("create", \App\Models\Payroll::class)
-                    <a href="{{url('createpayrollperiod')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">New Payroll</span>
-                    </a>
+                   
                      <a href="{{url('viewotherincomes')}}" class="menu-link mb-2">
                         <i class="fa fa-plus-square"></i>
                         <span class="menu-text">Incomes</span>

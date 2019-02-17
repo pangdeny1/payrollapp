@@ -354,13 +354,14 @@
                                                                                         
                                             <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Basic Salary</label>
-                                                <div class="col-md-3 col-xs-12">                                                                                                                                                         
+                                                <div class="col-md-3 col-xs-12">  
+
                                                     <input type="text"
                                                name="period_rate"
                                                class="form-control {{ $errors->has('period_rate') ? 'is-invalid' : '' }}"
                                                id="period_rate"
                                                value="{{ old("period_rate", optional($employee)->period_rate) }}" 
-                                        >
+                                        ><a href="" data-toggle="modal" data-target="#exampleModalSalary">Change Salary </a>  
 
                                         @if ($errors->has('period_rate'))
                                             <span class="invalid-feedback">
@@ -949,5 +950,123 @@
         <!-- END PAGE CONTAINER 
 
       @include("employees._page_profilepic");-->
+
+
+
+                   <!-- Modal -->
+                           <div class="modal fade" id="exampleModalSalary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/addsalary') }}">
+                        {!! csrf_field() !!}
+                        <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">Salary Change</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                        <div class="form-group{{ $errors->has('jobGroup') ? ' has-error' : '' }}">
+                            <label for="employee" class="col-md-4 control-label">Employee</label>
+
+                            <div class="col-md-6">
+                                <select id="category" type="employee" class="form-control" name="employee">
+                                    
+                               @foreach (App\Employee::where('id',$employee->id)->get() as $employee)
+                        <option value="{{ $employee->id }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('employee'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('employee') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                      
+
+                        <div class="form-group{{ $errors->has('SalaryFrom') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Current Salary</label>
+
+                            <div class="col-md-6">
+                                <input id="SalaryFrom" type="text" readonly="true" class="form-control" name="title" value="{{ old('SalaryFrom',$employee->period_rate) }}">
+
+                                @if ($errors->has('SalaryFrom'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('SalaryFrom') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('ChangedBy') ? ' has-error' : '' }}">
+                            <label for="jobGroup" class="col-md-4 control-label">Change By</label>
+
+                            <div class="col-md-6">
+                                  <select class="form-control select" name="ChangedBy">
+
+                                                     <!--  <option value=''> Select -- </option>
+                                                        <option value="Parcentage"> Parcentage</option> -->
+                                                        <option value="Amount"> Amount</option>
+                                                          
+                                                                                                             
+                                                    </select>
+
+                                @if ($errors->has('ChangedBy'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('ChangedBy') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                          <div class="form-group{{ $errors->has('AmountChanged') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Addition Amount </label>
+
+                            <div class="col-md-6">
+                                <input id="AmountChanged" type="text" class="form-control" name="AmountChanged" >
+
+                                @if ($errors->has('AmountChanged'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('AmountChanged') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                           <div class="form-group{{ $errors->has('SalaryTo') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">New Salary</label>
+
+                            <div class="col-md-6">
+                                <input id="SalaryTo" type="text" readonly="true" class="form-control" name="SalaryTo" >
+
+                                @if ($errors->has('SalaryTo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('SalaryTo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        
+
+                                
+                                            <hr>
+                                            
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                      
+                       
+                   
+                
+
+                                    <!--   !-->
      
 @endsection
