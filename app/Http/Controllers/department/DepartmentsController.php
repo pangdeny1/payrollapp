@@ -62,7 +62,8 @@ class DepartmentsController extends Controller
 
          // return view('departments.index', compact('pagetitle','departments'))->with("status", "A Department with Title has been created.");
 
-      return redirect()->back()->with("status", "A Department with Title has been created.");
+      //return redirect()->back()->with("status", "A Department with Title has been created.");
+      return redirect()->back()->with("status", "Department Created Successfully.");
 
         //return back();
     }

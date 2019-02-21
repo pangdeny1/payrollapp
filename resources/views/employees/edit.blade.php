@@ -40,6 +40,7 @@
         <!-- /.nav -->
     </div>
 </nav>        <!-- PAGE CONTENT WRAPPER -->
+@include('includes.flash')
                 <div class="page-content-wrap">
                 
                     <div class="row">
@@ -957,7 +958,7 @@
                            <div  data-keyboard="false" data-backdrop="static"  class="modal fade" id="exampleModalSalary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
-                                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/addsalary') }}">
+                                        <form class="form-horizontal"  method="POST" action="{{ url('/addsalary') }}">
                         {!! csrf_field() !!}
                         <div class="modal-header">
                                                 <h6 class="modal-title" id="exampleModalLabel">Salary Change</h6>
@@ -969,10 +970,10 @@
                             <label for="employee" class="col-md-4 control-label">Employee</label>
 
                             <div class="col-md-6">
-                                <select id="category" type="employee" class="form-control" name="employee">
+                                <select id="category"  class="form-control" name="employee">
                                     
                                @foreach (App\Employee::where('id',$employee->id)->get() as $employee)
-                        <option value="{{ $employee->id }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
+                        <option value="{{ $employee->id }}"> {{ $employee->first_name }} {{ $employee->last_name }}</option>
                                     @endforeach
                                 </select>
 
@@ -984,13 +985,11 @@
                             </div>
                         </div>
 
-                      
-
                         <div class="form-group{{ $errors->has('SalaryFrom') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Current Salary</label>
 
                             <div class="col-md-6">
-                                <input id="SalaryFrom" type="text" readonly="true" class="form-control" name="title" value="{{ old('SalaryFrom',$employee->period_rate) }}">
+                                <input id="SalaryFrom" type="text" readonly="true" class="form-control" name="SalaryFrom" value="{{ old('SalaryFrom',$employee->period_rate) }}">
 
                                 @if ($errors->has('SalaryFrom'))
                                     <span class="help-block">
@@ -1039,7 +1038,7 @@
                             <label for="title" class="col-md-4 control-label">New Salary</label>
 
                             <div class="col-md-6">
-                                <input id="SalaryTo" type="text" readonly="true" class="form-control" name="SalaryTo" >
+                                <input id="SalaryTo" type="text"  class="form-control" name="SalaryTo" >
 
                                 @if ($errors->has('SalaryTo'))
                                     <span class="help-block">
@@ -1048,7 +1047,19 @@
                                 @endif
                             </div>
                         </div>
+                         <div class="form-group{{ $errors->has('SalaryTo') ? ' has-error' : '' }}">
+                            <label for="DateChanged" class="col-md-4 control-label">Date</label>
 
+                            <div class="col-md-6">
+                                <input id="DateChanged" type="date"  class="form-control" name="DateChanged" >
+
+                                @if ($errors->has('DateChanged'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('DateChanged') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         
 
                                 

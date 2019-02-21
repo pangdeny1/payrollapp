@@ -15,7 +15,8 @@ class AddAmountChangedToSalaryTable extends Migration
     {
             Schema::table('salaries', function($table) {
           
-            $table->integer('changedamount')->after('changedby')->default(0);
+             $table->integer('changedamount')->after('changedby')->default(0);
+             $table->integer('creator_id')->after('datechanged')->default(0);
            
             
     });
@@ -30,6 +31,7 @@ class AddAmountChangedToSalaryTable extends Migration
     {
         Schema::table('salaries', function($table) {
         $table->dropColumn('changedamount');
+        $table->dropColumn('creator_id');
        
     });
     }

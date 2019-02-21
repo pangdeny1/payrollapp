@@ -43,33 +43,43 @@ class SalariesController extends Controller
         $employees=Employee::All();
         $payrolls=Payroll::All();
 
-        return view('salaries.create', compact('pagetitle','employees','payrolls'));
+        return view("salaries.create", compact("pagetitle","employees","payrolls"));
     }
 
     public function store(Request $request, AppMailer $mailer)
     {
         //store addes files
+
+        $this->authorize("create", Salary::class);
+
         
         $this->validate($request, [
-            'employee'     => 'required',
-            'ChangedBy'     => 'required',
-            'SalaryFrom'    =>'required',
-            'SalaryTo'      =>'required',
-            'ChangedBy'     =>'required'
+            "employee"     => "required",
+            "ChangedBy"     => "required",
+            "SalaryFrom"    =>"required",
+            "SalaryTo"      =>"required",
+            "ChangedBy"     =>"required"
         ]);
 
-        $salary= new Salary([
-            'employee_id'     => $request->input('employee'),
-            'salaryfrom'     => $request->input('SalaryFrom'),
-            'salaryto'     => $request->input('SalaryTo'),
-            'changedby'     => $request->input('ChangedBy'),
-            'changedamount'     => $request->input('AmountChanged'),
-            'parcentage'     => $request->input('ParcentageChanged'),
-            'datechanged'     => $request->input('DateChanged'),
-            'payroll_id'     => $request->input('payroll')
+        $salary= Salary::create([
+            "employee_id"     => request("employee"),
+            "salaryfrom"      =>  request("SalaryFrom"),
+            "salaryto"     => request("SalaryTo"),
+            "changedby"     => request("ChangedBy"),
+            "changedamount"     => request("AmountChanged"),
+            "parcentage"     => request("ParcentageChanged"),
+            "datechanged"     => request("DateChanged"),
+            "payroll_id"     => request("payroll"),
+            "creator_id"      => auth()->id(),
         ]);
 
         $salary->save();
+
+        $employee_salary= Employee::where("id", request("employee"))->firstOrFail();
+
+         $employee_salary->update([
+            "period_rate" =>request("SalaryTo")
+            ]);
 
        // $mailer->sendTicketInformation(Auth::user(), $ticket);
 

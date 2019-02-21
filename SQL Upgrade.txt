@@ -1,0 +1,31 @@
+DROP TABLE `farmers`, `farmer_batch`, `farms`, `farm_product`, `forms`, `groups`, `group_member`, `group_product`, `harvests`, `household_blocks`, `products`, `product_categories`, `product_category`, `product_prices`, `purchases`;
+
+ALTER TABLE `dependants` CHANGE `nextofkeen` `nextofkeen` VARCHAR(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '2';
+
+ALTER TABLE `employeequalifications` CHANGE `qualificationid` `qualification_id` INT(255) NOT NULL, CHANGE `employeeid` `employee_id` INT(255) NOT NULL, CHANGE `levelid` `level_id` INT(255) NOT NULL, CHANGE `institutionid` `institution_id` INT(255) NOT NULL;
+
+ALTER TABLE `dependants` CHANGE `employeeid` `employee_id` INT(255) NOT NULL;
+
+ALTER TABLE `employees` CHANGE `pay_period` `pay_period` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `active` `active` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `hire_date` `hire_date` DATE NULL DEFAULT NULL, CHANGE `probation_date` `probation_date` DATE NULL DEFAULT NULL, CHANGE `about_employee` `about_employee` VARCHAR(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `employees` CHANGE `id` `id` INT(10) UNSIGNED NULL DEFAULT NULL AUTO_INCREMENT, CHANGE `first_name` `first_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `last_name` `last_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `other_name` `other_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `phone` `phone` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `gender` `gender` ENUM('male','female') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL, CHANGE `period_rate` `period_rate` DECIMAL(12,2) NULL DEFAULT NULL, CHANGE `pay_type` `pay_type` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `sstype_id` `sstype_id` INT(11) NULL DEFAULT NULL;
+
+CREATE TABLE `csv_data` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `csv_filename` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `csv_header` tinyint(1) NOT NULL DEFAULT '0',
+  `csv_data` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `csv_data`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `csv_data`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+//from  date 21/2/2019
+
+ALTER TABLE `salaries` ADD `creator_id` INT(10) NOT NULL AFTER `datechanged`;

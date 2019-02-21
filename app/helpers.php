@@ -93,3 +93,9 @@ $headers = "From: webmaster@example.com" . "\r\n" .
 mail($to,$subject,$txt,$headers);
 
 }
+
+function full_name($id)
+{
+	$employee=\App\Employee::where('id',$id)->firstOrFail();
+	 return $employee->first_name." ".$employee->last_name;
+}

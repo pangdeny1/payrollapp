@@ -80,7 +80,8 @@
                                                 <th>Salary To</th>
                                                 <th>Changed By</th>
                                                 <th>Changed Amount</th>
-                                                <th>Region</th>
+                                                <th>date</th>
+                                                <th>Changed By</th>
                                                 
                                                 <th></th>
                                             </tr>
@@ -89,13 +90,13 @@
                                             @foreach($employees as $employee)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ route("employees.show", $employee) }}" class="user-avatar mr-1">
+                                                    <a href="{{ route("employees.show", $employee->employee_id) }}" class="user-avatar mr-1">
                                                         <img class="img-fluid"
-                                                             src="{{ Avatar::create($employee->full_name)->toBase64() }}"
-                                                             alt="{{ $employee->full_name }}">
+                                                             src="{{ Avatar::create(full_name($employee->employee_id))->toBase64() }}"
+                                                             alt="{{ full_name($employee->employee_id)}}">
                                                     </a>
-                                                    <a href="{{ route("employees.show", $employee) }}">
-                                                        {{ $employee->id }}
+                                                    <a href="{{ route("employees.show", $employee->employee_id) }}">
+                                                        {{ full_name($employee->employee_id) }}
                                                     </a>
                                                 </td>
                                                 <td>{{ $employee->salaryfrom }}</td>
@@ -103,10 +104,11 @@
                                                 <td>{{ $employee->changedby }}</td>
                                                 <td>{{ $employee->changedamount}}</td>
                                                 <td>{{ $employee->datechanged }}</td>
+                                                <td>{{ $employee->creator_id }}</td>
                                                 
                                                 <td class="align-middle text-right">
                                                     @can("edit", \App\Employee::class)
-                                                    <a href="{{ route("employees.edit", $employee) }}" class="btn btn-sm btn-secondary">
+                                                    <a href="" class="btn btn-sm btn-secondary">
                                                         <i class="fa fa-pencil-alt"></i>
                                                         <span class="sr-only">Edit</span>
                                                     </a>
