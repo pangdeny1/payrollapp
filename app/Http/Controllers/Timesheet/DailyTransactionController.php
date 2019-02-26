@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Timesheet;
 use Illuminate\Http\Request;
 use App\Models\Prldailytran;
 use App\Employee;
-
+use App\User;
 use App\Mailers\AppMailer;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +19,7 @@ class DailyTransactionController extends Controller
 
     public function index()
     {
-        $this->authorize("view", Employee::class);
+       // $this->authorize("view", Employee::class);
 
 
              $dailytrans= Prldailytran::latest()->groupBy("employee_id")
@@ -54,16 +54,16 @@ class DailyTransactionController extends Controller
         $this->validate($request, [
             "employee"     => "required",
             "date"     => "required",
-            "hours"    =>"required",
+            "hours"    =>"required"
             
         ]);
 
         $time= Prldailytran::create([
-            "employee_id"     => request("employee"),
-            "reg_hours"      =>  request("hours"),
-            "rtdate"     => request("date"),
-            "payroll_id"     => request("payroll"),
-            "creator_id"      => auth()->id(),
+            "employee_id"     =>  $request->input("employee"),
+            "reg_hours"      =>   $request->input("hours"),
+            "rtdate"     =>  $request->input("date"),
+            "payroll_id"     =>  $request->input("payroll"),
+            "creator_id"      => auth()->id()
         ]);
 
         $time->save();

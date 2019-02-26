@@ -3,13 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
 class Prldailytran extends Model
 {
+	 //use \OwenIt\Auditing\Auditable;
    protected $primaryKey="id";
 
    protected $table="prldailytrans";
 
    protected $guarded = [];
-   protected $fillable = ["id","employee_id","rtref","rtdesc","rtdate","payroll_id","reg_hours","absenthrs","latehrs","regamt","absentamt","lateamt","approved","verified","approver","verifyer","creator_id","created_at","updated_at"];
+
 }

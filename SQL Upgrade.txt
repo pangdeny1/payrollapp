@@ -37,3 +37,8 @@ ALTER TABLE `prldailytrans` ADD `creator_id` INT NOT NULL AFTER `verifyer`, ADD 
 25/02/2019
 
 ALTER TABLE `prldailytrans` CHANGE `counterindex` `id` INT(11) NOT NULL AUTO_INCREMENT;
+
+
+ALTER TABLE `prldailytrans` CHANGE `rtdesc` `rtdesc` VARCHAR(40) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL, CHANGE `absenthrs` `absenthrs` DECIMAL(12,2) NULL DEFAULT NULL, CHANGE `latehrs` `latehrs` DECIMAL(12,2) NULL DEFAULT NULL, CHANGE `regamt` `regamt` DECIMAL(12,2) NULL DEFAULT NULL, CHANGE `absentamt` `absentamt` DECIMAL(12,2) NULL DEFAULT NULL, CHANGE `lateamt` `lateamt` DECIMAL(12,2) NULL DEFAULT NULL;
+
+ALTER TABLE `salaries` CHANGE `payroll_id` `payroll_id` INT(255) NULL DEFAULT NULL, CHANGE `datechanged` `datechanged` DATE NULL DEFAULT NULL;
