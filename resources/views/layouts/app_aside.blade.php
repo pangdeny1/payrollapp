@@ -128,11 +128,17 @@
                         <i class="fa fa-paypal"></i>
                         <span class="menu-text">Salaries</span>
                     </a>
+                    
                     <a href="{{ route('payrolls.approves.index') }}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">Send payroll approve</span>
                     </a>
                     @can("create", \App\Models\Payroll::class)
+
+                     <a href="{{url('viewDailyTrans')}}" class="menu-link mb-2">
+                        <i class="fa fa-paypal"></i>
+                        <span class="menu-text">Timesheet Data Entry</span>
+                    </a>
                    
                      <a href="{{url('viewotherincomes')}}" class="menu-link mb-2">
                         <i class="fa fa-plus-square"></i>

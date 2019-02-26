@@ -293,6 +293,7 @@ Route::post('/import_process', 'EmployeesController@processImport')->name('impor
     Route::get('deleteincometype/{id}','otherincome\incomes\incomesController@destroy');
     Route::post('updatincometype/{id}','otherincome\incomes\incomesController@update');
     Route::get('editincometype/{id}','otherincome\incomes\incomesController@edit');
+    //loan
      Route::post('addloan','loan\loanscontroller@store');
     Route::get('showloan/{id}','loan\loanscontroller@show');
     Route::get('editloan/{id}','loan\loanscontroller@edit');
@@ -300,6 +301,16 @@ Route::post('/import_process', 'EmployeesController@processImport')->name('impor
     Route::get('deleteloan/{id}','loan\loanscontroller@destroy');
     Route::get('createloan','loan\loanscontroller@create');
     Route::get('viewloans','loan\loanscontroller@index');
+
+//Timesheet
+
+    Route::post('newtime','Timesheet\DailyTransactionController@store');
+    Route::get('showDailyTran/{id}','Timesheet\DailyTransactionController@show');
+    Route::get('editDailyTran/{id}','Timesheet\DailyTransactionController@edit');
+    Route::post('updateDailyTran/{id}','Timesheet\DailyTransactionController@update');
+    Route::get('deleteDailyTran/{id}','Timesheet\DailyTransactionController@destroy');
+    Route::get('createDailyTran','Timesheet\DailyTransactionController@create');
+    Route::get('viewDailyTrans','Timesheet\DailyTransactionController@index');
 
     //leave management Starts here 
 
