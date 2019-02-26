@@ -55,7 +55,9 @@ class branchcontroller extends Controller
 
         $pagetitle="Branches";
         $branches = Branch::paginate(10);
-         return view('branch.index', compact('pagetitle','branches'))->with("status", "A Branch with Title has been created.");
+       //  return view('branch.index', compact('pagetitle','branches'))->with("status", "A Branch with Title has been created.");
+
+           return redirect()->back()->with("status", "Branch Created Successfully.");
 
        // return redirect()->back()->with("status", "A Branch with Title has been created.");
     }

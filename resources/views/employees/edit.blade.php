@@ -64,7 +64,7 @@
                                               <div class="form-group">
                                                 <label class="col-md-3 col-xs-12 control-label">Employee Code</label>
                                                 <div class="col-md-6 col-xs-12">                                                                                                                                                        
-                                                    <input type="text" class="form-control" name="code" value="{{ $employee->code}}"/>                                                    
+                                                    <input type="text" class="form-control" name="code" value="{{ old("code",$employee->code)}}"/>                                                    
                                                 </div>
                                             </div>
 
@@ -358,6 +358,7 @@
                                                 <div class="col-md-3 col-xs-12">  
 
                                                     <input type="text"
+                                                    readonly
                                                name="period_rate"
                                                class="form-control {{ $errors->has('period_rate') ? 'is-invalid' : '' }}"
                                                id="period_rate"
@@ -376,11 +377,13 @@
                                                 <label class="col-md-3 col-xs-12 control-label">Hourly Rate</label>
                                                 <div class="col-md-3 col-xs-12">                                                                                                                                                        
                                                       <input type="text"
+                                                      readonly
                                                name="hourly_rate"
                                                class="form-control {{ $errors->has('hourly_rate') ? 'is-invalid' : '' }}"
                                                id="hourly_rate"
                                                value="{{ old("hourly_rate", optional($employee)->hourly_rate) }}"
                                         >
+                                        
                                         @if ($errors->has('hourly_rate'))
                                             <span class="invalid-feedback">
                                                 <strong>{{ $errors->first('hourly_rate') }}</strong>

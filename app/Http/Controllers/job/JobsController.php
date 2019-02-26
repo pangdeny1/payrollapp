@@ -55,9 +55,10 @@ class JobsController extends Controller
          $jobs = job::paginate(10);
         $jobgroups = Jobgroup::all();;
 
-        return view('job.index', compact('jobs', 'pagetitle','jobgroups'))->with("status", "A Job Title has been Updated.");
+       /// return view('job.index', compact('jobs', 'pagetitle','jobgroups'))->with("status", "A Job Title has been Updated.");
 
         //return redirect()->back()->with("status", "A Job with Title has been created.");
+          return redirect()->back()->with("status", "Job Created Successfully.");
     }
 
          
