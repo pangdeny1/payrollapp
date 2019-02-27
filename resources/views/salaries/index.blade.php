@@ -106,6 +106,7 @@
                                                 <td>{{ $employee->datechanged }}</td>
                                                 <td>{{ $employee->creator_id }}</td>
                                                 
+                                                
                                                 <td class="align-middle text-right">
                                                     @can("edit", \App\Employee::class)
                                                     <a href="" class="btn btn-sm btn-secondary">

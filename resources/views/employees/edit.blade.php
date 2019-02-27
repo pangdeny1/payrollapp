@@ -383,7 +383,7 @@
                                                id="hourly_rate"
                                                value="{{ old("hourly_rate", optional($employee)->hourly_rate) }}"
                                         >
-                                        
+
                                         @if ($errors->has('hourly_rate'))
                                             <span class="invalid-feedback">
                                                 <strong>{{ $errors->first('hourly_rate') }}</strong>
@@ -1046,6 +1046,21 @@
                                 @if ($errors->has('SalaryTo'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('SalaryTo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                         <div class="form-group{{ $errors->has('HourlyRate') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Hourly  Rate</label>
+
+                            <div class="col-md-6">
+                                <input id="HourlyRate" type="text"  class="form-control" name="HourlyRate" 
+                                       value="{{ old('HourlyRate',$employee->hourly_rate) }}">
+
+                                @if ($errors->has('HourlyRate'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('HourlyRate') }}</strong>
                                     </span>
                                 @endif
                             </div>

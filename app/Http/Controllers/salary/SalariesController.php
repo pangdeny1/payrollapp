@@ -65,6 +65,7 @@ class SalariesController extends Controller
             "employee_id"     => request("employee"),
             "salaryfrom"      =>  request("SalaryFrom"),
             "salaryto"     => request("SalaryTo"),
+            "hourlyrate"   =>request("HourlyRate"),
             "changedby"     => request("ChangedBy"),
             "changedamount"     => request("AmountChanged"),
             "parcentage"     => request("ParcentageChanged"),
@@ -78,7 +79,8 @@ class SalariesController extends Controller
         $employee_salary= Employee::where("id", request("employee"))->firstOrFail();
 
          $employee_salary->update([
-            "period_rate" =>request("SalaryTo")
+            "period_rate" =>request("SalaryTo"),
+            "hourly_rate" =>request("HourlyRate")
             ]);
 
        // $mailer->sendTicketInformation(Auth::user(), $ticket);

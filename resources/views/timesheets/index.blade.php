@@ -14,13 +14,13 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    dailytrans
+                                    Timesheet
                                 </li>
                             </ol>
                         </nav>
                         <div class="d-sm-flex align-items-sm-center">
                             <h1 class="page-title mr-sm-auto mb-0">
-                                dailytrans
+                                Timesheet
                             </h1>
                             <div class="btn-toolbar">
                                 <a href="" class="btn btn-light">
@@ -31,7 +31,7 @@
                                 @can("create", \App\Models\Prldailytran::class)
                                 <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
                                     <span class="fas fa-plus mr-1"></span>
-                                    New dailytran
+                                    Add timesheet data
                                 </a>
 
                                @endcan
@@ -150,13 +150,16 @@
                     </div>
                     <h3 class="state-header"> No Content, Yet. </h3>
                     <p class="state-description lead text-muted">
-                        Use the button below to Apply new Leave.
+                        Use the button below to add new timesheet data
                     </p>
-                    @can("create", \App\Models\dailytran::class)
-                    <div class="state-action">
-                        <a href="{{ url("createdailytran") }}" class="btn btn-primary">Register new Leave</a>
-                    </div>
-                    @endcan
+                    
+                                @can("create", \App\Models\Prldailytran::class)
+                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+                                    <span class="fas fa-plus mr-1"></span>
+                                    Add timesheet data
+                                </a>
+
+                               @endcan
                 </div>
                 <!-- /.empty-state-container -->
             </section>
@@ -190,7 +193,7 @@
                                 <select id="employee" type="employee" class="form-control" name="employee">
                                     <option value="">Employee</option>
                                    
-                               @foreach (App\Employee::All() as $employee)
+                               @foreach (App\Employee::where('active','yes')->get() as $employee)
                         <option value="{{ $employee->id }}">{{ $employee->full_name }}</option>
                                     @endforeach
                                 </select>
@@ -243,8 +246,29 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>           
+                        </div>    
+                         <div class="form-group{{ $errors->has('hours') ? ' has-error' : '' }}">
+                            <label for="hours" class="col-md-4 control-label">Hours</label>
+
+                            <div class="col-md-6">
+                             <select id="payroll" class="form-control" name="payroll">
+                                  
+                                   
+                               @foreach (App\Models\Payroll::where('payclosed',1)->get() as $payroll)
+                        <option value="{{ $payroll->id }}">{{ $payroll->payrollid}}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('payroll'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('payroll') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>         
                                             <hr>
+
+
                                             
                                             <div class="modal-footer justify-content-between">
                                                 <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
