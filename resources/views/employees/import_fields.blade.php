@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">CSV Import</div>
 
-                    <div class="panel-body">
+                   <div style='overflow-x:scroll;'>
                         <form class="form-horizontal" method="POST" action="{{ route('import_process') }}">
                             {{ csrf_field() }}
                             <input type="hidden" name="csv_data_file_id" value="{{ $csv_data_file->id }}" />
