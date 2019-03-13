@@ -216,12 +216,12 @@ return [
     ],
 
   
-    'employees_fields' => [
+    'employees_fields1' => [
         'first_name',
         'last_name',
         'other_name',
         'email',
-        'phone',
+        'hire_date',
         'gender',
         'pay_type',
         'pay_period',

@@ -35,6 +35,7 @@ class EmployeeCreateRequest extends FormRequest
             "country" => "required",
             "payperiod"  =>"required",
             "sstype_id"  =>"required",
+            "hire_date"  =>"required",
             
 
 //            "size" => "required|numeric",

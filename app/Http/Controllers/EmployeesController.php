@@ -86,6 +86,7 @@ class EmployeesController extends Controller
             "last_name" => request("last_name"),
             "other_name" => request("other_name"),
             "phone" => request("phone"),
+            "hire_date" => request("hire_date"),
             "email" => request("email"),
             "gender" => request("gender"),
             "period_rate" =>request("period_rate"),
@@ -366,7 +367,7 @@ class EmployeesController extends Controller
         $csv_data = json_decode($data->csv_data, true);
         foreach ($csv_data as $row) {
             $importsm = new Employee();
-            foreach (config('app.employees_fields') as $index => $field) {
+            foreach (config('app.employees_fields1') as $index => $field) {
                 if ($data->csv_header) {
                     $importsm->$field = $row[$request->fields[$field]];
                 } else {
@@ -378,5 +379,16 @@ class EmployeesController extends Controller
 
        // return view('employees.import_success');
         return redirect()->route("employees.index")->with('status','Employees imported Successfully');
+    }
+
+    public function sample()
+    {
+        $file= public_path(). "/downloads/xls/sample_import_sample_file.xls";
+
+    $headers = array(
+              'Content-Type: application/xls',
+            );
+
+    return Response::download($file, 'sample_import_sample_file.xls', $headers);
     }
 }

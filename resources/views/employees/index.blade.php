@@ -23,14 +23,19 @@
                                 Employees
                             </h1>
                              <div class="btn-toolbar">
+                               
                                 <a href="{{url('import_employee')}}" class="btn btn-light">
                                     <i class="oi oi-data-transfer-upload"></i>
                                     <span class="ml-1">Import</span>
                                 </a>
                             <div class="btn-toolbar">
-                                <a href="" class="btn btn-light">
+                               <!-- <a href="" class="btn btn-light">
                                     <i class="oi oi-data-transfer-download"></i>
                                     <span class="ml-1">Export as excel</span>
+                                </a>-->
+                                  <a href="{{url('sample_file')}}" class="btn btn-light">
+                                    <i class="oi oi-data-transfer-download"></i>
+                                    <span class="ml-1">Sample import file</span>
                                 </a>
                                 
                                 @can("create", \App\Employee::class)

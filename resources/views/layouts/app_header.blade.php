@@ -266,21 +266,21 @@
                       <!-- /.dropdown-sheet-item -->
                       <!-- .dropdown-sheet-item -->
                       <div class="dropdown-sheet-item">
-                        <a href="#" class="tile-wrapper">
+                        <a href="{{ route("employees.index") }}" class="tile-wrapper">
                           <span class="tile tile-lg bg-teal">
                             <i class="oi oi-fork"></i>
                           </span>
-                          <span class="tile-peek">Projects</span>
+                          <span class="tile-peek">Employees</span>
                         </a>
                       </div>
                       <!-- /.dropdown-sheet-item -->
                       <!-- .dropdown-sheet-item -->
                       <div class="dropdown-sheet-item">
-                        <a href="#" class="tile-wrapper">
+                        <a href="{{ route("users.index") }}" class="tile-wrapper">
                           <span class="tile tile-lg bg-pink">
-                            <i class="fa fa-tasks"></i>
+                            <i class="oi oi-people"></i>
                           </span>
-                          <span class="tile-peek">Tasks</span>
+                          <span class="tile-peek">Users</span>
                         </a>
                       </div>
                       <!-- /.dropdown-sheet-item -->
@@ -290,7 +290,7 @@
                           <span class="tile tile-lg bg-yellow">
                             <i class="oi oi-fire"></i>
                           </span>
-                          <span class="tile-peek">Feeds</span>
+                          <span class="tile-peek">Payrolls</span>
                         </a>
                       </div>
                       <!-- /.dropdown-sheet-item -->
@@ -300,7 +300,16 @@
                           <span class="tile tile-lg bg-cyan">
                             <i class="oi oi-document"></i>
                           </span>
-                          <span class="tile-peek">Files</span>
+                          <span class="tile-peek">Leaves</span>
+                        </a>
+                      </div>
+
+                       <div class="dropdown-sheet-item">
+                        <a href="#" class="tile-wrapper">
+                          <span class="tile tile-lg bg-cyan">
+                            <i class="oi oi-document"></i>
+                          </span>
+                          <span class="tile-peek">Reports</span>
                         </a>
                       </div>
 

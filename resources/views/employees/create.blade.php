@@ -80,17 +80,17 @@
                                 
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="phone">Phone number</label>
-                                        <input type="text"
-                                               name="phone"
-                                               id="phone"
-                                               class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
-                                               value="{{ old("phone") }}"
-                                               placeholder="Phone number..."
+                                        <label for="hire_date">Date hired</label>
+                                        <input type="date"
+                                               name="hire_date"
+                                               id="hire_date"
+                                               class="form-control {{ $errors->has('hire_date') ? 'is-invalid' : '' }}"
+                                               value="{{ old("hire_date") }}"
+                                               placeholder="hire_date number..."
                                         >
-                                        @if ($errors->has('phone'))
+                                        @if ($errors->has('hire_date'))
                                             <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('phone') }}</strong>
+                                                    <strong>{{ $errors->first('hire_date') }}</strong>
                                                 </span>
                                         @endif
                                     </div>
@@ -115,6 +115,24 @@
                                             <span class="invalid-feedback">
                                                 <strong>{{ $errors->first('email') }}</strong>
                                             </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                 <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="text"
+                                               name="phone"
+                                               id="phone"
+                                               class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
+                                               value="{{ old("phone") }}"
+                                               placeholder="phone number..."
+                                        >
+                                        @if ($errors->has('phone'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('phone') }}</strong>
+                                                </span>
                                         @endif
                                     </div>
                                 </div>

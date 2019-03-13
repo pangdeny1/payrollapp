@@ -45,3 +45,4 @@ ALTER TABLE `salaries` CHANGE `payroll_id` `payroll_id` INT(255) NULL DEFAULT NU
 
 
 ALTER TABLE `salaries` ADD `hourlyrate` DECIMAL(12,2) NOT NULL AFTER `salaryto`;
+

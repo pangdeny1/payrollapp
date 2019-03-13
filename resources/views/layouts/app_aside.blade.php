@@ -124,10 +124,10 @@
                         <i class="fas fa-plus text-muted mr-2"></i>
                         <span class="menu-text">New Payroll</span>
                     </a>
-                    <a href="{{url('salaries')}}" class="menu-link mb-2">
+                    <!--<a href="{{url('salaries')}}" class="menu-link mb-2">
                         <i class="fa fa-paypal"></i>
                         <span class="menu-text">Salaries</span>
-                    </a>
+                    </a> -->
                     
                     <a href="{{ route('payrolls.approves.index') }}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
