@@ -90,6 +90,8 @@
                                                 {{ str_plural("permission", $user->getAbilities()->count()) }}
                                             </td>
                                             <td class="align-middle text-right" nowrap>
+                                                 @if($user->last_name !== "Admin")
+
                                                 @can("edit", $user)
                                                 <a href="{{ route("users.edit", $user) }}" class="btn btn-sm btn-secondary">
                                                     <i class="fa fa-pencil-alt"></i>
@@ -114,6 +116,7 @@
                                                     </form>
                                                 </a>
                                                 @endcan
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
