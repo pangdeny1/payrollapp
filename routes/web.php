@@ -190,6 +190,10 @@ Route::post('/import_process', 'EmployeesController@processImport')->name('impor
     Route::post('void/{id}','payroll\payrollsController@void');
     Route::post('close/{id}','payroll\payrollsController@close');
     Route::post('open/{id}','payroll\payrollsController@open');
+
+    Route::get('processpayroll','payroll\PayrollsController@openpayroll');
+    Route::get('approvepayroll','payroll\PayrollsController@toapprovepayroll');
+    Route::get('authorizepayroll','payroll\PayrollsController@toauthorizepayroll');
     //qualifications
     Route::post('addqualification','qualification\qualificationscontroller@store');
     Route::get('showqualification/{id}','qualification\qualificationscontroller@show');

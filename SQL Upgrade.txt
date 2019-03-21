@@ -46,3 +46,5 @@ ALTER TABLE `salaries` CHANGE `payroll_id` `payroll_id` INT(255) NULL DEFAULT NU
 
 ALTER TABLE `salaries` ADD `hourlyrate` DECIMAL(12,2) NOT NULL AFTER `salaryto`;
 
+ALTER TABLE `prlpayrollperiod` ADD `payprocessed` VARCHAR(10) NOT NULL DEFAULT 'no' AFTER `payclosed`, ADD `payapproved` VARCHAR(10) NULL DEFAULT 'no' AFTER `payprocessed`, ADD `payauthorised` VARCHAR(10) NOT NULL DEFAULT 'no' AFTER `payapproved`;
+

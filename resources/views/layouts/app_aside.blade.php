@@ -124,6 +124,26 @@
                         <i class="fas fa-plus text-muted mr-2"></i>
                         <span class="menu-text">New Payroll</span>
                     </a>
+
+                      <a href="{{url('processpayroll')}}" class="menu-link mb-2">
+                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <span class="menu-text">Process Payroll</span>
+                    </a>
+
+                      <a href="{{url('approvepayroll')}}" class="menu-link mb-2">
+                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <span class="menu-text">Approve Payroll</span>
+                    </a>
+
+                      <a href="{{url('authorizepayroll')}}" class="menu-link mb-2">
+                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <span class="menu-text">Authorize Payroll</span>
+                    </a>
+
+                      <a href="" class="menu-link mb-2">
+                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <span class="menu-text">Close/Open Payroll</span>
+                    </a>
                     <!--<a href="{{url('salaries')}}" class="menu-link mb-2">
                         <i class="fa fa-paypal"></i>
                         <span class="menu-text">Salaries</span>

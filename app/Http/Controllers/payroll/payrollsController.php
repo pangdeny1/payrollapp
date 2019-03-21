@@ -56,6 +56,46 @@ class payrollsController extends Controller
         return view('payrolls.index',compact('payrolls','pagetitle'));
 
 	}
+
+    public function openPayroll()
+    {
+      $payrolls= Payroll::latest()->where("payclosed",1)
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("payrollid", "LIKE", "%". request("q") ."%")
+                    ->orWhere("payrolldesc", "LIKE", "%". request("q") ."%");
+            })
+            ->paginate();
+         $pagetitle="Payrolls ";
+        return view('payrolls.openpayroll',compact('payrolls','pagetitle'));   
+    }
+
+      public function toAuthorizePayroll()
+    {
+      $payrolls= Payroll::latest()->where("payapproved","yes")->where("payprocessed","yes")
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("payrollid", "LIKE", "%". request("q") ."%")
+                    ->orWhere("payrolldesc", "LIKE", "%". request("q") ."%");
+            })
+            ->paginate();
+         $pagetitle="Aauthorize Payrolls";
+        return view('payrolls.toauthorizepayroll',compact('payrolls','pagetitle'));   
+    }
+
+      public function toApprovePayroll()
+    {
+      $payrolls= Payroll::latest()->where("payapproved","no")->where("payprocessed","yes")
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("payrollid", "LIKE", "%". request("q") ."%")
+                    ->orWhere("payrolldesc", "LIKE", "%". request("q") ."%");
+            })
+            ->paginate();
+         $pagetitle="Approve Payrolls ";
+        return view('payrolls.toapprovepayroll',compact('payrolls','pagetitle'));   
+    }
+
  public function create()
     {
         
@@ -85,6 +125,13 @@ class payrollsController extends Controller
             'DeductHealth'     => 'required',
             'payperiod'       =>'required'
         ]);
+         
+         $closedPayroll=Payroll::where('payclosed',1)->get();
+        if($closedPayroll->count() > 0)
+
+        {
+            return redirect()->back()->with('status_error', 'Cant create new ,There is Open payroll, It must be closed to continue'); 
+        }
 
         $payroll= new Payroll([
             'payrollid'     => $request->input('PayrollID'),
@@ -104,6 +151,14 @@ class payrollsController extends Controller
        // $mailer->sendTicketInformation(Auth::user(), $ticket);
 
         return redirect()->back()->with("status", $request->input('PayrollDesc')." Payroll  Added Successfully.");
+    }
+
+    public function messages()
+    {
+        return [
+        'PayrollDesc.required' => 'Reason of the leave is required',
+        ]; 
+
     }
 
 
@@ -146,6 +201,13 @@ class payrollsController extends Controller
         $payrollObj->computeLoan($payroll_id);
         $payrollObj->computeTotalDeduction($payroll_id);
         $payrollObj->computeNetpay($payroll_id);
+       
+
+        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
+
+        $payroll->update([
+                "payprocessed"  =>"yes"
+            ]);         
         return redirect()->back()->with("status", "Payroll data successfully generated");
     }
 
@@ -185,6 +247,12 @@ class payrollsController extends Controller
         }
             
         $payrollObj->destroyTrans($payroll_id);
+
+        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
+
+        $payroll->update([
+                "payprocessed"  =>"no"
+            ]);
         return redirect()->back()->with("status", "payroll successfully voided!");
     }
 //closepayroll
@@ -208,7 +276,7 @@ class payrollsController extends Controller
         }
        //put validation  to check if Payroll is first generated because you cant close open payroll
 
-        $payroll= payroll::where('id', $payroll_id)->firstOrFail();
+        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
 
         $payroll->update([
             "payclosed" =>2

@@ -30,27 +30,97 @@
                             <header class="card-header border-bottom-0">
                                 Payroll Infomation
                             </header>
-                              <div class="card-body">
-                            <div class="card-body">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="phone">Payroll ID</label>
-                                 <input id="title" type="text" class="form-control {{ $errors->has('PayrollID') ? 'is-invalid' : '' }}" name="PayrollID" value="{{ old('PayrollID') }}">
 
-                                @if ($errors->has('PayrollID'))
+
+                              <div class="card-body">
+                                  <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="email">
+                                            Pay periods
+                                           
+                                        </label>
+                                                    <select  id="payperiod" onchange="calDesc()" class="form-control {{ $errors->has('payperiod') ? 'is-invalid' : '' }}" name="payperiod">
+                                                        <option   value='' selected="selected">Select </option>
+
+                                                        @foreach($payperiods as $payperiod)
+
+                                                        
+                                                         <option value="{{ $payperiod->payperiodid }}">{{ $payperiod->payperioddesc }}</option>
+                                                          @endforeach
+                                                                                                             
+                                                    </select>
+                                             @if ($errors->has('payperiod'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('PayrollID') }}</strong>
+                                        <strong>{{ $errors->first('payperiod') }}</strong>
                                     </span>
                                 @endif
                                     </div>
                                 </div>
 
-                            
+
                                 <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="email">
+                                           Months
+                                           
+                                        </label>
+                                                          <select onchange="calDesc()"  class="form-control {{ $errors->has('FSMonth') ? 'is-invalid' : '' }}" 
+                                                            name="FSMonth"
+                                                            id="FSMonth">
+                                                        <option value="">Select </option>
+                                                        @foreach($months  as $month)
+                                                        <option value="{{$month->id}}">{{$month->month}}</option> 
+                                                        @endforeach                                                                                                             
+                                                    </select>
+                                             @if ($errors->has('FSMonth'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('FSMonth') }}</strong>
+                                    </span>
+                                @endif
+                                    </div>
+                                </div>
+
+                                  <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="email">
+                                          Years
+                                           
+                                        </label>
+                                                    <select  id="FSYear" onchange="calDesc()"  class="form-control {{ $errors->has('FSYear') ? 'is-invalid' : '' }}"
+                                                         name="FSYear">
+                                                         <option value="">Select </option>
+                                                        @foreach($years  as $FSYear)
+                                                       
+                                                        <option value="{{$FSYear->id}}">{{$FSYear->year}}</option>
+                                                        
+                                                        @endforeach
+                                                                                                                                                                   
+                                                    </select>
+                                             @if ($errors->has('FSYear'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('FSYear') }}</strong>
+                                    </span>
+                                @endif
+                                    </div>
+                                </div>
+<hr>
+                                     <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="phone">Payroll Desc</label>
-                                     <input id="title" type="text" 
+                                       <label for="phone">Payroll ID</label>
+                                 <input id="PayrollID" readonly type="text" class="form-control {{ $errors->has('PayrollID') ? 'is-invalid' : '' }}"
+                                  name="PayrollID" value="{{ old('PayrollID') }}">
+
+                                @if ($errors->has('PayrollID'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('PayrollID') }}</strong>
+                                    </span>
+                                @endif             
+                            </div>
+                                    <div class="form-group col-md-6">
+                                      <label for="PayrollDesc">Payroll Desc</label>
+                                     <input type="text" 
                                      class="form-control {{ $errors->has('PayrollDesc') ? 'is-invalid' : '' }}"
+                                     id="results"
                                      name="PayrollDesc" value="{{ old('PayrollDesc') }}">
 
                                 @if ($errors->has('PayrollDesc'))
@@ -60,6 +130,9 @@
                                 @endif
                                     </div>
                                 </div>
+
+
+
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="first_name">Start Date</label>
@@ -87,76 +160,7 @@
                                     </div>
                                 </div>
                               
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="email">
-                                            Pay periods
-                                           
-                                        </label>
-                                                    <select  class="form-control {{ $errors->has('payperiod') ? 'is-invalid' : '' }}" name="payperiod">
-                                                        <option  value='' selected="selected">Select </option>
-
-                                                        @foreach($payperiods as $payperiod)
-
-                                                        
-                                                         <option value="{{ $payperiod->payperiodid }}">{{ $payperiod->payperioddesc }}</option>
-                                                          @endforeach
-                                                                                                             
-                                                    </select>
-                                             @if ($errors->has('payperiod'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('payperiod') }}</strong>
-                                    </span>
-                                @endif
-                                    </div>
-                                </div>
-
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="email">
-                                           Months
-                                           
-                                        </label>
-                                                          <select  class="form-control {{ $errors->has('FSMonth') ? 'is-invalid' : '' }}" 
-                                                            name="FSMonth">
-                                                        <option value="">Select </option>
-                                                        @foreach($months  as $month)
-                                                        <option value="{{$month->id}}">{{$month->month}}</option> 
-                                                        @endforeach                                                                                                             
-                                                    </select>
-                                             @if ($errors->has('FSMonth'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('FSMonth') }}</strong>
-                                    </span>
-                                @endif
-                                    </div>
-                                </div>
-
-                                  <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="email">
-                                          Years
-                                           
-                                        </label>
-                                                    <select  class="form-control {{ $errors->has('FSYear') ? 'is-invalid' : '' }}"
-                                                         name="FSYear">
-                                                         <option value="">Select </option>
-                                                        @foreach($years  as $FSYear)
-                                                       
-                                                        <option value="{{$FSYear->id}}">{{$FSYear->year}}</option>
-                                                        
-                                                        @endforeach
-                                                                                                                                                                   
-                                                    </select>
-                                             @if ($errors->has('FSYear'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('FSYear') }}</strong>
-                                    </span>
-                                @endif
-                                    </div>
-                                </div>
-<hr>
+                              
                          
                             <header class="card-header border-bottom-0">
                                 Deduct Information
@@ -260,3 +264,23 @@
     </div>
 </div>
 @endsection
+
+<script type="text/javascript">
+
+function calDesc() {
+var score1=document.getElementById("FSMonth").value
+var score2=document.getElementById("FSYear").value
+var score3=document.getElementById("payperiod").value
+var pick1=document.getElementById("FSMonth").options[document.getElementById("FSMonth").selectedIndex].text
+var pick2=document.getElementById("FSYear").options[document.getElementById("FSYear").selectedIndex].text
+var pick3=document.getElementById("payperiod").options[document.getElementById("payperiod").selectedIndex].text
+var grandscore=score1-score2;
+
+document.getElementById("results").value=pick1 + " "+ pick2;
+
+document.getElementById("PayrollID").value=pick1.substr(0, 3)+pick2+"-"+pick3.substr(0,1);
+   
+}
+
+
+</script>
