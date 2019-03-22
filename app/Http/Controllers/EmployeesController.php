@@ -81,6 +81,7 @@ class EmployeesController extends Controller
     {
         $this->authorize("create", Employee::class);
 
+         $imageName = request("first_name").' '.request("last_name").' '.time().'.'.request()->image->getClientOriginalExtension();
         $employee = Employee::create([
             "first_name" => request("first_name"),
             "last_name" => request("last_name"),
@@ -97,8 +98,15 @@ class EmployeesController extends Controller
             "branch_id"   =>request("branch"),
             "department_id"  =>request("department"),
             "job_id"         =>request("job"),
+            "picture"        =>$imageName,
             "creator_id" => auth()->id(),
         ]);
+
+        
+
+  
+
+        request()->image->move(public_path('images/profiles'), $imageName);
 
         $employee->address()->create($request->only([
             "street",
@@ -166,6 +174,19 @@ class EmployeesController extends Controller
     public function update(Request $request,Employee $employee)
     {
         $this->authorize("update", $employee);
+
+         if(empty(request()->image))
+         {
+            $imageName=$employee->picture;
+         }
+     else
+     {
+          $imageName = request("first_name").' '.request("last_name").' '.time().'.'.request()->image->getClientOriginalExtension();
+          request()->image->move(public_path('images/profiles'), $imageName);
+     }
+         
+
+          
         $this->validate($request, [
             "first_name" => "required",
             "last_name" => "required",
@@ -217,9 +238,11 @@ class EmployeesController extends Controller
             "deduct_hdmf"       =>request('deduct_hdmf'),
             "hdmf_number"       =>request('hdmf_number'),
             "health_number"     =>request('health_number'),
+            "picture"           =>$imageName,
 
 
         ]);
+       
 
        //picture 
 /*

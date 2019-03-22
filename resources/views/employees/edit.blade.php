@@ -190,7 +190,22 @@
                                             </span>
                                         @endif
                                                 </div>
+
+
                                             </div>
+                                                                <div class="form-row">
+                                    <div class="form-group col-md-12 mb-3">
+                                        <label for="image">Picture</label>
+                                      
+                                          <input type="file" name="image" 
+                                            class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}">
+                                             @if ($errors->has('image'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('image') }}</strong>
+                                                </span>
+                                        @endif
+                            </div>
+                        </div>
 
                                             <div class="form-group">                                        
                                                <label for="branch">Branch <a href="" data-toggle="modal" data-target="#exampleModal1">+ Add new </a></label>

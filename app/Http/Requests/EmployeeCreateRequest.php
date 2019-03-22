@@ -36,6 +36,7 @@ class EmployeeCreateRequest extends FormRequest
             "payperiod"  =>"required",
             "sstype_id"  =>"required",
             "hire_date"  =>"required",
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
 
 //            "size" => "required|numeric",

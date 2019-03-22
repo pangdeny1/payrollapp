@@ -22,6 +22,7 @@
                         <form action="{{ route("employees.store") }}"
                               method="post"
                               class="card border-0"
+                              enctype="multipart/form-data"
                         >
                             @csrf
                             <header class="card-header border-bottom-0">
@@ -161,7 +162,20 @@
                                             <label class="custom-control-label" for="male">Male</label>
                                         </div>
                                     </div>
+
+
                                 </div>
+                                 <div class="form-row">
+                                    <div class="form-group col-md-12 mb-3">
+                                        <label for="image">Picture</label>
+                                      
+                                          <input type="file" name="image" 
+                                            class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}">
+                                             @if ($errors->has('image'))
+                                            <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('image') }}</strong>
+                                                </span>
+                                        @endif
                             </div>
 
                             
