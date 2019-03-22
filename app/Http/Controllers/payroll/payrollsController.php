@@ -85,15 +85,10 @@ class payrollsController extends Controller
 
       public function toApprovePayroll()
     {
-      $payrolls= Payroll::latest()->where("payapproved","no")->where("payprocessed","yes")
-            ->when(request("q"), function($query){
-                return $query
-                    ->where("payrollid", "LIKE", "%". request("q") ."%")
-                    ->orWhere("payrolldesc", "LIKE", "%". request("q") ."%");
-            })
-            ->paginate();
+      $payroll= Payroll::latest()->where("payclosed",1)->where("payprocessed","yes")->first();
          $pagetitle="Approve Payrolls ";
-        return view('payrolls.toapprovepayroll',compact('payrolls','pagetitle'));   
+         $payrollTrans=Prltransaction::where('payroll_id',$payroll->id)->get();
+        return view('payrolls.toapprovepayroll',compact('payroll','pagetitle','payrollTrans'));   
     }
 
  public function create()
@@ -302,28 +297,37 @@ class payrollsController extends Controller
             "loanbalance"  =>$loanbal->loanbalance+$amount
             ]);
     }
+    //appprove payroll
 
-     public function open($payroll_id)
+     public function approvepayroll($payroll_id)
     {
         $payrollObj= new payrollsController();
 
-         $loantrans=Prlloantransaction::where("payroll_id",$payroll_id)->get();
-         if($loantrans->count()>0)
-         {
-            foreach ($loantrans as $loantran) {
-               $payrollObj->updateClosePayrollBalance($loantran->employee_id,$loantran->loantype_id,$loantran->amount);
-            }
-            
-            
-         }
-        $payroll= payroll::where('id', $payroll_id)->firstOrFail();
+        
+        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
 
         $payroll->update([
-            "payclosed" =>1
+            "payapproved" =>"yes"
             ]);
-        return redirect()->back()->with("status", "payroll Opened successfully!");
+        return redirect()->back()->with("status", "payroll Approved successfully!");
     }
    
+   //authorize
+
+      public function authorizepayroll($payroll_id)
+    {
+        $payrollObj= new payrollsController();
+
+        
+        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
+
+        $payroll->update([
+            "payauthorised" =>"yes"
+            ]);
+        return redirect()->back()->with("status", "payroll Authorized successfully!");
+    }
+   
+
    public function closedOpenedStatusCheck($payroll_id)
    {
      $payroll= payroll::where('id', $payroll_id)->firstOrFail();

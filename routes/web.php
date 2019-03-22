@@ -191,6 +191,9 @@ Route::post('/import_process', 'EmployeesController@processImport')->name('impor
     Route::post('close/{id}','payroll\payrollsController@close');
     Route::post('open/{id}','payroll\payrollsController@open');
 
+    Route::post('approvepayrolls/{id}','payroll\payrollsController@approvepayroll');
+     Route::post('authorizepayroll/{id}','payroll\payrollsController@authorizepayroll');
+
     Route::get('processpayroll','payroll\PayrollsController@openpayroll');
     Route::get('approvepayroll','payroll\PayrollsController@toapprovepayroll');
     Route::get('authorizepayroll','payroll\PayrollsController@toauthorizepayroll');

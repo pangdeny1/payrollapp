@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("content")
-    @if($payrolls->count())
+    @if($payroll->count())
         <div class="wrapper">
             <div class="page">
                 <div class="page-inner">
@@ -28,13 +28,7 @@
                                     <i class="oi oi-data-transfer-download"></i>
                                     <span class="ml-1">Export as excel</span>
                                 </a>
-                                
-                                @can("create", \App\Models\Payroll::class)
-                                <a href="{{url('createpayrollperiod')}}" class="btn btn-primary">
-                                    <span class="fas fa-plus mr-1"></span>
-                                    New payroll
-                                </a>
-                                @endcan
+                              
                             </div>
                         </div>
                     </header>
@@ -70,7 +64,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($payrolls as $payroll)
+                                            
                                             <tr>
                                                 <td>
                                                     <a href="{{ url('showpayroll/'.$payroll->id) }}">
@@ -78,7 +72,7 @@
                                                     </a>
                                                 </td>
                                                 <td>{{ $payroll->payrolldesc }}</td>
-                                                <td>{{ $payroll->payclosed == 1 ? "Open" : "Closed" }}</td>
+                                                <td>{{ $payroll->payapproved == 'no' ? "Pending" : "Approved" }}</td>
                                                 <td class="align-middle text-right">       
                                                     @if($payroll->payclosed== 1)
                                                         <a href="{{ url('editpayroll/'.$payroll->id) }}" class="btn btn-sm btn-secondary">
@@ -90,32 +84,33 @@
                                                             <span class="sr-only">Remove</span>
                                                         </a>
                                                     @endif
-                                                    <a href="{{ url('showpayroll/'.$payroll->id) }}" class="btn btn-primary">preview</a>
-                                                    @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Generate Payroll Data
-                                </button>
-                                    @endif
-                                 @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Void payroll Period
-                                </button>
-                            
-                                @endif
-                                  @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Close payroll Period
-                                </button>
-                                @endif
+                                                    <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" >
+                                                        Preview</a>
+                              
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                            <tr>
+                       
+                       <td>
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/approvepayrolls/'.$payroll->id) }}">
+                        {!! csrf_field() !!}
+
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-ticket"></i> Approve Payroll
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                            </td>
+                                            </tr>
+                                          
                                         </tbody>
                                     </table>
                                 </div>
 
-                                <!-- .pagination -->
-                                {{ $payrolls->links() }}
+                               
                             </div>
                         </section>
                     </div>
@@ -150,4 +145,86 @@
             <!-- /.empty-state -->
         </div>
     @endif
+
+          <!-- Modal -->
+                                    <div  data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       
+                        {!! csrf_field() !!}
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="exampleModalLabel">Payroll </h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                              <div class="panel-body panel-body-table"   style='overflow-y:scroll;'>
+                                  
+                                    <div class="table-responsive">
+                                        <table id="customers2" class="table datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Employee ({{$payrollTrans->count()}})</th>
+                                                    <th>Basic</th>
+                                                    <th>Income</th>
+                                                    <th>Gross</th>
+                                                    <th>Pension</th>
+                                                    <th>Tax</th>
+                                                    <th>Deduction</th>
+                                                    <th>Loan</th>
+                                                    <th>Net</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                       @foreach($payrollTrans as $employee)
+                                                <tr>
+                                                    <td><strong>{{ full_name($employee->employee_id)}}</strong></td>
+                                                    <td align="right">{{number_format($employee->basicpay,2)}}</td>
+                                                    <td align="right">{{number_format($employee->other_income,2)}}</td>
+                                                    <td align="right">{{number_format($employee->grosspay,2)}}</td>
+                                                    <td align="right">{{number_format($employee->sss_pay,2)}}</td>
+                                                    <td align="right">{{number_format($employee->tax,2)}}</td>
+                                                    <td align="right">{{number_format($employee->other_deduction,2)}}</td>
+                                                    <td align="right">{{number_format($employee->loan_deduction,2)}}</td>
+                                                    <td>{{ number_format($employee->netpay,2)}}</td>
+                                                    
+                                                </tr>
+                                           @endforeach
+
+                                           <tr>
+                                                    <th>{{$payrollTrans->count()}}</th>
+                                                    <th>{{ number_format($payrollTrans->sum('basicpay'),2)}}</th>
+                                                    <th>{{ number_format($payrollTrans->sum('other_income'),2)}}</th>
+                                                    <th>{{ number_format($payrollTrans->sum('grosspay'),2)}}</th>
+                                                    <th>{{ number_format($payrollTrans->sum('sss_pay'),2)}}</th>
+                                                    <th>{{ number_format($payrollTrans->sum('tax'),2)}}</th>
+                                                    <th>{{ number_format($payrollTrans->sum('other_deduction'),2)}}</th>
+                                                    <th>{{ number_format($payrollTrans->sum('loan_deduction'),2)}}</th>
+                                                    <th>{{ number_format($payrollTrans->sum('netpay'),2)}}</th>
+                                                   
+                                                </tr>
+
+                                                <tr>
+                                                    <th>Employee ({{$payrollTrans->count()}})</th>
+                                                    <th>Basic</th>
+                                                    <th>Income</th>
+                                                    <th>Gross</th>
+                                                    <th>Pension</th>
+                                                    <th>Tax</th>
+                                                    <th>Deduction</th>
+                                                    <th>Loan</th>
+                                                    <th>Net</th>
+                                                   
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+
+                                        </div>
+                                    </div>
 @endsection

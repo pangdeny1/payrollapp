@@ -66,7 +66,7 @@
                                                 <th>Payroll code</th>
                                                 <th>Payroll Name</th>
                                                 <th>Status</th>
-                                                <th style="text-align:center" colspan="2">Actions</th>
+                                                <th style="text-align:center" colspan="4">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -91,23 +91,65 @@
                                                         </a>
                                                     @endif
                                                     <a href="{{ url('showpayroll/'.$payroll->id) }}" class="btn btn-primary">preview</a>
-                                                    @if($payroll->payclosed== 1)
+                                                   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <form class="form-horizontal" role="form" method="POST" action="{{ url('/generate/'.$payroll->id) }}">
+                        {!! csrf_field() !!}
+
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                              @if($payroll->payclosed== 1)
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-ticket"></i> Generate Payroll Data
                                 </button>
-                                    @endif
-                                 @if($payroll->payclosed== 1)
+                                @endif
+                            </div>
+                        </div>
+                    </form></td>
+                     <td>  
+                      <form class="form-horizontal" role="form" method="POST" action="{{ url('/void/'.$payroll->id) }}">
+                        {!! csrf_field() !!}
+
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                               @if($payroll->payclosed== 1)
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-ticket"></i> Void payroll Period
                                 </button>
-                            
                                 @endif
-                                  @if($payroll->payclosed== 1)
+                            </div>
+                        </div>
+                    </form>
+                   </td>
+                    <td> <form class="form-horizontal" role="form" method="POST" action="{{ url('/close/'.$payroll->id) }}">
+                        {!! csrf_field() !!}
+
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                               @if($payroll->payclosed== 1)
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-ticket"></i> Close payroll Period
                                 </button>
                                 @endif
-                                                </td>
+                            </div>
+                        </div>
+                    </form>
+                     </td>
+                       <td>
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/open/'.$payroll->id) }}">
+                        {!! csrf_field() !!}
+
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-ticket"></i> Open payroll Period
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                            </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

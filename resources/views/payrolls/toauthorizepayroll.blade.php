@@ -28,13 +28,7 @@
                                     <i class="oi oi-data-transfer-download"></i>
                                     <span class="ml-1">Export as excel</span>
                                 </a>
-                                
-                                @can("create", \App\Models\Payroll::class)
-                                <a href="{{url('createpayrollperiod')}}" class="btn btn-primary">
-                                    <span class="fas fa-plus mr-1"></span>
-                                    New payroll
-                                </a>
-                                @endcan
+                              
                             </div>
                         </div>
                     </header>
@@ -78,7 +72,7 @@
                                                     </a>
                                                 </td>
                                                 <td>{{ $payroll->payrolldesc }}</td>
-                                                <td>{{ $payroll->payclosed == 1 ? "Open" : "Closed" }}</td>
+                                                <td>{{ $payroll->payauthorised =='yes' ? "Authorized" : "Pending" }}</td>
                                                 <td class="align-middle text-right">       
                                                     @if($payroll->payclosed== 1)
                                                         <a href="{{ url('editpayroll/'.$payroll->id) }}" class="btn btn-sm btn-secondary">
@@ -91,23 +85,25 @@
                                                         </a>
                                                     @endif
                                                     <a href="{{ url('showpayroll/'.$payroll->id) }}" class="btn btn-primary">preview</a>
-                                                    @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Generate Payroll Data
-                                </button>
-                                    @endif
-                                 @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Void payroll Period
-                                </button>
-                            
-                                @endif
-                                  @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Close payroll Period
-                                </button>
-                                @endif
+                                  
                                                 </td>
+                                            </tr>
+
+                                                                 <tr>
+                       
+                       <td>
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/authorizepayroll/'.$payroll->id) }}">
+                        {!! csrf_field() !!}
+
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-ticket"></i> Authorize Payroll
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                            </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
