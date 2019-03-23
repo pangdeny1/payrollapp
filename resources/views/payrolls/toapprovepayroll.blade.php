@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("content")
-    @if($payroll->count())
+    @if($payrolls->count())
         <div class="wrapper">
             <div class="page">
                 <div class="page-inner">
@@ -14,7 +14,7 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                   Approve Payroll
+                                   Approve Payroll Payment
                                 </li>
                             </ol>
                         </nav>
@@ -64,7 +64,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
+                                            @foreach ($payrolls as $payroll)
                                             <tr>
                                                 <td>
                                                     <a href="{{ url('showpayroll/'.$payroll->id) }}">
@@ -98,14 +98,28 @@
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Approve Payroll
+                                    <i class="fa fa-btn fa-ticket"></i> Approve Payment
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                            </td>
+
+                              <td>
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/voidpayment/'.$payroll->id) }}">
+                        {!! csrf_field() !!}
+
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-ticket"></i> Void Payment
                                 </button>
                             </div>
                         </div>
                     </form>
                             </td>
                                             </tr>
-                                          
+                                          @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -162,7 +176,7 @@
                                               <div class="panel-body panel-body-table"   style='overflow-y:scroll;'>
                                   
                                     <div class="table-responsive">
-                                        <table id="customers2" class="table datatable">
+                                    <!--    <table id="customers2" class="table datatable">
                                             <thead>
                                                 <tr>
                                                     <th>Employee ({{$payrollTrans->count()}})</th>
@@ -220,8 +234,9 @@
                                                 </tr>
                                                
                                             </tbody>
-                                        </table>
+                                        </table> -->
                                     </div>
+
                                     
                                 </div>
 

@@ -83,13 +83,21 @@ class payrollsController extends Controller
         return view('payrolls.toauthorizepayroll',compact('payrolls','pagetitle'));   
     }
 
+  
+
       public function toApprovePayroll()
     {
-      $payroll= Payroll::latest()->where("payclosed",1)->where("payprocessed","yes")->first();
+      $payrolls= Payroll::latest()->where("payclosed",1)->where('payprocessed',"yes") ->when(request("q"), function($query){
+                return $query
+                    ->where("payrollid", "LIKE", "%". request("q") ."%")
+                    ->orWhere("payrolldesc", "LIKE", "%". request("q") ."%");
+            })
+            ->paginate();;
          $pagetitle="Approve Payrolls ";
-         $payrollTrans=Prltransaction::where('payroll_id',$payroll->id)->get();
-        return view('payrolls.toapprovepayroll',compact('payroll','pagetitle','payrollTrans'));   
+        $payrollTrans=Prltransaction::where('payroll_id',0)->get();
+        return view('payrolls.toapprovepayroll',compact('payrolls','pagetitle','payrollTrans'));   
     }
+    
 
  public function create()
     {
@@ -175,13 +183,34 @@ class payrollsController extends Controller
     {
         $payrollObj= new payrollsController();
         $employees=Employee::where("active","yes")->where('pay_period',$payrollObj->payrollRows($payroll_id,"payperiod"))->get();
-
+        
+        $payroll=Payroll::where('id',$payroll_id)->firstOrFail();
          
         if($payrollObj->closedOpenedStatusCheck($payroll_id)=="Closed")
         {
-          return redirect()->back()->with("status_error", "Cannot Generate payroll data, Payroll is already closed!"); 
+          return redirect()->back()->with("status_error", "Cannot Generate payroll data, Payroll is already closed!,Open Payroll to continue"); 
             
         }
+        else if($payroll->payapproved=="yes" && $payroll->payauthorised=="yes")
+        {
+        
+        return redirect()->back()->with("status_error", "Cannot Generate payroll data, Payroll is already approved and Authorised!,Void Authorized Payment then void payment to continue"); 
+        }
+        else if($payroll->payauthorised=="yes")
+        {
+         return redirect()->back()->with("status_error", "Cannot Generate payroll data, Payroll is already Authorized!,Void authorised payment to continue");    
+        }
+
+        else if($payroll->payapproved=="yes")
+        {
+         
+         return redirect()->back()->with("status_error", "Cannot Generate payroll data, Payment is already approved!,Void payment to continue"); 
+        }
+        
+
+        else
+        {
+
         $payrollObj->destroyTrans($payroll_id);
         $payrollObj->preparePayrollData($employees,$payroll_id);
         $payrollObj->calculateBasicPay($payroll_id);
@@ -203,7 +232,10 @@ class payrollsController extends Controller
         $payroll->update([
                 "payprocessed"  =>"yes"
             ]);         
-        return redirect()->back()->with("status", "Payroll data successfully generated");
+        return redirect()->back()->with("status", "Payroll data  successfully Generated");
+
+        }
+      
     }
 
     public function preparePayrollData($employees,$payroll_id)
@@ -235,11 +267,38 @@ class payrollsController extends Controller
      public function void($payroll_id)
     {  
         $payrollObj= new payrollsController();
+        $payroll=Payroll::where('id',$payroll_id)->firstOrFail();
         if($payrollObj->closedOpenedStatusCheck($payroll_id)=="Closed")
         {
           return redirect()->back()->with("status_error", "Cannot Void Payroll is closed!"); 
             
         }
+
+        else if($payroll->payapproved=="yes" && $payroll->payauthorised=="yes")
+        {
+        
+        return redirect()->back()->with("status_error", "Cannot Void payroll data, Payroll is already approved and Authorised!,Void Authorized Payment then void payment to continue"); 
+        }
+        else if($payroll->payauthorised=="yes")
+        {
+         return redirect()->back()->with("status_error", "Cannot Void payroll data, Payroll is already Authorized!,Void authorised payment to continue");    
+        }
+
+        else if($payroll->payapproved=="yes")
+        {
+         
+         return redirect()->back()->with("status_error", "Cannot Void payroll data, Payment is already approved!,Void payment to continue"); 
+        }
+
+        else if($payroll->payprocessed=="no")
+        {
+            return redirect()->back()->with("status_error", "Cannot Void un processed Payroll");
+        }
+        
+
+        else
+        {
+
             
         $payrollObj->destroyTrans($payroll_id);
 
@@ -249,11 +308,54 @@ class payrollsController extends Controller
                 "payprocessed"  =>"no"
             ]);
         return redirect()->back()->with("status", "payroll successfully voided!");
+
+    }
+
     }
 //closepayroll
+public function closeopenpayroll()
+{
+    $payrolls= Payroll::latest()->where("payapproved","yes")->where("payprocessed","yes")->where("payauthorised","yes")
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("payrollid", "LIKE", "%". request("q") ."%")
+                    ->orWhere("payrolldesc", "LIKE", "%". request("q") ."%");
+            })
+            ->paginate();
+         $pagetitle="Open Close Payrolls";
+        return view('payrolls.closeopenpayroll',compact('payrolls','pagetitle'));  
+    
+}
+
+//openpayroll
+    public function open($payroll_id)
+    {
+        $payrollObj= new payrollsController();
+
+         $loantrans=Prlloantransaction::where("payroll_id",$payroll_id)->get();
+         if($loantrans->count()>0)
+         {
+            foreach ($loantrans as $loantran) {
+               $payrollObj->updateClosePayrollBalance($loantran->employee_id,$loantran->loantype_id,$loantran->amount);
+            }
+            
+            
+         }
+        $payroll= payroll::where('id', $payroll_id)->firstOrFail();
+
+        $payroll->update([
+            "payclosed" =>1
+            ]);
+        return redirect()->back()->with("status", "payroll Opened successfully!");
+    }
+   
+
+
      public function close($payroll_id)
     {
          $payrollObj= new payrollsController();
+        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
+
 
          $loantrans=Prlloantransaction::where("payroll_id",$payroll_id)->get();
          if($loantrans->count()>0)
@@ -269,14 +371,30 @@ class payrollsController extends Controller
           return redirect()->back()->with("status_error", "Cannot Close Payroll is already closed!"); 
             
         }
+         else if($payroll->payprocessed=="no")
+        {
+            return redirect()->back()->with("status_error"," Cannot Close, Payroll is not yet Authorized");
+        }
+        else if($payroll->payapproved=="no")
+        {
+            return redirect()->back()->with("status_error"," Cannot Close, Payroll Payment is not yet");
+        }
+
+        else if($payroll->payauthorised=="no")
+        {
+            return redirect()->back()->with("status_error"," Cannot Close, Payroll is not yet Authorized");
+        }
        //put validation  to check if Payroll is first generated because you cant close open payroll
 
-        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
-
-        $payroll->update([
+        else
+        {
+           $payroll->update([
             "payclosed" =>2
             ]);
-        return redirect()->back()->with("status", "payroll Closed successfully!");
+        return redirect()->back()->with("status", "payroll Closed successfully!");  
+        }
+
+       
     }
 
     public function updateBalance($employee_id,$loantype_id,$amount)
@@ -306,10 +424,53 @@ class payrollsController extends Controller
         
         $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
 
+          if($payroll->payapproved=="yes")
+        {
+             return redirect()->back()->with("status_error", "Sorry! ,Payroll Payment  already made!");
+        }
+        else if($payroll->payclosed==2)
+        {
+         return redirect()->back()->with("status_error", "Sorry! ,Payroll Already Closed!");   
+        }
+        else if($payroll->payprocessed=="no")
+        {
+         return redirect()->back()->with("status_error", "Sorry! ,Can't approve payment ,Payroll is not yet processed!");   
+        }
+        else{
+
         $payroll->update([
             "payapproved" =>"yes"
             ]);
         return redirect()->back()->with("status", "payroll Approved successfully!");
+    }
+    }
+
+
+     public function voidpayment($payroll_id)
+    {
+        $payrollObj= new payrollsController();
+
+        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
+
+          if($payroll->payapproved=="no")
+        {
+             return redirect()->back()->with("status_error", "Sorry! ,Payroll Payment  already voided!");
+        }
+        else if($payroll->payclosed==2)
+        {
+         return redirect()->back()->with("status_error", "Sorry! ,Payroll Already Closed!");   
+        }
+        else if($payroll->payauthorised=="yes")
+        {
+         return redirect()->back()->with("status_error", "Sorry! ,Can't void payment ,Payroll is already authorised!");   
+        }
+        else{
+
+        $payroll->update([
+            "payapproved" =>"no"
+            ]);
+        return redirect()->back()->with("status", "Payment Voided successfully!");
+    }
     }
    
    //authorize
@@ -321,10 +482,46 @@ class payrollsController extends Controller
         
         $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
 
-        $payroll->update([
+        if($payroll->payauthorised=="yes")
+        {
+             return redirect()->back()->with("status_error", "Sorry! ,Payment Already Authorized!");
+        }
+        else if($payroll->payclosed==2)
+        {
+         return redirect()->back()->with("status_error", "Sorry! ,Payroll Already Closed!");   
+        }
+        else{
+             $payroll->update([
             "payauthorised" =>"yes"
             ]);
-        return redirect()->back()->with("status", "payroll Authorized successfully!");
+        return redirect()->back()->with("status", "Payment Authorized successfully!");
+        }
+ 
+    }
+
+     public function voidauthorize($payroll_id)
+    {
+        $payrollObj= new payrollsController();
+
+        
+        $payroll= Payroll::where('id', $payroll_id)->firstOrFail();
+
+        if($payroll->payauthorised=="no")
+        {
+             return redirect()->back()->with("status_error", "Sorry! ,Payment Authorized Already Voided!");
+        }
+        else if($payroll->payclosed==2)
+        {
+         return redirect()->back()->with("status_error", "Sorry! ,Payroll Already Closed!");   
+        }
+        else{
+
+        $payroll->update([
+            "payauthorised" =>"no"
+            ]);
+        return redirect()->back()->with("status", "Payment Authorized Voided successfully!");
+    }
+
     }
    
 

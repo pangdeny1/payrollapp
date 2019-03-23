@@ -185,14 +185,21 @@ Route::post('/import_process', 'EmployeesController@processImport')->name('impor
     Route::post('updatepayroll/{id}','payroll\payrollsController@update');
     Route::get('deletepayroll/{id}','payroll\payrollsController@destroy');
     Route::get('createpayrollperiod','payroll\PayrollsController@create');
+
     Route::get('viewpayrollperiods','payroll\PayrollsController@index');
+     Route::get('closeopenpayroll','payroll\PayrollsController@closeopenpayroll');
+    
     Route::post('generate/{id}','payroll\payrollsController@generate');
     Route::post('void/{id}','payroll\payrollsController@void');
     Route::post('close/{id}','payroll\payrollsController@close');
     Route::post('open/{id}','payroll\payrollsController@open');
 
     Route::post('approvepayrolls/{id}','payroll\payrollsController@approvepayroll');
+    Route::post('voidpayment/{id}','payroll\payrollsController@voidpayment');
+
+
      Route::post('authorizepayroll/{id}','payroll\payrollsController@authorizepayroll');
+     Route::post('voidauthorize/{id}','payroll\payrollsController@voidauthorize');
 
     Route::get('processpayroll','payroll\PayrollsController@openpayroll');
     Route::get('approvepayroll','payroll\PayrollsController@toapprovepayroll');

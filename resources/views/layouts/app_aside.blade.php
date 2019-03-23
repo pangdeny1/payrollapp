@@ -132,15 +132,15 @@
 
                       <a href="{{url('approvepayroll')}}" class="menu-link mb-2">
                         <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Approve Payroll</span>
+                        <span class="menu-text"> Payroll Payment</span>
                     </a>
 
                       <a href="{{url('authorizepayroll')}}" class="menu-link mb-2">
                         <i class="fas fa-plus text-muted mr-2"></i>
-                        <span class="menu-text">Authorize Payroll</span>
+                        <span class="menu-text">Authorize Payment</span>
                     </a>
 
-                      <a href="" class="menu-link mb-2">
+                      <a href="{{url('closeopenpayroll')}}" class="menu-link mb-2">
                         <i class="fas fa-plus text-muted mr-2"></i>
                         <span class="menu-text">Close/Open Payroll</span>
                     </a>

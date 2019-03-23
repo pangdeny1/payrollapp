@@ -14,13 +14,13 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                   Authorize Payroll Payment
+                                    Close Payrolls
                                 </li>
                             </ol>
                         </nav>
                         <div class="d-sm-flex align-items-sm-center">
                             <h1 class="page-title mr-sm-auto mb-0">
-                                Authorize Payroll payment
+                                Close Payrolls
                                  @include('includes.flash')
                             </h1>
                             <div class="btn-toolbar">
@@ -28,7 +28,13 @@
                                     <i class="oi oi-data-transfer-download"></i>
                                     <span class="ml-1">Export as excel</span>
                                 </a>
-                              
+                                
+                                @can("create", \App\Models\Payroll::class)
+                                <a href="{{url('createpayrollperiod')}}" class="btn btn-primary">
+                                    <span class="fas fa-plus mr-1"></span>
+                                    New payroll
+                                </a>
+                                @endcan
                             </div>
                         </div>
                     </header>
@@ -60,7 +66,7 @@
                                                 <th>Payroll code</th>
                                                 <th>Payroll Name</th>
                                                 <th>Status</th>
-                                                <th style="text-align:center" colspan="2">Actions</th>
+                                                <th style="text-align:center" colspan="4">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -72,7 +78,7 @@
                                                     </a>
                                                 </td>
                                                 <td>{{ $payroll->payrolldesc }}</td>
-                                                <td>{{ $payroll->payauthorised =='yes' ? "Authorized" : "Pending" }}</td>
+                                                 <td>{{ $payroll->payclosed ==2 ? "Closed" : "Open" }}</td>
                                                 <td class="align-middle text-right">       
                                                     @if($payroll->payclosed== 1)
                                                         <a href="{{ url('editpayroll/'.$payroll->id) }}" class="btn btn-sm btn-secondary">
@@ -85,40 +91,39 @@
                                                         </a>
                                                     @endif
                                                     <a href="{{ url('showpayroll/'.$payroll->id) }}" class="btn btn-primary">preview</a>
-                                  
+                                                   
                                                 </td>
                                             </tr>
+                                            <tr>
+              
+                    <td> <form class="form-horizontal" role="form" method="POST" action="{{ url('/close/'.$payroll->id) }}">
+                        {!! csrf_field() !!}
 
-                                                                 <tr>
-                       
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                               @if($payroll->payclosed== 1)
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-ticket"></i> Close payroll Period
+                                </button>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                     </td>
                        <td>
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/authorizepayroll/'.$payroll->id) }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/open/'.$payroll->id) }}">
                         {!! csrf_field() !!}
 
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Authorize Payment
+                                    <i class="fa fa-btn fa-ticket"></i> Open payroll Period
                                 </button>
                             </div>
                         </div>
                     </form>
                             </td>
-
-                              <td>
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/voidauthorize/'.$payroll->id) }}">
-                        {!! csrf_field() !!}
-
-                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-ticket"></i> Void Authorized Payment
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                            </td>
- </tr>
+                                            </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -145,13 +150,13 @@
                              style="max-width: 300px"
                         >
                     </div>
-                    <h3 class="state-header"> No Approved Payroll, Yet. </h3>
+                    <h3 class="state-header"> No Payroll to process , Yet. </h3>
                     <p class="state-description lead text-muted">
-                        Use the button below to Approve first .
+                        To process payroll use button below to create payroll.
                     </p>
-                    @can("create", \App\Models\payroll::class)
+                    @can("create", \App\Models\Payroll::class)
                     <div class="state-action">
-                        <a href="{{url('approvepayroll')}}" class="btn btn-primary">Approve Payroll</a>
+                        <a href="{{url('createpayrollperiod')}}" class="btn btn-primary">Create new payroll</a>
                     </div>
                     @endcan
                 </div>

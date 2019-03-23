@@ -65,7 +65,7 @@
                                             <tr>
                                                 <th>Payroll code</th>
                                                 <th>Payroll Name</th>
-                                                <th>Status</th>
+                                                <th>Processed</th>
                                                 <th style="text-align:center" colspan="4">Actions</th>
                                             </tr>
                                         </thead>
@@ -78,7 +78,7 @@
                                                     </a>
                                                 </td>
                                                 <td>{{ $payroll->payrolldesc }}</td>
-                                                <td>{{ $payroll->payclosed == 1 ? "Open" : "Closed" }}</td>
+                                                <td>{{ $payroll->payprocessed }}</td>
                                                 <td class="align-middle text-right">       
                                                     @if($payroll->payclosed== 1)
                                                         <a href="{{ url('editpayroll/'.$payroll->id) }}" class="btn btn-sm btn-secondary">
@@ -177,9 +177,9 @@
                              style="max-width: 300px"
                         >
                     </div>
-                    <h3 class="state-header"> No Payroll created, Yet. </h3>
+                    <h3 class="state-header"> No Payroll to process , Yet. </h3>
                     <p class="state-description lead text-muted">
-                        To process payroll use button below.
+                        To process payroll use button below to create payroll.
                     </p>
                     @can("create", \App\Models\Payroll::class)
                     <div class="state-action">
