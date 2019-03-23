@@ -97,7 +97,7 @@
 
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button onclick="return confirm('Are you sure you want to Authorize Payment')" type="submit" class="btn btn-success">
                                     <i class="fa fa-btn fa-ticket"></i> Authorize Payment
                                 </button>
                             </div>
@@ -111,7 +111,7 @@
 
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button onclick="return confirm('Are you sure you want to Void authorize')" type="submit" class="btn btn-danger">
                                     <i class="fa fa-btn fa-ticket"></i> Void Authorized Payment
                                 </button>
                             </div>

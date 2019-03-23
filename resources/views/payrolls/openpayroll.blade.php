@@ -101,8 +101,9 @@
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                               @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
+                                <button onclick="return confirm('Are you sure you want to Generate payroll data')" type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-ticket"></i> Generate Payroll Data
+                                    <span class="oi oi-data-transfer-download"></span>
                                 </button>
                                 @endif
                             </div>
@@ -115,7 +116,7 @@
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
+                                <button onclick="return confirm('Are you sure you want to Void payroll')" type="submit" class="btn btn-warning">
                                     <i class="fa fa-btn fa-ticket"></i> Void payroll Period
                                 </button>
                                 @endif
@@ -129,7 +130,7 @@
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
+                                <button onclick="return confirm('Are you sure you want to Close payroll')" type="submit" class="btn btn-danger">
                                     <i class="fa fa-btn fa-ticket"></i> Close payroll Period
                                 </button>
                                 @endif
@@ -143,7 +144,7 @@
 
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button onclick="return confirm('Are you sure you want to Open payroll')" type="submit" class="btn btn-success">
                                     <i class="fa fa-btn fa-ticket"></i> Open payroll Period
                                 </button>
                             </div>

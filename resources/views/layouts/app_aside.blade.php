@@ -126,22 +126,26 @@
                     </a>
 
                       <a href="{{url('processpayroll')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+
                         <span class="menu-text">Process Payroll</span>
                     </a>
 
                       <a href="{{url('approvepayroll')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
+                       <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                       
                         <span class="menu-text"> Payroll Payment</span>
                     </a>
 
                       <a href="{{url('authorizepayroll')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+
                         <span class="menu-text">Authorize Payment</span>
                     </a>
 
                       <a href="{{url('closeopenpayroll')}}" class="menu-link mb-2">
-                        <i class="fas fa-plus text-muted mr-2"></i>
+                        <i class="fa fa-window-close" aria-hidden="true"></i>
+
                         <span class="menu-text">Close/Open Payroll</span>
                     </a>
                     <!--<a href="{{url('salaries')}}" class="menu-link mb-2">
@@ -150,13 +154,14 @@
                     </a> -->
                     
                     <a href="{{ route('payrolls.approves.index') }}" class="menu-link mb-2">
-                        <i class="fa fa-paypal" aria-hidden="true"></i>
+                        <i class="fa fa-phone" ></i>
                         <span class="menu-text">Send payroll approve</span>
                     </a>
                     @can("create", \App\Models\Payroll::class)
 
                      <a href="{{url('viewDailyTrans')}}" class="menu-link mb-2">
-                        <i class="fa fa-paypal"></i>
+                        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+
                         <span class="menu-text">Timesheet Data Entry</span>
                     </a>
                    

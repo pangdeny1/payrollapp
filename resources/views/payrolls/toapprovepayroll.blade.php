@@ -97,7 +97,7 @@
 
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button onclick="return confirm('Are you sure you want to Make payroll payment')" type="submit" class="btn btn-success">
                                     <i class="fa fa-btn fa-ticket"></i> Approve Payment
                                 </button>
                             </div>
@@ -111,7 +111,7 @@
 
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button onclick="return confirm('Are you sure you want to Void Payment')" type="submit" class="btn btn-danger">
                                     <i class="fa fa-btn fa-ticket"></i> Void Payment
                                 </button>
                             </div>

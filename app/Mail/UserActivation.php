@@ -35,7 +35,7 @@ class UserActivation extends Mailable
      */
     public function build()
     {
-        return $this->subject("HomeVerge Account Activation")
+        return $this->subject("Brightpay Account Activation")
             ->markdown('emails.users.activation');
     }
 }

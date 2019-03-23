@@ -102,7 +102,7 @@
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                @if($payroll->payclosed== 1)
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-danger">
                                     <i class="fa fa-btn fa-ticket"></i> Close payroll Period
                                 </button>
                                 @endif
@@ -116,7 +116,7 @@
 
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     <i class="fa fa-btn fa-ticket"></i> Open payroll Period
                                 </button>
                             </div>

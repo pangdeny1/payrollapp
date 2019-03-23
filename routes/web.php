@@ -19,6 +19,11 @@ Route::get('dashboard', [
     "uses" => "HomeController@index"
 ]);
 
+Route::get('home', [
+    "as" => "home",
+    "uses" => "HomeController@index"
+]);
+
      Route::get("payrolls", [
         "as" => "payrolls.reports",
         "uses" => "PayrollsReportsController@index",
