@@ -28,6 +28,6 @@ class LeaveApproved extends Mailable
      */
     public function build()
     {
-       return $this->view('emails.leaves.leaveapproved');
+       return $this->markdown('emails.leaves.leaveapproved');
     }
 }
