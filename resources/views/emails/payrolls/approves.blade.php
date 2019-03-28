@@ -1,5 +1,5 @@
 @component('mail::message')
-# January Payroll approal 
+# {{$payroll->payrollid }} Payroll approval
 
 The body of your message.
 

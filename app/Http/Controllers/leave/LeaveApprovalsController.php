@@ -10,6 +10,9 @@ use App\Models\Leave\leave;
 use App\Models\Leave\Leavebalance;
 use App\Employee;
 use App\Models\Notification\Emailnotification;
+use App\Mail\LeaveApproved;
+use App\Mail\LeaveSubmit;
+use Illuminate\Support\Facades\Mail;
 class LeaveApprovalsController extends Controller
 {
    
@@ -81,7 +84,10 @@ class LeaveApprovalsController extends Controller
                 "request_id"=>$nextapprover->request_id,
                 'notification_type'=>'Leave Approve']);
 
-          send_email(email_to($leaveapproval->approver),"Approve Employee Leave","Hi Please Approve Leave for ","");
+          //send_email(email_to($leaveapproval->approver),"Approve Employee Leave","Hi Please Approve Leave for ","");
+
+               Mail::to(email_to($nextapprover->approver))
+              ->send(new LeaveSubmit());
       }
 
       else
@@ -105,7 +111,10 @@ class LeaveApprovalsController extends Controller
                 'notification_type'=>'Employee Leave Approved']);
 
 
-          send_email(email_to($leaveapproval->employee_id),"Leave form Approved","Your Leave has been Approved","");
+          //send_email(email_to($leaveapproval->employee_id),"Leave form Approved","Your Leave has been Approved","");
+
+          Mail::to(email_to($leaveapproval->approver))
+              ->send(new LeaveApproved());
       }
 
        return redirect()->back()->with('status',"Approved Successfully");

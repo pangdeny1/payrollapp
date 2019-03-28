@@ -12,6 +12,9 @@ use DB;
 use App\Http\Controllers\Controller;
 use App\Models\Leave\leaveRequestApprover;
 use App\Http\Requests\LeaveRequest;
+use App\Mail\LeaveSubmit;
+use App\Mail\LeaveApproved;
+use Illuminate\Support\Facades\Mail;
 
 class LeavesController extends Controller
 {
@@ -129,7 +132,10 @@ class LeavesController extends Controller
                 "request_id"=>$formnumber,
                 'notification_type'=>'Leave Approve']);
 
-              send_email(email_to($firstApprover->approver),"Approve Employee Leave","Hi Please Approve Leave for ","");
+              //send_email(email_to($firstApprover->approver),"Approve Employee Leave","Hi Please Approve Leave for ","");
+
+               Mail::to(email_to($firstApprover->approver))
+              ->send(new LeaveSubmit());
 
 
                

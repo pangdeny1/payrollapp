@@ -32,7 +32,14 @@ class UsersController extends Controller
     {
         $this->authorize("view", User::class);
 
-        $users = User::latest()->paginate();
+        $users = User::latest()
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("first_name", "LIKE", "%". request("q") ."%")
+                    ->orWhere("last_name", "LIKE", "%". request("q") ."%")
+                    ->orWhere("email", "LIKE", "%". request("q") ."%");
+            })
+            ->paginate();
 
         return view("users.index", compact("users"));
     }
