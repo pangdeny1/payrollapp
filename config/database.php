@@ -93,6 +93,14 @@ return [
 
     'migrations' => 'migrations',
 
+    'dump_command_path' =>'C:\xampp\mysql\bin',
+
+    'dump' => [
+               'dump_binary_path' => 'C:/xampp/mysql/bin/', // only the path, so without `mysqldump` or `pg_dump`
+               'use_single_transaction',
+               'timeout' => 60 * 5, // 5 minute timeout
+            ],
+
     /*
     |--------------------------------------------------------------------------
     | Redis Databases

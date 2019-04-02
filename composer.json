@@ -23,7 +23,7 @@
         "pragmarx/countries": "^0.5.8",
         "propaganistas/laravel-phone": "^4.0",
         "silber/bouncer": "v1.0.0-rc.1",
-        "spatie/laravel-backup": "^5.9",
+        "spatie/laravel-backup": "^5.9.0",
         "spatie/laravel-medialibrary": "^7.0.0",
         "symfony/polyfill-iconv": "^1.10"
     },

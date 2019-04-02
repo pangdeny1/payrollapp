@@ -211,7 +211,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         "Sms" => \App\Facades\SmsFacade::class,
-         'Form' => Collective\Html\FormFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
        'Image'     => Intervention\Image\Facades\Image::class,
     ],
 
