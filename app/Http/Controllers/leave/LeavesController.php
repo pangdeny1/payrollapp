@@ -14,6 +14,7 @@ use App\Models\Leave\leaveRequestApprover;
 use App\Http\Requests\LeaveRequest;
 use App\Mail\LeaveSubmit;
 use App\Mail\LeaveApproved;
+use App\Employee;
 use Illuminate\Support\Facades\Mail;
 
 class LeavesController extends Controller
@@ -49,11 +50,24 @@ class LeavesController extends Controller
      * @return View
      * @throws AuthorizationException
      */
-    public function create()
+    public function leaveapply()
+    {
+        $employees= Employee::latest()
+        ->where('active','yes')
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("first_name", "LIKE", "%". request("q") ."%")
+                    ->orWhere("last_name", "LIKE", "%". request("q") ."%");
+            })
+            ->paginate();
+      return view("leaves.employees", compact("employees"));
+    }
+    public function create($employee)
     {
         $this->authorize("create", Leave::class);
+        $employee=Employee::where('id',$employee)->firstOrFail();
 
-        return view("leaves.create");
+        return view("leaves.create",compact('employee'));
     }
 
     /**
@@ -65,6 +79,7 @@ class LeavesController extends Controller
     {
         $this->authorize("create", Leave::class);
       
+          $pending_leave=Leave::where('employee_id',request('employee'))->where('status','pending')->get();
           $employee_approvers=leaveEmployeeApprover::where("employee_id",request('employee'))->where('active',1)->orderBy('level_id')->get();
           $employee_balance=Leavebalance::where('employee_id',request('employee'))->where('leavetype_id',request('leavetype'))->firstOrFail();
           if($employee_balance->balance < request('duration'))
@@ -75,6 +90,13 @@ class LeavesController extends Controller
           {
            return redirect()->back()->with('status_error', 'No Leave Approver Asigned to Employee for this Leave type'); 
           }
+
+          if($pending_leave->count() >0)
+          {
+             return redirect()->back()->with('status_error', 'Cant apply leave , There is pending leave for this employee,Please approve first');
+          }
+
+
           
           $formnumber=Leave::count()+1;
 

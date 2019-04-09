@@ -24,10 +24,7 @@
                             </h1>
                              <div class="btn-toolbar">
                                
-                                <a href="{{url('import_employee')}}" class="btn btn-light">
-                                    <i class="oi oi-data-transfer-upload"></i>
-                                    <span class="ml-1">Import</span>
-                                </a>
+                             
                             <div class="btn-toolbar">
                                <!-- <a href="" class="btn btn-light">
                                     <i class="oi oi-data-transfer-download"></i>
@@ -167,10 +164,7 @@
                         <a href="{{ route("employees.create") }}" class="btn btn-primary">Register new</a>
                     </div>
 
-                      <a href="{{url('import_employee')}}" class="btn btn-light">
-                                    <i class="oi oi-data-transfer-upload"></i>
-                                    <span class="ml-1">Import</span>
-                                </a>
+                      
                     @endcan
                 </div>
                 <!-- /.empty-state-container -->

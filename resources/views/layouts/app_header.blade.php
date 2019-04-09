@@ -133,7 +133,7 @@
                         
                         <div class="dropdown-arrow"></div>
                         <div class="dropdown-menu">
-                         
+                      <!--   
                         @can("view", \App\Models\Prlothinctype::class)
                             <a href="{{ url('incomestypes')}}" class="dropdown-item ">
                                 <i class="fas fa-tree"></i> Incomes types
@@ -193,6 +193,7 @@
                             </a>
                             @endcan
                             
+                            -->
                              @can("view", \App\Models\Leave\Leavetype::class)
                             <a href="{{ url('viewleavetypes') }}" class="dropdown-item ">
                                 <i class="fas fa-users"></i> Leave types

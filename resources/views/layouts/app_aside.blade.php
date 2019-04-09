@@ -186,7 +186,7 @@
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">Browse Leave forms</span>
                     </a>
-                    <a href="{{ route("leaves.create") }}" class="menu-link mb-2">
+                    <a href="{{ route("leaves.leaveapply") }}" class="menu-link mb-2">
                         <i class="fa fa-paypal" aria-hidden="true"></i>
                         <span class="menu-text">New Leave form</span>
                     </a>

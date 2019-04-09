@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("content")
-    @if($leaves->count())
+    @if($employees->count())
         <div class="wrapper">
             <div class="page">
                 <div class="page-inner">
@@ -14,27 +14,15 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    leaves
+                                    Employees
                                 </li>
                             </ol>
                         </nav>
                         <div class="d-sm-flex align-items-sm-center">
-                            <h1 class="page-title mr-sm-auto mb-0">
-                                leaves
-                            </h1>
-                            <div class="btn-toolbar">
-                                <a href="" class="btn btn-light">
-                                    <i class="oi oi-data-transfer-download"></i>
-                                    <span class="ml-1">Export as excel</span>
-                                </a>
-                                
-                                @can("create", \App\Models\leave\Leave::class)
-                                <a href="{{ route("leaves.leaveapply") }}" class="btn btn-primary">
-                                    <span class="fas fa-plus mr-1"></span>
-                                    New leave
-                                </a>
-                                @endcan
-                            </div>
+                           
+                             <div class="btn-toolbar">
+                              
+                         
                         </div>
                     </header>
 
@@ -43,12 +31,11 @@
                             <header class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs">
                                     <li class="nav-item">
-                                        <a class="nav-link {{ request()->query("status") ? "" : "active" }}" href="{{ route("leaves.index") }}">
+                                        <a class="nav-link {{ request()->query("status") ? "" : "active" }}" href="{{ route("employees.index") }}">
                                             All
                                         </a>
                                     </li>
                                 </ul>
-
                             </header>
 
                             <div class="card-body">
@@ -68,57 +55,48 @@
 
                                 <!-- .table-responsive -->
 
-                                <div class="text-muted">  Showing {{ $leaves->firstItem() }} to {{ $leaves->lastItem() }} of {{ $leaves->total() }} entries </div>
-
-                                @include('includes.flash')
+                                <div class="text-muted">  Showing {{ $employees->firstItem() }} to {{ $employees->lastItem() }} of {{ $employees->total() }} entries </div>
+ @include('includes.flash')
+                                
 
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
                                                <th>Employee</th>
-                                                <th>leave Tpe</th>
-                                                <th>Start Date</th>
-                                                <th>End Date</th>
-                                                <th>Days Requested</th>
-                                                <th>Status</th>
+                                                <th>Gender</th>
+                                                <th>Job</th>
+                                               <th>Department</th>
+                                               <th>Active</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($leaves as $leave)
+                                            @foreach($employees as $employee)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ route("leaves.show", $leave) }}" class="user-avatar mr-1">
+                                                    <a href="{{ route("leaves.create", $employee) }}" class="user-avatar mr-1">
                                                         <img class="img-fluid"
-                                                             src="{{ Avatar::create($leave->employee['full_name'])->toBase64() }}"
-                                                             alt="{{ $leave->employee['full_name'] }}">
+                                                             src="{{ Avatar::create($employee->full_name)->toBase64() }}"
+                                                             alt="{{ $employee->full_name }}">
                                                     </a>
-                                                    <a href="{{ route("leaves.show", $leave) }}">
-                                                        {{ $leave->employee['full_name'] }}
+                                                    <a href="{{ route("leaves.create", $employee) }}">
+                                                        {{ $employee->full_name }}
                                                     </a>
                                                 </td>
-                                                <td>{{ $leave->leavetype['name'] }}</td>
-                                                <td>{{ $leave->start_date }}</td>
-                                                <td >{{ $leave->end_date}}</td>
-                                                <td>{{ $leave->total_days}}</td>
-                                                <td>{{ $leave->status }}</td>
+                                                <td>{{ $employee->gender }}</td>
+                                                <td>{{ optional($employee->job)->jobname }}</td>
+                                               
+                                                <td>{{ optional($employee->department)->departmentname }}</td>
+                                              
+                                                <td>{{ $employee->active }}</td>
                                                 <td class="align-middle text-right">
-                                                    @if($leave->status=="pending" || $leave->status=="rejected")
-                                                    @can("edit", \App\Models\leave\Leave::class)
-                                                    <a href="{{ route("leaves.edit", $leave) }}" class="btn btn-sm btn-secondary">
-                                                        <i class="fa fa-pencil-alt"></i>
-                                                        <span class="sr-only">Edit</span>
-                                                    </a>
-                                                    @endcan
+                                                
 
-                                                    @can("delete", \App\Models\leave\Leave::class)
-                                                    <a href="#" class="btn btn-sm btn-secondary">
-                                                        <i class="far fa-trash-alt"></i>
-                                                        <span class="sr-only">Remove</span>
-                                                    </a>
-                                                    @endcan
-                                                    @endif
+                                                    <a href="{{ route("leaves.create", $employee)  }}" class="btn btn-primary">
+                                                    <span class="fas fa-plus mr-1"></span>
+                                    Apply Leave
+                                </a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -127,7 +105,7 @@
                                 </div>
 
                                 <!-- .pagination -->
-                                {{ $leaves->links() }}
+                                {{ $employees->links() }}
                             </div>
                         </section>
                     </div>
@@ -148,14 +126,8 @@
                         >
                     </div>
                     <h3 class="state-header"> No Content, Yet. </h3>
-                    <p class="state-description lead text-muted">
-                        Use the button below to Apply new Leave.
-                    </p>
-                    @can("create", \App\Models\leave\Leave::class)
-                    <div class="state-action">
-                        <a href="{{ route("leaves.leaveapply") }}" class="btn btn-primary">Register new Leave</a>
-                    </div>
-                    @endcan
+                   
+                    
                 </div>
                 <!-- /.empty-state-container -->
             </section>

@@ -44,7 +44,7 @@ class LeaveTypesController extends Controller
         //store addes files
         
         $this->validate($request, [
-            'name'     => 'required',
+            'name'     => 'required|unique:leavetypes',
             'description'     => 'required',
             'maximumdays' =>'required',
         ]);

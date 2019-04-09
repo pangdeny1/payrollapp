@@ -7,13 +7,17 @@
             <header class="page-title-bar">
                 <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item active">
+                    <a href="{{route("home")}}">
+                        <i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Home</a>
+                    </li>
                     <li class="breadcrumb-item active">
                     <a href="#">
-                        <i class="breadcrumb-icon fa fa-angle-left mr-2"></i>leavetypes</a>
+                        <i class="breadcrumb-icon fa fa-angle-left mr-2"></i> Add leave types</a>
                     </li>
                 </ol>
                 </nav>
-                <h1 class="page-title">Leave Types </h1>
+                <h1 class="page-title">Add Leave Types </h1>
             </header>
             <div class="page-section">
                 <div class="row">
@@ -43,7 +47,7 @@
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif  
-                          <div class="invalid-feedback"> Please select a valid date. </div>
+                          
                         </div>
                         <!-- /grid column -->
                       

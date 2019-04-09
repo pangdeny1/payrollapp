@@ -340,7 +340,12 @@ Route::post('/import_process', 'EmployeesController@processImport')->name('impor
     "uses" => "Leave\LeavesController@index",
 ]);
 
-        Route::get("leaves/create", [
+       Route::get("leaveapply", [
+    "as" => "leaves.leaveapply",
+    "uses" => "Leave\LeavesController@leaveapply",
+]);
+
+        Route::get("leaves/{id}/create", [
     "as" => "leaves.create",
     "uses" => "Leave\LeavesController@create",
 ]);

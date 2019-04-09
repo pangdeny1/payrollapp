@@ -29,19 +29,22 @@ class LeaveRequest extends FormRequest
     public function rules()
     {
           $leavebal=0;
-          
+         // $pending=0;
+        //  $emp=Leave::where('employee_id',request('employee'))->where('status','pending')->first();
         $leavebalance=Leavebalance::where('employee_id',request('employee'))->where('leavetype_id',request('leavetype'))->where('active','yes')->first();
          if(!empty($leavebalance->id))
          {
            $leavebal=$leavebalance->balance; 
          }
 
+
+
         
         return [
             "remark" => "required",
             "employee" => "required|exists:leavebalances,employee_id|exists:leave_employee_approvers,employee_id",
             "leavetype" => "required|exists:leavebalances,leavetype_id,employee_id,".Request::get('employee'),
-            "start_date" => "required",
+            "start_date" => "required|before:end_date",
             "end_date" => "required",
             "duration" => "required|integer|min:1|max:". $leavebal,
         ];
