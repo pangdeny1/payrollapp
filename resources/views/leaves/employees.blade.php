@@ -56,10 +56,8 @@
                                 <!-- .table-responsive -->
 
                                 <div class="text-muted">  Showing {{ $employees->firstItem() }} to {{ $employees->lastItem() }} of {{ $employees->total() }} entries </div>
- @include('includes.flash')
-                                
-
-                                <div class="table-responsive">
+                                 @include('includes.flash')
+                                    <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
