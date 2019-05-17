@@ -73,6 +73,26 @@ class DailyTransactionController extends Controller
 
         return redirect()->back()->with("status", "Time added.");
     }
+
+     public function mytimesheet()
+    {
+       // $this->authorize("view", Employee::class);
+
+
+             $dailytrans= Prldailytran::latest()
+             ->groupBy("employee_id")
+
+            ->when(request("q"), function($query){
+                return $query
+                    ->where("employee_id", "LIKE", "%". request("q") ."%")
+                    ->orWhere("payroll_id", "LIKE", "%". request("q") ."%")
+
+                    ;
+            })
+            ->paginate();
+
+       return view("timesheets.mytimesheet", compact("dailytrans"));
+   }
 }
 
 

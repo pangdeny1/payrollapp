@@ -333,6 +333,9 @@ Route::post('/import_process', 'EmployeesController@processImport')->name('impor
     Route::get('createDailyTran','Timesheet\DailyTransactionController@create');
     Route::get('viewDailyTrans','Timesheet\DailyTransactionController@index');
 
+    Route::get('mytimesheet','Timesheet\DailyTransactionController@mytimesheet');
+    Route::get('mytimesheet/{id}','Timesheet\DailyTransactionController@mytimesheet');
+
     //leave management Starts here 
 
     Route::get("leaves", [

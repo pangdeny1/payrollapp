@@ -47,6 +47,34 @@
                     </a>
 
                     <hr>
+                    <li class="menu-item has-child">
+                  <a href="#" class="menu-link">
+                    <i class="fa fa-address-card"></i>
+                    
+                    <span class="menu-text">Self Service</span>
+                  </a>
+                  <!-- child menu -->
+                  <ul class="menu">
+                    @foreach(\App\Models\Payroll::latest()->take(1)->get() as $payroll)
+                    <li class="menu-item">
+                      <a href="{{ url("mytimesheet") }}" class="menu-link">{{ $payroll->payrollid }}-Timesheet</a>
+                    </li>
+                    @endforeach
+                     <li class="menu-item">
+                      <a href="{{ url("mytimesheet") }}" class="menu-link">My Timesheet</a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="{{ url("viewemployeequalifications") }}" class="menu-link">My Invoice </a>
+                    </li>
+
+                     <li class="menu-item">
+                      <a href="{{ url("viewworkexpiriences") }}" class="menu-link">My Reports</a>
+                    </li>
+                                     
+                </ul>
+            </li>
+
                     @if(auth()->user()->manager=="yes")
                     <div class="menu-header">Employees</div>
                     <a href="{{ route("employees.index")}}" class="menu-link mb-2">
