@@ -57,7 +57,7 @@
                   <ul class="menu">
                     @foreach(\App\Models\Payroll::latest()->take(1)->get() as $payroll)
                     <li class="menu-item">
-                      <a href="{{ url("mytimesheet") }}" class="menu-link">{{ $payroll->payrollid }}-Timesheet</a>
+                      <a href="{{ url("mytimesheet",$payroll->id) }}" class="menu-link">{{ $payroll->payrollid }}-Timesheet</a>
                     </li>
                     @endforeach
                      <li class="menu-item">

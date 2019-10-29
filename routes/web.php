@@ -91,9 +91,9 @@ Route::prefix('settings')->group(function () {
       "uses" => "ChangePasswordControllerr@index"
   ]);
   Route::resource("changepassword", "Auth\ChangePasswordController");
- Route::post("changepassword/{user}","Auth\ChangePasswordController@update");
- Route::resource("employees","EmployeesController");
- Route::get("employee/create", [
+  Route::post("changepassword/{user}","Auth\ChangePasswordController@update");
+  Route::resource("employees","EmployeesController");
+  Route::get("employee/create", [
      "as" => "employee.create",
       "uses" => "EmployeesController@create"
   ]);
@@ -334,7 +334,7 @@ Route::post('/import_process', 'EmployeesController@processImport')->name('impor
     Route::get('viewDailyTrans','Timesheet\DailyTransactionController@index');
 
     Route::get('mytimesheet','Timesheet\DailyTransactionController@mytimesheet');
-    Route::get('mytimesheet/{id}','Timesheet\DailyTransactionController@mytimesheet');
+    Route::get('mytimesheet/{id}','Timesheet\DailyTransactionController@thistimesheet');
 
     //leave management Starts here 
 

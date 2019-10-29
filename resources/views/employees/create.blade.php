@@ -239,7 +239,7 @@
                                                
                                         >
                                             <option value=""> Choose... </option>
-                                            @foreach(\App\Models\job::latest()->get() as $job)
+                                            @foreach(\App\Models\Job::latest()->get() as $job)
                                                 <option value="{{ $job->id }}" {{ old("job") == $job->id ? "selected" : "" }}>
                                                     {{ $job->jobname }} 
                                                 </option>
@@ -264,7 +264,7 @@
                                                
                                         >
                                             <option value=""> Choose... </option>
-                                    @foreach(\App\Models\Prlsstype::latest()->get() as $sstype)
+                                            @foreach(\App\Models\Prlsstype::latest()->get() as $sstype)
                                                 <option value="{{ $sstype->id }}" {{ old("sstype_id") == $sstype->id ? "selected" : "" }}>
                                                     {{ $sstype->penname }} 
                                                 </option>
@@ -294,6 +294,7 @@
                                         >   <option value="">select--</option>
                                             <option value="Salary" {{ old("pay_type") == "Salary" ? "selected" : "" }}>Salary</option>
                                             <option value="Hourly" {{ old("pay_type") == "Hourly" ? "selected" : "" }}>Hourly</option>
+
                                         </select>
                                          @if ($errors->has('pay_type'))
                                             <span class="invalid-feedback">

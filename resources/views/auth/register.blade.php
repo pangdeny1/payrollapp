@@ -1,6 +1,31 @@
-@extends('layouts.app')
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-@section('content')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- End Required meta tags -->
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/apple-touch-icon.png">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <meta name="theme-color" content="#3063A0">
+
+    <!-- BEGIN BASE STYLES -->
+    <link rel="stylesheet" href="{{ asset("themes/looper/assets/vendor/bootstrap/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("themes/looper/assets/vendor/font-awesome/css/fontawesome-all.min.css") }}">
+
+    <!-- BEGIN THEME STYLES -->
+    <link rel="stylesheet" href="{{ asset("themes/looper/assets/stylesheets/main.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("themes/looper/assets/stylesheets/custom.css") }}">
+</head>
+<body>
+<!-- .auth -->
+<main class="auth">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -12,14 +37,28 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                 <input id="name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}" name="name" value="{{ old('first_name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('first_name'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                         <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Lst Name') }}</label>
+
+                            <div class="col-md-6">
+                               <input id="name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="name" value="{{ old('last_name') }}" required autofocus>
+
+                                @if ($errors->has('last_name'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -74,4 +113,20 @@
         </div>
     </div>
 </div>
-@endsection
+ <footer class="auth-footer mt-5">
+        &copy; {{ date("Y") }} All Rights Reserved.
+        <a href="#">Privacy</a> and
+        <a href="#">Terms</a>
+    </footer>
+</main>
+
+<!-- BEGIN BASE JS -->
+<script src="{{ asset("themes/looper/assets/vendor/jquery/jquery.min.js") }}"></script>
+<script src="{{ asset("themes/looper/assets/vendor/bootstrap/js/popper.min.js") }}"></script>
+<script src="{{ asset("themes/looper/assets/vendor/bootstrap/js/bootstrap.min.js") }}"></script>
+
+<!-- BEGIN THEME JS -->
+<script src="{{ asset("themes/looper/assets/javascript/main.min.js") }}"></script>
+</body>
+</html>
+

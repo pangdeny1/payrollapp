@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" >
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -122,6 +122,7 @@
     <script src="{{ asset("themes/looper/assets/vendor/nestable2/jquery.nestable.min.js") }}"></script>
 
         <script src="{{ asset("themes/looper/assets/javascript/main.min.js") }}"></script>
+        <script src="{{ asset("lib/angular.min.js") }}"></script>
     <!-- END THEME JS -->
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ asset("themes/looper/assets/javascript/pages/sortable-nestable-demo.js") }}"></script>

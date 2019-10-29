@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\employeequalification;
-use App\Models\Employee;
+use App\Employee;
 use App\Models\qualification;
 use App\Models\institute;
 use App\Models\qualificationlevel;
@@ -16,7 +16,11 @@ use App\Http\Controllers\job\JobgroupsController;
 
 class qualificationscontroller extends Controller
 {
-   
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $qualifications=qualification::All();

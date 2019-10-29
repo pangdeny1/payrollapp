@@ -18,7 +18,7 @@
 
                             <div class="col-md-6">
                                 <select id="category" type="employee" class="form-control" name="employee">
-                                    <option value="">Select Employee</option>
+                                    <option value="">Select Employee </option>
                                    
                                @foreach ($employees as $employee)
                         <option value="{{ $employee->id }}">{{ $employee->first_name }}  {{ $employee->last_name }}</option>

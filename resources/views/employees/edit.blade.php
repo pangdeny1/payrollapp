@@ -265,7 +265,7 @@
                                                 required=""
                                         >
                                             <option value=""> Choose... </option>
-                                            @foreach(\App\Models\job::latest()->get() as $job)
+                                            @foreach(\App\Models\Job::latest()->get() as $job)
                                                 <option value="{{ $job->id }}" {{ old("job",$employee->job_id) == $job->id ? "selected" : "" }}>
                                                     {{ $job->jobname }} 
                                                 </option>

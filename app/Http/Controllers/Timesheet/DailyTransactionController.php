@@ -93,6 +93,20 @@ class DailyTransactionController extends Controller
 
        return view("timesheets.mytimesheet", compact("dailytrans"));
    }
+
+   public function thistimesheet($id)
+    {
+       // $this->authorize("view", Employee::class);
+
+
+             $payrollid=$id;
+              $dailytrans= Prldailytran::where('payroll_id',$id)
+            
+            ->paginate();
+             
+
+       return view("timesheets.thistimesheet", compact("payrollid","dailytrans"));
+   }
 }
 
 

@@ -61,7 +61,7 @@
             </div>
         @endif
         <p class="mb-4">
-            Tempora iusto officia magnam fugiat sequi aliquam cum consectetur aperiam beatae, rerum obcaecati ea.
+           Temporary Link will be sent to your email.Use the link to change password
         </p>
         <!-- .form-group -->
         <div class="form-group mb-4">
@@ -123,7 +123,7 @@
     </form>
 
     <footer class="auth-footer mt-5">
-        &copy; {{ date("Y") }} All Rights Reserved. Loper is Responsive Admin Theme build on top of latest Bootstrap 4.
+        &copy; {{ date("Y") }} All Rights Reserved.
         <a href="#">Privacy</a> and
         <a href="#">Terms</a>
     </footer>
