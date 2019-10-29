@@ -1021,10 +1021,10 @@
                             <label for="jobGroup" class="col-md-4 control-label">Change By</label>
 
                             <div class="col-md-6">
-                                  <select class="form-control select" name="ChangedBy">
+                                  <select class="form-control select" onchange='showDiv(this)' name="ChangedBy">
 
-                                                     <!--  <option value=''> Select -- </option>
-                                                        <option value="Parcentage"> Parcentage</option> -->
+                                                     <option value='' selected > Select -- </option>
+                                                        <option value="Percent"> Percent</option> 
                                                         <option value="Amount"> Amount</option>
                                                           
                                                                                                              
@@ -1038,15 +1038,29 @@
                             </div>
                         </div>
 
-                          <div class="form-group{{ $errors->has('AmountChanged') ? ' has-error' : '' }}">
+                          <div id='Amount' style='display:none;' class="form-group{{ $errors->has('AmountChanged') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Addition Amount </label>
 
-                            <div class="col-md-6">
-                                <input id="AmountChanged" type="text" class="form-control" name="AmountChanged" >
+                            <div class="col-md-6" >
+                                <input  type="text" class="form-control" id="AmountChange" onkeyup='calculateNewSalaryByAmount();' name="AmountChanged" >
 
                                 @if ($errors->has('AmountChanged'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('AmountChanged') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                         <div id='Percent' style='display:none;' class="form-group{{ $errors->has('ParcentChange') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label"> Percent </label>
+
+                            <div class="col-md-6" >
+                                <input  type="decimal"  class="form-control" id="PercentChange" onkeyup='calculateNewSalary();' name="ParcentChange"  >
+
+                                @if ($errors->has('ParcentChange'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('ParcentChange') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -1297,13 +1311,54 @@
                                 </div>
                             </div>
                       
-                       
-                   
-                
-
-                                    <!--   !--> 
-                
 
                                     <!--   !-->
      
 @endsection
+
+             <script type="text/javascript">
+function showDiv(select){
+   if(select.value=="Percent"){
+    document.getElementById('Percent').style.display = "block";
+     document.getElementById('Amount').style.display = "none";
+     
+   } 
+
+
+     else if(select.value=="Amount"){
+    document.getElementById('Percent').style.display = "none";
+     document.getElementById('Amount').style.display = "block";
+    
+   } 
+
+   else {
+  
+     document.getElementById('Percent').style.display = "none";
+     document.getElementById('Amount').style.display = "none";
+     
+   } 
+
+
+  
+} 
+
+function calculateNewSalary() {
+      var SalaryFrom = document.getElementById('SalaryFrom').value;
+      var PercentChange = document.getElementById('PercentChange').value;
+      var Amount= document.getElementById('Amount').value;
+
+  
+    var result = (((parseInt(PercentChange) / 100) * parseInt(SalaryFrom)) + parseInt(SalaryFrom));
+      
+   
+
+      if (!isNaN(result)) {
+         document.getElementById('SalaryTo').value = result;
+   }
+      
+}
+
+
+
+
+</script>

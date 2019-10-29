@@ -68,7 +68,7 @@ class SalariesController extends Controller
             "hourlyrate"   =>request("HourlyRate"),
             "changedby"     => request("ChangedBy"),
             "changedamount"     => request("AmountChanged"),
-            "parcentage"     => request("ParcentageChanged"),
+            "parcentage"     => request("ParcentChange"),
             "datechanged"     => request("DateChanged"),
             "payroll_id"     => request("payroll"),
             "creator_id"      => auth()->id(),

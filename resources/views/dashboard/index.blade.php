@@ -99,25 +99,73 @@
                     <div class="row">
                         <div class="col-12 col-lg-12 col-xl-6">
                             <section class="card card-fluid">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <h3 class="card-title mr-auto">
-                                            Number of employees over time
-                                        </h3>
-
-
-                                    </div>
- 
-                                    <div class="chartjs" style="height: 300px">
-                                        <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                                            <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                                            </div>
-                                            <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                                        <canvas id="completion-tasks" width="268" height="283" class="chartjs-render-monitor" style="display: block; width: 268px; height: 283px;"></canvas>
-                                    </div>
+                      <!-- .card-body -->
+                      <div class="card-body">
+                        <!-- .d-flex -->
+                        <div class="d-flex align-items-center mb-3">
+                          <h3 class="card-title mr-auto"> Completion Tasks </h3>
+                          <!-- .card-title-control -->
+                          <div class="card-title-control">
+                            <!-- .dropdown -->
+                            <div class="form-group dropdown">
+                              <button class="btn btn-light" data-toggle="dropdown">
+                                <span>This Week</span>
+                                <i class="fa fa-fw fa-caret-down"></i>
+                              </button>
+                              <div class="dropdown-arrow dropdown-arrow-right"></div>
+                              <!-- .dropdown-menu -->
+                              <div class="dropdown-menu dropdown-menu-right">
+                                <!-- .list-group -->
+                                <div class="list-group list-group-flush">
+                                  <!-- .list-group-item -->
+                                  <a href="#" class="list-group-item justify-content-between">
+                                    <span>Today</span>
+                                    <span class="text-muted">Mar 27</span>
+                                  </a>
+                                  <!-- /.list-group-item -->
+                                  <!-- .list-group-item -->
+                                  <a href="#" class="list-group-item justify-content-between">
+                                    <span>Yesterday</span>
+                                    <span class="text-muted">Mar 26</span>
+                                  </a>
+                                  <!-- /.list-group-item -->
+                                  <!-- .list-group-item -->
+                                  <a href="#" class="list-group-item justify-content-between">
+                                    <span>This Week</span>
+                                    <span class="text-muted">Mar 21-27</span>
+                                  </a>
+                                  <!-- /.list-group-item -->
+                                  <!-- .list-group-item -->
+                                  <a href="#" class="list-group-item justify-content-between">
+                                    <span>This Month</span>
+                                    <span class="text-muted">Mar 1-31</span>
+                                  </a>
+                                  <!-- /.list-group-item -->
+                                  <!-- .list-group-item -->
+                                  <a href="#" class="list-group-item justify-content-between">
+                                    <span>This Year</span>
+                                    <span class="text-muted">2018</span>
+                                  </a>
+                                  <!-- /.list-group-item -->
+                                  <!-- datepicker:range -->
+                                  <input id="flatpickr" type="hidden" class="form-control d-none">
+                                  <!-- /datepicker:range -->
                                 </div>
-                            </section>
+                                <!-- /.list-group -->
+                              </div>
+                              <!-- /.dropdown-menu -->
+                            </div>
+                            <!-- /.dropdown -->
+                          </div>
+                          <!-- /.card-title-control -->
+                        </div>
+                        <!-- /.d-flex -->
+                        <div class="chartjs" style="height: 283px">
+                          <canvas id="completion-tasks"></canvas>
+                        </div>
+                      </div>
+                      <!-- /.card-body -->
+                    </section>
                         </div>
 
                         <div class="col-12 col-lg-6 col-xl-6">
