@@ -61,6 +61,18 @@
 <!-- BEGIN BASE JS -->
 
 <!-- VUE.JS -->
+<script src="{{ asset("themes/looper/assets/vendor/jquery/jquery.min.js") }}"></script>
+<script src="{{ asset("themes/looper/assets/vendor/bootstrap/js/popper.min.js") }}"></script>
+<script src="{{ asset("themes/looper/assets/vendor/bootstrap/js/bootstrap.min.js") }}"></script>
+
+<!-- BEGIN PLUGINS JS -->
+<script src="{{ asset("themes/looper/assets/vendor/stacked-menu/stacked-menu.min.js") }}"></script>
+<script src="{{ asset("themes/looper/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js") }}"></script>
+<script src="{{ asset("themes/looper/assets/vendor/flatpickr/flatpickr.min.js") }}"></script>
+<script src="{{ asset("themes/looper/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js") }}"></script>
+<script src="{{ asset("themes/looper/assets/vendor/chart.js/Chart.min.js") }}"></script>
+
+<!-- VUE.JS -->
 <script src="{{ asset("js/app.js") }}"></script>
 
 <!-- BEGIN THEME JS -->
@@ -69,19 +81,18 @@
 <!-- BEGIN PAGE LEVEL JS -->
 <script src="{{ asset("themes/looper/assets/javascript/pages/easypiechart-demo.js") }}"></script>
 <script src="{{ asset("themes/looper/assets/javascript/pages/dashboard-demo.js") }}"></script>
-<script src="{{ asset("themes/looper/assets/javascript/pages/jquery.easypiechart.min.js")}}"></script>
-    <script src="{{ asset("themes/looper/assets/javascript/pages/Chart.min.js")}}"></script>
+ <script src="{{ asset('js/app.js') }}"></script>
 
     <script src="{{ asset("themes/looper/assets/vendor/jquery/jquery.min.js") }}"></script>
     <script src="{{ asset("themes/looper/assets/vendor/bootstrap/js/popper.min.js") }}"></script>
     <script src="{{ asset("themes/looper/assets/vendor/bootstrap/js/bootstrap.min.js") }}"></script>
     <!-- END BASE JS -->
     <!-- BEGIN PLUGINS JS -->
-    <script src={{ asset("themes/looper/assets/vendor/stacked-menu/stacked-menu.min.js") }}"></script>
+    
     <script src="{{ asset("themes/looper/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js") }}"></script>
     <script src="{{ asset("themes/looper/assets/vendor/flatpickr/flatpickr.min.js") }}"></script>
-    <script src="{{ asset("themes/looper/assets/vendor/easy-pie-chart/jquery.easypiechart.min.js") }}"></script>
-    <script src="{{ asset("themes/looper/assets/vendor/chart.js/Chart.min.js") }}"></script>
+    
+    
 
 
 

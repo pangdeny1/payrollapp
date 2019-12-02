@@ -262,7 +262,7 @@ color:black'>&nbsp;</span></p>
   border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
   <p class=MsoNormal style='margin-left:3.5pt;text-autospace:none'><b><span
   lang=EN-AU style='font-size:10.0pt;font-family:"Arial (W1)",sans-serif;
-  color:black'>Social Security ->{{$payrolltrasaction->pension->penname}}</span></b></p>
+  color:black'>Social Security ->{{optional($payrolltrasaction->pension)->penname}}</span></b></p>
   </td>
   <td width=93 valign=bottom style='width:70.0pt;border-top:none;border-left:
   none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;

@@ -266,7 +266,7 @@
                                             <option value=""> Choose... </option>
                                             @foreach(\App\Models\Prlsstype::latest()->get() as $sstype)
                                                 <option value="{{ $sstype->id }}" {{ old("sstype_id") == $sstype->id ? "selected" : "" }}>
-                                                    {{ $sstype->penname }} 
+                                                    {{ $sstype->penname }} {{ $sstype->id }}
                                                 </option>
                                             @endforeach
                                         </select>
