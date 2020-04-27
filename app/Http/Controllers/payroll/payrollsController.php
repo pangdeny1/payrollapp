@@ -231,7 +231,8 @@ class payrollsController extends Controller
 
         $payroll->update([
                 "payprocessed"  =>"yes"
-            ]);         
+            ]); 
+
         return redirect()->back()->with("status", "Payroll data  successfully Generated");
 
         }

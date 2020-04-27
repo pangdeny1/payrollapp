@@ -5,7 +5,7 @@ namespace App\Http\Controllers\job;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Models\job;
+use App\Models\Job;
 use App\Models\Jobgroup;
 use App\Mailers\AppMailer;
 use App\Http\Controllers\job\JobgroupsController;

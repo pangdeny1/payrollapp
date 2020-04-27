@@ -92,7 +92,7 @@
                                 <tr>
                                    
                                     <td>
-                                     <a href="{{ url('showloan/'.$loan->id) }}" > {{$loan->employee->full_name}}</a>
+                                     <a href="{{ url('showloan/'.$loan->id) }}" > {{$loan->employee['full_name']}}</a>
                                        
                                     </td>
                                     <td>
