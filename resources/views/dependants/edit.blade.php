@@ -80,24 +80,31 @@
                                 @endif
                             </div> 
 
-                            <div class="form-group{{ $errors->has('Gender') ? ' has-error' : '' }}">                                      
-                                                <label for="title" class="col-md-4 control-label">Gender</label>
-                                                <div class="col-md-6">
-                                                    <select class="form-control select" name="Gender">
-
-                                                       
-                              
-                                                                                                             
-                                                    </select>
-                                                </div> 
-                                                @if ($errors->has('Gender'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('Gender') }}</strong>
-                                    </span>
-                                @endif
-
-                            </div> 
-                             
+                            <div class="form-group">                                        
+                                                <label class="col-md-3 col-xs-12 control-label">sex</label>
+                                                <div class="col-md-6 col-xs-12">  
+                                                  <div class="custom-control custom-control-inline custom-radio">
+                                                <input type="radio"
+                                                       class="custom-control-input"
+                                                       name="sex"
+                                                       id="female"
+                                                       {{ old("sex", $dependant->sex) == "female" ? "checked" : "" }}
+                                                       value="female"
+                                                >
+                                                <label class="custom-control-label" for="female">Female</label>
+                                            </div>
+                                            <div class="custom-control custom-control-inline custom-radio">
+                                                <input type="radio"
+                                                       class="custom-control-input"
+                                                       name="sex"
+                                                       {{ old("sex", $dependant->sex) == "male" ? "checked" : "" }}
+                                                       id="male"
+                                                       value="male"
+                                                >
+                                                <label class="custom-control-label" for="male">Male</label>
+                                            </div>
+                                                </div>                                            
+                                            </div>                             
                             
                              
                             <div class="form-group{{ $errors->has('DOB') ? ' has-error' : '' }}">
@@ -132,7 +139,7 @@
                             <label for="title" class="col-md-4 control-label">Email</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="Email" class="form-control"  value="{{$dependant->phone}}">
+                                <input type="text" name="Email" class="form-control"  value="{{$dependant->email}}">
 
                                 @if ($errors->has('Email'))
                                     <span class="help-block">
