@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\YesOrNo;
 use App\Employee;
 use App\Models\Dependant;
-use App\Models\gender;
+use App\Models\Gender;
 use App\Models\Dependanttype;
 use App\Mailers\AppMailer;
 use App\Http\Controllers\Controller;
@@ -157,7 +157,8 @@ class dependantscontroller extends Controller
         $employees=Employee::All();
         $yesornos=YesOrNo::All();
         $dependanttypes=Dependanttype::All();
-        $genders=gender::All();
+        //$genders=Gender::All();
+        $genders=['Male','Female'];
 
         return view('dependants.edit', compact('pagetitle','dependant','employees','yesornos','dependanttypes','genders'));
    }

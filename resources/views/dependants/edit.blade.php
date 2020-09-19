@@ -36,9 +36,9 @@
 
                                                            @if($employee->employeeid==$dependant->employeeid)
                                                         
-                                                         <option selected value="{{ $dependant->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option selected value="{{ $dependant->employeeid }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                         @else
-                                                         <option value="{{ $employee->employeeid }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                                                         <option value="{{ $employee->employeeid }}">{{ $employee->first_name }} {{ $employee->last_name }}</option>
                                                           @endif  
                                                        
                                                           @endforeach
@@ -85,16 +85,8 @@
                                                 <div class="col-md-6">
                                                     <select class="form-control select" name="Gender">
 
-                                                       <option value=""> Select gender </option>
-                                                          @foreach($genders as $gender)
-
-                                                          @if($gender->id==$dependant->sex)
-                                                        
-                                                         <option selected value="{{ $dependant->sex }}">{{$gender->name}}</option>
-                                                        @else
-                                                        <option value="{{ $gender->id }}">{{ $gender->name }}</option>
-                                                          @endif 
-                                                          @endforeach
+                                                       
+                              
                                                                                                              
                                                     </select>
                                                 </div> 
@@ -103,6 +95,7 @@
                                         <strong>{{ $errors->first('Gender') }}</strong>
                                     </span>
                                 @endif
+
                             </div> 
                              
                             
